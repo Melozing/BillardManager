@@ -86,7 +86,7 @@ CREATE TABLE [dbo].[user_info] (
 );
 GO
 
-INSERT INTO user_account (IdUser,UserName, UserPassword, UserRole) VALUES ('U0', 'admin', 'b7a9ec0a7805f019e2f237d1abf1fbee361b97e5cc9c107f49b393f7fa7a9812', 0);
+INSERT INTO user_account (IdUser,UserName, UserPassword, UserRole) VALUES ('U0', 'admin', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', 0);
 INSERT INTO table_type (TableIDType,TableType_Name, TableType_Price) VALUES ('TBT01', 'Carom billiards', 25000);
 INSERT INTO table_type (TableIDType,TableType_Name, TableType_Price) VALUES ('TBT02', 'Pocket Billiards', 30000);
 INSERT INTO items_category (IdItemCategory, ItemCategory_Name) VALUES ('ICD', 'Other');
