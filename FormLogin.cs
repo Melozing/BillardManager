@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using BiaManager.Script;
+using System.Windows.Forms;
 
 namespace BillardManager
 {
@@ -16,7 +17,17 @@ namespace BillardManager
 
         private void guna2ButtonLogin_Click(object sender, System.EventArgs e)
         {
-            //aaaa
+            if (!MainClass.IsValidUser(guna2TextBoxUsername.Text, guna2TextBoxPassword.Text))
+            {
+                MessageFuctionConstans.WarningOK("Invalid Username or Passowrd!");
+                return;
+            }
+            else
+            {
+                this.Hide();
+                FormMain formMain = new FormMain();
+                formMain.Show();
+            }
         }
     }
 }
