@@ -12,28 +12,32 @@ namespace BillardManager.Model
             InitializeComponent();
         }
 
-        private string _categoryId;
+        private string _categoryId = null;
+
         public override void guna2ButtonSave_Click(object sender, EventArgs e)
         {
             string query = "";
+            Hashtable ht = new Hashtable();
 
-            if (_categoryId == "")
+            if (string.IsNullOrEmpty(_categoryId))
             {
-                query = "Insert into items_category Value(@Name)";
+                _categoryId = MainClass.GenerateUniqueId("items_category", "IdItemCategory", "IC"); // Generate a new unique ID
+                query = "INSERT INTO items_category (IdItemCategory, ItemCategory_Name) VALUES (@id, @Name)";
+                ht.Add("@id", _categoryId);
             }
             else
             {
-                query = "Update items_category Set ItemCategory_Name = @Name where IdItemCategory = @id";
+                query = "UPDATE items_category SET ItemCategory_Name = @Name WHERE IdItemCategory = @id";
+                ht.Add("@id", _categoryId);
             }
 
-            Hashtable ht = new Hashtable();
-            ht.Add("@id", _categoryId);
-            ht.Add("@Name", guna2TextBoxName);
+            ht.Add("@Name", guna2TextBoxName.Text);
 
             if (MainClass.SQL(query, ht) > 0)
             {
                 MessageFuctionConstans.SuccessOK("Saved successfully...");
-                _categoryId = "";
+                _categoryId = null;
+                guna2TextBoxName.Clear();
                 guna2TextBoxName.Focus();
             }
         }

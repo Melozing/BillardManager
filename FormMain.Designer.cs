@@ -136,6 +136,7 @@
             this.guna2ButtonMenu.Size = new System.Drawing.Size(180, 45);
             this.guna2ButtonMenu.TabIndex = 1;
             this.guna2ButtonMenu.Text = "Menu Management";
+            this.guna2ButtonMenu.Click += new System.EventHandler(this.guna2ButtonMenu_Click);
             // 
             // guna2ButtonUserManagement
             // 
@@ -284,7 +285,7 @@
             this.labelUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUser.Location = new System.Drawing.Point(20, 22);
             this.labelUser.Name = "labelUser";
-            this.labelUser.Size = new System.Drawing.Size(52, 21);
+            this.labelUser.Size = new System.Drawing.Size(65, 28);
             this.labelUser.TabIndex = 1;
             this.labelUser.Text = "label1";
             // 
@@ -336,7 +337,7 @@
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(933, 588);
             this.ControlBox = false;

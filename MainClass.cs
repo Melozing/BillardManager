@@ -80,5 +80,32 @@ namespace BillardManager
                 conn.Close();
             }
         }
+        //Create New ID
+        public static string GenerateUniqueId(string nameTable, string nameIdcol, string keyWordId)
+        {
+            string newId;
+            do
+            {
+                string uuid = Guid.NewGuid().ToString("N"); // Generate a new GUID without hyphens
+                newId = keyWordId + uuid.Substring(0, 7); // Create the new ID using the first 7 characters of the GUID
+            } while (CheckIfIdExists(newId, nameTable, nameIdcol));
+
+            return newId;
+        }
+
+        public static bool CheckIfIdExists(string id, string nameTable, string nameIdcol)
+        {
+            string query = "SELECT COUNT(*) FROM " + nameTable + " WHERE " + nameIdcol + " = @id";
+            using (SqlConnection con = new SqlConnection(connect_string))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
+                    con.Open();
+                    int count = (int)cmd.ExecuteScalar();
+                    return count > 0;
+                }
+            }
+        }
     }
 }
