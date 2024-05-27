@@ -68,20 +68,21 @@
             // 
             // label2
             // 
-            this.label2.Size = new System.Drawing.Size(121, 25);
+            this.label2.Size = new System.Drawing.Size(152, 32);
             this.label2.Text = "Category List";
             // 
             // guna2DataGridViewCategory
             // 
             this.guna2DataGridViewCategory.AllowUserToAddRows = false;
             this.guna2DataGridViewCategory.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.guna2DataGridViewCategory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.guna2DataGridViewCategory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.guna2DataGridViewCategory.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.guna2DataGridViewCategory.BackgroundColor = System.Drawing.Color.White;
             this.guna2DataGridViewCategory.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.guna2DataGridViewCategory.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.guna2DataGridViewCategory.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             this.guna2DataGridViewCategory.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
@@ -112,6 +113,7 @@
             this.guna2DataGridViewCategory.Name = "guna2DataGridViewCategory";
             this.guna2DataGridViewCategory.ReadOnly = true;
             this.guna2DataGridViewCategory.RowHeadersVisible = false;
+            this.guna2DataGridViewCategory.RowHeadersWidth = 51;
             this.guna2DataGridViewCategory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.guna2DataGridViewCategory.Size = new System.Drawing.Size(643, 315);
             this.guna2DataGridViewCategory.TabIndex = 6;
@@ -152,6 +154,7 @@
             // 
             this.IdItemCategory.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.IdItemCategory.HeaderText = "IdItem";
+            this.IdItemCategory.MinimumWidth = 6;
             this.IdItemCategory.Name = "IdItemCategory";
             this.IdItemCategory.ReadOnly = true;
             this.IdItemCategory.Visible = false;
@@ -160,6 +163,7 @@
             // ItemCategory_Name
             // 
             this.ItemCategory_Name.HeaderText = "Name";
+            this.ItemCategory_Name.MinimumWidth = 6;
             this.ItemCategory_Name.Name = "ItemCategory_Name";
             this.ItemCategory_Name.ReadOnly = true;
             // 
@@ -189,7 +193,7 @@
             // 
             // FormCategoryView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(698, 470);
             this.Controls.Add(this.guna2DataGridViewCategory);

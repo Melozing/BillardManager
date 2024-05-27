@@ -1,4 +1,5 @@
 ﻿using BillardManager.Forms;
+using BillardManager.View;
 using System;
 using System.Windows.Forms;
 
@@ -30,6 +31,11 @@ namespace BillardManager
         private void guna2ButtonHome_Click(object sender, EventArgs e)
         {
             AddControls(new FormHome());
+        }
+
+        private void guna2ButtonMenu_Click(object sender, EventArgs e)
+        {
+            AddControls(new FormCategoryView());
         }
     }
 }
