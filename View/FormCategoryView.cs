@@ -24,7 +24,7 @@ namespace BillardManager.View
 
         private void FormCategoryView_Load(object sender, EventArgs e)
         {
-
+            GetData();
         }
         public override void guna2ImageButtonAdd_Click(object sender, EventArgs e)
         {
