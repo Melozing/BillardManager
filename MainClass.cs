@@ -10,7 +10,9 @@ namespace BillardManager
 {
     class MainClass
     {
-        public static readonly string connect_string = "Data Source=DESKTOP-G0D14LK;Initial Catalog=db_biamanager;Initial Catalog=db_biamanager;Integrated Security=True";
+        //Manh Laptop : DESKTOP-NQD44KU
+        private static readonly string nameServer = "DESKTOP-NQD44KU\\MYMSSQLSERVER";
+        public static readonly string connect_string = "Data Source='" + nameServer + "';Initial Catalog=db_biamanager;Initial Catalog=db_biamanager;Integrated Security=True";
         public static SqlConnection conn = new SqlConnection(connect_string);
 
         //Methord to check user validation

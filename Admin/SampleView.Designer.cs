@@ -50,14 +50,14 @@
             this.guna2TextBoxSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBoxSearch.HoverState.Parent = this.guna2TextBoxSearch;
             this.guna2TextBoxSearch.IconLeft = ((System.Drawing.Image)(resources.GetObject("guna2TextBoxSearch.IconLeft")));
-            this.guna2TextBoxSearch.Location = new System.Drawing.Point(468, 48);
+            this.guna2TextBoxSearch.Location = new System.Drawing.Point(468, 49);
             this.guna2TextBoxSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2TextBoxSearch.Name = "guna2TextBoxSearch";
             this.guna2TextBoxSearch.PasswordChar = '\0';
             this.guna2TextBoxSearch.PlaceholderText = "Search here...";
             this.guna2TextBoxSearch.SelectedText = "";
             this.guna2TextBoxSearch.ShadowDecoration.Parent = this.guna2TextBoxSearch;
-            this.guna2TextBoxSearch.Size = new System.Drawing.Size(200, 36);
+            this.guna2TextBoxSearch.Size = new System.Drawing.Size(200, 35);
             this.guna2TextBoxSearch.TabIndex = 0;
             this.guna2TextBoxSearch.TextChanged += new System.EventHandler(this.guna2TextBoxSearch_TextChanged);
             // 
@@ -66,7 +66,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(465, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 17);
+            this.label1.Size = new System.Drawing.Size(61, 23);
             this.label1.TabIndex = 1;
             this.label1.Text = "Search";
             // 
@@ -91,7 +91,7 @@
             this.label2.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(20, 16);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(111, 25);
+            this.label2.Size = new System.Drawing.Size(141, 32);
             this.label2.TabIndex = 4;
             this.label2.Text = "Header Text";
             // 
@@ -114,7 +114,7 @@
             this.Controls.Add(this.guna2TextBoxSearch);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SampleView";
             this.Text = "SampleView";
             this.ResumeLayout(false);
