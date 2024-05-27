@@ -30,33 +30,36 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.gunaPanelSide = new Guna.UI.WinForms.GunaPanel();
+            this.guna2ButtonSetting = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2ButtonTables = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2ButtonMenu = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2ButtonUserManagement = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2ButtonUser = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2ButtonBills = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2ButtonTable = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2ButtonHome = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.gunaPanelTop = new Guna.UI.WinForms.GunaPanel();
+            this.labelUser = new System.Windows.Forms.Label();
             this.guna2ControlBoxMinimize = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBoxMaximize = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
             this.gunaPanelContent = new Guna.UI.WinForms.GunaPanel();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2ButtonHome = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button6 = new Guna.UI2.WinForms.Guna2Button();
             this.gunaPanelSide.SuspendLayout();
-            this.gunaPanelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            this.gunaPanelTop.SuspendLayout();
             this.SuspendLayout();
             // 
             // gunaPanelSide
             // 
             this.gunaPanelSide.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.gunaPanelSide.Controls.Add(this.guna2Button6);
-            this.gunaPanelSide.Controls.Add(this.guna2Button5);
-            this.gunaPanelSide.Controls.Add(this.guna2Button4);
-            this.gunaPanelSide.Controls.Add(this.guna2Button3);
-            this.gunaPanelSide.Controls.Add(this.guna2Button2);
-            this.gunaPanelSide.Controls.Add(this.guna2Button1);
+            this.gunaPanelSide.Controls.Add(this.guna2ButtonSetting);
+            this.gunaPanelSide.Controls.Add(this.guna2ButtonTables);
+            this.gunaPanelSide.Controls.Add(this.guna2ButtonMenu);
+            this.gunaPanelSide.Controls.Add(this.guna2ButtonUserManagement);
+            this.gunaPanelSide.Controls.Add(this.guna2ButtonUser);
+            this.gunaPanelSide.Controls.Add(this.guna2ButtonBills);
+            this.gunaPanelSide.Controls.Add(this.guna2ButtonTable);
             this.gunaPanelSide.Controls.Add(this.guna2ButtonHome);
             this.gunaPanelSide.Controls.Add(this.guna2PictureBox1);
             this.gunaPanelSide.Dock = System.Windows.Forms.DockStyle.Left;
@@ -65,9 +68,206 @@
             this.gunaPanelSide.Size = new System.Drawing.Size(200, 588);
             this.gunaPanelSide.TabIndex = 0;
             // 
+            // guna2ButtonSetting
+            // 
+            this.guna2ButtonSetting.AutoRoundedCorners = true;
+            this.guna2ButtonSetting.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.guna2ButtonSetting.BorderRadius = 21;
+            this.guna2ButtonSetting.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.guna2ButtonSetting.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.guna2ButtonSetting.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("guna2ButtonSetting.CheckedState.Image")));
+            this.guna2ButtonSetting.CheckedState.Parent = this.guna2ButtonSetting;
+            this.guna2ButtonSetting.CustomImages.Parent = this.guna2ButtonSetting;
+            this.guna2ButtonSetting.FillColor = System.Drawing.Color.Transparent;
+            this.guna2ButtonSetting.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2ButtonSetting.ForeColor = System.Drawing.Color.White;
+            this.guna2ButtonSetting.HoverState.Parent = this.guna2ButtonSetting;
+            this.guna2ButtonSetting.Image = ((System.Drawing.Image)(resources.GetObject("guna2ButtonSetting.Image")));
+            this.guna2ButtonSetting.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.guna2ButtonSetting.Location = new System.Drawing.Point(-16, 492);
+            this.guna2ButtonSetting.Name = "guna2ButtonSetting";
+            this.guna2ButtonSetting.ShadowDecoration.Parent = this.guna2ButtonSetting;
+            this.guna2ButtonSetting.Size = new System.Drawing.Size(180, 45);
+            this.guna2ButtonSetting.TabIndex = 1;
+            this.guna2ButtonSetting.Text = "Setting";
+            // 
+            // guna2ButtonTables
+            // 
+            this.guna2ButtonTables.AutoRoundedCorners = true;
+            this.guna2ButtonTables.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.guna2ButtonTables.BorderRadius = 21;
+            this.guna2ButtonTables.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.guna2ButtonTables.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.guna2ButtonTables.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("guna2ButtonTables.CheckedState.Image")));
+            this.guna2ButtonTables.CheckedState.Parent = this.guna2ButtonTables;
+            this.guna2ButtonTables.CustomImages.Parent = this.guna2ButtonTables;
+            this.guna2ButtonTables.FillColor = System.Drawing.Color.Transparent;
+            this.guna2ButtonTables.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2ButtonTables.ForeColor = System.Drawing.Color.White;
+            this.guna2ButtonTables.HoverState.Parent = this.guna2ButtonTables;
+            this.guna2ButtonTables.Image = ((System.Drawing.Image)(resources.GetObject("guna2ButtonTables.Image")));
+            this.guna2ButtonTables.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.guna2ButtonTables.Location = new System.Drawing.Point(-16, 441);
+            this.guna2ButtonTables.Name = "guna2ButtonTables";
+            this.guna2ButtonTables.ShadowDecoration.Parent = this.guna2ButtonTables;
+            this.guna2ButtonTables.Size = new System.Drawing.Size(180, 45);
+            this.guna2ButtonTables.TabIndex = 1;
+            this.guna2ButtonTables.Text = "Tables Management";
+            // 
+            // guna2ButtonMenu
+            // 
+            this.guna2ButtonMenu.AutoRoundedCorners = true;
+            this.guna2ButtonMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.guna2ButtonMenu.BorderRadius = 21;
+            this.guna2ButtonMenu.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.guna2ButtonMenu.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.guna2ButtonMenu.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("guna2ButtonMenu.CheckedState.Image")));
+            this.guna2ButtonMenu.CheckedState.Parent = this.guna2ButtonMenu;
+            this.guna2ButtonMenu.CustomImages.Parent = this.guna2ButtonMenu;
+            this.guna2ButtonMenu.FillColor = System.Drawing.Color.Transparent;
+            this.guna2ButtonMenu.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2ButtonMenu.ForeColor = System.Drawing.Color.White;
+            this.guna2ButtonMenu.HoverState.Parent = this.guna2ButtonMenu;
+            this.guna2ButtonMenu.Image = ((System.Drawing.Image)(resources.GetObject("guna2ButtonMenu.Image")));
+            this.guna2ButtonMenu.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.guna2ButtonMenu.Location = new System.Drawing.Point(-16, 390);
+            this.guna2ButtonMenu.Name = "guna2ButtonMenu";
+            this.guna2ButtonMenu.ShadowDecoration.Parent = this.guna2ButtonMenu;
+            this.guna2ButtonMenu.Size = new System.Drawing.Size(180, 45);
+            this.guna2ButtonMenu.TabIndex = 1;
+            this.guna2ButtonMenu.Text = "Menu Management";
+            // 
+            // guna2ButtonUserManagement
+            // 
+            this.guna2ButtonUserManagement.AutoRoundedCorners = true;
+            this.guna2ButtonUserManagement.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.guna2ButtonUserManagement.BorderRadius = 21;
+            this.guna2ButtonUserManagement.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.guna2ButtonUserManagement.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.guna2ButtonUserManagement.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("guna2ButtonUserManagement.CheckedState.Image")));
+            this.guna2ButtonUserManagement.CheckedState.Parent = this.guna2ButtonUserManagement;
+            this.guna2ButtonUserManagement.CustomImages.Parent = this.guna2ButtonUserManagement;
+            this.guna2ButtonUserManagement.FillColor = System.Drawing.Color.Transparent;
+            this.guna2ButtonUserManagement.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2ButtonUserManagement.ForeColor = System.Drawing.Color.White;
+            this.guna2ButtonUserManagement.HoverState.Parent = this.guna2ButtonUserManagement;
+            this.guna2ButtonUserManagement.Image = ((System.Drawing.Image)(resources.GetObject("guna2ButtonUserManagement.Image")));
+            this.guna2ButtonUserManagement.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.guna2ButtonUserManagement.Location = new System.Drawing.Point(-16, 339);
+            this.guna2ButtonUserManagement.Name = "guna2ButtonUserManagement";
+            this.guna2ButtonUserManagement.ShadowDecoration.Parent = this.guna2ButtonUserManagement;
+            this.guna2ButtonUserManagement.Size = new System.Drawing.Size(180, 45);
+            this.guna2ButtonUserManagement.TabIndex = 1;
+            this.guna2ButtonUserManagement.Text = "User Management";
+            // 
+            // guna2ButtonUser
+            // 
+            this.guna2ButtonUser.AutoRoundedCorners = true;
+            this.guna2ButtonUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.guna2ButtonUser.BorderRadius = 21;
+            this.guna2ButtonUser.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.guna2ButtonUser.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.guna2ButtonUser.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("guna2ButtonUser.CheckedState.Image")));
+            this.guna2ButtonUser.CheckedState.Parent = this.guna2ButtonUser;
+            this.guna2ButtonUser.CustomImages.Parent = this.guna2ButtonUser;
+            this.guna2ButtonUser.FillColor = System.Drawing.Color.Transparent;
+            this.guna2ButtonUser.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2ButtonUser.ForeColor = System.Drawing.Color.White;
+            this.guna2ButtonUser.HoverState.Parent = this.guna2ButtonUser;
+            this.guna2ButtonUser.Image = ((System.Drawing.Image)(resources.GetObject("guna2ButtonUser.Image")));
+            this.guna2ButtonUser.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.guna2ButtonUser.Location = new System.Drawing.Point(-16, 288);
+            this.guna2ButtonUser.Name = "guna2ButtonUser";
+            this.guna2ButtonUser.ShadowDecoration.Parent = this.guna2ButtonUser;
+            this.guna2ButtonUser.Size = new System.Drawing.Size(180, 45);
+            this.guna2ButtonUser.TabIndex = 1;
+            this.guna2ButtonUser.Text = "User";
+            // 
+            // guna2ButtonBills
+            // 
+            this.guna2ButtonBills.AutoRoundedCorners = true;
+            this.guna2ButtonBills.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.guna2ButtonBills.BorderRadius = 21;
+            this.guna2ButtonBills.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.guna2ButtonBills.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.guna2ButtonBills.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("guna2ButtonBills.CheckedState.Image")));
+            this.guna2ButtonBills.CheckedState.Parent = this.guna2ButtonBills;
+            this.guna2ButtonBills.CustomImages.Parent = this.guna2ButtonBills;
+            this.guna2ButtonBills.FillColor = System.Drawing.Color.Transparent;
+            this.guna2ButtonBills.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2ButtonBills.ForeColor = System.Drawing.Color.White;
+            this.guna2ButtonBills.HoverState.Parent = this.guna2ButtonBills;
+            this.guna2ButtonBills.Image = ((System.Drawing.Image)(resources.GetObject("guna2ButtonBills.Image")));
+            this.guna2ButtonBills.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.guna2ButtonBills.Location = new System.Drawing.Point(-16, 237);
+            this.guna2ButtonBills.Name = "guna2ButtonBills";
+            this.guna2ButtonBills.ShadowDecoration.Parent = this.guna2ButtonBills;
+            this.guna2ButtonBills.Size = new System.Drawing.Size(180, 45);
+            this.guna2ButtonBills.TabIndex = 1;
+            this.guna2ButtonBills.Text = "Bills";
+            // 
+            // guna2ButtonTable
+            // 
+            this.guna2ButtonTable.AutoRoundedCorners = true;
+            this.guna2ButtonTable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.guna2ButtonTable.BorderRadius = 21;
+            this.guna2ButtonTable.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.guna2ButtonTable.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.guna2ButtonTable.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("guna2ButtonTable.CheckedState.Image")));
+            this.guna2ButtonTable.CheckedState.Parent = this.guna2ButtonTable;
+            this.guna2ButtonTable.CustomImages.Parent = this.guna2ButtonTable;
+            this.guna2ButtonTable.FillColor = System.Drawing.Color.Transparent;
+            this.guna2ButtonTable.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2ButtonTable.ForeColor = System.Drawing.Color.White;
+            this.guna2ButtonTable.HoverState.Parent = this.guna2ButtonTable;
+            this.guna2ButtonTable.Image = ((System.Drawing.Image)(resources.GetObject("guna2ButtonTable.Image")));
+            this.guna2ButtonTable.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.guna2ButtonTable.Location = new System.Drawing.Point(-16, 186);
+            this.guna2ButtonTable.Name = "guna2ButtonTable";
+            this.guna2ButtonTable.ShadowDecoration.Parent = this.guna2ButtonTable;
+            this.guna2ButtonTable.Size = new System.Drawing.Size(180, 45);
+            this.guna2ButtonTable.TabIndex = 1;
+            this.guna2ButtonTable.Text = "Tables";
+            // 
+            // guna2ButtonHome
+            // 
+            this.guna2ButtonHome.AutoRoundedCorners = true;
+            this.guna2ButtonHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.guna2ButtonHome.BorderRadius = 21;
+            this.guna2ButtonHome.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.guna2ButtonHome.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.guna2ButtonHome.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("guna2ButtonHome.CheckedState.Image")));
+            this.guna2ButtonHome.CheckedState.Parent = this.guna2ButtonHome;
+            this.guna2ButtonHome.CustomImages.Parent = this.guna2ButtonHome;
+            this.guna2ButtonHome.FillColor = System.Drawing.Color.Transparent;
+            this.guna2ButtonHome.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2ButtonHome.ForeColor = System.Drawing.Color.White;
+            this.guna2ButtonHome.HoverState.Parent = this.guna2ButtonHome;
+            this.guna2ButtonHome.Image = ((System.Drawing.Image)(resources.GetObject("guna2ButtonHome.Image")));
+            this.guna2ButtonHome.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.guna2ButtonHome.Location = new System.Drawing.Point(-16, 135);
+            this.guna2ButtonHome.Name = "guna2ButtonHome";
+            this.guna2ButtonHome.ShadowDecoration.Parent = this.guna2ButtonHome;
+            this.guna2ButtonHome.Size = new System.Drawing.Size(180, 45);
+            this.guna2ButtonHome.TabIndex = 1;
+            this.guna2ButtonHome.Text = "Home";
+            this.guna2ButtonHome.Click += new System.EventHandler(this.guna2ButtonHome_Click);
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
+            this.guna2PictureBox1.Location = new System.Drawing.Point(30, 12);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
+            this.guna2PictureBox1.Size = new System.Drawing.Size(120, 90);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox1.TabIndex = 0;
+            this.guna2PictureBox1.TabStop = false;
+            // 
             // gunaPanelTop
             // 
             this.gunaPanelTop.BackColor = System.Drawing.Color.Gainsboro;
+            this.gunaPanelTop.Controls.Add(this.labelUser);
             this.gunaPanelTop.Controls.Add(this.guna2ControlBoxMinimize);
             this.gunaPanelTop.Controls.Add(this.guna2ControlBoxMaximize);
             this.gunaPanelTop.Controls.Add(this.guna2ControlBoxClose);
@@ -76,6 +276,17 @@
             this.gunaPanelTop.Name = "gunaPanelTop";
             this.gunaPanelTop.Size = new System.Drawing.Size(733, 62);
             this.gunaPanelTop.TabIndex = 0;
+            // 
+            // labelUser
+            // 
+            this.labelUser.AutoSize = true;
+            this.labelUser.BackColor = System.Drawing.Color.Transparent;
+            this.labelUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUser.Location = new System.Drawing.Point(20, 22);
+            this.labelUser.Name = "labelUser";
+            this.labelUser.Size = new System.Drawing.Size(52, 21);
+            this.labelUser.TabIndex = 1;
+            this.labelUser.Text = "label1";
             // 
             // guna2ControlBoxMinimize
             // 
@@ -123,187 +334,27 @@
             this.gunaPanelContent.Size = new System.Drawing.Size(733, 526);
             this.gunaPanelContent.TabIndex = 0;
             // 
-            // guna2PictureBox1
-            // 
-            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
-            this.guna2PictureBox1.Location = new System.Drawing.Point(30, 12);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
-            this.guna2PictureBox1.Size = new System.Drawing.Size(120, 90);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox1.TabIndex = 0;
-            this.guna2PictureBox1.TabStop = false;
-            // 
-            // guna2ButtonHome
-            // 
-            this.guna2ButtonHome.AutoRoundedCorners = true;
-            this.guna2ButtonHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.guna2ButtonHome.BorderRadius = 21;
-            this.guna2ButtonHome.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.guna2ButtonHome.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.guna2ButtonHome.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.CheckedState.Image1")));
-            this.guna2ButtonHome.CheckedState.Parent = this.guna2ButtonHome;
-            this.guna2ButtonHome.CustomImages.Parent = this.guna2ButtonHome;
-            this.guna2ButtonHome.FillColor = System.Drawing.Color.Transparent;
-            this.guna2ButtonHome.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2ButtonHome.ForeColor = System.Drawing.Color.White;
-            this.guna2ButtonHome.HoverState.Parent = this.guna2ButtonHome;
-            this.guna2ButtonHome.Image = ((System.Drawing.Image)(resources.GetObject("guna2ButtonHome.Image")));
-            this.guna2ButtonHome.Location = new System.Drawing.Point(-16, 135);
-            this.guna2ButtonHome.Name = "guna2ButtonHome";
-            this.guna2ButtonHome.ShadowDecoration.Parent = this.guna2ButtonHome;
-            this.guna2ButtonHome.Size = new System.Drawing.Size(180, 45);
-            this.guna2ButtonHome.TabIndex = 1;
-            this.guna2ButtonHome.Text = "Home";
-            // 
-            // guna2Button1
-            // 
-            this.guna2Button1.AutoRoundedCorners = true;
-            this.guna2Button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.guna2Button1.BorderRadius = 21;
-            this.guna2Button1.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.guna2Button1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.guna2Button1.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.CheckedState.Image")));
-            this.guna2Button1.CheckedState.Parent = this.guna2Button1;
-            this.guna2Button1.CustomImages.Parent = this.guna2Button1;
-            this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.HoverState.Parent = this.guna2Button1;
-            this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
-            this.guna2Button1.Location = new System.Drawing.Point(-16, 186);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
-            this.guna2Button1.Size = new System.Drawing.Size(180, 45);
-            this.guna2Button1.TabIndex = 1;
-            this.guna2Button1.Text = "Home";
-            // 
-            // guna2Button2
-            // 
-            this.guna2Button2.AutoRoundedCorners = true;
-            this.guna2Button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.guna2Button2.BorderRadius = 21;
-            this.guna2Button2.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.guna2Button2.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.guna2Button2.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button2.CheckedState.Image")));
-            this.guna2Button2.CheckedState.Parent = this.guna2Button2;
-            this.guna2Button2.CustomImages.Parent = this.guna2Button2;
-            this.guna2Button2.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.HoverState.Parent = this.guna2Button2;
-            this.guna2Button2.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button2.Image")));
-            this.guna2Button2.Location = new System.Drawing.Point(-16, 237);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
-            this.guna2Button2.Size = new System.Drawing.Size(180, 45);
-            this.guna2Button2.TabIndex = 1;
-            this.guna2Button2.Text = "Home";
-            // 
-            // guna2Button3
-            // 
-            this.guna2Button3.AutoRoundedCorners = true;
-            this.guna2Button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.guna2Button3.BorderRadius = 21;
-            this.guna2Button3.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.guna2Button3.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.guna2Button3.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button3.CheckedState.Image")));
-            this.guna2Button3.CheckedState.Parent = this.guna2Button3;
-            this.guna2Button3.CustomImages.Parent = this.guna2Button3;
-            this.guna2Button3.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button3.ForeColor = System.Drawing.Color.White;
-            this.guna2Button3.HoverState.Parent = this.guna2Button3;
-            this.guna2Button3.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button3.Image")));
-            this.guna2Button3.Location = new System.Drawing.Point(-16, 288);
-            this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.ShadowDecoration.Parent = this.guna2Button3;
-            this.guna2Button3.Size = new System.Drawing.Size(180, 45);
-            this.guna2Button3.TabIndex = 1;
-            this.guna2Button3.Text = "Home";
-            // 
-            // guna2Button4
-            // 
-            this.guna2Button4.AutoRoundedCorners = true;
-            this.guna2Button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.guna2Button4.BorderRadius = 21;
-            this.guna2Button4.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.guna2Button4.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.guna2Button4.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button4.CheckedState.Image")));
-            this.guna2Button4.CheckedState.Parent = this.guna2Button4;
-            this.guna2Button4.CustomImages.Parent = this.guna2Button4;
-            this.guna2Button4.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button4.ForeColor = System.Drawing.Color.White;
-            this.guna2Button4.HoverState.Parent = this.guna2Button4;
-            this.guna2Button4.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button4.Image")));
-            this.guna2Button4.Location = new System.Drawing.Point(-16, 339);
-            this.guna2Button4.Name = "guna2Button4";
-            this.guna2Button4.ShadowDecoration.Parent = this.guna2Button4;
-            this.guna2Button4.Size = new System.Drawing.Size(180, 45);
-            this.guna2Button4.TabIndex = 1;
-            this.guna2Button4.Text = "Home";
-            // 
-            // guna2Button5
-            // 
-            this.guna2Button5.AutoRoundedCorners = true;
-            this.guna2Button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.guna2Button5.BorderRadius = 21;
-            this.guna2Button5.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.guna2Button5.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.guna2Button5.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button5.CheckedState.Image")));
-            this.guna2Button5.CheckedState.Parent = this.guna2Button5;
-            this.guna2Button5.CustomImages.Parent = this.guna2Button5;
-            this.guna2Button5.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button5.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button5.ForeColor = System.Drawing.Color.White;
-            this.guna2Button5.HoverState.Parent = this.guna2Button5;
-            this.guna2Button5.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button5.Image")));
-            this.guna2Button5.Location = new System.Drawing.Point(-16, 390);
-            this.guna2Button5.Name = "guna2Button5";
-            this.guna2Button5.ShadowDecoration.Parent = this.guna2Button5;
-            this.guna2Button5.Size = new System.Drawing.Size(180, 45);
-            this.guna2Button5.TabIndex = 1;
-            this.guna2Button5.Text = "Home";
-            // 
-            // guna2Button6
-            // 
-            this.guna2Button6.AutoRoundedCorners = true;
-            this.guna2Button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.guna2Button6.BorderRadius = 21;
-            this.guna2Button6.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.guna2Button6.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.guna2Button6.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button6.CheckedState.Image")));
-            this.guna2Button6.CheckedState.Parent = this.guna2Button6;
-            this.guna2Button6.CustomImages.Parent = this.guna2Button6;
-            this.guna2Button6.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button6.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button6.ForeColor = System.Drawing.Color.White;
-            this.guna2Button6.HoverState.Parent = this.guna2Button6;
-            this.guna2Button6.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button6.Image")));
-            this.guna2Button6.Location = new System.Drawing.Point(-16, 441);
-            this.guna2Button6.Name = "guna2Button6";
-            this.guna2Button6.ShadowDecoration.Parent = this.guna2Button6;
-            this.guna2Button6.Size = new System.Drawing.Size(180, 45);
-            this.guna2Button6.TabIndex = 1;
-            this.guna2Button6.Text = "Home";
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(933, 588);
+            this.ControlBox = false;
             this.Controls.Add(this.gunaPanelContent);
             this.Controls.Add(this.gunaPanelTop);
             this.Controls.Add(this.gunaPanelSide);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormMain";
+            this.ShowIcon = false;
             this.Text = "FormMain";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FormMain_Load);
             this.gunaPanelSide.ResumeLayout(false);
-            this.gunaPanelTop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            this.gunaPanelTop.ResumeLayout(false);
+            this.gunaPanelTop.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -318,11 +369,13 @@
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBoxClose;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2Button guna2ButtonHome;
-        private Guna.UI2.WinForms.Guna2Button guna2Button6;
-        private Guna.UI2.WinForms.Guna2Button guna2Button5;
-        private Guna.UI2.WinForms.Guna2Button guna2Button4;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button guna2ButtonTables;
+        private Guna.UI2.WinForms.Guna2Button guna2ButtonMenu;
+        private Guna.UI2.WinForms.Guna2Button guna2ButtonUserManagement;
+        private Guna.UI2.WinForms.Guna2Button guna2ButtonUser;
+        private Guna.UI2.WinForms.Guna2Button guna2ButtonBills;
+        private Guna.UI2.WinForms.Guna2Button guna2ButtonTable;
+        private Guna.UI2.WinForms.Guna2Button guna2ButtonSetting;
+        private System.Windows.Forms.Label labelUser;
     }
 }
