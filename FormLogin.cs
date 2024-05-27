@@ -24,9 +24,9 @@ namespace BillardManager
             }
             else
             {
-                this.Hide();
                 FormMain formMain = new FormMain();
                 formMain.Show();
+                this.Hide();
             }
         }
     }
