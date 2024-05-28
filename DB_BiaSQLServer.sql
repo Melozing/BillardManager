@@ -29,7 +29,7 @@ CREATE TABLE [dbo].[items_menu] (
     [item_Name] varchar(50) COLLATE Vietnamese_CI_AS NOT NULL,
     [IdItemCategory] varchar(10) COLLATE Vietnamese_CI_AS NOT NULL,
     [item_Price] int NOT NULL,
-    [item_image] varbinary(max) NULL,
+    [item_image] image NULL,
     [ItemStatus] int NOT NULL DEFAULT '0',
     PRIMARY KEY CLUSTERED ([IdItem]),
     CONSTRAINT [FK_items_menu_items_category] FOREIGN KEY ([IdItemCategory]) REFERENCES [dbo].[items_category] ([IdItemCategory])

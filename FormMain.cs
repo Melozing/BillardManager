@@ -12,6 +12,12 @@ namespace BillardManager
             InitializeComponent();
         }
 
+        static FormMain _obj;
+        public static FormMain Instance
+        {
+            get { if (_obj == null) { _obj = new FormMain(); } return _obj; }
+        }
+
         private void AddControls(Form form)
         {
             gunaPanelContent.Controls.Clear();
@@ -25,7 +31,8 @@ namespace BillardManager
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-
+            _obj = this;
+            guna2ButtonHome.PerformClick();
         }
 
         private void guna2ButtonHome_Click(object sender, EventArgs e)
@@ -36,6 +43,21 @@ namespace BillardManager
         private void guna2ButtonMenu_Click(object sender, EventArgs e)
         {
             AddControls(new FormCategoryView());
+        }
+
+        private void guna2ButtonTables_Click(object sender, EventArgs e)
+        {
+            AddControls(new FormTablesView());
+        }
+
+        private void guna2ButtonUserManagement_Click(object sender, EventArgs e)
+        {
+            AddControls(new FormStaffView());
+        }
+
+        private void guna2ButtonItem_Click(object sender, EventArgs e)
+        {
+            AddControls(new FormFoodView());
         }
     }
 }

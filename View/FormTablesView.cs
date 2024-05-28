@@ -1,5 +1,6 @@
 ﻿using BiaManager.Script;
 using BillardManager.Admin;
+using BillardManager.Forms;
 using BillardManager.Model;
 using System;
 using System.Collections;
@@ -7,34 +8,36 @@ using System.Windows.Forms;
 
 namespace BillardManager.View
 {
-    public partial class FormCategoryView : SampleView
+    public partial class FormTablesView : SampleView
     {
-        public FormCategoryView()
+        public FormTablesView()
         {
             InitializeComponent();
         }
 
-        public void GetData()
-        {
-            string query = "Select IdItemCategory,ItemCategory_Name " +
-                "from items_category where ItemCategory_Name like '%" + guna2TextBoxSearch.Text + "%'" +
-                " AND ItemCategoryStatus != 1";
-            ListBox lb = new ListBox();
-            lb.Items.Add(IdItemCategory);
-            lb.Items.Add(ItemCategory_Name);
-
-            MainClass.LoadData(query, guna2DataGridViewCategory, lb);
-        }
-
-        private void FormCategoryView_Load(object sender, EventArgs e)
+        private void FormTablesView_Load(object sender, System.EventArgs e)
         {
             GetData();
         }
+
+        public void GetData()
+        {
+            string query = "Select TableIDType,TableType_Name,TableType_Price " +
+                "from table_type " +
+                "WHERE (TableType_Name LIKE '%" + guna2TextBoxSearch.Text + "%' OR TableType_Price LIKE '%" + guna2TextBoxSearch.Text + "%') " +
+                " AND TableTypeStatus != 1";
+            ListBox lb = new ListBox();
+            lb.Items.Add(IdItemCategory);
+            lb.Items.Add(ItemCategory_Name);
+            lb.Items.Add(TableType_Price);
+
+            MainClass.LoadData(query, guna2DataGridViewCategory, lb);
+        }
         public override void guna2ImageButtonAdd_Click(object sender, EventArgs e)
         {
-            //FormCategoryAdd frm = new FormCategoryAdd();
+            //FormTableAdd frm = new FormTableAdd();
             //frm.ShowDialog();
-            MainClass.BlurBackground(new FormCategoryAdd());
+            MainClass.BlurBackground(new FormTableAdd());
             GetData();
         }
 
@@ -59,7 +62,7 @@ namespace BillardManager.View
                 if (dialogResult == DialogResult.OK)
                 {
                     string id = guna2DataGridViewCategory.CurrentRow.Cells["IdItemCategory"].Value.ToString();
-                    string query = "Update items_category set ItemCategoryStatus = 1 where IdItemCategory ='" + id + "'";
+                    string query = "Update table_type set TableTypeStatus = 1 where TableIDType ='" + id + "'";
                     Hashtable hashtable = new Hashtable();
                     MainClass.SQL(query, hashtable);
 

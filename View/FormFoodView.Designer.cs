@@ -1,6 +1,6 @@
 ﻿namespace BillardManager.View
 {
-    partial class FormCategoryView
+    partial class FormFoodView
     {
         /// <summary>
         /// Required designer variable.
@@ -33,8 +33,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2DataGridViewCategory = new Guna.UI2.WinForms.Guna2DataGridView();
             this.ItemSno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdItemCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemCategory_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemCategoryEdit = new System.Windows.Forms.DataGridViewImageColumn();
             this.ItemCategoryDelete = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridViewCategory)).BeginInit();
@@ -42,7 +45,7 @@
             // 
             // labelHeader
             // 
-            this.labelHeader.Text = "Item Category";
+            this.labelHeader.Text = "Manage dishes";
             // 
             // guna2TextBoxSearch
             // 
@@ -56,23 +59,20 @@
             this.guna2TextBoxSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBoxSearch.HoverState.Parent = this.guna2TextBoxSearch;
             this.guna2TextBoxSearch.ShadowDecoration.Parent = this.guna2TextBoxSearch;
-            this.guna2TextBoxSearch.Size = new System.Drawing.Size(386, 38);
+            this.guna2TextBoxSearch.Size = new System.Drawing.Size(488, 34);
             // 
             // guna2ImageButtonAdd
             // 
             this.guna2ImageButtonAdd.CheckedState.Parent = this.guna2ImageButtonAdd;
             this.guna2ImageButtonAdd.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.guna2ImageButtonAdd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2ImageButtonAdd.HoverState.ImageSize = new System.Drawing.Size(57, 57);
             this.guna2ImageButtonAdd.HoverState.Parent = this.guna2ImageButtonAdd;
             this.guna2ImageButtonAdd.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.guna2ImageButtonAdd.PressedState.ImageSize = new System.Drawing.Size(55, 55);
             this.guna2ImageButtonAdd.PressedState.Parent = this.guna2ImageButtonAdd;
-            this.guna2ImageButtonAdd.Size = new System.Drawing.Size(312, 81);
             this.guna2ImageButtonAdd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.guna2ImageButtonAdd.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.guna2ImageButtonAdd.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.None;
-            this.guna2ImageButtonAdd.TextChanged += new System.EventHandler(this.guna2TextBoxSearch_TextChanged);
             this.guna2ImageButtonAdd.Click += new System.EventHandler(this.guna2ImageButtonAdd_Click);
             // 
             // guna2DataGridViewCategory
@@ -86,7 +86,6 @@
             this.guna2DataGridViewCategory.BackgroundColor = System.Drawing.Color.White;
             this.guna2DataGridViewCategory.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.guna2DataGridViewCategory.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.guna2DataGridViewCategory.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             this.guna2DataGridViewCategory.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -99,8 +98,11 @@
             this.guna2DataGridViewCategory.ColumnHeadersHeight = 40;
             this.guna2DataGridViewCategory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ItemSno,
-            this.IdItemCategory,
-            this.ItemCategory_Name,
+            this.Id,
+            this.name,
+            this.Price,
+            this.categoryName,
+            this.categoryID,
             this.ItemCategoryEdit,
             this.ItemCategoryDelete});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -121,8 +123,8 @@
             this.guna2DataGridViewCategory.RowHeadersWidth = 51;
             this.guna2DataGridViewCategory.RowTemplate.Height = 40;
             this.guna2DataGridViewCategory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.guna2DataGridViewCategory.Size = new System.Drawing.Size(698, 351);
-            this.guna2DataGridViewCategory.TabIndex = 7;
+            this.guna2DataGridViewCategory.Size = new System.Drawing.Size(800, 331);
+            this.guna2DataGridViewCategory.TabIndex = 10;
             this.guna2DataGridViewCategory.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
             this.guna2DataGridViewCategory.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.guna2DataGridViewCategory.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -145,7 +147,7 @@
             this.guna2DataGridViewCategory.ThemeStyle.RowsStyle.Height = 40;
             this.guna2DataGridViewCategory.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.guna2DataGridViewCategory.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.guna2DataGridViewCategory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridViewCategory_CellContentClick);
+            this.guna2DataGridViewCategory.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridViewCategory_CellContentClick);
             // 
             // ItemSno
             // 
@@ -157,22 +159,46 @@
             this.ItemSno.ReadOnly = true;
             this.ItemSno.Width = 70;
             // 
-            // IdItemCategory
+            // Id
             // 
-            this.IdItemCategory.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.IdItemCategory.HeaderText = "IdItem";
-            this.IdItemCategory.MinimumWidth = 6;
-            this.IdItemCategory.Name = "IdItemCategory";
-            this.IdItemCategory.ReadOnly = true;
-            this.IdItemCategory.Visible = false;
-            this.IdItemCategory.Width = 48;
+            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Id.HeaderText = "IdItem";
+            this.Id.MinimumWidth = 6;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            this.Id.Width = 48;
             // 
-            // ItemCategory_Name
+            // name
             // 
-            this.ItemCategory_Name.HeaderText = "Name";
-            this.ItemCategory_Name.MinimumWidth = 6;
-            this.ItemCategory_Name.Name = "ItemCategory_Name";
-            this.ItemCategory_Name.ReadOnly = true;
+            this.name.FillWeight = 130F;
+            this.name.HeaderText = "Name";
+            this.name.MinimumWidth = 130;
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            // 
+            // Price
+            // 
+            this.Price.FillWeight = 150F;
+            this.Price.HeaderText = "Price";
+            this.Price.MinimumWidth = 150;
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            // 
+            // categoryName
+            // 
+            this.categoryName.HeaderText = "Category";
+            this.categoryName.MinimumWidth = 100;
+            this.categoryName.Name = "categoryName";
+            this.categoryName.ReadOnly = true;
+            // 
+            // categoryID
+            // 
+            this.categoryID.HeaderText = "categoryID";
+            this.categoryID.MinimumWidth = 100;
+            this.categoryID.Name = "categoryID";
+            this.categoryID.ReadOnly = true;
+            this.categoryID.Visible = false;
             // 
             // ItemCategoryEdit
             // 
@@ -198,15 +224,15 @@
             this.ItemCategoryDelete.ReadOnly = true;
             this.ItemCategoryDelete.Width = 50;
             // 
-            // FormCategoryView
+            // FormFoodView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(698, 470);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.guna2DataGridViewCategory);
-            this.Name = "FormCategoryView";
-            this.Text = "FormCategoryView";
-            this.Load += new System.EventHandler(this.FormCategoryView_Load);
+            this.Name = "FormFoodView";
+            this.Text = "FormFoodView";
+            this.Load += new System.EventHandler(this.FormFoodView_Load);
             this.Controls.SetChildIndex(this.guna2DataGridViewCategory, 0);
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridViewCategory)).EndInit();
             this.ResumeLayout(false);
@@ -217,8 +243,11 @@
 
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridViewCategory;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemSno;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdItemCategory;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ItemCategory_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoryName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoryID;
         private System.Windows.Forms.DataGridViewImageColumn ItemCategoryEdit;
         private System.Windows.Forms.DataGridViewImageColumn ItemCategoryDelete;
     }

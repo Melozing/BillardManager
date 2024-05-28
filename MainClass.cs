@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace BillardManager
@@ -11,7 +12,8 @@ namespace BillardManager
     class MainClass
     {
         //Manh Laptop : DESKTOP-NQD44KU
-        private static readonly string nameServer = "DESKTOP-NQD44KU\\MYMSSQLSERVER";
+        //Manh PC : DESKTOP-G0D14LK
+        private static readonly string nameServer = "DESKTOP-G0D14LK";
         public static readonly string connect_string = "Data Source='" + nameServer + "';Initial Catalog=db_biamanager;Initial Catalog=db_biamanager;Integrated Security=True";
         public static SqlConnection conn = new SqlConnection(connect_string);
 
@@ -59,6 +61,7 @@ namespace BillardManager
         //For loading data from database
         public static void LoadData(string query, DataGridView gv, ListBox lb)
         {
+            gv.CellFormatting += new DataGridViewCellFormattingEventHandler(gv_CellFormatting);
             try
             {
                 SqlCommand cmd = new SqlCommand(query, conn);
@@ -78,6 +81,17 @@ namespace BillardManager
             {
                 MessageFuctionConstans.ErrorOK(ex.ToString());
                 conn.Close();
+            }
+        }
+        private static void gv_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            Guna.UI2.WinForms.Guna2DataGridView gv = (Guna.UI2.WinForms.Guna2DataGridView)sender;
+            int count = 0;
+
+            foreach (DataGridViewRow row in gv.Rows)
+            {
+                count++;
+                row.Cells[0].Value = count;
             }
         }
         //Create New ID
@@ -106,6 +120,39 @@ namespace BillardManager
                     return count > 0;
                 }
             }
+        }
+
+        public static void BlurBackground(Form Model)
+        {
+            Form Background = new Form();
+            using (Model)
+            {
+                Background.StartPosition = FormStartPosition.Manual;
+                Background.FormBorderStyle = FormBorderStyle.None;
+                Background.Opacity = 0.5;
+                Background.BackColor = Color.Black;
+                Background.Size = FormMain.Instance.Size;
+                Background.Location = FormMain.Instance.Location;
+                Background.ShowInTaskbar = false;
+                Background.Show();
+                Model.Owner = Background;
+                Model.ShowDialog(Background);
+                Background.Dispose();
+            }
+        }
+
+        public static void CBFILL(string qry, ComboBox cb)
+        {
+            SqlCommand cmd = new SqlCommand(qry, conn);
+            cmd.CommandType = CommandType.Text;
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            dataAdapter.Fill(dt);
+
+            cb.DisplayMember = "name";
+            cb.ValueMember = "id";
+            cb.DataSource = dt;
+            cb.SelectedIndex = -1;
         }
     }
 }

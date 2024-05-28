@@ -1,6 +1,6 @@
-﻿namespace BillardManager.Model
+﻿namespace BillardManager.Forms
 {
-    partial class FormCategoryAdd
+    partial class FormTableAdd
     {
         /// <summary>
         /// Required designer variable.
@@ -28,16 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.guna2TextBoxName = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.labelPrice = new System.Windows.Forms.Label();
+            this.guna2TextBoxPrice = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBoxTop)).BeginInit();
             this.guna2PanelTop.SuspendLayout();
             this.guna2PanelBottom.SuspendLayout();
             this.SuspendLayout();
             // 
+            // labelTop
+            // 
+            this.labelTop.Size = new System.Drawing.Size(64, 25);
+            this.labelTop.Text = "Tables";
+            // 
             // gunaPictureBoxTop
             // 
-            this.gunaPictureBoxTop.Image = global::BillardManager.Properties.Resources.bulb;
+            this.gunaPictureBoxTop.Image = global::BillardManager.Properties.Resources.pool_table;
             this.gunaPictureBoxTop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             // 
             // guna2ButtonSave
@@ -48,7 +55,6 @@
             this.guna2ButtonSave.DialogResult = System.Windows.Forms.DialogResult.None;
             this.guna2ButtonSave.HoverState.Parent = this.guna2ButtonSave;
             this.guna2ButtonSave.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.guna2ButtonSave.Location = new System.Drawing.Point(12, 13);
             this.guna2ButtonSave.ShadowDecoration.Parent = this.guna2ButtonSave;
             this.guna2ButtonSave.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.guna2ButtonSave.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
@@ -62,7 +68,6 @@
             this.guna2ButtonClose.DialogResult = System.Windows.Forms.DialogResult.None;
             this.guna2ButtonClose.HoverState.Parent = this.guna2ButtonClose;
             this.guna2ButtonClose.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.guna2ButtonClose.Location = new System.Drawing.Point(135, 13);
             this.guna2ButtonClose.ShadowDecoration.Parent = this.guna2ButtonClose;
             this.guna2ButtonClose.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.guna2ButtonClose.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
@@ -71,24 +76,15 @@
             // guna2PanelTop
             // 
             this.guna2PanelTop.ShadowDecoration.Parent = this.guna2PanelTop;
-            this.guna2PanelTop.Size = new System.Drawing.Size(267, 85);
+            this.guna2PanelTop.Size = new System.Drawing.Size(800, 85);
             this.guna2PanelTop.TabIndex = 3;
             // 
             // guna2PanelBottom
             // 
-            this.guna2PanelBottom.Location = new System.Drawing.Point(0, 233);
+            this.guna2PanelBottom.Location = new System.Drawing.Point(0, 380);
             this.guna2PanelBottom.ShadowDecoration.Parent = this.guna2PanelBottom;
-            this.guna2PanelBottom.Size = new System.Drawing.Size(267, 70);
+            this.guna2PanelBottom.Size = new System.Drawing.Size(800, 70);
             this.guna2PanelBottom.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 129);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 17);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Name";
             // 
             // guna2TextBoxName
             // 
@@ -103,29 +99,74 @@
             this.guna2TextBoxName.FocusedState.Parent = this.guna2TextBoxName;
             this.guna2TextBoxName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBoxName.HoverState.Parent = this.guna2TextBoxName;
-            this.guna2TextBoxName.Location = new System.Drawing.Point(12, 149);
-            this.guna2TextBoxName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.guna2TextBoxName.Location = new System.Drawing.Point(24, 148);
+            this.guna2TextBoxName.Margin = new System.Windows.Forms.Padding(4);
             this.guna2TextBoxName.Name = "guna2TextBoxName";
             this.guna2TextBoxName.PasswordChar = '\0';
             this.guna2TextBoxName.PlaceholderText = "";
             this.guna2TextBoxName.SelectedText = "";
             this.guna2TextBoxName.ShadowDecoration.Parent = this.guna2TextBoxName;
-            this.guna2TextBoxName.Size = new System.Drawing.Size(206, 27);
+            this.guna2TextBoxName.Size = new System.Drawing.Size(240, 37);
             this.guna2TextBoxName.TabIndex = 0;
             // 
-            // FormCategoryAdd
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(21, 127);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Name";
+            // 
+            // labelPrice
+            // 
+            this.labelPrice.AutoSize = true;
+            this.labelPrice.Location = new System.Drawing.Point(21, 189);
+            this.labelPrice.Name = "labelPrice";
+            this.labelPrice.Size = new System.Drawing.Size(36, 17);
+            this.labelPrice.TabIndex = 1;
+            this.labelPrice.Text = "Price";
+            // 
+            // guna2TextBoxPrice
+            // 
+            this.guna2TextBoxPrice.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.guna2TextBoxPrice.DefaultText = "";
+            this.guna2TextBoxPrice.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.guna2TextBoxPrice.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.guna2TextBoxPrice.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBoxPrice.DisabledState.Parent = this.guna2TextBoxPrice;
+            this.guna2TextBoxPrice.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBoxPrice.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBoxPrice.FocusedState.Parent = this.guna2TextBoxPrice;
+            this.guna2TextBoxPrice.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBoxPrice.HoverState.Parent = this.guna2TextBoxPrice;
+            this.guna2TextBoxPrice.Location = new System.Drawing.Point(24, 211);
+            this.guna2TextBoxPrice.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.guna2TextBoxPrice.Name = "guna2TextBoxPrice";
+            this.guna2TextBoxPrice.PasswordChar = '\0';
+            this.guna2TextBoxPrice.PlaceholderText = "";
+            this.guna2TextBoxPrice.SelectedText = "";
+            this.guna2TextBoxPrice.ShadowDecoration.Parent = this.guna2TextBoxPrice;
+            this.guna2TextBoxPrice.Size = new System.Drawing.Size(240, 48);
+            this.guna2TextBoxPrice.TabIndex = 1;
+            // 
+            // FormTableAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(267, 303);
-            this.Controls.Add(this.guna2TextBoxName);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelPrice);
+            this.Controls.Add(this.guna2TextBoxPrice);
             this.Controls.Add(this.label1);
-            this.Name = "FormCategoryAdd";
-            this.Text = "FormCategoryAdd";
-            this.Controls.SetChildIndex(this.label1, 0);
-            this.Controls.SetChildIndex(this.guna2TextBoxName, 0);
+            this.Controls.Add(this.guna2TextBoxName);
+            this.Name = "FormTableAdd";
+            this.Text = "FormTableAdd";
             this.Controls.SetChildIndex(this.guna2PanelTop, 0);
             this.Controls.SetChildIndex(this.guna2PanelBottom, 0);
+            this.Controls.SetChildIndex(this.guna2TextBoxName, 0);
+            this.Controls.SetChildIndex(this.label1, 0);
+            this.Controls.SetChildIndex(this.guna2TextBoxPrice, 0);
+            this.Controls.SetChildIndex(this.labelPrice, 0);
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBoxTop)).EndInit();
             this.guna2PanelTop.ResumeLayout(false);
             this.guna2PanelTop.PerformLayout();
@@ -137,7 +178,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
         public Guna.UI2.WinForms.Guna2TextBox guna2TextBoxName;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelPrice;
+        public Guna.UI2.WinForms.Guna2TextBox guna2TextBoxPrice;
     }
 }

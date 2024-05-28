@@ -86,6 +86,24 @@
     <Compile Include="Forms\FormHome.Designer.cs">
       <DependentUpon>FormHome.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\FormFoodAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\FormFoodAdd.Designer.cs">
+      <DependentUpon>FormFoodAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FormStaffAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\FormStaffAdd.Designer.cs">
+      <DependentUpon>FormStaffAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FormTableAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\FormTableAdd.Designer.cs">
+      <DependentUpon>FormTableAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainClass.cs" />
     <Compile Include="Model\FormCategoryAdd.cs">
       <SubType>Form</SubType>
@@ -95,6 +113,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Scripts\Constants\MessageFuctionConstans.cs" />
     <Compile Include="Scripts\Constants\MessageNameContants.cs" />
     <Compile Include="Scripts\Ultility\PasswordHasher.cs" />
@@ -103,6 +126,24 @@
     </Compile>
     <Compile Include="View\FormCategoryView.Designer.cs">
       <DependentUpon>FormCategoryView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormFoodView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormFoodView.Designer.cs">
+      <DependentUpon>FormFoodView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormStaffView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormStaffView.Designer.cs">
+      <DependentUpon>FormStaffView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormTablesView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormTablesView.Designer.cs">
+      <DependentUpon>FormTablesView.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Admin\SampleAdd.resx">
       <DependentUpon>SampleAdd.cs</DependentUpon>
@@ -119,20 +160,34 @@
     <EmbeddedResource Include="Forms\FormHome.resx">
       <DependentUpon>FormHome.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Model\FormFoodAdd.resx">
+      <DependentUpon>FormFoodAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\FormStaffAdd.resx">
+      <DependentUpon>FormStaffAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\FormTableAdd.resx">
+      <DependentUpon>FormTableAdd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Model\FormCategoryAdd.resx">
       <DependentUpon>FormCategoryAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="View\FormCategoryView.resx">
       <DependentUpon>FormCategoryView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormFoodView.resx">
+      <DependentUpon>FormFoodView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormStaffView.resx">
+      <DependentUpon>FormStaffView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormTablesView.resx">
+      <DependentUpon>FormTablesView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -153,6 +208,17 @@
   <ItemGroup>
     <Content Include="Guna2\Guna.UI.dll" />
     <Content Include="Guna2\Guna.UI2.dll" />
+    <None Include="Resources\food_add.png" />
+    <None Include="Resources\food_color.png" />
+    <None Include="Resources\food_white.png" />
+    <None Include="Resources\delete_24x24.png" />
+    <None Include="Resources\edit_24x24.png" />
+    <None Include="Resources\management.png" />
+    <None Include="Resources\snooker.png" />
+    <None Include="Resources\snooker %281%29.png" />
+    <None Include="Resources\pool-table1.png" />
+    <None Include="Resources\billiards %283%29.png" />
+    <None Include="Resources\pool-table.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
