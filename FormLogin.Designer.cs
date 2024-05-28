@@ -30,14 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             this.guna2PanelLogin = new Guna.UI2.WinForms.Guna2Panel();
+            this.labelNotice = new System.Windows.Forms.Label();
+            this.guna2PictureBoxLogin = new Guna.UI2.WinForms.Guna2PictureBox();
             this.labelUsername = new System.Windows.Forms.Label();
             this.guna2TextBoxUsername = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2TextBoxPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.labelPassword = new System.Windows.Forms.Label();
             this.guna2ButtonLogin = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ButtonExit = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2PictureBoxLogin = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.labelNotice = new System.Windows.Forms.Label();
             this.guna2PanelLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBoxLogin)).BeginInit();
             this.SuspendLayout();
@@ -49,11 +49,37 @@
             this.guna2PanelLogin.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2PanelLogin.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
             this.guna2PanelLogin.Location = new System.Drawing.Point(0, 0);
-            this.guna2PanelLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2PanelLogin.Margin = new System.Windows.Forms.Padding(4);
             this.guna2PanelLogin.Name = "guna2PanelLogin";
             this.guna2PanelLogin.ShadowDecoration.Parent = this.guna2PanelLogin;
             this.guna2PanelLogin.Size = new System.Drawing.Size(338, 243);
             this.guna2PanelLogin.TabIndex = 0;
+            // 
+            // labelNotice
+            // 
+            this.labelNotice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.labelNotice.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.labelNotice.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNotice.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelNotice.Location = new System.Drawing.Point(0, 226);
+            this.labelNotice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelNotice.Name = "labelNotice";
+            this.labelNotice.Size = new System.Drawing.Size(338, 17);
+            this.labelNotice.TabIndex = 3;
+            this.labelNotice.Text = "Please enter user infomation !";
+            this.labelNotice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // guna2PictureBoxLogin
+            // 
+            this.guna2PictureBoxLogin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2PictureBoxLogin.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBoxLogin.Image")));
+            this.guna2PictureBoxLogin.Location = new System.Drawing.Point(0, 0);
+            this.guna2PictureBoxLogin.Name = "guna2PictureBoxLogin";
+            this.guna2PictureBoxLogin.ShadowDecoration.Parent = this.guna2PictureBoxLogin;
+            this.guna2PictureBoxLogin.Size = new System.Drawing.Size(338, 243);
+            this.guna2PictureBoxLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBoxLogin.TabIndex = 2;
+            this.guna2PictureBoxLogin.TabStop = false;
             // 
             // labelUsername
             // 
@@ -79,7 +105,7 @@
             this.guna2TextBoxUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBoxUsername.HoverState.Parent = this.guna2TextBoxUsername;
             this.guna2TextBoxUsername.Location = new System.Drawing.Point(52, 316);
-            this.guna2TextBoxUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2TextBoxUsername.Margin = new System.Windows.Forms.Padding(4);
             this.guna2TextBoxUsername.Name = "guna2TextBoxUsername";
             this.guna2TextBoxUsername.PasswordChar = '\0';
             this.guna2TextBoxUsername.PlaceholderText = "";
@@ -102,9 +128,9 @@
             this.guna2TextBoxPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBoxPassword.HoverState.Parent = this.guna2TextBoxPassword;
             this.guna2TextBoxPassword.Location = new System.Drawing.Point(52, 404);
-            this.guna2TextBoxPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2TextBoxPassword.Margin = new System.Windows.Forms.Padding(4);
             this.guna2TextBoxPassword.Name = "guna2TextBoxPassword";
-            this.guna2TextBoxPassword.PasswordChar = '\0';
+            this.guna2TextBoxPassword.PasswordChar = '*';
             this.guna2TextBoxPassword.PlaceholderText = "";
             this.guna2TextBoxPassword.SelectedText = "";
             this.guna2TextBoxPassword.ShadowDecoration.Parent = this.guna2TextBoxPassword;
@@ -157,32 +183,6 @@
             this.guna2ButtonExit.Text = "Exit";
             this.guna2ButtonExit.Click += new System.EventHandler(this.guna2ButtonExit_Click);
             // 
-            // guna2PictureBoxLogin
-            // 
-            this.guna2PictureBoxLogin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2PictureBoxLogin.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBoxLogin.Image")));
-            this.guna2PictureBoxLogin.Location = new System.Drawing.Point(0, 0);
-            this.guna2PictureBoxLogin.Name = "guna2PictureBoxLogin";
-            this.guna2PictureBoxLogin.ShadowDecoration.Parent = this.guna2PictureBoxLogin;
-            this.guna2PictureBoxLogin.Size = new System.Drawing.Size(338, 243);
-            this.guna2PictureBoxLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBoxLogin.TabIndex = 2;
-            this.guna2PictureBoxLogin.TabStop = false;
-            // 
-            // labelNotice
-            // 
-            this.labelNotice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.labelNotice.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.labelNotice.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNotice.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelNotice.Location = new System.Drawing.Point(0, 226);
-            this.labelNotice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelNotice.Name = "labelNotice";
-            this.labelNotice.Size = new System.Drawing.Size(338, 17);
-            this.labelNotice.TabIndex = 3;
-            this.labelNotice.Text = "Please enter user infomation !";
-            this.labelNotice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // FormLogin
             // 
             this.AcceptButton = this.guna2ButtonLogin;
@@ -197,7 +197,7 @@
             this.Controls.Add(this.labelUsername);
             this.Controls.Add(this.guna2PanelLogin);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormLogin";
             this.Text = "Login";
             this.guna2PanelLogin.ResumeLayout(false);

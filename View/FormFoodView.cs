@@ -7,34 +7,40 @@ using System.Windows.Forms;
 
 namespace BillardManager.View
 {
-    public partial class FormCategoryView : SampleView
+    public partial class FormFoodView : SampleView
     {
-        public FormCategoryView()
+        public FormFoodView()
         {
             InitializeComponent();
         }
 
-        public void GetData()
-        {
-            string query = "Select IdItemCategory,ItemCategory_Name " +
-                "from items_category where ItemCategory_Name like '%" + guna2TextBoxSearch.Text + "%'" +
-                " AND ItemCategoryStatus != 1";
-            ListBox lb = new ListBox();
-            lb.Items.Add(IdItemCategory);
-            lb.Items.Add(ItemCategory_Name);
-
-            MainClass.LoadData(query, guna2DataGridViewCategory, lb);
-        }
-
-        private void FormCategoryView_Load(object sender, EventArgs e)
+        private void FormFoodView_Load(object sender, System.EventArgs e)
         {
             GetData();
         }
+        public void GetData()
+        {
+            string query = "SELECT im.IdItem, im.item_Name, im.item_Price, ic.ItemCategory_Name, ic.IdItemCategory " +
+                           "FROM items_menu im " +
+                           "JOIN items_category ic ON im.IdItemCategory = ic.IdItemCategory " +
+                           "WHERE (im.item_Name LIKE '%" + guna2TextBoxSearch.Text + "%' " +
+                           "OR ic.ItemCategory_Name LIKE '%" + guna2TextBoxSearch.Text + "%' " +
+                           "OR im.item_Price LIKE '%" + guna2TextBoxSearch.Text + "%') " +
+                           "AND im.ItemStatus != 1 AND im.IdItem !='IHour'";
+
+
+            ListBox lb = new ListBox();
+            lb.Items.Add(Id);
+            lb.Items.Add(name);
+            lb.Items.Add(Price);
+            lb.Items.Add(categoryName);
+            lb.Items.Add(categoryID);
+
+            MainClass.LoadData(query, guna2DataGridViewCategory, lb);
+        }
         public override void guna2ImageButtonAdd_Click(object sender, EventArgs e)
         {
-            //FormCategoryAdd frm = new FormCategoryAdd();
-            //frm.ShowDialog();
-            MainClass.BlurBackground(new FormCategoryAdd());
+            MainClass.BlurBackground(new FormFoodAdd());
             GetData();
         }
 
@@ -47,9 +53,10 @@ namespace BillardManager.View
         {
             if (guna2DataGridViewCategory.CurrentCell.OwningColumn.Name == "ItemCategoryEdit")
             {
-                FormCategoryAdd frm = new FormCategoryAdd();
-                frm.categoryId = guna2DataGridViewCategory.CurrentRow.Cells["IdItemCategory"].Value.ToString();
-                frm.guna2TextBoxName.Text = guna2DataGridViewCategory.CurrentRow.Cells["ItemCategory_Name"].Value.ToString();
+                FormFoodAdd frm = new FormFoodAdd();
+                frm.id = guna2DataGridViewCategory.CurrentRow.Cells["Id"].Value.ToString();
+                frm.categoryId = guna2DataGridViewCategory.CurrentRow.Cells["categoryID"].Value.ToString();
+
                 MainClass.BlurBackground(frm);
                 GetData();
             }
@@ -58,8 +65,8 @@ namespace BillardManager.View
                 DialogResult dialogResult = MessageFuctionConstans.OKCancel("Are you sure you want to delete?");
                 if (dialogResult == DialogResult.OK)
                 {
-                    string id = guna2DataGridViewCategory.CurrentRow.Cells["IdItemCategory"].Value.ToString();
-                    string query = "Update items_category set ItemCategoryStatus = 1 where IdItemCategory ='" + id + "'";
+                    string id = guna2DataGridViewCategory.CurrentRow.Cells["Id"].Value.ToString();
+                    string query = "Update items_menu set ItemStatus = 1 where IdItem ='" + id + "'";
                     Hashtable hashtable = new Hashtable();
                     MainClass.SQL(query, hashtable);
 
