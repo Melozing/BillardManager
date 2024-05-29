@@ -92,6 +92,12 @@
     <Compile Include="Model\FormFoodAdd.Designer.cs">
       <DependentUpon>FormFoodAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\FormPOS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\FormPOS.Designer.cs">
+      <DependentUpon>FormPOS.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\FormStaffAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,12 @@
     </Compile>
     <Compile Include="Model\FormCategoryAdd.Designer.cs">
       <DependentUpon>FormCategoryAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ucProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Model\ucProduct.Designer.cs">
+      <DependentUpon>ucProduct.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -163,6 +175,9 @@
     <EmbeddedResource Include="Model\FormFoodAdd.resx">
       <DependentUpon>FormFoodAdd.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Model\FormPOS.resx">
+      <DependentUpon>FormPOS.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Model\FormStaffAdd.resx">
       <DependentUpon>FormStaffAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,6 +186,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Model\FormCategoryAdd.resx">
       <DependentUpon>FormCategoryAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\ucProduct.resx">
+      <DependentUpon>ucProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -208,6 +226,7 @@
   <ItemGroup>
     <Content Include="Guna2\Guna.UI.dll" />
     <Content Include="Guna2\Guna.UI2.dll" />
+    <None Include="Resources\turn-off.png" />
     <None Include="Resources\food_add.png" />
     <None Include="Resources\food_color.png" />
     <None Include="Resources\food_white.png" />

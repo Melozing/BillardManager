@@ -30,11 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.gunaPanelSide = new Guna.UI.WinForms.GunaPanel();
-            this.gunaPanelTop = new Guna.UI.WinForms.GunaPanel();
-            this.guna2ControlBoxMinimize = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.guna2ControlBoxMaximize = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.guna2ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.gunaPanelContent = new Guna.UI.WinForms.GunaPanel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2ButtonSetting = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ButtonHome = new Guna.UI2.WinForms.Guna2Button();
@@ -46,10 +41,15 @@
             this.guna2ButtonMenu = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ButtonUserManagement = new Guna.UI2.WinForms.Guna2Button();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.gunaPanelTop = new Guna.UI.WinForms.GunaPanel();
+            this.guna2ControlBoxMinimize = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.guna2ControlBoxMaximize = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.guna2ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.gunaPanelContent = new Guna.UI.WinForms.GunaPanel();
             this.gunaPanelSide.SuspendLayout();
-            this.gunaPanelTop.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            this.gunaPanelTop.SuspendLayout();
             this.SuspendLayout();
             // 
             // gunaPanelSide
@@ -62,64 +62,6 @@
             this.gunaPanelSide.Name = "gunaPanelSide";
             this.gunaPanelSide.Size = new System.Drawing.Size(200, 588);
             this.gunaPanelSide.TabIndex = 0;
-            // 
-            // gunaPanelTop
-            // 
-            this.gunaPanelTop.BackColor = System.Drawing.Color.Gainsboro;
-            this.gunaPanelTop.Controls.Add(this.guna2ControlBoxMinimize);
-            this.gunaPanelTop.Controls.Add(this.guna2ControlBoxMaximize);
-            this.gunaPanelTop.Controls.Add(this.guna2ControlBoxClose);
-            this.gunaPanelTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gunaPanelTop.Location = new System.Drawing.Point(200, 0);
-            this.gunaPanelTop.Name = "gunaPanelTop";
-            this.gunaPanelTop.Size = new System.Drawing.Size(733, 62);
-            this.gunaPanelTop.TabIndex = 0;
-            // 
-            // guna2ControlBoxMinimize
-            // 
-            this.guna2ControlBoxMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBoxMinimize.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
-            this.guna2ControlBoxMinimize.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
-            this.guna2ControlBoxMinimize.HoverState.Parent = this.guna2ControlBoxMinimize;
-            this.guna2ControlBoxMinimize.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBoxMinimize.Location = new System.Drawing.Point(616, 12);
-            this.guna2ControlBoxMinimize.Name = "guna2ControlBoxMinimize";
-            this.guna2ControlBoxMinimize.ShadowDecoration.Parent = this.guna2ControlBoxMinimize;
-            this.guna2ControlBoxMinimize.Size = new System.Drawing.Size(31, 27);
-            this.guna2ControlBoxMinimize.TabIndex = 0;
-            // 
-            // guna2ControlBoxMaximize
-            // 
-            this.guna2ControlBoxMaximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBoxMaximize.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
-            this.guna2ControlBoxMaximize.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
-            this.guna2ControlBoxMaximize.HoverState.Parent = this.guna2ControlBoxMaximize;
-            this.guna2ControlBoxMaximize.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBoxMaximize.Location = new System.Drawing.Point(653, 12);
-            this.guna2ControlBoxMaximize.Name = "guna2ControlBoxMaximize";
-            this.guna2ControlBoxMaximize.ShadowDecoration.Parent = this.guna2ControlBoxMaximize;
-            this.guna2ControlBoxMaximize.Size = new System.Drawing.Size(31, 27);
-            this.guna2ControlBoxMaximize.TabIndex = 0;
-            // 
-            // guna2ControlBoxClose
-            // 
-            this.guna2ControlBoxClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBoxClose.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
-            this.guna2ControlBoxClose.HoverState.Parent = this.guna2ControlBoxClose;
-            this.guna2ControlBoxClose.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBoxClose.Location = new System.Drawing.Point(690, 12);
-            this.guna2ControlBoxClose.Name = "guna2ControlBoxClose";
-            this.guna2ControlBoxClose.ShadowDecoration.Parent = this.guna2ControlBoxClose;
-            this.guna2ControlBoxClose.Size = new System.Drawing.Size(31, 27);
-            this.guna2ControlBoxClose.TabIndex = 0;
-            // 
-            // gunaPanelContent
-            // 
-            this.gunaPanelContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gunaPanelContent.Location = new System.Drawing.Point(200, 62);
-            this.gunaPanelContent.Name = "gunaPanelContent";
-            this.gunaPanelContent.Size = new System.Drawing.Size(733, 526);
-            this.gunaPanelContent.TabIndex = 0;
             // 
             // guna2Panel1
             // 
@@ -279,6 +221,7 @@
             this.guna2ButtonTable.Size = new System.Drawing.Size(180, 45);
             this.guna2ButtonTable.TabIndex = 1;
             this.guna2ButtonTable.Text = "Tables";
+            this.guna2ButtonTable.Click += new System.EventHandler(this.guna2ButtonTable_Click);
             // 
             // guna2ButtonItem
             // 
@@ -364,6 +307,65 @@
             this.guna2PictureBox1.TabIndex = 0;
             this.guna2PictureBox1.TabStop = false;
             // 
+            // gunaPanelTop
+            // 
+            this.gunaPanelTop.BackColor = System.Drawing.Color.Gainsboro;
+            this.gunaPanelTop.Controls.Add(this.guna2ControlBoxMinimize);
+            this.gunaPanelTop.Controls.Add(this.guna2ControlBoxMaximize);
+            this.gunaPanelTop.Controls.Add(this.guna2ControlBoxClose);
+            this.gunaPanelTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gunaPanelTop.Location = new System.Drawing.Point(200, 0);
+            this.gunaPanelTop.Name = "gunaPanelTop";
+            this.gunaPanelTop.Size = new System.Drawing.Size(733, 62);
+            this.gunaPanelTop.TabIndex = 0;
+            // 
+            // guna2ControlBoxMinimize
+            // 
+            this.guna2ControlBoxMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBoxMinimize.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
+            this.guna2ControlBoxMinimize.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
+            this.guna2ControlBoxMinimize.HoverState.Parent = this.guna2ControlBoxMinimize;
+            this.guna2ControlBoxMinimize.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBoxMinimize.Location = new System.Drawing.Point(616, 12);
+            this.guna2ControlBoxMinimize.Name = "guna2ControlBoxMinimize";
+            this.guna2ControlBoxMinimize.ShadowDecoration.Parent = this.guna2ControlBoxMinimize;
+            this.guna2ControlBoxMinimize.Size = new System.Drawing.Size(31, 27);
+            this.guna2ControlBoxMinimize.TabIndex = 0;
+            // 
+            // guna2ControlBoxMaximize
+            // 
+            this.guna2ControlBoxMaximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBoxMaximize.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
+            this.guna2ControlBoxMaximize.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
+            this.guna2ControlBoxMaximize.HoverState.Parent = this.guna2ControlBoxMaximize;
+            this.guna2ControlBoxMaximize.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBoxMaximize.Location = new System.Drawing.Point(653, 12);
+            this.guna2ControlBoxMaximize.Name = "guna2ControlBoxMaximize";
+            this.guna2ControlBoxMaximize.ShadowDecoration.Parent = this.guna2ControlBoxMaximize;
+            this.guna2ControlBoxMaximize.Size = new System.Drawing.Size(31, 27);
+            this.guna2ControlBoxMaximize.TabIndex = 0;
+            // 
+            // guna2ControlBoxClose
+            // 
+            this.guna2ControlBoxClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBoxClose.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
+            this.guna2ControlBoxClose.HoverState.Parent = this.guna2ControlBoxClose;
+            this.guna2ControlBoxClose.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBoxClose.Location = new System.Drawing.Point(690, 12);
+            this.guna2ControlBoxClose.Name = "guna2ControlBoxClose";
+            this.guna2ControlBoxClose.ShadowDecoration.Parent = this.guna2ControlBoxClose;
+            this.guna2ControlBoxClose.Size = new System.Drawing.Size(31, 27);
+            this.guna2ControlBoxClose.TabIndex = 0;
+            this.guna2ControlBoxClose.Click += new System.EventHandler(this.guna2ControlBoxClose_Click);
+            // 
+            // gunaPanelContent
+            // 
+            this.gunaPanelContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gunaPanelContent.Location = new System.Drawing.Point(200, 62);
+            this.gunaPanelContent.Name = "gunaPanelContent";
+            this.gunaPanelContent.Size = new System.Drawing.Size(733, 526);
+            this.gunaPanelContent.TabIndex = 0;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -382,9 +384,9 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.gunaPanelSide.ResumeLayout(false);
-            this.gunaPanelTop.ResumeLayout(false);
             this.guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            this.gunaPanelTop.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
