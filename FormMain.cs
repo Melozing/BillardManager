@@ -1,4 +1,5 @@
 ﻿using BillardManager.Forms;
+using BillardManager.Model;
 using BillardManager.View;
 using System;
 using System.Windows.Forms;
@@ -58,6 +59,16 @@ namespace BillardManager
         private void guna2ButtonItem_Click(object sender, EventArgs e)
         {
             AddControls(new FormFoodView());
+        }
+
+        private void guna2ButtonTable_Click(object sender, EventArgs e)
+        {
+            AddControls(new FormPOS());
+        }
+
+        private void guna2ControlBoxClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
