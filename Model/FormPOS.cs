@@ -3,6 +3,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace BillardManager.Model
@@ -89,12 +90,13 @@ namespace BillardManager.Model
                     {
                         item.Cells["Quantity"].Value = int.Parse(item.Cells["Quantity"].Value.ToString()) + 1;
                         item.Cells["Amount"].Value = int.Parse(item.Cells["Quantity"].Value.ToString()) *
-                        double.Parse(item.Cells["Price"].Value.ToString());
+                        double.Parse(Regex.Replace(item.Cells["Price"].Value.ToString(), @"[^0-9.]", ""));
                         return;
                     }
                 }
+
                 //add new product
-                guna2DataGridViewCategory.Rows.Add(new object[] { 0, wdg.id, wdg.PName, 1, wdg.PPrice, wdg.PPrice });
+                guna2DataGridViewCategory.Rows.Add(new object[] { 0, wdg.id, wdg.PName, 1, Regex.Replace(wdg.PPrice, @"[^0-9.]", ""), Regex.Replace(wdg.PPrice, @"[^0-9.]", "") });
                 GetTotal();
             };
         }
@@ -118,7 +120,7 @@ namespace BillardManager.Model
                 byte[] imageByteArray = imageArray;
 
                 AddItems(item["IdItem"].ToString(), item["item_Name"].ToString(),
-                    item["ItemCategory_Name"].ToString(), item["item_Price"].ToString(), Image.FromStream(new MemoryStream(imageByteArray)));
+                    item["ItemCategory_Name"].ToString(), "$ " + item["item_Price"].ToString(), Image.FromStream(new MemoryStream(imageByteArray)));
             }
         }
 
@@ -148,7 +150,7 @@ namespace BillardManager.Model
             labelTotalMoneyNum.Text = string.Empty;
             foreach (DataGridViewRow item in guna2DataGridViewCategory.Rows)
             {
-                total += double.Parse(item.Cells["Amount"].Value.ToString());
+                total += double.Parse(Regex.Replace(item.Cells["Amount"].Value.ToString(), @"[^0-9.]", ""));
             }
 
             labelTotalMoneyNum.Text = total.ToString("N2");

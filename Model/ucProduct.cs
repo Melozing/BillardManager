@@ -14,8 +14,13 @@ namespace BillardManager.Model
         }
 
         public string id { get; set; }
-        public string PPrice { get; set; }
         public string PCategory { get; set; }
+        public string PPrice
+        {
+            get { return labelPrice.Text; }
+            set { labelPrice.Text = value; }
+        }
+
         public string PName
         {
             get { return labelProduct.Text; }
