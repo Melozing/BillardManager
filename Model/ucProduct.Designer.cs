@@ -33,6 +33,7 @@
             this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelProduct = new System.Windows.Forms.Label();
+            this.labelPrice = new System.Windows.Forms.Label();
             this.guna2ShadowPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBoxProduct)).BeginInit();
             this.panel1.SuspendLayout();
@@ -77,6 +78,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.labelPrice);
             this.panel1.Controls.Add(this.labelProduct);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 130);
@@ -87,18 +89,31 @@
             // 
             // labelProduct
             // 
-            this.labelProduct.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelProduct.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelProduct.Location = new System.Drawing.Point(0, 0);
             this.labelProduct.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelProduct.Name = "labelProduct";
-            this.labelProduct.Size = new System.Drawing.Size(183, 52);
+            this.labelProduct.Size = new System.Drawing.Size(104, 52);
             this.labelProduct.TabIndex = 0;
             this.labelProduct.Text = "Product Name";
             this.labelProduct.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // labelPrice
+            // 
+            this.labelPrice.Dock = System.Windows.Forms.DockStyle.Right;
+            this.labelPrice.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPrice.ForeColor = System.Drawing.Color.OrangeRed;
+            this.labelPrice.Location = new System.Drawing.Point(102, 0);
+            this.labelPrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelPrice.Name = "labelPrice";
+            this.labelPrice.Size = new System.Drawing.Size(81, 52);
+            this.labelPrice.TabIndex = 1;
+            this.labelPrice.Text = "$ 25000";
+            this.labelPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // ucProduct
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.guna2ShadowPanel1);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -119,5 +134,6 @@
         private System.Windows.Forms.Label labelProduct;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBoxProduct;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
+        private System.Windows.Forms.Label labelPrice;
     }
 }
