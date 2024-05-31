@@ -33,36 +33,36 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2PanelTop = new Guna.UI2.WinForms.Guna2Panel();
+            this.labelTittle = new System.Windows.Forms.Label();
             this.guna2PictureBoxExit = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2PictureBoxLogo = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2PanelBottom = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2PanelButtonCheckOut = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2ButtonCheckOut = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2PanelTotalPrice = new Guna.UI2.WinForms.Guna2Panel();
+            this.labelTotalMoneyNum = new System.Windows.Forms.Label();
+            this.labelTotal = new System.Windows.Forms.Label();
             this.flowLayoutPanelCategory = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanelProduct = new System.Windows.Forms.FlowLayoutPanel();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.guna2TextBoxSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.panelCenter = new System.Windows.Forms.Panel();
-            this.guna2DataGridViewCategory = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.ItemSno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NameProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemCategoryDelete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.labelTittle = new System.Windows.Forms.Label();
-            this.guna2PanelTotalPrice = new Guna.UI2.WinForms.Guna2Panel();
-            this.labelTotal = new System.Windows.Forms.Label();
-            this.labelTotalMoneyNum = new System.Windows.Forms.Label();
-            this.guna2PanelButtonCheckOut = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2ButtonCheckOut = new Guna.UI2.WinForms.Guna2Button();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemSno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.guna2DataGridViewCategory = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2PanelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBoxExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBoxLogo)).BeginInit();
             this.guna2PanelBottom.SuspendLayout();
+            this.guna2PanelButtonCheckOut.SuspendLayout();
+            this.guna2PanelTotalPrice.SuspendLayout();
             this.panelCenter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridViewCategory)).BeginInit();
-            this.guna2PanelTotalPrice.SuspendLayout();
-            this.guna2PanelButtonCheckOut.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2PanelTop
@@ -78,6 +78,20 @@
             this.guna2PanelTop.ShadowDecoration.Parent = this.guna2PanelTop;
             this.guna2PanelTop.Size = new System.Drawing.Size(1138, 130);
             this.guna2PanelTop.TabIndex = 0;
+            // 
+            // labelTittle
+            // 
+            this.labelTittle.BackColor = System.Drawing.Color.Transparent;
+            this.labelTittle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelTittle.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTittle.ForeColor = System.Drawing.Color.White;
+            this.labelTittle.Location = new System.Drawing.Point(154, 0);
+            this.labelTittle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelTittle.Name = "labelTittle";
+            this.labelTittle.Size = new System.Drawing.Size(884, 130);
+            this.labelTittle.TabIndex = 1;
+            this.labelTittle.Text = "POS";
+            this.labelTittle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2PictureBoxExit
             // 
@@ -120,6 +134,75 @@
             this.guna2PanelBottom.ShadowDecoration.Parent = this.guna2PanelBottom;
             this.guna2PanelBottom.Size = new System.Drawing.Size(1138, 122);
             this.guna2PanelBottom.TabIndex = 0;
+            // 
+            // guna2PanelButtonCheckOut
+            // 
+            this.guna2PanelButtonCheckOut.BackColor = System.Drawing.Color.Transparent;
+            this.guna2PanelButtonCheckOut.Controls.Add(this.guna2ButtonCheckOut);
+            this.guna2PanelButtonCheckOut.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2PanelButtonCheckOut.Location = new System.Drawing.Point(0, 0);
+            this.guna2PanelButtonCheckOut.Name = "guna2PanelButtonCheckOut";
+            this.guna2PanelButtonCheckOut.ShadowDecoration.Parent = this.guna2PanelButtonCheckOut;
+            this.guna2PanelButtonCheckOut.Size = new System.Drawing.Size(739, 122);
+            this.guna2PanelButtonCheckOut.TabIndex = 4;
+            // 
+            // guna2ButtonCheckOut
+            // 
+            this.guna2ButtonCheckOut.AutoRoundedCorners = true;
+            this.guna2ButtonCheckOut.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ButtonCheckOut.BorderRadius = 21;
+            this.guna2ButtonCheckOut.CheckedState.Parent = this.guna2ButtonCheckOut;
+            this.guna2ButtonCheckOut.CustomImages.Parent = this.guna2ButtonCheckOut;
+            this.guna2ButtonCheckOut.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.guna2ButtonCheckOut.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2ButtonCheckOut.ForeColor = System.Drawing.Color.White;
+            this.guna2ButtonCheckOut.HoverState.Parent = this.guna2ButtonCheckOut;
+            this.guna2ButtonCheckOut.Location = new System.Drawing.Point(25, 38);
+            this.guna2ButtonCheckOut.Name = "guna2ButtonCheckOut";
+            this.guna2ButtonCheckOut.ShadowDecoration.Parent = this.guna2ButtonCheckOut;
+            this.guna2ButtonCheckOut.Size = new System.Drawing.Size(117, 45);
+            this.guna2ButtonCheckOut.TabIndex = 1;
+            this.guna2ButtonCheckOut.Text = "Check out";
+            // 
+            // guna2PanelTotalPrice
+            // 
+            this.guna2PanelTotalPrice.BackColor = System.Drawing.Color.Transparent;
+            this.guna2PanelTotalPrice.Controls.Add(this.labelTotalMoneyNum);
+            this.guna2PanelTotalPrice.Controls.Add(this.labelTotal);
+            this.guna2PanelTotalPrice.Dock = System.Windows.Forms.DockStyle.Right;
+            this.guna2PanelTotalPrice.Location = new System.Drawing.Point(739, 0);
+            this.guna2PanelTotalPrice.Name = "guna2PanelTotalPrice";
+            this.guna2PanelTotalPrice.ShadowDecoration.Parent = this.guna2PanelTotalPrice;
+            this.guna2PanelTotalPrice.Size = new System.Drawing.Size(399, 122);
+            this.guna2PanelTotalPrice.TabIndex = 3;
+            // 
+            // labelTotalMoneyNum
+            // 
+            this.labelTotalMoneyNum.BackColor = System.Drawing.Color.Transparent;
+            this.labelTotalMoneyNum.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelTotalMoneyNum.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotalMoneyNum.ForeColor = System.Drawing.Color.White;
+            this.labelTotalMoneyNum.Location = new System.Drawing.Point(97, 0);
+            this.labelTotalMoneyNum.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelTotalMoneyNum.Name = "labelTotalMoneyNum";
+            this.labelTotalMoneyNum.Size = new System.Drawing.Size(302, 122);
+            this.labelTotalMoneyNum.TabIndex = 3;
+            this.labelTotalMoneyNum.Text = "0.00";
+            this.labelTotalMoneyNum.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelTotal
+            // 
+            this.labelTotal.BackColor = System.Drawing.Color.Transparent;
+            this.labelTotal.Dock = System.Windows.Forms.DockStyle.Left;
+            this.labelTotal.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotal.ForeColor = System.Drawing.Color.White;
+            this.labelTotal.Location = new System.Drawing.Point(0, 0);
+            this.labelTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelTotal.Name = "labelTotal";
+            this.labelTotal.Size = new System.Drawing.Size(97, 122);
+            this.labelTotal.TabIndex = 2;
+            this.labelTotal.Text = "Total";
+            this.labelTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // flowLayoutPanelCategory
             // 
@@ -184,6 +267,68 @@
             this.panelCenter.Name = "panelCenter";
             this.panelCenter.Size = new System.Drawing.Size(585, 319);
             this.panelCenter.TabIndex = 12;
+            // 
+            // ItemCategoryDelete
+            // 
+            this.ItemCategoryDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ItemCategoryDelete.FillWeight = 30F;
+            this.ItemCategoryDelete.HeaderText = "";
+            this.ItemCategoryDelete.Image = global::BillardManager.Properties.Resources.delete_24x24;
+            this.ItemCategoryDelete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.ItemCategoryDelete.MinimumWidth = 30;
+            this.ItemCategoryDelete.Name = "ItemCategoryDelete";
+            this.ItemCategoryDelete.ReadOnly = true;
+            this.ItemCategoryDelete.Width = 30;
+            // 
+            // Amount
+            // 
+            this.Amount.FillWeight = 30F;
+            this.Amount.HeaderText = "Amount";
+            this.Amount.MinimumWidth = 30;
+            this.Amount.Name = "Amount";
+            this.Amount.ReadOnly = true;
+            // 
+            // Price
+            // 
+            this.Price.FillWeight = 30F;
+            this.Price.HeaderText = "Price";
+            this.Price.MinimumWidth = 30;
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            // 
+            // Quantity
+            // 
+            this.Quantity.FillWeight = 30F;
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.MinimumWidth = 30;
+            this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
+            // 
+            // NameProduct
+            // 
+            this.NameProduct.FillWeight = 50F;
+            this.NameProduct.HeaderText = "Name";
+            this.NameProduct.MinimumWidth = 50;
+            this.NameProduct.Name = "NameProduct";
+            this.NameProduct.ReadOnly = true;
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "IdItem";
+            this.Id.MinimumWidth = 6;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            // 
+            // ItemSno
+            // 
+            this.ItemSno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ItemSno.FillWeight = 70F;
+            this.ItemSno.HeaderText = "Sr#";
+            this.ItemSno.MinimumWidth = 70;
+            this.ItemSno.Name = "ItemSno";
+            this.ItemSno.ReadOnly = true;
+            this.ItemSno.Width = 70;
             // 
             // guna2DataGridViewCategory
             // 
@@ -258,151 +403,6 @@
             this.guna2DataGridViewCategory.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.guna2DataGridViewCategory.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.guna2DataGridViewCategory_CellFormatting);
             // 
-            // ItemSno
-            // 
-            this.ItemSno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ItemSno.FillWeight = 70F;
-            this.ItemSno.HeaderText = "Sr#";
-            this.ItemSno.MinimumWidth = 70;
-            this.ItemSno.Name = "ItemSno";
-            this.ItemSno.ReadOnly = true;
-            this.ItemSno.Width = 70;
-            // 
-            // Id
-            // 
-            this.Id.HeaderText = "IdItem";
-            this.Id.MinimumWidth = 6;
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Visible = false;
-            // 
-            // NameProduct
-            // 
-            this.NameProduct.FillWeight = 50F;
-            this.NameProduct.HeaderText = "Name";
-            this.NameProduct.MinimumWidth = 50;
-            this.NameProduct.Name = "NameProduct";
-            this.NameProduct.ReadOnly = true;
-            // 
-            // Quantity
-            // 
-            this.Quantity.FillWeight = 30F;
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.MinimumWidth = 30;
-            this.Quantity.Name = "Quantity";
-            this.Quantity.ReadOnly = true;
-            // 
-            // Price
-            // 
-            this.Price.FillWeight = 30F;
-            this.Price.HeaderText = "Price";
-            this.Price.MinimumWidth = 30;
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
-            // 
-            // Amount
-            // 
-            this.Amount.FillWeight = 30F;
-            this.Amount.HeaderText = "Amount";
-            this.Amount.MinimumWidth = 30;
-            this.Amount.Name = "Amount";
-            this.Amount.ReadOnly = true;
-            // 
-            // ItemCategoryDelete
-            // 
-            this.ItemCategoryDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ItemCategoryDelete.FillWeight = 30F;
-            this.ItemCategoryDelete.HeaderText = "";
-            this.ItemCategoryDelete.Image = global::BillardManager.Properties.Resources.delete_24x24;
-            this.ItemCategoryDelete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.ItemCategoryDelete.MinimumWidth = 30;
-            this.ItemCategoryDelete.Name = "ItemCategoryDelete";
-            this.ItemCategoryDelete.ReadOnly = true;
-            this.ItemCategoryDelete.Width = 30;
-            // 
-            // labelTittle
-            // 
-            this.labelTittle.BackColor = System.Drawing.Color.Transparent;
-            this.labelTittle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelTittle.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTittle.ForeColor = System.Drawing.Color.White;
-            this.labelTittle.Location = new System.Drawing.Point(154, 0);
-            this.labelTittle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelTittle.Name = "labelTittle";
-            this.labelTittle.Size = new System.Drawing.Size(884, 130);
-            this.labelTittle.TabIndex = 1;
-            this.labelTittle.Text = "POS";
-            this.labelTittle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // guna2PanelTotalPrice
-            // 
-            this.guna2PanelTotalPrice.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PanelTotalPrice.Controls.Add(this.labelTotalMoneyNum);
-            this.guna2PanelTotalPrice.Controls.Add(this.labelTotal);
-            this.guna2PanelTotalPrice.Dock = System.Windows.Forms.DockStyle.Right;
-            this.guna2PanelTotalPrice.Location = new System.Drawing.Point(739, 0);
-            this.guna2PanelTotalPrice.Name = "guna2PanelTotalPrice";
-            this.guna2PanelTotalPrice.ShadowDecoration.Parent = this.guna2PanelTotalPrice;
-            this.guna2PanelTotalPrice.Size = new System.Drawing.Size(399, 122);
-            this.guna2PanelTotalPrice.TabIndex = 3;
-            // 
-            // labelTotal
-            // 
-            this.labelTotal.BackColor = System.Drawing.Color.Transparent;
-            this.labelTotal.Dock = System.Windows.Forms.DockStyle.Left;
-            this.labelTotal.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotal.ForeColor = System.Drawing.Color.White;
-            this.labelTotal.Location = new System.Drawing.Point(0, 0);
-            this.labelTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelTotal.Name = "labelTotal";
-            this.labelTotal.Size = new System.Drawing.Size(97, 122);
-            this.labelTotal.TabIndex = 2;
-            this.labelTotal.Text = "Total";
-            this.labelTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // labelTotalMoneyNum
-            // 
-            this.labelTotalMoneyNum.BackColor = System.Drawing.Color.Transparent;
-            this.labelTotalMoneyNum.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelTotalMoneyNum.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotalMoneyNum.ForeColor = System.Drawing.Color.White;
-            this.labelTotalMoneyNum.Location = new System.Drawing.Point(97, 0);
-            this.labelTotalMoneyNum.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelTotalMoneyNum.Name = "labelTotalMoneyNum";
-            this.labelTotalMoneyNum.Size = new System.Drawing.Size(302, 122);
-            this.labelTotalMoneyNum.TabIndex = 3;
-            this.labelTotalMoneyNum.Text = "0.00";
-            this.labelTotalMoneyNum.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // guna2PanelButtonCheckOut
-            // 
-            this.guna2PanelButtonCheckOut.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PanelButtonCheckOut.Controls.Add(this.guna2ButtonCheckOut);
-            this.guna2PanelButtonCheckOut.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2PanelButtonCheckOut.Location = new System.Drawing.Point(0, 0);
-            this.guna2PanelButtonCheckOut.Name = "guna2PanelButtonCheckOut";
-            this.guna2PanelButtonCheckOut.ShadowDecoration.Parent = this.guna2PanelButtonCheckOut;
-            this.guna2PanelButtonCheckOut.Size = new System.Drawing.Size(739, 122);
-            this.guna2PanelButtonCheckOut.TabIndex = 4;
-            // 
-            // guna2ButtonCheckOut
-            // 
-            this.guna2ButtonCheckOut.AutoRoundedCorners = true;
-            this.guna2ButtonCheckOut.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ButtonCheckOut.BorderRadius = 21;
-            this.guna2ButtonCheckOut.CheckedState.Parent = this.guna2ButtonCheckOut;
-            this.guna2ButtonCheckOut.CustomImages.Parent = this.guna2ButtonCheckOut;
-            this.guna2ButtonCheckOut.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.guna2ButtonCheckOut.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2ButtonCheckOut.ForeColor = System.Drawing.Color.White;
-            this.guna2ButtonCheckOut.HoverState.Parent = this.guna2ButtonCheckOut;
-            this.guna2ButtonCheckOut.Location = new System.Drawing.Point(25, 38);
-            this.guna2ButtonCheckOut.Name = "guna2ButtonCheckOut";
-            this.guna2ButtonCheckOut.ShadowDecoration.Parent = this.guna2ButtonCheckOut;
-            this.guna2ButtonCheckOut.Size = new System.Drawing.Size(117, 45);
-            this.guna2ButtonCheckOut.TabIndex = 1;
-            this.guna2ButtonCheckOut.Text = "Check out";
-            // 
             // FormPOS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -423,10 +423,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBoxExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBoxLogo)).EndInit();
             this.guna2PanelBottom.ResumeLayout(false);
+            this.guna2PanelButtonCheckOut.ResumeLayout(false);
+            this.guna2PanelTotalPrice.ResumeLayout(false);
             this.panelCenter.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridViewCategory)).EndInit();
-            this.guna2PanelTotalPrice.ResumeLayout(false);
-            this.guna2PanelButtonCheckOut.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -442,19 +442,19 @@
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         public Guna.UI2.WinForms.Guna2TextBox guna2TextBoxSearch;
         private System.Windows.Forms.Panel panelCenter;
-        private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridViewCategory;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ItemSno;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NameProduct;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
-        private System.Windows.Forms.DataGridViewImageColumn ItemCategoryDelete;
         private System.Windows.Forms.Label labelTittle;
         private Guna.UI2.WinForms.Guna2Panel guna2PanelButtonCheckOut;
         private Guna.UI2.WinForms.Guna2Panel guna2PanelTotalPrice;
         private System.Windows.Forms.Label labelTotalMoneyNum;
         private System.Windows.Forms.Label labelTotal;
         public Guna.UI2.WinForms.Guna2Button guna2ButtonCheckOut;
+        private System.Windows.Forms.DataGridViewImageColumn ItemCategoryDelete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NameProduct;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemSno;
+        private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridViewCategory;
     }
 }

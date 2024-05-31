@@ -86,6 +86,12 @@
     <Compile Include="Forms\FormHome.Designer.cs">
       <DependentUpon>FormHome.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\FormCheckOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\FormCheckOut.Designer.cs">
+      <DependentUpon>FormCheckOut.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\FormFoodAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,11 +123,23 @@
     <Compile Include="Model\FormCategoryAdd.Designer.cs">
       <DependentUpon>FormCategoryAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\FormTableOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\FormTableOrder.Designer.cs">
+      <DependentUpon>FormTableOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\ucProduct.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Model\ucProduct.Designer.cs">
       <DependentUpon>ucProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ucTable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Model\ucTable.Designer.cs">
+      <DependentUpon>ucTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -172,6 +190,9 @@
     <EmbeddedResource Include="Forms\FormHome.resx">
       <DependentUpon>FormHome.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Model\FormCheckOut.resx">
+      <DependentUpon>FormCheckOut.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Model\FormFoodAdd.resx">
       <DependentUpon>FormFoodAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -187,8 +208,14 @@
     <EmbeddedResource Include="Model\FormCategoryAdd.resx">
       <DependentUpon>FormCategoryAdd.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Model\FormTableOrder.resx">
+      <DependentUpon>FormTableOrder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Model\ucProduct.resx">
       <DependentUpon>ucProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\ucTable.resx">
+      <DependentUpon>ucTable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -226,6 +253,12 @@
   <ItemGroup>
     <Content Include="Guna2\Guna.UI.dll" />
     <Content Include="Guna2\Guna.UI2.dll" />
+    <None Include="Resources\pocketBilliards.png" />
+    <None Include="Resources\defaultTable.png" />
+    <None Include="Resources\caromBilliards.png" />
+    <None Include="Resources\Status_Repair.png" />
+    <None Include="Resources\Status_Playing.png" />
+    <None Include="Resources\Status_Empty.png" />
     <None Include="Resources\turn-off.png" />
     <None Include="Resources\food_add.png" />
     <None Include="Resources\food_color.png" />

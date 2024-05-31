@@ -111,6 +111,7 @@
             this.guna2ButtonHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
             this.guna2ButtonHome.BorderRadius = 21;
             this.guna2ButtonHome.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.guna2ButtonHome.Checked = true;
             this.guna2ButtonHome.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
             this.guna2ButtonHome.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("guna2ButtonHome.CheckedState.Image")));
             this.guna2ButtonHome.CheckedState.Parent = this.guna2ButtonHome;
@@ -368,7 +369,7 @@
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(933, 588);
             this.ControlBox = false;

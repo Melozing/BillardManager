@@ -93,6 +93,26 @@ namespace BillardManager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap caromBilliards {
+            get {
+                object obj = ResourceManager.GetObject("caromBilliards", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap defaultTable {
+            get {
+                object obj = ResourceManager.GetObject("defaultTable", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap delete {
             get {
                 object obj = ResourceManager.GetObject("delete", resourceCulture);
@@ -173,6 +193,16 @@ namespace BillardManager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap pocketBilliards {
+            get {
+                object obj = ResourceManager.GetObject("pocketBilliards", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pool_table {
             get {
                 object obj = ResourceManager.GetObject("pool-table", resourceCulture);
@@ -206,6 +236,36 @@ namespace BillardManager.Properties {
         internal static System.Drawing.Bitmap snooker__1_ {
             get {
                 object obj = ResourceManager.GetObject("snooker (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Status_Empty {
+            get {
+                object obj = ResourceManager.GetObject("Status_Empty", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Status_Playing {
+            get {
+                object obj = ResourceManager.GetObject("Status_Playing", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Status_Repair {
+            get {
+                object obj = ResourceManager.GetObject("Status_Repair", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

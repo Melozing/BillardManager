@@ -39,7 +39,7 @@ namespace BillardManager.Model
             else
             {
                 // Update user_account
-                queryUserAccount = "UPDATE user_account SET UserName = @UserName, UserPassword = @UserPassword, AccountStatus = @AccountStatus " +
+                queryUserAccount = "UPDATE user_account SET UserName = @UserName, UserPassword = @UserPassword, AccountStatus = 0 " +
                                    "WHERE IdUser = @id";
 
                 // Update user_info
