@@ -40,6 +40,17 @@ namespace BillardManager.Model
 
             flowLayoutPanelCategory.Controls.Clear();
 
+            //Add button All
+            Guna.UI2.WinForms.Guna2Button btnAll = new Guna.UI2.WinForms.Guna2Button();
+            btnAll.FillColor = Color.FromArgb(50, 55, 89);
+            btnAll.Size = new Size(134, 45);
+            btnAll.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            btnAll.Text = "All";
+            btnAll.Click += new EventHandler(_ClickAll);
+            btnAll.Width = flowLayoutPanelCategory.Width;
+            flowLayoutPanelCategory.Controls.Add(btnAll);
+            btnAll.Dock = DockStyle.Top;
+
             if (dataTable.Rows.Count > 0)
             {
                 foreach (DataRow row in dataTable.Rows)
@@ -66,6 +77,15 @@ namespace BillardManager.Model
             {
                 var prod = (ucProduct)item;
                 prod.Visible = prod.PCategory.ToLower().Contains(b.Text.Trim().ToLower());
+            }
+        }
+        private void _ClickAll(object sender, EventArgs e)
+        {
+            Guna.UI2.WinForms.Guna2Button b = (Guna.UI2.WinForms.Guna2Button)sender;
+            foreach (var item in flowLayoutPanelProduct.Controls)
+            {
+                var prod = (ucProduct)item;
+                prod.Visible = prod.PCategory.ToLower().Contains("");
             }
         }
 
@@ -132,7 +152,6 @@ namespace BillardManager.Model
                 prod.Visible = prod.PName.ToLower().Contains(guna2TextBoxSearch.Text.Trim().ToLower());
             }
         }
-
         private void guna2DataGridViewCategory_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             int count = 0;

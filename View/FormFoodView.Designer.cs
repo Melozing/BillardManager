@@ -60,6 +60,7 @@
             this.guna2TextBoxSearch.HoverState.Parent = this.guna2TextBoxSearch;
             this.guna2TextBoxSearch.ShadowDecoration.Parent = this.guna2TextBoxSearch;
             this.guna2TextBoxSearch.Size = new System.Drawing.Size(488, 34);
+            this.guna2TextBoxSearch.TextChanged += new System.EventHandler(this.guna2TextBoxSearch_TextChanged_1);
             // 
             // guna2ImageButtonAdd
             // 
@@ -226,7 +227,7 @@
             // 
             // FormFoodView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.guna2DataGridViewCategory);

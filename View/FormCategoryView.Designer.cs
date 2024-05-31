@@ -57,18 +57,17 @@
             this.guna2TextBoxSearch.HoverState.Parent = this.guna2TextBoxSearch;
             this.guna2TextBoxSearch.ShadowDecoration.Parent = this.guna2TextBoxSearch;
             this.guna2TextBoxSearch.Size = new System.Drawing.Size(386, 38);
+            this.guna2TextBoxSearch.TextChanged += new System.EventHandler(this.guna2TextBoxSearch_TextChanged_1);
             // 
             // guna2ImageButtonAdd
             // 
             this.guna2ImageButtonAdd.CheckedState.Parent = this.guna2ImageButtonAdd;
             this.guna2ImageButtonAdd.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.guna2ImageButtonAdd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2ImageButtonAdd.HoverState.ImageSize = new System.Drawing.Size(57, 57);
             this.guna2ImageButtonAdd.HoverState.Parent = this.guna2ImageButtonAdd;
             this.guna2ImageButtonAdd.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.guna2ImageButtonAdd.PressedState.ImageSize = new System.Drawing.Size(55, 55);
             this.guna2ImageButtonAdd.PressedState.Parent = this.guna2ImageButtonAdd;
-            this.guna2ImageButtonAdd.Size = new System.Drawing.Size(312, 81);
             this.guna2ImageButtonAdd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.guna2ImageButtonAdd.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.guna2ImageButtonAdd.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.None;
@@ -200,7 +199,7 @@
             // 
             // FormCategoryView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(698, 470);
             this.Controls.Add(this.guna2DataGridViewCategory);

@@ -63,7 +63,7 @@ namespace BillardManager
 
         private void guna2ButtonTable_Click(object sender, EventArgs e)
         {
-            AddControls(new FormPOS());
+            AddControls(new FormTableOrder());
         }
 
         private void guna2ControlBoxClose_Click(object sender, EventArgs e)

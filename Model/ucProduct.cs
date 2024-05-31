@@ -12,7 +12,6 @@ namespace BillardManager.Model
         {
             InitializeComponent();
         }
-
         public string id { get; set; }
         public string PCategory { get; set; }
         public string PPrice
@@ -20,7 +19,6 @@ namespace BillardManager.Model
             get { return labelPrice.Text; }
             set { labelPrice.Text = value; }
         }
-
         public string PName
         {
             get { return labelProduct.Text; }

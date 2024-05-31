@@ -68,5 +68,10 @@ namespace BillardManager.View
                 }
             }
         }
+
+        private void guna2TextBoxSearch_TextChanged_1(object sender, EventArgs e)
+        {
+            GetData();
+        }
     }
 }
