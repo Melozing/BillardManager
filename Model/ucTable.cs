@@ -28,7 +28,28 @@ namespace BillardManager.Model
         public string PStatus { get; set; }
         private void guna2ButtonStart_Click(object sender, System.EventArgs e)
         {
-            MainClass.BlurBackground(new FormPOS());
+            PStatus = "activeTables";
+            FormPOS formPOS = new FormPOS();
+            formPOS.idTable = id;
+            formPOS.WindowState = FormWindowState.Maximized;
+            MainClass.BlurBackground(formPOS);
+            SetActiveOrder();
+        }
+        public void SetActiveOrder()
+        {
+            pictureBoxStatus.Image = Properties.Resources.Status_Playing;
+            PanelTableName.BackColor = Color.Firebrick;
+            PictureBoxTable.BackColor = Color.IndianRed;
+            guna2ButtonStart.Hide();
+            guna2ButtonOder.Show();
+        }
+        public void SetInactiveOrder()
+        {
+            pictureBoxStatus.Image = Properties.Resources.Status_Empty;
+            PanelTableName.BackColor = Color.DarkGreen;
+            PictureBoxTable.BackColor = Color.ForestGreen;
+            guna2ButtonStart.Show();
+            guna2ButtonOder.Hide();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using BillardManager.Admin;
 using System;
+using System.Windows.Forms;
 
 namespace BillardManager.Model
 {
@@ -11,7 +12,7 @@ namespace BillardManager.Model
         }
 
         public double amount;
-
+        public string tableID;
         private void guna2TextBox1_TextChanged(object sender, System.EventArgs e)
         {
             double amt = 0;
@@ -27,7 +28,21 @@ namespace BillardManager.Model
         }
         public override void guna2ButtonSave_Click(object sender, EventArgs e)
         {
-            string query = @"";
+            string query = @"Update invoice set Invoice_Total = @total, 
+                            Invoice_Received = @rec, Invoice_Change = @change";
+        }
+
+        private void FormCheckOut_Load(object sender, EventArgs e)
+        {
+            MessageBox.Show(tableID);
+        }
+
+        private void guna2TextBoxReceived_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

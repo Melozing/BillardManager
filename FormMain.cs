@@ -70,5 +70,10 @@ namespace BillardManager
         {
             Application.Exit();
         }
+
+        private void guna2ButtonTableDetail_Click(object sender, EventArgs e)
+        {
+            AddControls(new FormTablesDetailView());
+        }
     }
 }

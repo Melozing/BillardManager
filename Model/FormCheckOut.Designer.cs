@@ -43,7 +43,7 @@
             // labelTop
             // 
             this.labelTop.Location = new System.Drawing.Point(84, 25);
-            this.labelTop.Size = new System.Drawing.Size(126, 32);
+            this.labelTop.Size = new System.Drawing.Size(99, 25);
             this.labelTop.Text = "Check Out";
             // 
             // gunaPictureBoxTop
@@ -69,7 +69,7 @@
             this.guna2ButtonClose.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.DefaultButton;
             this.guna2ButtonClose.CheckedState.Parent = this.guna2ButtonClose;
             this.guna2ButtonClose.CustomImages.Parent = this.guna2ButtonClose;
-            this.guna2ButtonClose.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.guna2ButtonClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.guna2ButtonClose.HoverState.Parent = this.guna2ButtonClose;
             this.guna2ButtonClose.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.guna2ButtonClose.ShadowDecoration.Parent = this.guna2ButtonClose;
@@ -133,7 +133,7 @@
             this.labelBillAmount.AutoSize = true;
             this.labelBillAmount.Location = new System.Drawing.Point(8, 91);
             this.labelBillAmount.Name = "labelBillAmount";
-            this.labelBillAmount.Size = new System.Drawing.Size(99, 23);
+            this.labelBillAmount.Size = new System.Drawing.Size(73, 17);
             this.labelBillAmount.TabIndex = 7;
             this.labelBillAmount.Text = "Bill Amount";
             // 
@@ -142,7 +142,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(360, 91);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(138, 23);
+            this.label1.Size = new System.Drawing.Size(105, 17);
             this.label1.TabIndex = 7;
             this.label1.Text = "Payment Receive";
             // 
@@ -160,7 +160,7 @@
             this.guna2TextBoxReceived.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBoxReceived.HoverState.Parent = this.guna2TextBoxReceived;
             this.guna2TextBoxReceived.Location = new System.Drawing.Point(364, 119);
-            this.guna2TextBoxReceived.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.guna2TextBoxReceived.Margin = new System.Windows.Forms.Padding(7);
             this.guna2TextBoxReceived.Name = "guna2TextBoxReceived";
             this.guna2TextBoxReceived.PasswordChar = '\0';
             this.guna2TextBoxReceived.PlaceholderText = "";
@@ -169,13 +169,14 @@
             this.guna2TextBoxReceived.Size = new System.Drawing.Size(354, 46);
             this.guna2TextBoxReceived.TabIndex = 6;
             this.guna2TextBoxReceived.TextChanged += new System.EventHandler(this.guna2TextBox1_TextChanged);
+            this.guna2TextBoxReceived.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.guna2TextBoxReceived_KeyPress);
             // 
             // labelCategory
             // 
             this.labelCategory.AutoSize = true;
             this.labelCategory.Location = new System.Drawing.Point(8, 180);
             this.labelCategory.Name = "labelCategory";
-            this.labelCategory.Size = new System.Drawing.Size(69, 23);
+            this.labelCategory.Size = new System.Drawing.Size(52, 17);
             this.labelCategory.TabIndex = 17;
             this.labelCategory.Text = "Change";
             // 
@@ -194,7 +195,7 @@
             this.guna2TextBoxChange.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBoxChange.HoverState.Parent = this.guna2TextBoxChange;
             this.guna2TextBoxChange.Location = new System.Drawing.Point(12, 208);
-            this.guna2TextBoxChange.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.guna2TextBoxChange.Margin = new System.Windows.Forms.Padding(7);
             this.guna2TextBoxChange.Name = "guna2TextBoxChange";
             this.guna2TextBoxChange.PasswordChar = '\0';
             this.guna2TextBoxChange.PlaceholderText = "";
@@ -205,8 +206,10 @@
             // 
             // FormCheckOut
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AcceptButton = this.guna2ButtonSave;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.guna2ButtonClose;
             this.ClientSize = new System.Drawing.Size(731, 360);
             this.Controls.Add(this.labelCategory);
             this.Controls.Add(this.guna2TextBoxReceived);
@@ -216,6 +219,7 @@
             this.Controls.Add(this.labelBillAmount);
             this.Name = "FormCheckOut";
             this.Text = "FormCheckOut";
+            this.Load += new System.EventHandler(this.FormCheckOut_Load);
             this.Controls.SetChildIndex(this.labelBillAmount, 0);
             this.Controls.SetChildIndex(this.guna2TextBoxBillAmount, 0);
             this.Controls.SetChildIndex(this.guna2TextBoxChange, 0);

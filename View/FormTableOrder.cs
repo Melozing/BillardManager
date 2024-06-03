@@ -66,6 +66,14 @@ namespace BillardManager.Model
                 PStatus = status,
                 id = idTable
             };
+            if (status == "inactive")
+            {
+                w.SetActiveOrder();
+            }
+            else
+            {
+                w.SetInactiveOrder();
+            }
             flowLayoutPanelProduct.Controls.Add(w);
         }
 

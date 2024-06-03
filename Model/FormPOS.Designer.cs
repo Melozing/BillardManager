@@ -163,6 +163,7 @@
             this.guna2ButtonCheckOut.Size = new System.Drawing.Size(117, 45);
             this.guna2ButtonCheckOut.TabIndex = 1;
             this.guna2ButtonCheckOut.Text = "Check out";
+            this.guna2ButtonCheckOut.Click += new System.EventHandler(this.guna2ButtonCheckOut_Click);
             // 
             // guna2PanelTotalPrice
             // 
@@ -405,7 +406,8 @@
             // 
             // FormPOS
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AcceptButton = this.guna2ButtonCheckOut;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1138, 571);
             this.Controls.Add(this.panelCenter);

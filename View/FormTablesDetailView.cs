@@ -7,41 +7,31 @@ using System.Windows.Forms;
 
 namespace BillardManager.View
 {
-    public partial class FormTablesView : SampleView
+    public partial class FormTablesDetailView : SampleView
     {
-        public FormTablesView()
+        public FormTablesDetailView()
         {
             InitializeComponent();
         }
-
-        private void FormTablesView_Load(object sender, System.EventArgs e)
-        {
-            GetData();
-        }
-
         public void GetData()
         {
-            string query = "Select TableIDType,TableType_Name,TableType_Price " +
-                "from table_type " +
-                "WHERE (TableType_Name LIKE '%" + guna2TextBoxSearch.Text + "%' OR TableType_Price LIKE '%" + guna2TextBoxSearch.Text + "%') " +
-                " AND TableTypeStatus != 1";
+            string query = "SELECT td.TableID, td.TableNumber, tt.TableType_Name " +
+               "FROM table_detail td " +
+               "JOIN table_type tt ON td.TableIDType = tt.TableIDType " +
+               "WHERE (tt.TableType_Name LIKE '%" + guna2TextBoxSearch.Text + "%' " +
+               "OR tt.TableType_Price LIKE '%" + guna2TextBoxSearch.Text + "%') " +
+               "AND tt.TableTypeStatus != 1 ORDER BY td.TableNumber";
+
             ListBox lb = new ListBox();
             lb.Items.Add(IdItemCategory);
             lb.Items.Add(ItemCategory_Name);
-            lb.Items.Add(TableType_Price);
+            lb.Items.Add(TableType);
 
             MainClass.LoadData(query, guna2DataGridViewCategory, lb);
         }
         public override void guna2ImageButtonAdd_Click(object sender, EventArgs e)
         {
-            //FormTableAdd frm = new FormTableAdd();
-            //frm.ShowDialog();
             MainClass.BlurBackground(new FormTableDetailAdd());
-            GetData();
-        }
-
-        public override void guna2TextBoxSearch_TextChanged(object sender, EventArgs e)
-        {
             GetData();
         }
 
@@ -49,8 +39,8 @@ namespace BillardManager.View
         {
             if (guna2DataGridViewCategory.CurrentCell.OwningColumn.Name == "ItemCategoryEdit")
             {
-                FormTableDetailAdd frm = new FormTableDetailAdd();
-                frm.tableDetailId = guna2DataGridViewCategory.CurrentRow.Cells["IdItemCategory"].Value.ToString();
+                FormCategoryAdd frm = new FormCategoryAdd();
+                frm.categoryId = guna2DataGridViewCategory.CurrentRow.Cells["IdItemCategory"].Value.ToString();
                 frm.guna2TextBoxName.Text = guna2DataGridViewCategory.CurrentRow.Cells["ItemCategory_Name"].Value.ToString();
                 MainClass.BlurBackground(frm);
                 GetData();
@@ -61,7 +51,7 @@ namespace BillardManager.View
                 if (dialogResult == DialogResult.OK)
                 {
                     string id = guna2DataGridViewCategory.CurrentRow.Cells["IdItemCategory"].Value.ToString();
-                    string query = "Update table_type set TableTypeStatus = 1 where TableIDType ='" + id + "'";
+                    string query = "Update table_detail set TableStatus = 1 where TableID ='" + id + "'";
                     Hashtable hashtable = new Hashtable();
                     MainClass.SQL(query, hashtable);
 
@@ -69,6 +59,15 @@ namespace BillardManager.View
                     GetData();
                 }
             }
+        }
+        private void guna2TextBoxSearch_TextChanged_1(object sender, System.EventArgs e)
+        {
+            GetData();
+        }
+
+        private void FormTablesDetailView_Load(object sender, EventArgs e)
+        {
+            GetData();
         }
     }
 }

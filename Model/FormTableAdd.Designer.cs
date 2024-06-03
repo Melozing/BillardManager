@@ -65,7 +65,7 @@
             this.guna2ButtonClose.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.DefaultButton;
             this.guna2ButtonClose.CheckedState.Parent = this.guna2ButtonClose;
             this.guna2ButtonClose.CustomImages.Parent = this.guna2ButtonClose;
-            this.guna2ButtonClose.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.guna2ButtonClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.guna2ButtonClose.HoverState.Parent = this.guna2ButtonClose;
             this.guna2ButtonClose.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.guna2ButtonClose.ShadowDecoration.Parent = this.guna2ButtonClose;
@@ -141,7 +141,7 @@
             this.guna2TextBoxPrice.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBoxPrice.HoverState.Parent = this.guna2TextBoxPrice;
             this.guna2TextBoxPrice.Location = new System.Drawing.Point(24, 211);
-            this.guna2TextBoxPrice.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.guna2TextBoxPrice.Margin = new System.Windows.Forms.Padding(5);
             this.guna2TextBoxPrice.Name = "guna2TextBoxPrice";
             this.guna2TextBoxPrice.PasswordChar = '\0';
             this.guna2TextBoxPrice.PlaceholderText = "";
@@ -149,11 +149,14 @@
             this.guna2TextBoxPrice.ShadowDecoration.Parent = this.guna2TextBoxPrice;
             this.guna2TextBoxPrice.Size = new System.Drawing.Size(240, 48);
             this.guna2TextBoxPrice.TabIndex = 1;
+            this.guna2TextBoxPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.guna2TextBoxPrice_KeyPress);
             // 
             // FormTableAdd
             // 
+            this.AcceptButton = this.guna2ButtonSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.guna2ButtonClose;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.labelPrice);
             this.Controls.Add(this.guna2TextBoxPrice);
