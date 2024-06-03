@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.guna2ControlBoxExit = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2TextBoxBillAmount = new Guna.UI2.WinForms.Guna2TextBox();
             this.labelBillAmount = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -79,12 +79,12 @@
             // 
             // guna2PanelTop
             // 
-            this.guna2PanelTop.Controls.Add(this.guna2ControlBox1);
+            this.guna2PanelTop.Controls.Add(this.guna2ControlBoxExit);
             this.guna2PanelTop.ShadowDecoration.Parent = this.guna2PanelTop;
             this.guna2PanelTop.Size = new System.Drawing.Size(731, 85);
             this.guna2PanelTop.Controls.SetChildIndex(this.gunaPictureBoxTop, 0);
             this.guna2PanelTop.Controls.SetChildIndex(this.labelTop, 0);
-            this.guna2PanelTop.Controls.SetChildIndex(this.guna2ControlBox1, 0);
+            this.guna2PanelTop.Controls.SetChildIndex(this.guna2ControlBoxExit, 0);
             // 
             // guna2PanelBottom
             // 
@@ -92,17 +92,20 @@
             this.guna2PanelBottom.ShadowDecoration.Parent = this.guna2PanelBottom;
             this.guna2PanelBottom.Size = new System.Drawing.Size(731, 70);
             // 
-            // guna2ControlBox1
+            // guna2ControlBoxExit
             // 
-            this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
-            this.guna2ControlBox1.HoverState.Parent = this.guna2ControlBox1;
-            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(659, 25);
-            this.guna2ControlBox1.Name = "guna2ControlBox1";
-            this.guna2ControlBox1.ShadowDecoration.Parent = this.guna2ControlBox1;
-            this.guna2ControlBox1.Size = new System.Drawing.Size(60, 51);
-            this.guna2ControlBox1.TabIndex = 3;
+            this.guna2ControlBoxExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBoxExit.Animated = true;
+            this.guna2ControlBoxExit.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ControlBoxExit.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.guna2ControlBoxExit.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.guna2ControlBoxExit.HoverState.Parent = this.guna2ControlBoxExit;
+            this.guna2ControlBoxExit.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBoxExit.Location = new System.Drawing.Point(679, 12);
+            this.guna2ControlBoxExit.Name = "guna2ControlBoxExit";
+            this.guna2ControlBoxExit.ShadowDecoration.Parent = this.guna2ControlBoxExit;
+            this.guna2ControlBoxExit.Size = new System.Drawing.Size(39, 34);
+            this.guna2ControlBoxExit.TabIndex = 3;
             // 
             // guna2TextBoxBillAmount
             // 
@@ -239,7 +242,7 @@
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
+        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBoxExit;
         public Guna.UI2.WinForms.Guna2TextBox guna2TextBoxBillAmount;
         private System.Windows.Forms.Label labelBillAmount;
         private System.Windows.Forms.Label label1;
