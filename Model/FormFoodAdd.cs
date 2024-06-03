@@ -114,5 +114,13 @@ namespace BillardManager.Model
                 guna2CirclePictureBoxFood.Image = Image.FromStream(new MemoryStream(imageByteArray));
             }
         }
+
+        private void guna2TextBoxPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

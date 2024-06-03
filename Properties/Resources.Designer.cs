@@ -73,6 +73,16 @@ namespace BillardManager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap billiard {
+            get {
+                object obj = ResourceManager.GetObject("billiard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap billiards__3_ {
             get {
                 object obj = ResourceManager.GetObject("billiards (3)", resourceCulture);
@@ -206,6 +216,16 @@ namespace BillardManager.Properties {
         internal static System.Drawing.Bitmap pool_table {
             get {
                 object obj = ResourceManager.GetObject("pool-table", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pool_table__1_ {
+            get {
+                object obj = ResourceManager.GetObject("pool-table (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

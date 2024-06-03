@@ -52,11 +52,14 @@ CREATE TABLE [dbo].[invoice] (
     [TableID] varchar(10) COLLATE Vietnamese_CI_AS NOT NULL,
     [Invoice_time] datetime NOT NULL,
     [Invoice_Status] int NULL,
-    [Invoice_Change] double NULL,
+    [Invoice_Total] decimal(18, 2) NULL,
+    [Invoice_Received] decimal(18, 2) NULL,
+    [Invoice_Change] decimal(18, 2) NULL,
     PRIMARY KEY CLUSTERED ([IdInvoice]),
     CONSTRAINT [FK_orders_table] FOREIGN KEY ([TableID]) REFERENCES [dbo].[table_detail] ([TableID])
 );
 GO
+
 
 CREATE TABLE [dbo].[invoice_detail] (
     [IdInvoice] varchar(10) COLLATE Vietnamese_CI_AS NOT NULL,

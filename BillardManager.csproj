@@ -123,10 +123,16 @@
     <Compile Include="Model\FormCategoryAdd.Designer.cs">
       <DependentUpon>FormCategoryAdd.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\FormTableOrder.cs">
+    <Compile Include="Model\FormTableDetailAdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Model\FormTableOrder.Designer.cs">
+    <Compile Include="Model\FormTableDetailAdd.Designer.cs">
+      <DependentUpon>FormTableDetailAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormTableOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormTableOrder.Designer.cs">
       <DependentUpon>FormTableOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\ucProduct.cs">
@@ -169,6 +175,12 @@
     <Compile Include="View\FormStaffView.Designer.cs">
       <DependentUpon>FormStaffView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\FormTablesDetailView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormTablesDetailView.Designer.cs">
+      <DependentUpon>FormTablesDetailView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FormTablesView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -208,7 +220,10 @@
     <EmbeddedResource Include="Model\FormCategoryAdd.resx">
       <DependentUpon>FormCategoryAdd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Model\FormTableOrder.resx">
+    <EmbeddedResource Include="Model\FormTableDetailAdd.resx">
+      <DependentUpon>FormTableDetailAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormTableOrder.resx">
       <DependentUpon>FormTableOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Model\ucProduct.resx">
@@ -230,6 +245,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormStaffView.resx">
       <DependentUpon>FormStaffView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormTablesDetailView.resx">
+      <DependentUpon>FormTablesDetailView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormTablesView.resx">
       <DependentUpon>FormTablesView.cs</DependentUpon>
@@ -253,6 +271,8 @@
   <ItemGroup>
     <Content Include="Guna2\Guna.UI.dll" />
     <Content Include="Guna2\Guna.UI2.dll" />
+    <None Include="Resources\pool-table %281%29.png" />
+    <None Include="Resources\billiard.png" />
     <None Include="Resources\pocketBilliards.png" />
     <None Include="Resources\defaultTable.png" />
     <None Include="Resources\caromBilliards.png" />

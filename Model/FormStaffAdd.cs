@@ -68,5 +68,13 @@ namespace BillardManager.Model
                 guna2TextBoxUsername.Focus();
             }
         }
+
+        private void guna2TextBoxBankAccountNumber_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

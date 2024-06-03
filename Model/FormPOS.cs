@@ -10,6 +10,8 @@ namespace BillardManager.Model
 {
     public partial class FormPOS : Form
     {
+        public string idTable;
+        public string idInvoice;
         public FormPOS()
         {
             InitializeComponent();
@@ -28,6 +30,7 @@ namespace BillardManager.Model
 
             AddCategory();
             LoadProducts();
+            LoadTableInfo();
         }
 
         private void AddCategory()
@@ -66,6 +69,21 @@ namespace BillardManager.Model
                     b.Width = flowLayoutPanelCategory.Width;
                     flowLayoutPanelCategory.Controls.Add(b);
                     b.Dock = DockStyle.Top;
+                }
+            }
+        }
+        private void LoadTableInfo()
+        {
+            string query = "Select TableNumber From table_detail Where TableID = '" + idTable + "'";
+            SqlCommand cmd = new SqlCommand(query, MainClass.conn);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            if (dataTable.Rows.Count > 0)
+            {
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    labelTittle.Text = "Table " + row["TableNumber"].ToString();
                 }
             }
         }
@@ -173,6 +191,13 @@ namespace BillardManager.Model
             }
 
             labelTotalMoneyNum.Text = total.ToString("N2");
+        }
+
+        private void guna2ButtonCheckOut_Click(object sender, EventArgs e)
+        {
+            FormCheckOut frmCheckOut = new FormCheckOut();
+            frmCheckOut.tableID = idTable;
+            MainClass.BlurBackground(frmCheckOut);
         }
     }
 }

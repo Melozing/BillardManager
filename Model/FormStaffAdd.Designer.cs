@@ -71,7 +71,7 @@
             this.guna2ButtonClose.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.DefaultButton;
             this.guna2ButtonClose.CheckedState.Parent = this.guna2ButtonClose;
             this.guna2ButtonClose.CustomImages.Parent = this.guna2ButtonClose;
-            this.guna2ButtonClose.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.guna2ButtonClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.guna2ButtonClose.HoverState.Parent = this.guna2ButtonClose;
             this.guna2ButtonClose.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.guna2ButtonClose.ShadowDecoration.Parent = this.guna2ButtonClose;
@@ -170,7 +170,7 @@
             this.guna2TextBoxPhone.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBoxPhone.HoverState.Parent = this.guna2TextBoxPhone;
             this.guna2TextBoxPhone.Location = new System.Drawing.Point(22, 189);
-            this.guna2TextBoxPhone.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.guna2TextBoxPhone.Margin = new System.Windows.Forms.Padding(7);
             this.guna2TextBoxPhone.Name = "guna2TextBoxPhone";
             this.guna2TextBoxPhone.PasswordChar = '\0';
             this.guna2TextBoxPhone.PlaceholderText = "";
@@ -178,6 +178,7 @@
             this.guna2TextBoxPhone.ShadowDecoration.Parent = this.guna2TextBoxPhone;
             this.guna2TextBoxPhone.Size = new System.Drawing.Size(280, 35);
             this.guna2TextBoxPhone.TabIndex = 2;
+            this.guna2TextBoxPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.guna2TextBoxBankAccountNumber_KeyPress);
             // 
             // labelPhone
             // 
@@ -219,6 +220,7 @@
             this.guna2TextBoxBankAccountNumber.ShadowDecoration.Parent = this.guna2TextBoxBankAccountNumber;
             this.guna2TextBoxBankAccountNumber.Size = new System.Drawing.Size(280, 35);
             this.guna2TextBoxBankAccountNumber.TabIndex = 3;
+            this.guna2TextBoxBankAccountNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.guna2TextBoxBankAccountNumber_KeyPress);
             // 
             // labelBankName
             // 
@@ -254,8 +256,10 @@
             // 
             // FormStaffAdd
             // 
+            this.AcceptButton = this.guna2ButtonSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.guna2ButtonClose;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.guna2TextBoxBankName);
             this.Controls.Add(this.guna2TextBoxBankAccountNumber);

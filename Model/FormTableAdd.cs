@@ -40,5 +40,13 @@ namespace BillardManager.Forms
                 guna2TextBoxName.Focus();
             }
         }
+
+        private void guna2TextBoxPrice_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

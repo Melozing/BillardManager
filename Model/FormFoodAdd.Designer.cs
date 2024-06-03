@@ -111,6 +111,7 @@
             this.guna2TextBoxPrice.ShadowDecoration.Parent = this.guna2TextBoxPrice;
             this.guna2TextBoxPrice.Size = new System.Drawing.Size(327, 25);
             this.guna2TextBoxPrice.TabIndex = 7;
+            this.guna2TextBoxPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.guna2TextBoxPrice_KeyPress);
             // 
             // labelPrice
             // 
@@ -155,6 +156,7 @@
             // 
             // comboBoxCategory
             // 
+            this.comboBoxCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCategory.FormattingEnabled = true;
             this.comboBoxCategory.Location = new System.Drawing.Point(14, 182);
             this.comboBoxCategory.Name = "comboBoxCategory";
@@ -189,6 +191,7 @@
             this.guna2ButtonBrowse.BorderRadius = 24;
             this.guna2ButtonBrowse.CheckedState.Parent = this.guna2ButtonBrowse;
             this.guna2ButtonBrowse.CustomImages.Parent = this.guna2ButtonBrowse;
+            this.guna2ButtonBrowse.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.guna2ButtonBrowse.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2ButtonBrowse.ForeColor = System.Drawing.Color.White;
             this.guna2ButtonBrowse.HoverState.Parent = this.guna2ButtonBrowse;
@@ -202,8 +205,10 @@
             // 
             // FormFoodAdd
             // 
+            this.AcceptButton = this.guna2ButtonSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.guna2ButtonClose;
             this.ClientSize = new System.Drawing.Size(693, 457);
             this.Controls.Add(this.guna2ButtonBrowse);
             this.Controls.Add(this.guna2CirclePictureBoxFood);

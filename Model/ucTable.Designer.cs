@@ -30,12 +30,13 @@
         {
             this.PanelTableName = new System.Windows.Forms.Panel();
             this.LabelTableName = new System.Windows.Forms.Label();
+            this.pictureBoxStatus = new System.Windows.Forms.PictureBox();
             this.guna2ButtonStart = new Guna.UI2.WinForms.Guna2Button();
             this.PictureBoxTable = new System.Windows.Forms.PictureBox();
-            this.pictureBoxStatus = new System.Windows.Forms.PictureBox();
+            this.guna2ButtonOder = new Guna.UI2.WinForms.Guna2Button();
             this.PanelTableName.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatus)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxTable)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelTableName
@@ -46,9 +47,9 @@
             this.PanelTableName.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelTableName.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.PanelTableName.Location = new System.Drawing.Point(0, 0);
-            this.PanelTableName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PanelTableName.Margin = new System.Windows.Forms.Padding(2);
             this.PanelTableName.Name = "PanelTableName";
-            this.PanelTableName.Size = new System.Drawing.Size(164, 39);
+            this.PanelTableName.Size = new System.Drawing.Size(123, 32);
             this.PanelTableName.TabIndex = 4;
             // 
             // LabelTableName
@@ -59,27 +60,40 @@
             this.LabelTableName.Location = new System.Drawing.Point(0, 0);
             this.LabelTableName.Margin = new System.Windows.Forms.Padding(0);
             this.LabelTableName.Name = "LabelTableName";
-            this.LabelTableName.Size = new System.Drawing.Size(121, 39);
+            this.LabelTableName.Size = new System.Drawing.Size(91, 32);
             this.LabelTableName.TabIndex = 2;
             this.LabelTableName.Text = "Table 1";
             this.LabelTableName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBoxStatus
+            // 
+            this.pictureBoxStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.pictureBoxStatus.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pictureBoxStatus.Image = global::BillardManager.Properties.Resources.Status_Empty;
+            this.pictureBoxStatus.Location = new System.Drawing.Point(91, 0);
+            this.pictureBoxStatus.Name = "pictureBoxStatus";
+            this.pictureBoxStatus.Size = new System.Drawing.Size(32, 32);
+            this.pictureBoxStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxStatus.TabIndex = 1;
+            this.pictureBoxStatus.TabStop = false;
             // 
             // guna2ButtonStart
             // 
             this.guna2ButtonStart.BorderThickness = 1;
             this.guna2ButtonStart.CheckedState.Parent = this.guna2ButtonStart;
-            this.guna2ButtonStart.CustomBorderColor = System.Drawing.Color.Ivory;
+            this.guna2ButtonStart.CustomBorderColor = System.Drawing.Color.LightPink;
             this.guna2ButtonStart.CustomBorderThickness = new System.Windows.Forms.Padding(3);
             this.guna2ButtonStart.CustomImages.Parent = this.guna2ButtonStart;
-            this.guna2ButtonStart.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2ButtonStart.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.guna2ButtonStart.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.guna2ButtonStart.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.guna2ButtonStart.ForeColor = System.Drawing.Color.White;
             this.guna2ButtonStart.HoverState.Parent = this.guna2ButtonStart;
-            this.guna2ButtonStart.Location = new System.Drawing.Point(0, 149);
+            this.guna2ButtonStart.Location = new System.Drawing.Point(0, 121);
+            this.guna2ButtonStart.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ButtonStart.Name = "guna2ButtonStart";
             this.guna2ButtonStart.ShadowDecoration.Parent = this.guna2ButtonStart;
-            this.guna2ButtonStart.Size = new System.Drawing.Size(164, 28);
+            this.guna2ButtonStart.Size = new System.Drawing.Size(123, 23);
             this.guna2ButtonStart.TabIndex = 6;
             this.guna2ButtonStart.Text = "START";
             this.guna2ButtonStart.Click += new System.EventHandler(this.guna2ButtonStart_Click);
@@ -89,39 +103,50 @@
             this.PictureBoxTable.BackColor = System.Drawing.Color.IndianRed;
             this.PictureBoxTable.Dock = System.Windows.Forms.DockStyle.Top;
             this.PictureBoxTable.Image = global::BillardManager.Properties.Resources.pocketBilliards;
-            this.PictureBoxTable.Location = new System.Drawing.Point(0, 39);
-            this.PictureBoxTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PictureBoxTable.Location = new System.Drawing.Point(0, 32);
+            this.PictureBoxTable.Margin = new System.Windows.Forms.Padding(2);
             this.PictureBoxTable.Name = "PictureBoxTable";
-            this.PictureBoxTable.Size = new System.Drawing.Size(164, 110);
+            this.PictureBoxTable.Size = new System.Drawing.Size(123, 89);
             this.PictureBoxTable.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PictureBoxTable.TabIndex = 5;
             this.PictureBoxTable.TabStop = false;
             // 
-            // pictureBoxStatus
+            // guna2ButtonOder
             // 
-            this.pictureBoxStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.pictureBoxStatus.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pictureBoxStatus.Image = global::BillardManager.Properties.Resources.Status_Empty;
-            this.pictureBoxStatus.Location = new System.Drawing.Point(121, 0);
-            this.pictureBoxStatus.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxStatus.Name = "pictureBoxStatus";
-            this.pictureBoxStatus.Size = new System.Drawing.Size(43, 39);
-            this.pictureBoxStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxStatus.TabIndex = 1;
-            this.pictureBoxStatus.TabStop = false;
+            this.guna2ButtonOder.BackColor = System.Drawing.Color.OrangeRed;
+            this.guna2ButtonOder.BorderThickness = 1;
+            this.guna2ButtonOder.CheckedState.Parent = this.guna2ButtonOder;
+            this.guna2ButtonOder.CustomBorderColor = System.Drawing.Color.ForestGreen;
+            this.guna2ButtonOder.CustomBorderThickness = new System.Windows.Forms.Padding(3);
+            this.guna2ButtonOder.CustomImages.Parent = this.guna2ButtonOder;
+            this.guna2ButtonOder.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.guna2ButtonOder.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.guna2ButtonOder.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.guna2ButtonOder.ForeColor = System.Drawing.Color.White;
+            this.guna2ButtonOder.HoverState.Parent = this.guna2ButtonOder;
+            this.guna2ButtonOder.Location = new System.Drawing.Point(0, 98);
+            this.guna2ButtonOder.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2ButtonOder.Name = "guna2ButtonOder";
+            this.guna2ButtonOder.ShadowDecoration.Parent = this.guna2ButtonOder;
+            this.guna2ButtonOder.Size = new System.Drawing.Size(123, 23);
+            this.guna2ButtonOder.TabIndex = 8;
+            this.guna2ButtonOder.Text = "ORDER";
+            this.guna2ButtonOder.Visible = false;
             // 
             // ucTable
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.guna2ButtonOder);
             this.Controls.Add(this.guna2ButtonStart);
             this.Controls.Add(this.PictureBoxTable);
             this.Controls.Add(this.PanelTableName);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ucTable";
-            this.Size = new System.Drawing.Size(164, 177);
+            this.Size = new System.Drawing.Size(123, 144);
             this.PanelTableName.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatus)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxTable)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -132,5 +157,6 @@
         private System.Windows.Forms.Label LabelTableName;
         private System.Windows.Forms.PictureBox PictureBoxTable;
         private Guna.UI2.WinForms.Guna2Button guna2ButtonStart;
+        private Guna.UI2.WinForms.Guna2Button guna2ButtonOder;
     }
 }
