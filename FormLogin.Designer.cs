@@ -130,12 +130,13 @@
             this.guna2TextBoxPassword.Location = new System.Drawing.Point(52, 404);
             this.guna2TextBoxPassword.Margin = new System.Windows.Forms.Padding(4);
             this.guna2TextBoxPassword.Name = "guna2TextBoxPassword";
-            this.guna2TextBoxPassword.PasswordChar = '*';
+            this.guna2TextBoxPassword.PasswordChar = '\0';
             this.guna2TextBoxPassword.PlaceholderText = "";
             this.guna2TextBoxPassword.SelectedText = "";
             this.guna2TextBoxPassword.ShadowDecoration.Parent = this.guna2TextBoxPassword;
             this.guna2TextBoxPassword.Size = new System.Drawing.Size(233, 47);
             this.guna2TextBoxPassword.TabIndex = 4;
+            this.guna2TextBoxPassword.UseSystemPasswordChar = true;
             // 
             // labelPassword
             // 

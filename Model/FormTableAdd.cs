@@ -37,6 +37,7 @@ namespace BillardManager.Forms
                 MessageFuctionConstans.SuccessOK("Saved successfully...");
                 tableId = null;
                 guna2TextBoxName.Clear();
+                guna2TextBoxPrice.Clear();
                 guna2TextBoxName.Focus();
             }
         }

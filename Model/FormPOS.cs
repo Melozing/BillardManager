@@ -29,12 +29,11 @@ namespace BillardManager.Model
             guna2DataGridViewCategory.BorderStyle = BorderStyle.FixedSingle;
             flowLayoutPanelCategory.Controls.Clear();
             flowLayoutPanelProduct.Controls.Clear();
-            CountHourPlay();
-            ShowHourPlay();
             if (PStatus == "inactive")
             {
                 AddHourPlay();
             }
+            CountHourPlay();
             AddCategory();
             LoadProducts();
             LoadTableInfo();
@@ -58,50 +57,6 @@ namespace BillardManager.Model
             ht.Add("@NewIDInvoice", idInvoice);
             ht.Add("@FormattedTime", formattedTime);
             MainClass.SQL(query, ht);
-            ShowHourPlay();
-        }
-        private void ShowHourPlay()
-        {
-            string query = @"
-            SELECT tt.TableType_Price, inv_det.Invoice_TotalAmount
-            FROM table_detail td
-            JOIN table_type tt ON td.TableIDType = tt.TableIDType
-            JOIN invoice inv ON td.TableID = inv.TableID
-            JOIN invoice_detail inv_det ON inv.IdInvoice = inv_det.IdInvoice
-            WHERE td.TableID = @TableID 
-            AND inv.Invoice_Status = 0;";
-
-            using (SqlCommand cmd = new SqlCommand(query, MainClass.conn))
-            {
-                // Thêm tham số vào truy vấn
-                cmd.Parameters.AddWithValue("@TableID", idTable);
-
-                using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
-                {
-                    DataTable dataTable = new DataTable();
-                    adapter.Fill(dataTable);
-
-                    foreach (DataRow item in dataTable.Rows)
-                    {
-                        // Loại bỏ các ký tự đặc biệt từ TableType_Price trước khi chuyển đổi thành số
-                        string priceStr = Regex.Replace(item["TableType_Price"].ToString(), @"[^0-9.]", "");
-                        double price = double.Parse(priceStr);
-                        int invoiceTotalAmount = int.Parse(item["Invoice_TotalAmount"].ToString());
-                        double total = price * invoiceTotalAmount;
-
-                        // Thêm dòng vào DataGridView
-                        guna2DataGridViewCategory.Rows.Add(new object[]
-                        {
-                    0,
-                    "IHour",
-                    "Play time",
-                    invoiceTotalAmount,
-                    priceStr,
-                    total
-                        });
-                    }
-                }
-            }
         }
         private void CountHourPlay()
         {
@@ -114,9 +69,13 @@ namespace BillardManager.Model
             // Tính khoảng cách thời gian giữa thời gian khởi tạo và thời gian hiện tại
             TimeSpan timeDifference = currentTime - invoiceTime;
 
-            // Tính số phút chơi
-            float totalMinutesPlayed = (float)timeDifference.TotalMinutes;
+            // Tính số phút chơi và số giờ chơi
+            double totalMinutesPlayed = timeDifference.TotalMinutes;
             double totalHoursPlayed = timeDifference.TotalHours;
+
+            // Làm tròn số giờ đã chơi đến hai chữ số thập phân
+            double roundedTotalHoursPlayed = Math.Round(totalHoursPlayed, 2);
+
             // Lấy giá loại bàn từ cơ sở dữ liệu
             string queryTablePrice = @"
             SELECT tt.TableType_Price
@@ -135,29 +94,49 @@ namespace BillardManager.Model
                     cmdTablePrice.Parameters.AddWithValue(item.Key.ToString(), item.Value);
                 }
                 if (MainClass.conn.State == ConnectionState.Closed) { MainClass.conn.Open(); }
-                object result = cmdTablePrice.ExecuteScalar();
-                if (MainClass.conn.State == ConnectionState.Open) { MainClass.conn.Close(); }
-
-                if (result != null && result != DBNull.Value)
+                try
                 {
-                    tableTypePrice = Convert.ToDecimal(result);
+                    object result = cmdTablePrice.ExecuteScalar();
+                    if (result != null && result != DBNull.Value)
+                    {
+                        tableTypePrice = Convert.ToDecimal(result);
+                    }
+                }
+                finally
+                {
+                    if (MainClass.conn.State == ConnectionState.Open) { MainClass.conn.Close(); }
                 }
             }
 
             // Tính số tiền phải trả dựa trên số phút chơi và giá loại bàn
             decimal pricePerMinute = tableTypePrice / 60;
             decimal totalAmountDue = pricePerMinute * (decimal)totalMinutesPlayed;
-            string queryUpdate = "Update invoice_detail SET Invoice_TotalAmount = @HourCount " +
-                "Where IdInvoice = @idInvoice AND IdItem = 'IHour'";
-            Hashtable ht = new Hashtable();
-            ht.Add("@idInvoice", idInvoice);
-            ht.Add("@HourCount", totalHoursPlayed);
-            MainClass.SQL(queryUpdate, ht);
-            // Hiển thị tổng số tiền phải trả
-            MessageBox.Show($"Số giờ đã chơi: {totalHoursPlayed:F2} giờ\nTổng số tiền phải trả: {totalAmountDue:C}");
 
-            // Lưu biến totalAmountDue để sử dụng sau
-            // Bạn có thể lưu biến này vào đâu đó nếu cần thiết
+            // Làm tròn số tiền phải trả đến gần nhất 1000 đồng
+            decimal roundedTotalAmountDue = Math.Round(totalAmountDue / 1000, 0) * 1000;
+
+            // Cập nhật tổng số giờ đã chơi vào cơ sở dữ liệu
+            string queryUpdate = @"
+            UPDATE invoice_detail 
+            SET Invoice_TotalAmount = @HourCount 
+            WHERE IdInvoice = '" + idInvoice + "' AND IdItem = 'IHour'";
+
+            Hashtable htUpdate = new Hashtable();
+            htUpdate.Add("@HourCount", roundedTotalHoursPlayed);
+
+            MainClass.SQL(queryUpdate, htUpdate);
+
+            // Hiển thị số giờ đã chơi và tổng số tiền phải trả
+            guna2DataGridViewCategory.Rows.Add(new object[]
+            {
+            0,
+            "IHour",
+            "Play time",
+            roundedTotalHoursPlayed,
+            tableTypePrice,
+            roundedTotalAmountDue.ToString("N0")
+            });
+            GetTotal();
         }
 
         private DateTime GetInvoiceTimeFromDatabase()
@@ -175,6 +154,8 @@ namespace BillardManager.Model
             if (MainClass.conn.State == ConnectionState.Open) { MainClass.conn.Close(); }
             return invoiceTime;
         }
+
+
         private void AddCategory()
         {
             string query = "Select * From items_category";
@@ -251,6 +232,8 @@ namespace BillardManager.Model
 
         private void AddItems(string idItem, string name, string cat, string price, Image pimage)
         {
+            double totalAmount = 0;
+
             var w = new ucProduct()
             {
                 PName = name,
@@ -265,18 +248,26 @@ namespace BillardManager.Model
                 var wdg = (ucProduct)ss;
                 foreach (DataGridViewRow item in guna2DataGridViewCategory.Rows)
                 {
-                    //check it produuct already there then a one to quantity and update price
+                    // Kiểm tra xem sản phẩm đã tồn tại trong DataGridView chưa
                     if (item.Cells["Id"].Value.ToString() == wdg.id)
                     {
-                        item.Cells["Quantity"].Value = int.Parse(item.Cells["Quantity"].Value.ToString()) + 1;
-                        item.Cells["Amount"].Value = int.Parse(item.Cells["Quantity"].Value.ToString()) *
-                        double.Parse(Regex.Replace(item.Cells["Price"].Value.ToString(), @"[^0-9.]", ""));
+                        // Cập nhật số lượng
+                        int quantity = int.Parse(item.Cells["Quantity"].Value.ToString()) + 1;
+                        item.Cells["Quantity"].Value = quantity;
+
+                        // Cập nhật tổng giá trị
+                        double parsedPrice = double.Parse(Regex.Replace(wdg.PPrice, @"[^0-9.]", ""));
+                        totalAmount = quantity * parsedPrice;
+                        item.Cells["Amount"].Value = totalAmount.ToString("N0");
+                        GetTotal();
                         return;
                     }
                 }
 
-                //add new product
-                guna2DataGridViewCategory.Rows.Add(new object[] { 0, wdg.id, wdg.PName, 1, Regex.Replace(wdg.PPrice, @"[^0-9.]", ""), Regex.Replace(wdg.PPrice, @"[^0-9.]", "") });
+                // Thêm sản phẩm mới
+                double parsedPriceNew = double.Parse(Regex.Replace(wdg.PPrice, @"[^0-9.]", ""));
+                totalAmount += parsedPriceNew;
+                guna2DataGridViewCategory.Rows.Add(new object[] { 0, wdg.id, wdg.PName, 1, parsedPriceNew.ToString("N0"), totalAmount.ToString("N0") });
                 GetTotal();
             };
         }
@@ -332,13 +323,14 @@ namespace BillardManager.Model
                 total += double.Parse(Regex.Replace(item.Cells["Amount"].Value.ToString(), @"[^0-9.]", ""));
             }
 
-            labelTotalMoneyNum.Text = total.ToString("N2");
+            labelTotalMoneyNum.Text = total.ToString("N0");
         }
 
         private void guna2ButtonCheckOut_Click(object sender, EventArgs e)
         {
             FormCheckOut frmCheckOut = new FormCheckOut();
             frmCheckOut.tableID = idTable;
+            frmCheckOut.amount = Convert.ToDouble(labelTotalMoneyNum.Text);
             MainClass.BlurBackground(frmCheckOut);
         }
     }
