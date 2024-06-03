@@ -10,6 +10,7 @@ namespace BillardManager.Model
             InitializeComponent();
         }
         public string id { get; set; }
+        public string idInvoice { get; set; }
         public string PName
         {
             get { return LabelTableName.Text; }
@@ -28,28 +29,40 @@ namespace BillardManager.Model
         public string PStatus { get; set; }
         private void guna2ButtonStart_Click(object sender, System.EventArgs e)
         {
-            PStatus = "activeTables";
-            FormPOS formPOS = new FormPOS();
-            formPOS.idTable = id;
-            formPOS.WindowState = FormWindowState.Maximized;
-            MainClass.BlurBackground(formPOS);
-            SetActiveOrder();
+            if (PStatus == "activeTables")
+            {
+                PStatus = "inactive";
+                FormPOS formPOS = new FormPOS();
+                formPOS.idTable = id;
+                formPOS.PStatus = PStatus;
+                formPOS.WindowState = FormWindowState.Maximized;
+                MainClass.BlurBackground(formPOS);
+                SetActiveOrder();
+            }
+            else
+            {
+                FormPOS formPOS = new FormPOS();
+                formPOS.idTable = id;
+                formPOS.WindowState = FormWindowState.Maximized;
+                MainClass.BlurBackground(formPOS);
+            }
+
         }
         public void SetActiveOrder()
         {
             pictureBoxStatus.Image = Properties.Resources.Status_Playing;
             PanelTableName.BackColor = Color.Firebrick;
             PictureBoxTable.BackColor = Color.IndianRed;
-            guna2ButtonStart.Hide();
-            guna2ButtonOder.Show();
+            guna2ButtonStart.Text = "Order";
+            guna2ButtonStart.FillColor = Color.ForestGreen;
         }
         public void SetInactiveOrder()
         {
             pictureBoxStatus.Image = Properties.Resources.Status_Empty;
             PanelTableName.BackColor = Color.DarkGreen;
             PictureBoxTable.BackColor = Color.ForestGreen;
-            guna2ButtonStart.Show();
-            guna2ButtonOder.Hide();
+            guna2ButtonStart.Text = "Start";
+            guna2ButtonStart.FillColor = Color.FromArgb(255, 128, 128);
         }
     }
 }

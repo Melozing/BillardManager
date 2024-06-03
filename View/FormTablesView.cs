@@ -1,5 +1,6 @@
 ﻿using BiaManager.Script;
 using BillardManager.Admin;
+using BillardManager.Forms;
 using BillardManager.Model;
 using System;
 using System.Collections;
@@ -34,9 +35,7 @@ namespace BillardManager.View
         }
         public override void guna2ImageButtonAdd_Click(object sender, EventArgs e)
         {
-            //FormTableAdd frm = new FormTableAdd();
-            //frm.ShowDialog();
-            MainClass.BlurBackground(new FormTableDetailAdd());
+            MainClass.BlurBackground(new FormTableAdd());
             GetData();
         }
 

@@ -64,7 +64,7 @@ GO
 CREATE TABLE [dbo].[invoice_detail] (
     [IdInvoice] varchar(10) COLLATE Vietnamese_CI_AS NOT NULL,
     [IdItem] varchar(10) COLLATE Vietnamese_CI_AS NOT NULL,
-    [Invoice_TotalAmount] int NOT NULL,
+    [Invoice_TotalAmount] float NOT NULL,
     CONSTRAINT [FK_invoice_detail_invoice] FOREIGN KEY ([IdInvoice]) REFERENCES [dbo].[invoice] ([IdInvoice]),
     CONSTRAINT [FK_invoice_detail_items_menu] FOREIGN KEY ([IdItem]) REFERENCES [dbo].[items_menu] ([IdItem])
 );
@@ -94,4 +94,4 @@ INSERT INTO user_account (IdUser,UserName, UserPassword, UserRole) VALUES ('U0',
 INSERT INTO table_type (TableIDType,TableType_Name, TableType_Price) VALUES ('TBT01', 'Carom billiards', 25000);
 INSERT INTO table_type (TableIDType,TableType_Name, TableType_Price) VALUES ('TBT02', 'Pocket Billiards', 30000);
 INSERT INTO items_category (IdItemCategory, ItemCategory_Name) VALUES ('ICD', 'Other');
-INSERT INTO items_menu (IdItem, item_Name, IdItemCategory, item_Price) VALUES ('IHour', 'Playtime', 'ICD', 30000);
+INSERT INTO items_menu (IdItem, item_Name, IdItemCategory, item_Price) VALUES ('IHour', 'Play time', 'ICD', 30000);

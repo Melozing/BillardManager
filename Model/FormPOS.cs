@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -12,6 +13,7 @@ namespace BillardManager.Model
     {
         public string idTable;
         public string idInvoice;
+        public string PStatus;
         public FormPOS()
         {
             InitializeComponent();
@@ -27,12 +29,152 @@ namespace BillardManager.Model
             guna2DataGridViewCategory.BorderStyle = BorderStyle.FixedSingle;
             flowLayoutPanelCategory.Controls.Clear();
             flowLayoutPanelProduct.Controls.Clear();
-
+            CountHourPlay();
+            ShowHourPlay();
+            if (PStatus == "inactive")
+            {
+                AddHourPlay();
+            }
             AddCategory();
             LoadProducts();
             LoadTableInfo();
         }
+        private void AddHourPlay()
+        {
+            DateTime currentTime = DateTime.Now;
+            string idInvoice = MainClass.GenerateUniqueId("invoice", "IdInvoice", "U");
+            string formattedTime = currentTime.ToString("yyyy-MM-dd HH:mm:ss"); // Định dạng thời gian theo format của cột datetime trong database
+            Hashtable ht = new Hashtable();
+            string query = @"
+            BEGIN TRANSACTION;
+            UPDATE table_detail 
+            SET Status = 1 
+            WHERE TableID = '" + idTable + "';" +
+            "INSERT INTO invoice(IdInvoice, TableID, Invoice_time, Invoice_Status)" +
+            "VALUES(@NewIDInvoice, '" + idTable + "', @FormattedTime, '0');" +
+            "INSERT INTO invoice_detail(IdInvoice, IdItem, Invoice_TotalAmount)" +
+            "VALUES(@NewIDInvoice, 'IHour', 1);" +
+            "COMMIT TRANSACTION;";
+            ht.Add("@NewIDInvoice", idInvoice);
+            ht.Add("@FormattedTime", formattedTime);
+            MainClass.SQL(query, ht);
+            ShowHourPlay();
+        }
+        private void ShowHourPlay()
+        {
+            string query = @"
+            SELECT tt.TableType_Price, inv_det.Invoice_TotalAmount
+            FROM table_detail td
+            JOIN table_type tt ON td.TableIDType = tt.TableIDType
+            JOIN invoice inv ON td.TableID = inv.TableID
+            JOIN invoice_detail inv_det ON inv.IdInvoice = inv_det.IdInvoice
+            WHERE td.TableID = @TableID 
+            AND inv.Invoice_Status = 0;";
 
+            using (SqlCommand cmd = new SqlCommand(query, MainClass.conn))
+            {
+                // Thêm tham số vào truy vấn
+                cmd.Parameters.AddWithValue("@TableID", idTable);
+
+                using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                {
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    foreach (DataRow item in dataTable.Rows)
+                    {
+                        // Loại bỏ các ký tự đặc biệt từ TableType_Price trước khi chuyển đổi thành số
+                        string priceStr = Regex.Replace(item["TableType_Price"].ToString(), @"[^0-9.]", "");
+                        double price = double.Parse(priceStr);
+                        int invoiceTotalAmount = int.Parse(item["Invoice_TotalAmount"].ToString());
+                        double total = price * invoiceTotalAmount;
+
+                        // Thêm dòng vào DataGridView
+                        guna2DataGridViewCategory.Rows.Add(new object[]
+                        {
+                    0,
+                    "IHour",
+                    "Play time",
+                    invoiceTotalAmount,
+                    priceStr,
+                    total
+                        });
+                    }
+                }
+            }
+        }
+        private void CountHourPlay()
+        {
+            // Lấy thời gian hiện tại
+            DateTime currentTime = DateTime.Now;
+
+            // Lấy thời gian khởi tạo hóa đơn từ database
+            DateTime invoiceTime = GetInvoiceTimeFromDatabase();
+
+            // Tính khoảng cách thời gian giữa thời gian khởi tạo và thời gian hiện tại
+            TimeSpan timeDifference = currentTime - invoiceTime;
+
+            // Tính số phút chơi
+            float totalMinutesPlayed = (float)timeDifference.TotalMinutes;
+            double totalHoursPlayed = timeDifference.TotalHours;
+            // Lấy giá loại bàn từ cơ sở dữ liệu
+            string queryTablePrice = @"
+            SELECT tt.TableType_Price
+            FROM table_detail td
+            JOIN table_type tt ON td.TableIDType = tt.TableIDType
+            WHERE td.TableID = @TableID";
+
+            Hashtable htTablePrice = new Hashtable();
+            htTablePrice.Add("@TableID", idTable);
+            decimal tableTypePrice = 0;
+
+            using (SqlCommand cmdTablePrice = new SqlCommand(queryTablePrice, MainClass.conn))
+            {
+                foreach (DictionaryEntry item in htTablePrice)
+                {
+                    cmdTablePrice.Parameters.AddWithValue(item.Key.ToString(), item.Value);
+                }
+                if (MainClass.conn.State == ConnectionState.Closed) { MainClass.conn.Open(); }
+                object result = cmdTablePrice.ExecuteScalar();
+                if (MainClass.conn.State == ConnectionState.Open) { MainClass.conn.Close(); }
+
+                if (result != null && result != DBNull.Value)
+                {
+                    tableTypePrice = Convert.ToDecimal(result);
+                }
+            }
+
+            // Tính số tiền phải trả dựa trên số phút chơi và giá loại bàn
+            decimal pricePerMinute = tableTypePrice / 60;
+            decimal totalAmountDue = pricePerMinute * (decimal)totalMinutesPlayed;
+            string queryUpdate = "Update invoice_detail SET Invoice_TotalAmount = @HourCount " +
+                "Where IdInvoice = @idInvoice AND IdItem = 'IHour'";
+            Hashtable ht = new Hashtable();
+            ht.Add("@idInvoice", idInvoice);
+            ht.Add("@HourCount", totalHoursPlayed);
+            MainClass.SQL(queryUpdate, ht);
+            // Hiển thị tổng số tiền phải trả
+            MessageBox.Show($"Số giờ đã chơi: {totalHoursPlayed:F2} giờ\nTổng số tiền phải trả: {totalAmountDue:C}");
+
+            // Lưu biến totalAmountDue để sử dụng sau
+            // Bạn có thể lưu biến này vào đâu đó nếu cần thiết
+        }
+
+        private DateTime GetInvoiceTimeFromDatabase()
+        {
+            // Giả sử bạn đã có hàm này để lấy thời gian hóa đơn từ cơ sở dữ liệu
+            string query = @"
+            SELECT Invoice_time
+            FROM invoice
+            WHERE TableID = @TableID AND Invoice_Status = 0";
+
+            SqlCommand cmd = new SqlCommand(query, MainClass.conn);
+            cmd.Parameters.AddWithValue("@TableID", idTable);
+            if (MainClass.conn.State == ConnectionState.Closed) { MainClass.conn.Open(); }
+            DateTime invoiceTime = (DateTime)cmd.ExecuteScalar();
+            if (MainClass.conn.State == ConnectionState.Open) { MainClass.conn.Close(); }
+            return invoiceTime;
+        }
         private void AddCategory()
         {
             string query = "Select * From items_category";
