@@ -60,5 +60,9 @@ namespace BillardManager.Forms
                 guna2TextBoxPrice.SelectionStart = guna2TextBoxPrice.Text.Length;
             }
         }
+        public override void guna2ButtonClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

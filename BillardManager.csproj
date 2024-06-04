@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Guna.UI">
       <HintPath>C:\Users\TPC\Downloads\framwork-main\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna.UI-Framework-Lib-master\Guna.UI WinForms\.net 4.0\Guna.UI.dll</HintPath>
     </Reference>
@@ -45,6 +49,7 @@
     <Reference Include="System.Design" />
     <Reference Include="System.Management" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -67,6 +72,11 @@
     </Compile>
     <Compile Include="Admin\SampleView.Designer.cs">
       <DependentUpon>SampleView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="db_biamanagerDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_biamanagerDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
@@ -110,6 +120,12 @@
     <Compile Include="Model\FormPOS.Designer.cs">
       <DependentUpon>FormPOS.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\FormPrintBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\FormPrintBill.Designer.cs">
+      <DependentUpon>FormPrintBill.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\FormStaffAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +150,12 @@
     </Compile>
     <Compile Include="Model\FormTableDetailAdd.Designer.cs">
       <DependentUpon>FormTableDetailAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CrystalReportBill.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReportBill.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="View\FormTableOrder.cs">
       <SubType>Form</SubType>
@@ -220,6 +242,9 @@
     <EmbeddedResource Include="Model\FormPOS.resx">
       <DependentUpon>FormPOS.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Model\FormPrintBill.resx">
+      <DependentUpon>FormPrintBill.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Model\FormStaffAdd.resx">
       <DependentUpon>FormStaffAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -231,6 +256,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Model\FormTableDetailAdd.resx">
       <DependentUpon>FormTableDetailAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrystalReportBill.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReportBill.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormTableOrder.resx">
       <DependentUpon>FormTableOrder.cs</DependentUpon>
@@ -261,6 +290,17 @@
     <EmbeddedResource Include="View\FormTablesView.resx">
       <DependentUpon>FormTablesView.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="db_biamanagerDataSet.xsc">
+      <DependentUpon>db_biamanagerDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="db_biamanagerDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>db_biamanagerDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="db_biamanagerDataSet.xss">
+      <DependentUpon>db_biamanagerDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -276,11 +316,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Admin\Items\" />
-    <Folder Include="Report\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Guna2\Guna.UI.dll" />
     <Content Include="Guna2\Guna.UI2.dll" />
+    <None Include="Resources\printer.png" />
     <None Include="Resources\pool-table %281%29.png" />
     <None Include="Resources\billiard.png" />
     <None Include="Resources\pocketBilliards.png" />
@@ -301,6 +341,9 @@
     <None Include="Resources\pool-table1.png" />
     <None Include="Resources\billiards %283%29.png" />
     <None Include="Resources\pool-table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
