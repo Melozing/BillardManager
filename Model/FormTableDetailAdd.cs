@@ -1,5 +1,6 @@
 ﻿using BiaManager.Script;
 using BillardManager.Admin;
+using System;
 using System.Collections;
 
 namespace BillardManager.Model
@@ -60,6 +61,10 @@ namespace BillardManager.Model
             {
                 e.Handled = true;
             }
+        }
+        public override void guna2ButtonClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

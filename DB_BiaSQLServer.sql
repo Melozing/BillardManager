@@ -55,6 +55,7 @@ CREATE TABLE [dbo].[invoice] (
     [Invoice_Total] decimal(18, 2) NULL,
     [Invoice_Received] decimal(18, 2) NULL,
     [Invoice_Change] decimal(18, 2) NULL,
+    [Invoice_PaymentTime] datetime NULL,
     PRIMARY KEY CLUSTERED ([IdInvoice]),
     CONSTRAINT [FK_orders_table] FOREIGN KEY ([TableID]) REFERENCES [dbo].[table_detail] ([TableID])
 );

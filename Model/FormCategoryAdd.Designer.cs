@@ -67,6 +67,7 @@
             this.guna2ButtonClose.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.guna2ButtonClose.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.guna2ButtonClose.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.None;
+            this.guna2ButtonClose.Click += new System.EventHandler(this.guna2ButtonClose_Click);
             // 
             // guna2PanelTop
             // 

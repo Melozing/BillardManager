@@ -127,6 +127,12 @@
   <data name="defaultTable" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\defaultTable.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="pool-table (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pool-table (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pocketBilliards" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pocketBilliards.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="food_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\food_white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -141,9 +147,6 @@
   </data>
   <data name="snooker (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\snooker (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Status_Playing" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Status_Playing.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -160,8 +163,8 @@
   <data name="edit_24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Status_Empty" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Status_Empty.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Status_Playing" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Status_Playing.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="caromBilliards" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\caromBilliards.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -184,10 +187,10 @@
   <data name="billiard" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\billiard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pocketBilliards" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pocketBilliards.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Status_Empty" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Status_Empty.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pool-table (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pool-table (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="printer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\printer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
