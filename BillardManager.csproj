@@ -86,6 +86,12 @@
     <Compile Include="Forms\FormHome.Designer.cs">
       <DependentUpon>FormHome.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\FormBillList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\FormBillList.Designer.cs">
+      <DependentUpon>FormBillList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\FormCheckOut.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,6 +208,9 @@
     <EmbeddedResource Include="Forms\FormHome.resx">
       <DependentUpon>FormHome.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Model\FormBillList.resx">
+      <DependentUpon>FormBillList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Model\FormCheckOut.resx">
       <DependentUpon>FormCheckOut.cs</DependentUpon>
     </EmbeddedResource>
@@ -267,6 +276,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Admin\Items\" />
+    <Folder Include="Report\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Guna2\Guna.UI.dll" />

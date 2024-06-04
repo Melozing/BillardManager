@@ -14,6 +14,7 @@ namespace BillardManager.Model
         public string idTable;
         public string idInvoice;
         public string PStatus;
+        public string startTime;
         public FormPOS()
         {
             InitializeComponent();
@@ -37,12 +38,19 @@ namespace BillardManager.Model
             AddCategory();
             LoadProducts();
             LoadTableInfo();
+            if (PStatus != "inactive")
+            {
+                LoadDataItemBill();
+            }
         }
         private void AddHourPlay()
         {
             DateTime currentTime = DateTime.Now;
-            string idInvoice = MainClass.GenerateUniqueId("invoice", "IdInvoice", "U");
+            string idInvoiceCreate = MainClass.GenerateUniqueId("invoice", "IdInvoice", "IV");
+            idInvoice = idInvoiceCreate;
             string formattedTime = currentTime.ToString("yyyy-MM-dd HH:mm:ss"); // Định dạng thời gian theo format của cột datetime trong database
+            startTime = labelTittle.Text + " " + formattedTime;
+            labelTittle.Text = startTime;
             Hashtable ht = new Hashtable();
             string query = @"
             BEGIN TRANSACTION;
@@ -54,7 +62,7 @@ namespace BillardManager.Model
             "INSERT INTO invoice_detail(IdInvoice, IdItem, Invoice_TotalAmount)" +
             "VALUES(@NewIDInvoice, 'IHour', 1);" +
             "COMMIT TRANSACTION;";
-            ht.Add("@NewIDInvoice", idInvoice);
+            ht.Add("@NewIDInvoice", idInvoiceCreate);
             ht.Add("@FormattedTime", formattedTime);
             MainClass.SQL(query, ht);
         }
@@ -154,8 +162,6 @@ namespace BillardManager.Model
             if (MainClass.conn.State == ConnectionState.Open) { MainClass.conn.Close(); }
             return invoiceTime;
         }
-
-
         private void AddCategory()
         {
             string query = "Select * From items_category";
@@ -210,6 +216,46 @@ namespace BillardManager.Model
                 }
             }
         }
+        private void LoadDataItemBill()
+        {
+            double totalAmount = 0;
+
+            string query = "SELECT " +
+                "iv.Invoice_Status, " +
+                "im.IdItem, " +
+                "id.Invoice_TotalAmount, " +
+                "im.item_Name, " +
+                "im.item_Price " +
+                "FROM items_menu im " +
+                "JOIN invoice_detail id " +
+                "ON im.IdItem = id.IdItem " +
+                "JOIN invoice iv " +
+                "ON iv.IdInvoice = id.IdInvoice " +
+                "WHERE iv.IdInvoice = '" + idInvoice + "' " +
+                "AND iv.Invoice_Status = 0 " +
+                "AND im.IdItem != 'IHour'";
+
+            SqlCommand cmd = new SqlCommand(query, MainClass.conn);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            if (dataTable.Rows.Count > 0)
+            {
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    int quantity = int.Parse(Regex.Replace(row["Invoice_TotalAmount"].ToString(), @"[^0-9.]", ""));
+
+                    double price = double.Parse(Regex.Replace(row["item_Price"].ToString(), @"[^0-9.]", ""));
+
+                    double itemTotal = quantity * price;
+                    totalAmount += itemTotal;
+
+                    guna2DataGridViewCategory.Rows.Add(new object[] { 0, row["IdItem"].ToString(), row["item_Name"].ToString(), quantity, price.ToString("N0"), itemTotal.ToString("N0") });
+                }
+
+                GetTotal();
+            }
+        }
 
         private void _Click(object sender, EventArgs e)
         {
@@ -259,6 +305,7 @@ namespace BillardManager.Model
                         double parsedPrice = double.Parse(Regex.Replace(wdg.PPrice, @"[^0-9.]", ""));
                         totalAmount = quantity * parsedPrice;
                         item.Cells["Amount"].Value = totalAmount.ToString("N0");
+                        UpdateBillAmout(idInvoice, item.Cells["Id"].Value.ToString(), float.Parse(Regex.Replace(quantity.ToString("N0"), @"[^0-9.]", "")));
                         GetTotal();
                         return;
                     }
@@ -268,10 +315,31 @@ namespace BillardManager.Model
                 double parsedPriceNew = double.Parse(Regex.Replace(wdg.PPrice, @"[^0-9.]", ""));
                 totalAmount += parsedPriceNew;
                 guna2DataGridViewCategory.Rows.Add(new object[] { 0, wdg.id, wdg.PName, 1, parsedPriceNew.ToString("N0"), totalAmount.ToString("N0") });
+                InsertBillAmout(idInvoice, wdg.id, 1);
                 GetTotal();
             };
         }
-
+        private void InsertBillAmout(string idInvoice, string idItem, float amount)
+        {
+            Hashtable ht = new Hashtable();
+            string query = @"INSERT INTO invoice_detail " +
+            "(IdInvoice, IdItem, Invoice_TotalAmount) " +
+            "VALUES ('" + idInvoice + "', @idItem, @amount)";
+            ht.Add("@idItem", idItem);
+            ht.Add("@amount", amount);
+            MainClass.SQL(query, ht);
+        }
+        private void UpdateBillAmout(string idInvoice, string idItem, float amount)
+        {
+            Hashtable ht = new Hashtable();
+            string query = @"UPDATE invoice_detail " +
+            "Set Invoice_TotalAmount = @amount " +
+            "WHERE IdInvoice = @idInvoice AND idItem = @idItem";
+            ht.Add("@idInvoice", idInvoice);
+            ht.Add("@idItem", idItem);
+            ht.Add("@amount", amount);
+            MainClass.SQL(query, ht);
+        }
         //Getting product form database
         private void LoadProducts()
         {
@@ -331,6 +399,7 @@ namespace BillardManager.Model
             FormCheckOut frmCheckOut = new FormCheckOut();
             frmCheckOut.tableID = idTable;
             frmCheckOut.amount = Convert.ToDouble(labelTotalMoneyNum.Text);
+            frmCheckOut.invoiceID = idInvoice;
             MainClass.BlurBackground(frmCheckOut);
         }
     }

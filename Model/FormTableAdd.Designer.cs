@@ -39,7 +39,7 @@
             // 
             // labelTop
             // 
-            this.labelTop.Size = new System.Drawing.Size(64, 25);
+            this.labelTop.Size = new System.Drawing.Size(79, 32);
             this.labelTop.Text = "Tables";
             // 
             // gunaPictureBoxTop
@@ -100,7 +100,7 @@
             this.guna2TextBoxName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBoxName.HoverState.Parent = this.guna2TextBoxName;
             this.guna2TextBoxName.Location = new System.Drawing.Point(24, 148);
-            this.guna2TextBoxName.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2TextBoxName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2TextBoxName.Name = "guna2TextBoxName";
             this.guna2TextBoxName.PasswordChar = '\0';
             this.guna2TextBoxName.PlaceholderText = "";
@@ -114,7 +114,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(21, 127);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 17);
+            this.label1.Size = new System.Drawing.Size(56, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "Name";
             // 
@@ -123,7 +123,7 @@
             this.labelPrice.AutoSize = true;
             this.labelPrice.Location = new System.Drawing.Point(21, 189);
             this.labelPrice.Name = "labelPrice";
-            this.labelPrice.Size = new System.Drawing.Size(36, 17);
+            this.labelPrice.Size = new System.Drawing.Size(47, 23);
             this.labelPrice.TabIndex = 1;
             this.labelPrice.Text = "Price";
             // 
@@ -149,12 +149,13 @@
             this.guna2TextBoxPrice.ShadowDecoration.Parent = this.guna2TextBoxPrice;
             this.guna2TextBoxPrice.Size = new System.Drawing.Size(240, 48);
             this.guna2TextBoxPrice.TabIndex = 1;
+            this.guna2TextBoxPrice.TextChanged += new System.EventHandler(this.guna2TextBoxPrice_TextChanged);
             this.guna2TextBoxPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.guna2TextBoxPrice_KeyPress);
             // 
             // FormTableAdd
             // 
             this.AcceptButton = this.guna2ButtonSave;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.guna2ButtonClose;
             this.ClientSize = new System.Drawing.Size(800, 450);

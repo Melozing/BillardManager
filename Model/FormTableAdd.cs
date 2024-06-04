@@ -2,6 +2,7 @@
 using BillardManager.Admin;
 using System;
 using System.Collections;
+using System.Text.RegularExpressions;
 
 namespace BillardManager.Forms
 {
@@ -30,7 +31,7 @@ namespace BillardManager.Forms
             }
 
             ht.Add("@Name", guna2TextBoxName.Text);
-            ht.Add("@Price", guna2TextBoxPrice.Text);
+            ht.Add("@Price", Regex.Replace(guna2TextBoxPrice.Text, @"[^\d]", ""));
 
             if (MainClass.SQL(query, ht) > 0)
             {
@@ -47,6 +48,16 @@ namespace BillardManager.Forms
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void guna2TextBoxPrice_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(guna2TextBoxPrice.Text))
+            {
+                double receipt = double.Parse(guna2TextBoxPrice.Text);
+                guna2TextBoxPrice.Text = receipt.ToString("N0");
+                guna2TextBoxPrice.SelectionStart = guna2TextBoxPrice.Text.Length;
             }
         }
     }

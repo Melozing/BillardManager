@@ -7,6 +7,7 @@ namespace BillardManager.Model
 {
     public partial class FormTableOrder : Form
     {
+        private string idInvoiceGet;
         public FormTableOrder()
         {
             InitializeComponent();
@@ -29,10 +30,10 @@ namespace BillardManager.Model
 
             foreach (DataRow item in dataTable.Rows)
             {
-                AddItems(item["TableID"].ToString(), item["TableNumber"].ToString(), item["Status"].ToString(), item["TableIDType"].ToString());
+                AddTables(item["TableID"].ToString(), item["TableNumber"].ToString(), item["Status"].ToString(), item["TableIDType"].ToString());
             }
         }
-        private void AddItems(string idTable, string tableNumber, string status, string tableTypeID)
+        private void AddTables(string idTable, string tableNumber, string status, string tableTypeID)
         {
             Image imgStatus;
             Image imgType;
@@ -40,6 +41,7 @@ namespace BillardManager.Model
             {
                 imgStatus = Properties.Resources.Status_Playing;
                 status = "inactive";
+                GetInvoiceID(idTable);
             }
             else
             {
@@ -64,7 +66,9 @@ namespace BillardManager.Model
                 PImageStatus = imgStatus,
                 PImage = imgType,
                 PStatus = status,
-                id = idTable
+                id = idTable,
+                idInvoice = idInvoiceGet,
+
             };
             if (status == "inactive")
             {
@@ -76,7 +80,24 @@ namespace BillardManager.Model
             }
             flowLayoutPanelProduct.Controls.Add(w);
         }
+        private void GetInvoiceID(string idTable)
+        {
+            string query = @"SELECT invoice.IdInvoice
+            FROM invoice
+            JOIN table_detail ON invoice.TableID = table_detail.TableID
+            WHERE invoice.TableID = '" + idTable + "'" +
+            "AND invoice.Invoice_Status = 0";
 
+            SqlCommand cmd = new SqlCommand(query, MainClass.conn);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+
+            foreach (DataRow item in dataTable.Rows)
+            {
+                idInvoiceGet = item["IdInvoice"].ToString();
+            }
+        }
         private void showActiveTablesToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
             foreach (var item in flowLayoutPanelProduct.Controls)
