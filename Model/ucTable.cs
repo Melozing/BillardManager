@@ -44,6 +44,7 @@ namespace BillardManager.Model
                 FormPOS formPOS = new FormPOS();
                 formPOS.idTable = id;
                 formPOS.WindowState = FormWindowState.Maximized;
+                formPOS.idInvoice = idInvoice;
                 MainClass.BlurBackground(formPOS);
             }
 

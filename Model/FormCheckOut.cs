@@ -13,10 +13,11 @@ namespace BillardManager.Model
 
         public double amount;
         public string tableID;
+        public string invoiceID;
         private void guna2TextBox1_TextChanged(object sender, System.EventArgs e)
         {
             double amt = 0;
-            double receipt = 0;
+            double receipt = double.Parse(guna2TextBoxReceived.Text);
             double change = 0;
 
             double.TryParse(guna2TextBoxBillAmount.Text, out amt);
@@ -31,8 +32,12 @@ namespace BillardManager.Model
         }
         public override void guna2ButtonSave_Click(object sender, EventArgs e)
         {
-            string query = @"Update invoice set Invoice_Total = @total, 
-                            Invoice_Received = @rec, Invoice_Change = @change";
+            string query = @"Update invoice set 
+                            Invoice_Total = @total, 
+                            Invoice_Received = @rec, 
+                            Invoice_Change = @change, 
+                            Invoice_Status = 1 
+                            Where IdInvoice = '" + invoiceID + "'";
         }
 
         private void FormCheckOut_Load(object sender, EventArgs e)

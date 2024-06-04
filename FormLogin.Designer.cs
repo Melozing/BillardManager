@@ -87,7 +87,7 @@
             this.labelUsername.Location = new System.Drawing.Point(49, 296);
             this.labelUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelUsername.Name = "labelUsername";
-            this.labelUsername.Size = new System.Drawing.Size(67, 17);
+            this.labelUsername.Size = new System.Drawing.Size(87, 23);
             this.labelUsername.TabIndex = 1;
             this.labelUsername.Text = "Username";
             // 
@@ -105,7 +105,7 @@
             this.guna2TextBoxUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBoxUsername.HoverState.Parent = this.guna2TextBoxUsername;
             this.guna2TextBoxUsername.Location = new System.Drawing.Point(52, 316);
-            this.guna2TextBoxUsername.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2TextBoxUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2TextBoxUsername.Name = "guna2TextBoxUsername";
             this.guna2TextBoxUsername.PasswordChar = '\0';
             this.guna2TextBoxUsername.PlaceholderText = "";
@@ -128,7 +128,7 @@
             this.guna2TextBoxPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBoxPassword.HoverState.Parent = this.guna2TextBoxPassword;
             this.guna2TextBoxPassword.Location = new System.Drawing.Point(52, 404);
-            this.guna2TextBoxPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2TextBoxPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2TextBoxPassword.Name = "guna2TextBoxPassword";
             this.guna2TextBoxPassword.PasswordChar = '\0';
             this.guna2TextBoxPassword.PlaceholderText = "";
@@ -144,7 +144,7 @@
             this.labelPassword.Location = new System.Drawing.Point(49, 383);
             this.labelPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(64, 17);
+            this.labelPassword.Size = new System.Drawing.Size(80, 23);
             this.labelPassword.TabIndex = 3;
             this.labelPassword.Text = "Password";
             // 
@@ -172,6 +172,7 @@
             this.guna2ButtonExit.BorderRadius = 20;
             this.guna2ButtonExit.CheckedState.Parent = this.guna2ButtonExit;
             this.guna2ButtonExit.CustomImages.Parent = this.guna2ButtonExit;
+            this.guna2ButtonExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.guna2ButtonExit.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.guna2ButtonExit.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.guna2ButtonExit.ForeColor = System.Drawing.Color.White;
@@ -187,8 +188,9 @@
             // FormLogin
             // 
             this.AcceptButton = this.guna2ButtonLogin;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.guna2ButtonExit;
             this.ClientSize = new System.Drawing.Size(338, 553);
             this.Controls.Add(this.guna2ButtonExit);
             this.Controls.Add(this.guna2ButtonLogin);

@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace BillardManager.Model
@@ -79,7 +80,7 @@ namespace BillardManager.Model
 
             ht.Add("@Name", guna2TextBoxName.Text);
             ht.Add("@cat", comboBoxCategory.SelectedValue.ToString());
-            ht.Add("@price", guna2TextBoxPrice.Text);
+            ht.Add("@price", Regex.Replace(guna2TextBoxPrice.Text, @"[^\d]", ""));
             ht.Add("@image", imageByteArray);
 
             if (MainClass.SQL(query, ht) > 0)
@@ -120,6 +121,16 @@ namespace BillardManager.Model
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void guna2TextBoxPrice_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(guna2TextBoxPrice.Text))
+            {
+                double receipt = double.Parse(guna2TextBoxPrice.Text);
+                guna2TextBoxPrice.Text = receipt.ToString("N0");
+                guna2TextBoxPrice.SelectionStart = guna2TextBoxPrice.Text.Length;
             }
         }
     }

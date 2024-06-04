@@ -44,7 +44,7 @@
             // 
             // labelTop
             // 
-            this.labelTop.Size = new System.Drawing.Size(106, 25);
+            this.labelTop.Size = new System.Drawing.Size(134, 32);
             this.labelTop.Text = "Add Dishes";
             // 
             // gunaPictureBoxTop
@@ -70,7 +70,7 @@
             this.guna2ButtonClose.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.DefaultButton;
             this.guna2ButtonClose.CheckedState.Parent = this.guna2ButtonClose;
             this.guna2ButtonClose.CustomImages.Parent = this.guna2ButtonClose;
-            this.guna2ButtonClose.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.guna2ButtonClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.guna2ButtonClose.HoverState.Parent = this.guna2ButtonClose;
             this.guna2ButtonClose.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.guna2ButtonClose.ShadowDecoration.Parent = this.guna2ButtonClose;
@@ -111,6 +111,7 @@
             this.guna2TextBoxPrice.ShadowDecoration.Parent = this.guna2TextBoxPrice;
             this.guna2TextBoxPrice.Size = new System.Drawing.Size(327, 25);
             this.guna2TextBoxPrice.TabIndex = 7;
+            this.guna2TextBoxPrice.TextChanged += new System.EventHandler(this.guna2TextBoxPrice_TextChanged);
             this.guna2TextBoxPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.guna2TextBoxPrice_KeyPress);
             // 
             // labelPrice
@@ -118,7 +119,7 @@
             this.labelPrice.AutoSize = true;
             this.labelPrice.Location = new System.Drawing.Point(12, 221);
             this.labelPrice.Name = "labelPrice";
-            this.labelPrice.Size = new System.Drawing.Size(36, 17);
+            this.labelPrice.Size = new System.Drawing.Size(47, 23);
             this.labelPrice.TabIndex = 14;
             this.labelPrice.Text = "Price";
             // 
@@ -150,7 +151,7 @@
             this.labelName.AutoSize = true;
             this.labelName.Location = new System.Drawing.Point(11, 100);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(43, 17);
+            this.labelName.Size = new System.Drawing.Size(56, 23);
             this.labelName.TabIndex = 15;
             this.labelName.Text = "Name";
             // 
@@ -160,7 +161,7 @@
             this.comboBoxCategory.FormattingEnabled = true;
             this.comboBoxCategory.Location = new System.Drawing.Point(14, 182);
             this.comboBoxCategory.Name = "comboBoxCategory";
-            this.comboBoxCategory.Size = new System.Drawing.Size(327, 25);
+            this.comboBoxCategory.Size = new System.Drawing.Size(327, 29);
             this.comboBoxCategory.TabIndex = 16;
             // 
             // labelCategory
@@ -168,7 +169,7 @@
             this.labelCategory.AutoSize = true;
             this.labelCategory.Location = new System.Drawing.Point(11, 156);
             this.labelCategory.Name = "labelCategory";
-            this.labelCategory.Size = new System.Drawing.Size(61, 17);
+            this.labelCategory.Size = new System.Drawing.Size(79, 23);
             this.labelCategory.TabIndex = 13;
             this.labelCategory.Text = "Category";
             // 
@@ -206,7 +207,7 @@
             // FormFoodAdd
             // 
             this.AcceptButton = this.guna2ButtonSave;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.guna2ButtonClose;
             this.ClientSize = new System.Drawing.Size(693, 457);
