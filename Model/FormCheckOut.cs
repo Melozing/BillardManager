@@ -1,6 +1,5 @@
 ﻿using BiaManager.Script;
 using BillardManager.Admin;
-using BillardManager.Reports;
 using System;
 using System.Collections;
 using System.Windows.Forms;
@@ -17,6 +16,9 @@ namespace BillardManager.Model
         public double amount;
         public string tableID;
         public string invoiceID;
+        public string startTime;
+        public string paymentTime;
+
         private void guna2TextBox1_TextChanged(object sender, System.EventArgs e)
         {
             double amt = 0;
@@ -27,7 +29,8 @@ namespace BillardManager.Model
             double.TryParse(guna2TextBoxReceived.Text, out receipt);
             double.TryParse(guna2TextBoxReceived.Text, out receipt);
 
-            change = Math.Abs(amt - receipt);
+            //change = Math.Abs(amt - receipt);
+            change = receipt - amt;
 
             guna2TextBoxChange.Text = change.ToString("N0");
             guna2TextBoxReceived.Text = receipt.ToString("N0");
@@ -59,10 +62,15 @@ namespace BillardManager.Model
         }
         private void ExportAndPrintInvoice()
         {
+            DateTime currentTime = DateTime.Now;
+            paymentTime = currentTime.ToString();
             FormPrintBill frm = new FormPrintBill();
-            CrystalReportBill cr = new CrystalReportBill();
-            cr.SetDatabaseLogon(MainClass.nameServer, "");
-            cr.SetDataSource(invoiceID);
+            frm.startTime = startTime;
+            frm.paymentTime = "Payment time : " + paymentTime;
+            frm.totalMoney = "$ " + guna2TextBoxBillAmount.Text;
+            frm.receivedMoney = "$ " + guna2TextBoxReceived.Text;
+            frm.changeMoney = "$ " + guna2TextBoxChange.Text;
+            frm.ShowDialog();
         }
         private void UpdateInvoiceAndTableStatus()
         {

@@ -73,11 +73,6 @@
     <Compile Include="Admin\SampleView.Designer.cs">
       <DependentUpon>SampleView.cs</DependentUpon>
     </Compile>
-    <Compile Include="db_biamanagerDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>db_biamanagerDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +121,12 @@
     <Compile Include="Model\FormPrintBill.Designer.cs">
       <DependentUpon>FormPrintBill.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\FormPrintBillPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\FormPrintBillPage.Designer.cs">
+      <DependentUpon>FormPrintBillPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\FormStaffAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,11 +152,11 @@
     <Compile Include="Model\FormTableDetailAdd.Designer.cs">
       <DependentUpon>FormTableDetailAdd.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports\CrystalReportBill.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CrystalReportBill.rpt</DependentUpon>
-      <SubType>Component</SubType>
+    <Compile Include="View\FormSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormSetting.Designer.cs">
+      <DependentUpon>FormSetting.cs</DependentUpon>
     </Compile>
     <Compile Include="View\FormTableOrder.cs">
       <SubType>Form</SubType>
@@ -245,6 +246,9 @@
     <EmbeddedResource Include="Model\FormPrintBill.resx">
       <DependentUpon>FormPrintBill.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Model\FormPrintBillPage.resx">
+      <DependentUpon>FormPrintBillPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Model\FormStaffAdd.resx">
       <DependentUpon>FormStaffAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -257,9 +261,8 @@
     <EmbeddedResource Include="Model\FormTableDetailAdd.resx">
       <DependentUpon>FormTableDetailAdd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\CrystalReportBill.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CrystalReportBill.cs</LastGenOutput>
+    <EmbeddedResource Include="View\FormSetting.resx">
+      <DependentUpon>FormSetting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormTableOrder.resx">
       <DependentUpon>FormTableOrder.cs</DependentUpon>
@@ -290,17 +293,6 @@
     <EmbeddedResource Include="View\FormTablesView.resx">
       <DependentUpon>FormTablesView.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="db_biamanagerDataSet.xsc">
-      <DependentUpon>db_biamanagerDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="db_biamanagerDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>db_biamanagerDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="db_biamanagerDataSet.xss">
-      <DependentUpon>db_biamanagerDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -315,11 +307,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Admin\Items\" />
+    <Folder Include="Reports\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Guna2\Guna.UI.dll" />
     <Content Include="Guna2\Guna.UI2.dll" />
+    <None Include="Resources\minus.png" />
+    <None Include="Resources\plus.png" />
     <None Include="Resources\printer.png" />
     <None Include="Resources\pool-table %281%29.png" />
     <None Include="Resources\billiard.png" />

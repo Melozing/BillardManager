@@ -1,7 +1,6 @@
 ﻿using BiaManager.Script;
 using BillardManager.Admin;
 using BillardManager.Forms;
-using BillardManager.Model;
 using System;
 using System.Collections;
 using System.Windows.Forms;
@@ -48,9 +47,10 @@ namespace BillardManager.View
         {
             if (guna2DataGridViewCategory.CurrentCell.OwningColumn.Name == "ItemCategoryEdit")
             {
-                FormTableDetailAdd frm = new FormTableDetailAdd();
-                frm.tableDetailId = guna2DataGridViewCategory.CurrentRow.Cells["IdItemCategory"].Value.ToString();
+                FormTableAdd frm = new FormTableAdd();
+                frm.tableId = guna2DataGridViewCategory.CurrentRow.Cells["IdItemCategory"].Value.ToString();
                 frm.guna2TextBoxName.Text = guna2DataGridViewCategory.CurrentRow.Cells["ItemCategory_Name"].Value.ToString();
+                frm.guna2TextBoxPrice.Text = guna2DataGridViewCategory.CurrentRow.Cells["TableType_Price"].Value.ToString();
                 MainClass.BlurBackground(frm);
                 GetData();
             }

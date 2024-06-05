@@ -2,6 +2,7 @@
 using BillardManager.Model;
 using BillardManager.View;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace BillardManager
@@ -12,7 +13,7 @@ namespace BillardManager
         {
             InitializeComponent();
         }
-
+        public bool isStaffLogin;
         static FormMain _obj;
         public static FormMain Instance
         {
@@ -34,6 +35,19 @@ namespace BillardManager
         {
             _obj = this;
             guna2ButtonHome.PerformClick();
+            if (isStaffLogin)
+            {
+                StaffLogin();
+            }
+        }
+        private void StaffLogin()
+        {
+            guna2ButtonUserManagement.Hide();
+            guna2ButtonFoodType.Hide();
+            guna2ButtonFoodManagement.Hide();
+            guna2ButtonTableManagement.Hide();
+            guna2ButtonTableDetail.Hide();
+            guna2ButtonSetting.Location = new Point(-20, 215);
         }
 
         private void guna2ButtonHome_Click(object sender, EventArgs e)
@@ -74,6 +88,11 @@ namespace BillardManager
         private void guna2ButtonTableDetail_Click(object sender, EventArgs e)
         {
             AddControls(new FormTablesDetailView());
+        }
+
+        private void guna2ButtonSetting_Click(object sender, EventArgs e)
+        {
+            AddControls(new FormSetting());
         }
     }
 }
