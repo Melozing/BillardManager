@@ -33,5 +33,16 @@ namespace BillardManager.Properties {
                 return ((string)(this["db_biamanagerConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-NQD44KU\\MYMSSQLSERVER;Initial Catalog=db_biamanager;Integrate" +
+            "d Security=True;Encrypt=True;TrustServerCertificate=True")]
+        public string db_biamanagerConnectionString1 {
+            get {
+                return ((string)(this["db_biamanagerConnectionString1"]));
+            }
+        }
     }
 }

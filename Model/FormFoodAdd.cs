@@ -24,7 +24,7 @@ namespace BillardManager.Model
         private Byte[] imageByteArray;
         private void FormFoodAdd_Load(object sender, System.EventArgs e)
         {
-            string query = "Select IdItemCategory 'id', ItemCategory_Name 'name' from items_category";
+            string query = "Select IdItemCategory 'id', ItemCategory_Name 'name' from items_category WHERE ItemCategoryStatus != 1";
             MainClass.CBFILL(query, comboBoxCategory);
 
             if (!string.IsNullOrEmpty(categoryId))

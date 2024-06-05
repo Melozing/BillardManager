@@ -13,7 +13,7 @@ namespace BillardManager
     {
         //Manh Laptop : DESKTOP-NQD44KU\MYMSSQLSERVER
         //Manh PC : DESKTOP-G0D14LK
-        public static readonly string nameServer = "DESKTOP-G0D14LK";
+        public static readonly string nameServer = "DESKTOP-NQD44KU\\MYMSSQLSERVER";
         public static readonly string connect_string = "Data Source='" + nameServer + "';Initial Catalog=db_biamanager;Initial Catalog=db_biamanager;Integrated Security=True";
         public static SqlConnection conn = new SqlConnection(connect_string);
 
@@ -30,9 +30,48 @@ namespace BillardManager
             if (data.Rows.Count > 0)
             {
                 isValid = true;
+                User user = GetUser(username, password);
+                if (user != null && user.UserRole > 0)
+                {
+                    FormLogin.isStaffLogin = true;
+                }
+                else
+                {
+                    FormLogin.isStaffLogin = false;
+                }
             }
             return isValid;
         }
+        private static User GetUser(string username, string password)
+        {
+            User user = null;
+            string hashedPassword = PasswordHasher.HashPassword(password);
+            string query = "SELECT IdUser, UserName, UserRole FROM user_account WHERE UserName = @UserName AND UserPassword = @UserPassword";
+
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@UserName", username);
+                cmd.Parameters.AddWithValue("@UserPassword", hashedPassword);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable data = new DataTable();
+                adapter.Fill(data);
+
+                if (data.Rows.Count > 0)
+                {
+                    DataRow row = data.Rows[0];
+                    user = new User
+                    {
+                        IdUser = row["IdUser"].ToString(),
+                        UserName = row["UserName"].ToString(),
+                        UserRole = int.Parse(row["UserRole"].ToString())
+                    };
+                }
+            }
+
+            return user;
+        }
+
 
         //Methord for CRUD operation
         public static int SQL(string query, Hashtable ht)
@@ -153,6 +192,12 @@ namespace BillardManager
             cb.ValueMember = "id";
             cb.DataSource = dt;
             cb.SelectedIndex = -1;
+        }
+        public class User
+        {
+            public string IdUser { get; set; }
+            public string UserName { get; set; }
+            public int UserRole { get; set; }
         }
     }
 }

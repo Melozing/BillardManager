@@ -1626,7 +1626,7 @@
         +QuYfVpvy/aFCgAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="guna2ButtonMenu.CheckedState.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="guna2ButtonFoodType.CheckedState.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAN
         0AAADdABEGw9BwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAE+lSURBVHhe7d0H
@@ -1972,7 +1972,7 @@
         k2HPHHiMuF08KTYJricAAMlkD+q2l35/VfxSLBc7iRrtNT79zHf+P/P8b2LXBJ82AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="guna2ButtonMenu.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="guna2ButtonFoodType.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAZ0AAAJJCAYAAABxmOoGAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAANtVJREFUeF7t3YF1K1WyNtA/BEIghAlhQiAEQiAEQiCECYEQCGFCIAQyeH8bbTh4

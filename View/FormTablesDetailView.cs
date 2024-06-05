@@ -15,7 +15,7 @@ namespace BillardManager.View
         }
         public void GetData()
         {
-            string query = "SELECT td.TableID, td.TableNumber, tt.TableType_Name " +
+            string query = "SELECT td.TableID, td.TableNumber, tt.TableType_Name, td.TableIDType " +
                "FROM table_detail td " +
                "JOIN table_type tt ON td.TableIDType = tt.TableIDType " +
                "WHERE (tt.TableType_Name LIKE '%" + guna2TextBoxSearch.Text + "%' " +
@@ -26,6 +26,7 @@ namespace BillardManager.View
             lb.Items.Add(IdItemCategory);
             lb.Items.Add(ItemCategory_Name);
             lb.Items.Add(TableType);
+            lb.Items.Add(TypeID);
 
             MainClass.LoadData(query, guna2DataGridViewCategory, lb);
         }
@@ -39,9 +40,9 @@ namespace BillardManager.View
         {
             if (guna2DataGridViewCategory.CurrentCell.OwningColumn.Name == "ItemCategoryEdit")
             {
-                FormCategoryAdd frm = new FormCategoryAdd();
-                frm.categoryId = guna2DataGridViewCategory.CurrentRow.Cells["IdItemCategory"].Value.ToString();
-                frm.guna2TextBoxName.Text = guna2DataGridViewCategory.CurrentRow.Cells["ItemCategory_Name"].Value.ToString();
+                FormTableDetailAdd frm = new FormTableDetailAdd();
+                frm.tableDetailId = guna2DataGridViewCategory.CurrentRow.Cells["IdItemCategory"].Value.ToString();
+                frm.tableTypeId = guna2DataGridViewCategory.CurrentRow.Cells["TypeID"].Value.ToString();
                 MainClass.BlurBackground(frm);
                 GetData();
             }

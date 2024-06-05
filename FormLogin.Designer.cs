@@ -61,10 +61,10 @@
             this.labelNotice.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.labelNotice.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNotice.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelNotice.Location = new System.Drawing.Point(0, 226);
+            this.labelNotice.Location = new System.Drawing.Point(0, 217);
             this.labelNotice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelNotice.Name = "labelNotice";
-            this.labelNotice.Size = new System.Drawing.Size(338, 17);
+            this.labelNotice.Size = new System.Drawing.Size(338, 26);
             this.labelNotice.TabIndex = 3;
             this.labelNotice.Text = "Please enter user infomation !";
             this.labelNotice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -192,6 +192,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.guna2ButtonExit;
             this.ClientSize = new System.Drawing.Size(338, 553);
+            this.ControlBox = false;
             this.Controls.Add(this.guna2ButtonExit);
             this.Controls.Add(this.guna2ButtonLogin);
             this.Controls.Add(this.guna2TextBoxPassword);
@@ -200,6 +201,7 @@
             this.Controls.Add(this.labelUsername);
             this.Controls.Add(this.guna2PanelLogin);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormLogin";
             this.Text = "Login";

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BiaManager.Script;
+using System;
 using System.Collections;
 using System.Data;
 using System.Data.SqlClient;
@@ -36,12 +37,12 @@ namespace BillardManager.Model
             }
             CountHourPlay();
             AddCategory();
-            LoadProducts();
             LoadTableInfo();
             if (PStatus != "inactive")
             {
                 LoadDataItemBill();
             }
+            LoadProducts();
         }
         private void AddHourPlay()
         {
@@ -59,8 +60,8 @@ namespace BillardManager.Model
             WHERE TableID = '" + idTable + "';" +
             "INSERT INTO invoice(IdInvoice, TableID, Invoice_time, Invoice_Status)" +
             "VALUES(@NewIDInvoice, '" + idTable + "', @FormattedTime, '0');" +
-            "INSERT INTO invoice_detail(IdInvoice, IdItem, Invoice_TotalAmount)" +
-            "VALUES(@NewIDInvoice, 'IHour', 1);" +
+            "INSERT INTO invoice_detail(IdInvoice, IdItem, Invoice_TotalAmount, Invoice_Price)" +
+            "VALUES(@NewIDInvoice, 'IHour', 1, 1);" +
             "COMMIT TRANSACTION;";
             ht.Add("@NewIDInvoice", idInvoiceCreate);
             ht.Add("@FormattedTime", formattedTime);
@@ -73,7 +74,7 @@ namespace BillardManager.Model
 
             // Lấy thời gian khởi tạo hóa đơn từ database
             DateTime invoiceTime = GetInvoiceTimeFromDatabase();
-
+            startTime = "Start time :" + " " + invoiceTime.ToString();
             // Tính khoảng cách thời gian giữa thời gian khởi tạo và thời gian hiện tại
             TimeSpan timeDifference = currentTime - invoiceTime;
 
@@ -126,23 +127,27 @@ namespace BillardManager.Model
             // Cập nhật tổng số giờ đã chơi vào cơ sở dữ liệu
             string queryUpdate = @"
             UPDATE invoice_detail 
-            SET Invoice_TotalAmount = @HourCount 
+            SET Invoice_TotalAmount = @HourCount, Invoice_Price = @Price
             WHERE IdInvoice = '" + idInvoice + "' AND IdItem = 'IHour'";
 
             Hashtable htUpdate = new Hashtable();
             htUpdate.Add("@HourCount", roundedTotalHoursPlayed);
+            htUpdate.Add("@Price", int.Parse(Regex.Replace(roundedTotalAmountDue.ToString(), @"[^0-9.]", "")));
 
             MainClass.SQL(queryUpdate, htUpdate);
 
             // Hiển thị số giờ đã chơi và tổng số tiền phải trả
-            guna2DataGridViewCategory.Rows.Add(new object[]
+            guna2DataGridViewHourPlay.Rows.Add(new object[]
             {
-            0,
+            null,
             "IHour",
             "Play time",
             roundedTotalHoursPlayed,
             tableTypePrice,
-            roundedTotalAmountDue.ToString("N0")
+            roundedTotalAmountDue.ToString("N0"),
+            null,
+            null,
+            null
             });
             GetTotal();
         }
@@ -218,6 +223,7 @@ namespace BillardManager.Model
         }
         private void LoadDataItemBill()
         {
+            guna2DataGridViewCategory.Rows.Clear();
             double totalAmount = 0;
 
             string query = "SELECT " +
@@ -304,8 +310,10 @@ namespace BillardManager.Model
                         // Cập nhật tổng giá trị
                         double parsedPrice = double.Parse(Regex.Replace(wdg.PPrice, @"[^0-9.]", ""));
                         totalAmount = quantity * parsedPrice;
-                        item.Cells["Amount"].Value = totalAmount.ToString("N0");
-                        UpdateBillAmout(idInvoice, item.Cells["Id"].Value.ToString(), float.Parse(Regex.Replace(quantity.ToString("N0"), @"[^0-9.]", "")));
+                        string totalPrice = totalAmount.ToString("N0");
+                        item.Cells["Amount"].Value = totalPrice;
+                        string totalPriceUpdate = Regex.Replace(totalPrice.ToString(), @"[^0-9.]", "").ToString();
+                        UpdateBillAmout(idInvoice, item.Cells["Id"].Value.ToString(), float.Parse(Regex.Replace(quantity.ToString("N0"), @"[^0-9.]", "")), totalPriceUpdate);
                         GetTotal();
                         return;
                     }
@@ -315,26 +323,30 @@ namespace BillardManager.Model
                 double parsedPriceNew = double.Parse(Regex.Replace(wdg.PPrice, @"[^0-9.]", ""));
                 totalAmount += parsedPriceNew;
                 guna2DataGridViewCategory.Rows.Add(new object[] { 0, wdg.id, wdg.PName, 1, parsedPriceNew.ToString("N0"), totalAmount.ToString("N0") });
-                InsertBillAmout(idInvoice, wdg.id, 1);
+                string priceInsert = Regex.Replace(totalAmount.ToString("N0"), @"[^0-9.]", "").ToString();
+                InsertBillAmout(idInvoice, wdg.id, 1, priceInsert);
                 GetTotal();
             };
         }
-        private void InsertBillAmout(string idInvoice, string idItem, float amount)
+        private void InsertBillAmout(string idInvoice, string idItem, float amount, string price)
         {
             Hashtable ht = new Hashtable();
             string query = @"INSERT INTO invoice_detail " +
-            "(IdInvoice, IdItem, Invoice_TotalAmount) " +
-            "VALUES ('" + idInvoice + "', @idItem, @amount)";
+            "(IdInvoice, IdItem, Invoice_TotalAmount, Invoice_Price) " +
+            "VALUES ('" + idInvoice + "', @idItem, @amount, @price)";
             ht.Add("@idItem", idItem);
             ht.Add("@amount", amount);
+            ht.Add("@price", price);
             MainClass.SQL(query, ht);
         }
-        private void UpdateBillAmout(string idInvoice, string idItem, float amount)
+        private void UpdateBillAmout(string idInvoice, string idItem, float amount, string totalPrice)
         {
             Hashtable ht = new Hashtable();
             string query = @"UPDATE invoice_detail " +
-            "Set Invoice_TotalAmount = @amount " +
+            "Set Invoice_TotalAmount = @amount, " +
+            "Invoice_Price = @price " +
             "WHERE IdInvoice = @idInvoice AND idItem = @idItem";
+            ht.Add("@price", totalPrice);
             ht.Add("@idInvoice", idInvoice);
             ht.Add("@idItem", idItem);
             ht.Add("@amount", amount);
@@ -357,9 +369,10 @@ namespace BillardManager.Model
             {
                 Byte[] imageArray = (byte[])item["item_image"];
                 byte[] imageByteArray = imageArray;
+                int price = int.Parse(item["item_Price"].ToString());
 
                 AddItems(item["IdItem"].ToString(), item["item_Name"].ToString(),
-                    item["ItemCategory_Name"].ToString(), "$ " + item["item_Price"].ToString(), Image.FromStream(new MemoryStream(imageByteArray)));
+                    item["ItemCategory_Name"].ToString(), "$ " + price.ToString("N0"), Image.FromStream(new MemoryStream(imageByteArray)));
             }
         }
 
@@ -400,7 +413,69 @@ namespace BillardManager.Model
             frmCheckOut.tableID = idTable;
             frmCheckOut.amount = Convert.ToDouble(labelTotalMoneyNum.Text);
             frmCheckOut.invoiceID = idInvoice;
+            frmCheckOut.startTime = startTime;
             MainClass.BlurBackground(frmCheckOut);
+        }
+
+        private void guna2DataGridViewCategory_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            double totalAmount = 0;
+            if (guna2DataGridViewCategory.CurrentCell.OwningColumn.Name == "minus")
+            {
+                int quantity = int.Parse(guna2DataGridViewCategory.CurrentRow.Cells["Quantity"].Value.ToString());
+                if (quantity <= 1)
+                {
+                    string id = guna2DataGridViewCategory.CurrentRow.Cells["Id"].Value.ToString();
+                    RemoveItem(id);
+                    return;
+                };
+                quantity -= 1;
+                guna2DataGridViewCategory.CurrentRow.Cells["Quantity"].Value = quantity;
+
+                // Cập nhật tổng giá trị
+                double parsedPrice = double.Parse(Regex.Replace(guna2DataGridViewCategory.CurrentRow.Cells["Price"].Value.ToString(), @"[^0-9.]", ""));
+                totalAmount = quantity * parsedPrice;
+                string totalPrice = totalAmount.ToString("N0");
+                guna2DataGridViewCategory.CurrentRow.Cells["Amount"].Value = totalPrice;
+                string totalPriceUpdate = Regex.Replace(totalPrice.ToString(), @"[^0-9.]", "").ToString();
+                UpdateBillAmout(idInvoice, guna2DataGridViewCategory.CurrentRow.Cells["Id"].Value.ToString(), float.Parse(Regex.Replace(quantity.ToString("N0"), @"[^0-9.]", "")), totalPriceUpdate);
+                GetTotal();
+            }
+            if (guna2DataGridViewCategory.CurrentCell.OwningColumn.Name == "plus")
+            {
+                int quantity = int.Parse(guna2DataGridViewCategory.CurrentRow.Cells["Quantity"].Value.ToString()) + 1;
+                guna2DataGridViewCategory.CurrentRow.Cells["Quantity"].Value = quantity;
+
+                // Cập nhật tổng giá trị
+                double parsedPrice = double.Parse(Regex.Replace(guna2DataGridViewCategory.CurrentRow.Cells["Price"].Value.ToString(), @"[^0-9.]", ""));
+                totalAmount = quantity * parsedPrice;
+                string totalPrice = totalAmount.ToString("N0");
+                guna2DataGridViewCategory.CurrentRow.Cells["Amount"].Value = totalPrice;
+                string totalPriceUpdate = Regex.Replace(totalPrice.ToString(), @"[^0-9.]", "").ToString();
+                UpdateBillAmout(idInvoice, guna2DataGridViewCategory.CurrentRow.Cells["Id"].Value.ToString(), float.Parse(Regex.Replace(quantity.ToString("N0"), @"[^0-9.]", "")), totalPriceUpdate);
+                GetTotal();
+            }
+            if (guna2DataGridViewCategory.CurrentCell.OwningColumn.Name == "ItemCategoryDelete")
+            {
+                string id = guna2DataGridViewCategory.CurrentRow.Cells["Id"].Value.ToString();
+                RemoveItem(id);
+
+            }
+        }
+
+        private void RemoveItem(string idItem)
+        {
+            DialogResult dialogResult = MessageFuctionConstans.OKCancel("Are you sure you want to delete?");
+            if (dialogResult == DialogResult.OK)
+            {
+                string query = "Delete from invoice_detail where IdItem ='" + idItem + "' AND IdInvoice = '" + idInvoice + "' ";
+                Hashtable hashtable = new Hashtable();
+                MainClass.SQL(query, hashtable);
+
+                MessageFuctionConstans.SuccessOK("Deleted successfully!");
+                LoadDataItemBill();
+                GetTotal();
+            }
         }
     }
 }

@@ -36,6 +36,7 @@
             this.IdItemCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemCategory_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TableType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemCategoryEdit = new System.Windows.Forms.DataGridViewImageColumn();
             this.ItemCategoryDelete = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridViewCategory)).BeginInit();
@@ -101,6 +102,7 @@
             this.IdItemCategory,
             this.ItemCategory_Name,
             this.TableType,
+            this.TypeID,
             this.ItemCategoryEdit,
             this.ItemCategoryDelete});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -145,6 +147,7 @@
             this.guna2DataGridViewCategory.ThemeStyle.RowsStyle.Height = 40;
             this.guna2DataGridViewCategory.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.guna2DataGridViewCategory.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.guna2DataGridViewCategory.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridViewCategory_CellContentClick);
             // 
             // ItemSno
             // 
@@ -176,8 +179,17 @@
             // TableType
             // 
             this.TableType.HeaderText = "Type";
+            this.TableType.MinimumWidth = 6;
             this.TableType.Name = "TableType";
             this.TableType.ReadOnly = true;
+            // 
+            // TypeID
+            // 
+            this.TypeID.HeaderText = "TypeID";
+            this.TypeID.MinimumWidth = 6;
+            this.TypeID.Name = "TypeID";
+            this.TypeID.ReadOnly = true;
+            this.TypeID.Visible = false;
             // 
             // ItemCategoryEdit
             // 
@@ -205,7 +217,7 @@
             // 
             // FormTablesDetailView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.guna2DataGridViewCategory);
@@ -225,6 +237,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn IdItemCategory;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemCategory_Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn TableType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TypeID;
         private System.Windows.Forms.DataGridViewImageColumn ItemCategoryEdit;
         private System.Windows.Forms.DataGridViewImageColumn ItemCategoryDelete;
     }

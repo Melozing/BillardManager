@@ -2,6 +2,8 @@
 using BillardManager.Admin;
 using System;
 using System.Collections;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace BillardManager.Model
 {
@@ -16,12 +18,16 @@ namespace BillardManager.Model
 
         private void FormTableDetailAdd_Load(object sender, System.EventArgs e)
         {
-            string query = "Select TableIDType 'id', TableType_Name 'name' from table_type";
+            string query = "Select TableIDType 'id', TableType_Name 'name' from table_type Where TableTypeStatus != 1";
             MainClass.CBFILL(query, comboBoxCategory);
 
             if (!string.IsNullOrEmpty(tableTypeId))
             {
                 comboBoxCategory.SelectedValue = tableTypeId;
+            }
+            if (!string.IsNullOrEmpty(tableDetailId))
+            {
+                ForUpdateLoadData();
             }
         }
 
@@ -65,6 +71,19 @@ namespace BillardManager.Model
         public override void guna2ButtonClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        private void ForUpdateLoadData()
+        {
+            string query = @"Select * from table_detail where TableID = '" + tableDetailId + "'";
+            SqlCommand cmd = new SqlCommand(query, MainClass.conn);
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            dataAdapter.Fill(dt);
+
+            if (dt.Rows.Count > 0)
+            {
+                guna2TextBoxName.Text = dt.Rows[0]["TableNumber"].ToString();
+            }
         }
     }
 }

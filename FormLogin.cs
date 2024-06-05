@@ -5,6 +5,7 @@ namespace BillardManager
 {
     public partial class FormLogin : Form
     {
+        public static bool isStaffLogin;
         public FormLogin()
         {
             InitializeComponent();
@@ -12,7 +13,7 @@ namespace BillardManager
 
         private void guna2ButtonExit_Click(object sender, System.EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
 
         private void guna2ButtonLogin_Click(object sender, System.EventArgs e)
@@ -25,6 +26,10 @@ namespace BillardManager
             else
             {
                 FormMain formMain = new FormMain();
+                if (isStaffLogin)
+                {
+                    formMain.isStaffLogin = isStaffLogin;
+                }
                 formMain.Show();
                 this.Hide();
             }
