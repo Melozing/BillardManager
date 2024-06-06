@@ -127,6 +127,12 @@
     <Compile Include="Model\FormPrintBillPage.Designer.cs">
       <DependentUpon>FormPrintBillPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\FormShowProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\FormShowProducts.Designer.cs">
+      <DependentUpon>FormShowProducts.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\FormStaffAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +228,12 @@
     <Compile Include="View\FormTablesView.Designer.cs">
       <DependentUpon>FormTablesView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\FormWaiting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormWaiting.Designer.cs">
+      <DependentUpon>FormWaiting.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Admin\SampleAdd.resx">
       <DependentUpon>SampleAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -254,6 +266,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Model\FormPrintBillPage.resx">
       <DependentUpon>FormPrintBillPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\FormShowProducts.resx">
+      <DependentUpon>FormShowProducts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Model\FormStaffAdd.resx">
       <DependentUpon>FormStaffAdd.cs</DependentUpon>
@@ -301,6 +316,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormTablesView.resx">
       <DependentUpon>FormTablesView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormWaiting.resx">
+      <DependentUpon>FormWaiting.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

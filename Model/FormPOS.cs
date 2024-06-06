@@ -1,10 +1,10 @@
 ﻿using BiaManager.Script;
+using BillardManager.View;
 using System;
 using System.Collections;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -20,21 +20,29 @@ namespace BillardManager.Model
         public string totalPlayHour;
         public string priceHour;
         public string amountHourPlay;
+
+        private FormShowProducts frm;
         public FormPOS()
         {
             InitializeComponent();
         }
-
+        static FormPOS _obj;
+        public static FormPOS Instance
+        {
+            get { if (_obj == null) { _obj = new FormPOS(); } return _obj; }
+        }
         private void guna2PictureBoxExit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
         }
 
         private void Formpos_Load(object sender, EventArgs e)
         {
             guna2DataGridViewCategory.BorderStyle = BorderStyle.FixedSingle;
             flowLayoutPanelCategory.Controls.Clear();
-            flowLayoutPanelProduct.Controls.Clear();
+            panelProduct.Controls.Clear();
+            frm = new FormShowProducts();
+
             if (PStatus == "inactive")
             {
                 AddHourPlay();
@@ -46,7 +54,19 @@ namespace BillardManager.Model
             {
                 LoadDataItemBill();
             }
-            LoadProducts();
+
+            this.Visible = false;
+            FormWaiting formWaiting = new FormWaiting(() =>
+            {
+                LoadProducts();
+            });
+            MainClass.BlurBackground(formWaiting);
+            this.Visible = true;
+            foreach (var item in frm.flowLayoutPanelProduct.Controls)
+            {
+                var prod = (ucProduct)item;
+                this.ClickItem(prod);
+            }
         }
         private void AddHourPlay()
         {
@@ -77,7 +97,7 @@ namespace BillardManager.Model
             DateTime currentTime = DateTime.Now;
 
             // Lấy thời gian khởi tạo hóa đơn từ database
-            DateTime invoiceTime = GetInvoiceTimeFromDatabase();
+            (DateTime invoiceTime, string idInvoice) = GetInvoiceTimeFromDatabase();
             startTime = "Start time :" + " " + invoiceTime.ToString();
             // Tính khoảng cách thời gian giữa thời gian khởi tạo và thời gian hiện tại
             TimeSpan timeDifference = currentTime - invoiceTime;
@@ -159,24 +179,51 @@ namespace BillardManager.Model
             GetTotal();
         }
 
-        private DateTime GetInvoiceTimeFromDatabase()
+        private (DateTime, string) GetInvoiceTimeFromDatabase()
         {
-            // Giả sử bạn đã có hàm này để lấy thời gian hóa đơn từ cơ sở dữ liệu
             string query = @"
-            SELECT Invoice_time
+            SELECT Invoice_time, IdInvoice
             FROM invoice
             WHERE TableID = @TableID AND Invoice_Status = 0";
 
-            SqlCommand cmd = new SqlCommand(query, MainClass.conn);
-            cmd.Parameters.AddWithValue("@TableID", idTable);
-            if (MainClass.conn.State == ConnectionState.Closed) { MainClass.conn.Open(); }
-            DateTime invoiceTime = (DateTime)cmd.ExecuteScalar();
-            if (MainClass.conn.State == ConnectionState.Open) { MainClass.conn.Close(); }
-            return invoiceTime;
+            using (SqlCommand cmd = new SqlCommand(query, MainClass.conn))
+            {
+                cmd.Parameters.AddWithValue("@TableID", idTable);
+
+                if (MainClass.conn.State == ConnectionState.Closed)
+                {
+                    MainClass.conn.Open();
+                }
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        DateTime invoiceTime = reader.GetDateTime(0);
+                        string idInvoiceGet = reader.GetString(1); // hoặc reader.GetInt32(1) nếu IdInvoice là số
+                        idInvoice = idInvoiceGet;
+                        if (MainClass.conn.State == ConnectionState.Open)
+                        {
+                            MainClass.conn.Close();
+                        }
+
+                        return (invoiceTime, idInvoiceGet);
+                    }
+                    else
+                    {
+                        if (MainClass.conn.State == ConnectionState.Open)
+                        {
+                            MainClass.conn.Close();
+                        }
+                        throw new Exception("Invoice not found.");
+                    }
+                }
+            }
         }
+
         private void AddCategory()
         {
-            string query = "Select * From items_category";
+            string query = "Select * From items_category WHERE ItemCategoryStatus != 1";
             SqlCommand cmd = new SqlCommand(query, MainClass.conn);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable dataTable = new DataTable();
@@ -273,7 +320,7 @@ namespace BillardManager.Model
         private void _Click(object sender, EventArgs e)
         {
             Guna.UI2.WinForms.Guna2Button b = (Guna.UI2.WinForms.Guna2Button)sender;
-            foreach (var item in flowLayoutPanelProduct.Controls)
+            foreach (var item in frm.flowLayoutPanelProduct.Controls)
             {
                 var prod = (ucProduct)item;
                 prod.Visible = prod.PCategory.ToLower().Contains(b.Text.Trim().ToLower());
@@ -282,27 +329,16 @@ namespace BillardManager.Model
         private void _ClickAll(object sender, EventArgs e)
         {
             Guna.UI2.WinForms.Guna2Button b = (Guna.UI2.WinForms.Guna2Button)sender;
-            foreach (var item in flowLayoutPanelProduct.Controls)
+            foreach (var item in frm.flowLayoutPanelProduct.Controls)
             {
                 var prod = (ucProduct)item;
                 prod.Visible = prod.PCategory.ToLower().Contains("");
             }
         }
-
-        private void AddItems(string idItem, string name, string cat, string price, Image pimage)
+        public void ClickItem(ucProduct product)
         {
             double totalAmount = 0;
-
-            var w = new ucProduct()
-            {
-                PName = name,
-                PPrice = price,
-                PCategory = cat,
-                PImage = pimage,
-                id = idItem
-            };
-            flowLayoutPanelProduct.Controls.Add(w);
-            w.onSelect += (ss, ee) =>
+            product.onSelect += (ss, ee) =>
             {
                 var wdg = (ucProduct)ss;
                 foreach (DataGridViewRow item in guna2DataGridViewCategory.Rows)
@@ -362,30 +398,23 @@ namespace BillardManager.Model
         //Getting product form database
         private void LoadProducts()
         {
-            string query = "SELECT * " +
-                           "FROM items_menu im " +
-                           "JOIN items_category ic ON im.IdItemCategory = ic.IdItemCategory " +
-                           "WHERE im.ItemStatus != 1 AND im.IdItem !='IHour'";
-
-            SqlCommand cmd = new SqlCommand(query, MainClass.conn);
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            DataTable dataTable = new DataTable();
-            adapter.Fill(dataTable);
-
-            foreach (DataRow item in dataTable.Rows)
+            if (InvokeRequired)
             {
-                Byte[] imageArray = (byte[])item["item_image"];
-                byte[] imageByteArray = imageArray;
-                int price = int.Parse(item["item_Price"].ToString());
-
-                AddItems(item["IdItem"].ToString(), item["item_Name"].ToString(),
-                    item["ItemCategory_Name"].ToString(), "$ " + price.ToString("N0"), Image.FromStream(new MemoryStream(imageByteArray)));
+                Invoke(new Action(LoadProducts));
+                return;
             }
+
+            frm.TopLevel = false;
+            panelProduct.Controls.Add(frm);
+            frm.Show();
+            frm.Dock = DockStyle.Fill;
+            frm.BringToFront();
         }
+
 
         private void guna2TextBoxSearch_TextChanged(object sender, EventArgs e)
         {
-            foreach (var item in flowLayoutPanelProduct.Controls)
+            foreach (var item in panelProduct.Controls)
             {
                 var prod = (ucProduct)item;
                 prod.Visible = prod.PName.ToLower().Contains(guna2TextBoxSearch.Text.Trim().ToLower());
@@ -406,6 +435,10 @@ namespace BillardManager.Model
         {
             double total = 0;
             labelTotalMoneyNum.Text = string.Empty;
+            foreach (DataGridViewRow item in guna2DataGridViewHourPlay.Rows)
+            {
+                total += double.Parse(Regex.Replace(item.Cells[5].Value.ToString(), @"[^0-9.]", ""));
+            }
             foreach (DataGridViewRow item in guna2DataGridViewCategory.Rows)
             {
                 total += double.Parse(Regex.Replace(item.Cells["Amount"].Value.ToString(), @"[^0-9.]", ""));
@@ -416,6 +449,7 @@ namespace BillardManager.Model
 
         private void guna2ButtonCheckOut_Click(object sender, EventArgs e)
         {
+            this.Hide();
             FormCheckOut frmCheckOut = new FormCheckOut();
             frmCheckOut.tableID = idTable;
             frmCheckOut.amount = Convert.ToDouble(labelTotalMoneyNum.Text);
@@ -427,6 +461,7 @@ namespace BillardManager.Model
             frmCheckOut.amountHourPlay = amountHourPlay;
 
             MainClass.BlurBackground(frmCheckOut);
+            FormMain.Instance.BringToFront();
         }
 
         private void guna2DataGridViewCategory_CellClick(object sender, DataGridViewCellEventArgs e)

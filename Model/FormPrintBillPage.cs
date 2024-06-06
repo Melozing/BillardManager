@@ -43,16 +43,18 @@ namespace BillardManager.Model
             var ucTittle = new ucBillDetail();
             ShowItemBill(ucTittle);
             ucTittle.Dock = DockStyle.Top;
-
-            var w = new ucBillDetail()
+            if (int.Parse(amountHourPlay) > 0)
             {
-                PName = "Play time",
-                PPrice = priceHour,
-                PQuantity = totalPlayHour,
-                PAmount = amountHourPlay,
-                PSr = "1"
-            };
-            ShowItemBill(w);
+                var w = new ucBillDetail()
+                {
+                    PName = "Play time",
+                    PPrice = priceHour,
+                    PQuantity = totalPlayHour,
+                    PAmount = amountHourPlay,
+                    PSr = "1"
+                };
+                ShowItemBill(w);
+            }
 
             string query = "SELECT " +
                 "iv.Invoice_Status, " +
@@ -66,7 +68,6 @@ namespace BillardManager.Model
                 "JOIN invoice iv " +
                 "ON iv.IdInvoice = id.IdInvoice " +
                 "WHERE iv.IdInvoice = '" + idInvoice + "' " +
-                "AND iv.Invoice_Status = 0 " +
                 "AND im.IdItem != 'IHour'";
 
             SqlCommand cmd = new SqlCommand(query, MainClass.conn);
@@ -88,9 +89,9 @@ namespace BillardManager.Model
                     var b = new ucBillDetail()
                     {
                         PName = row["item_Name"].ToString(),
-                        PPrice = price.ToString(),
+                        PPrice = price.ToString("N0"),
                         PQuantity = quantity.ToString(),
-                        PAmount = totalAmount.ToString(),
+                        PAmount = totalAmount.ToString("N0"),
                         PSr = num.ToString()
                     };
                     ShowItemBill(b);
@@ -105,5 +106,6 @@ namespace BillardManager.Model
             bdt.BringToFront();
             bdt.Dock = DockStyle.Top;
         }
+
     }
 }
