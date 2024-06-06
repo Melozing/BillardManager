@@ -30,11 +30,77 @@ namespace BillardManager.Model
                 ForUpdateLoadData();
             }
         }
+        private bool CheckInput()
+        {
+            if (string.IsNullOrWhiteSpace(guna2TextBoxName.Text))
+            {
+                MessageFuctionConstans.WarningOK("Please enter a valid name!");
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(comboBoxCategory.Text))
+            {
+                MessageFuctionConstans.WarningOK("Please enter a valid type of table!");
+                return false;
+            }
+
+            string queryCheck = "SELECT TableNumber FROM table_detail WHERE TableNumber = @Name AND TableStatus != 1";
+            Hashtable htCheck = new Hashtable();
+            htCheck.Add("@Name", guna2TextBoxName.Text);
+            DataTable checkQuery = MainClass.LoadDataTable(queryCheck, htCheck);
+
+            if (checkQuery.Rows.Count > 0)
+            {
+                MessageFuctionConstans.WarningOK("This Table already exists. Please enter another name.");
+                return false;
+            }
+
+            return true;
+        }
+        private int GenerateUniqueTableNumber(int initialNumber)
+        {
+            int tableNumber = initialNumber;
+            string queryCheck;
+            Hashtable htCheck;
+            DataTable checkQuery;
+
+            do
+            {
+                queryCheck = "SELECT TableNumber FROM table_detail WHERE TableNumber = @Number AND TableStatus != 1";
+                htCheck = new Hashtable();
+                htCheck.Add("@Number", tableNumber);
+                checkQuery = MainClass.LoadDataTable(queryCheck, htCheck);
+
+                if (checkQuery.Rows.Count > 0)
+                {
+                    tableNumber++;
+                }
+            } while (checkQuery.Rows.Count > 0);
+
+            return tableNumber;
+        }
+
 
         private void guna2ButtonSave_Click_1(object sender, System.EventArgs e)
         {
             string query;
             Hashtable ht = new Hashtable();
+
+            if (!CheckInput())
+            {
+                guna2TextBoxName.Focus();
+                return;
+            }
+
+            int tableNumber;
+            if (!int.TryParse(guna2TextBoxName.Text, out tableNumber))
+            {
+                MessageFuctionConstans.ErrorOK("Table Number must be a valid integer.");
+                guna2TextBoxName.Focus();
+                return;
+            }
+
+            tableNumber = GenerateUniqueTableNumber(tableNumber);
+            guna2TextBoxName.Text = tableNumber.ToString();
 
             if (string.IsNullOrEmpty(tableDetailId))
             {
@@ -85,5 +151,7 @@ namespace BillardManager.Model
                 guna2TextBoxName.Text = dt.Rows[0]["TableNumber"].ToString();
             }
         }
+
+
     }
 }
