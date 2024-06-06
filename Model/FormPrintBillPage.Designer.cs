@@ -29,25 +29,26 @@
         private void InitializeComponent()
         {
             this.guna2PanelContent = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.panelBillDetail = new System.Windows.Forms.Panel();
             this.labelPaymentTime = new System.Windows.Forms.Label();
             this.labelTimeStart = new System.Windows.Forms.Label();
             this.labelTittle = new System.Windows.Forms.Label();
-            this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
+            this.guna2Separator3 = new Guna.UI2.WinForms.Guna2Separator();
+            this.PanelTotal = new System.Windows.Forms.Panel();
+            this.labelTotalMoney = new System.Windows.Forms.Label();
+            this.labelTotalText = new System.Windows.Forms.Label();
+            this.guna2Separator2 = new Guna.UI2.WinForms.Guna2Separator();
             this.panelChange = new System.Windows.Forms.Panel();
             this.labelChangetxt = new System.Windows.Forms.Label();
             this.labelChange = new System.Windows.Forms.Label();
             this.panelReceive = new System.Windows.Forms.Panel();
             this.labelRecivedAmounttxt = new System.Windows.Forms.Label();
             this.labelReceiveAmount = new System.Windows.Forms.Label();
-            this.guna2Separator2 = new Guna.UI2.WinForms.Guna2Separator();
-            this.PanelTotal = new System.Windows.Forms.Panel();
-            this.labelTotalMoney = new System.Windows.Forms.Label();
-            this.labelTotalText = new System.Windows.Forms.Label();
             this.guna2PanelContent.SuspendLayout();
+            this.PanelTotal.SuspendLayout();
             this.panelChange.SuspendLayout();
             this.panelReceive.SuspendLayout();
-            this.PanelTotal.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2PanelContent
@@ -57,6 +58,7 @@
             this.guna2PanelContent.Controls.Add(this.guna2Separator2);
             this.guna2PanelContent.Controls.Add(this.panelChange);
             this.guna2PanelContent.Controls.Add(this.panelReceive);
+            this.guna2PanelContent.Controls.Add(this.guna2Separator3);
             this.guna2PanelContent.Controls.Add(this.guna2Separator1);
             this.guna2PanelContent.Controls.Add(this.panelBillDetail);
             this.guna2PanelContent.Controls.Add(this.labelPaymentTime);
@@ -68,6 +70,14 @@
             this.guna2PanelContent.ShadowDecoration.Parent = this.guna2PanelContent;
             this.guna2PanelContent.Size = new System.Drawing.Size(486, 621);
             this.guna2PanelContent.TabIndex = 6;
+            // 
+            // guna2Separator1
+            // 
+            this.guna2Separator1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Separator1.Location = new System.Drawing.Point(0, 117);
+            this.guna2Separator1.Name = "guna2Separator1";
+            this.guna2Separator1.Size = new System.Drawing.Size(486, 10);
+            this.guna2Separator1.TabIndex = 17;
             // 
             // panelBillDetail
             // 
@@ -111,24 +121,65 @@
             this.labelTittle.Text = "RECEIPT";
             this.labelTittle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // guna2Separator1
+            // guna2Separator3
             // 
-            this.guna2Separator1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Separator1.Location = new System.Drawing.Point(0, 117);
-            this.guna2Separator1.Name = "guna2Separator1";
-            this.guna2Separator1.Size = new System.Drawing.Size(486, 10);
-            this.guna2Separator1.TabIndex = 17;
+            this.guna2Separator3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Separator3.Location = new System.Drawing.Point(0, 127);
+            this.guna2Separator3.Name = "guna2Separator3";
+            this.guna2Separator3.Size = new System.Drawing.Size(486, 10);
+            this.guna2Separator3.TabIndex = 23;
+            // 
+            // PanelTotal
+            // 
+            this.PanelTotal.Controls.Add(this.labelTotalMoney);
+            this.PanelTotal.Controls.Add(this.labelTotalText);
+            this.PanelTotal.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanelTotal.Location = new System.Drawing.Point(0, 251);
+            this.PanelTotal.Name = "PanelTotal";
+            this.PanelTotal.Padding = new System.Windows.Forms.Padding(10);
+            this.PanelTotal.Size = new System.Drawing.Size(486, 52);
+            this.PanelTotal.TabIndex = 27;
+            // 
+            // labelTotalMoney
+            // 
+            this.labelTotalMoney.Dock = System.Windows.Forms.DockStyle.Right;
+            this.labelTotalMoney.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotalMoney.Location = new System.Drawing.Point(219, 10);
+            this.labelTotalMoney.Name = "labelTotalMoney";
+            this.labelTotalMoney.Size = new System.Drawing.Size(257, 32);
+            this.labelTotalMoney.TabIndex = 4;
+            this.labelTotalMoney.Text = "TotalMoney";
+            this.labelTotalMoney.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelTotalText
+            // 
+            this.labelTotalText.Dock = System.Windows.Forms.DockStyle.Left;
+            this.labelTotalText.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotalText.Location = new System.Drawing.Point(10, 10);
+            this.labelTotalText.Name = "labelTotalText";
+            this.labelTotalText.Size = new System.Drawing.Size(257, 32);
+            this.labelTotalText.TabIndex = 5;
+            this.labelTotalText.Text = "Total :";
+            this.labelTotalText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // guna2Separator2
+            // 
+            this.guna2Separator2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Separator2.Location = new System.Drawing.Point(0, 241);
+            this.guna2Separator2.Name = "guna2Separator2";
+            this.guna2Separator2.Size = new System.Drawing.Size(486, 10);
+            this.guna2Separator2.TabIndex = 26;
             // 
             // panelChange
             // 
             this.panelChange.Controls.Add(this.labelChangetxt);
             this.panelChange.Controls.Add(this.labelChange);
             this.panelChange.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelChange.Location = new System.Drawing.Point(0, 179);
+            this.panelChange.Location = new System.Drawing.Point(0, 189);
             this.panelChange.Name = "panelChange";
             this.panelChange.Padding = new System.Windows.Forms.Padding(10);
             this.panelChange.Size = new System.Drawing.Size(486, 52);
-            this.panelChange.TabIndex = 19;
+            this.panelChange.TabIndex = 25;
             // 
             // labelChangetxt
             // 
@@ -157,11 +208,11 @@
             this.panelReceive.Controls.Add(this.labelRecivedAmounttxt);
             this.panelReceive.Controls.Add(this.labelReceiveAmount);
             this.panelReceive.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelReceive.Location = new System.Drawing.Point(0, 127);
+            this.panelReceive.Location = new System.Drawing.Point(0, 137);
             this.panelReceive.Name = "panelReceive";
             this.panelReceive.Padding = new System.Windows.Forms.Padding(10);
             this.panelReceive.Size = new System.Drawing.Size(486, 52);
-            this.panelReceive.TabIndex = 18;
+            this.panelReceive.TabIndex = 24;
             // 
             // labelRecivedAmounttxt
             // 
@@ -185,47 +236,6 @@
             this.labelReceiveAmount.Text = "Received amount :";
             this.labelReceiveAmount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // guna2Separator2
-            // 
-            this.guna2Separator2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Separator2.Location = new System.Drawing.Point(0, 231);
-            this.guna2Separator2.Name = "guna2Separator2";
-            this.guna2Separator2.Size = new System.Drawing.Size(486, 10);
-            this.guna2Separator2.TabIndex = 21;
-            // 
-            // PanelTotal
-            // 
-            this.PanelTotal.Controls.Add(this.labelTotalMoney);
-            this.PanelTotal.Controls.Add(this.labelTotalText);
-            this.PanelTotal.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PanelTotal.Location = new System.Drawing.Point(0, 241);
-            this.PanelTotal.Name = "PanelTotal";
-            this.PanelTotal.Padding = new System.Windows.Forms.Padding(10);
-            this.PanelTotal.Size = new System.Drawing.Size(486, 52);
-            this.PanelTotal.TabIndex = 22;
-            // 
-            // labelTotalMoney
-            // 
-            this.labelTotalMoney.Dock = System.Windows.Forms.DockStyle.Right;
-            this.labelTotalMoney.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotalMoney.Location = new System.Drawing.Point(219, 10);
-            this.labelTotalMoney.Name = "labelTotalMoney";
-            this.labelTotalMoney.Size = new System.Drawing.Size(257, 32);
-            this.labelTotalMoney.TabIndex = 4;
-            this.labelTotalMoney.Text = "TotalMoney";
-            this.labelTotalMoney.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // labelTotalText
-            // 
-            this.labelTotalText.Dock = System.Windows.Forms.DockStyle.Left;
-            this.labelTotalText.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotalText.Location = new System.Drawing.Point(10, 10);
-            this.labelTotalText.Name = "labelTotalText";
-            this.labelTotalText.Size = new System.Drawing.Size(257, 32);
-            this.labelTotalText.TabIndex = 5;
-            this.labelTotalText.Text = "Total :";
-            this.labelTotalText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // FormPrintBillPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -238,21 +248,20 @@
             this.Load += new System.EventHandler(this.FormPrintBillPage_Load);
             this.guna2PanelContent.ResumeLayout(false);
             this.guna2PanelContent.PerformLayout();
+            this.PanelTotal.ResumeLayout(false);
             this.panelChange.ResumeLayout(false);
             this.panelReceive.ResumeLayout(false);
-            this.PanelTotal.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private Guna.UI2.WinForms.Guna2Panel guna2PanelContent;
         private System.Windows.Forms.Panel panelBillDetail;
         private System.Windows.Forms.Label labelPaymentTime;
         private System.Windows.Forms.Label labelTimeStart;
         private System.Windows.Forms.Label labelTittle;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
+        public Guna.UI2.WinForms.Guna2Panel guna2PanelContent;
         private System.Windows.Forms.Panel PanelTotal;
         private System.Windows.Forms.Label labelTotalMoney;
         private System.Windows.Forms.Label labelTotalText;
@@ -263,5 +272,6 @@
         private System.Windows.Forms.Panel panelReceive;
         private System.Windows.Forms.Label labelRecivedAmounttxt;
         private System.Windows.Forms.Label labelReceiveAmount;
+        private Guna.UI2.WinForms.Guna2Separator guna2Separator3;
     }
 }

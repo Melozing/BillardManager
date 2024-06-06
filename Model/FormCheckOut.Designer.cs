@@ -173,7 +173,7 @@
             this.guna2TextBoxReceived.ShadowDecoration.Parent = this.guna2TextBoxReceived;
             this.guna2TextBoxReceived.Size = new System.Drawing.Size(354, 46);
             this.guna2TextBoxReceived.TabIndex = 6;
-            this.guna2TextBoxReceived.TextChanged += new System.EventHandler(this.guna2TextBox1_TextChanged);
+            this.guna2TextBoxReceived.TextChanged += new System.EventHandler(this.guna2TextBoxReceived_TextChanged);
             this.guna2TextBoxReceived.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.guna2TextBoxReceived_KeyPress);
             // 
             // labelCategory

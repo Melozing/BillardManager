@@ -15,6 +15,10 @@ namespace BillardManager.Model
         public string receivedMoney;
         public string changeMoney;
 
+        public string totalPlayHour;
+        public string priceHour;
+        public string amountHourPlay;
+
         private Bitmap memoryImg;
         private FormPrintBillPage printPage;
         public FormPrintBill()
@@ -28,11 +32,15 @@ namespace BillardManager.Model
             FormPrintBillPage formPrintBillPage = new FormPrintBillPage();
             formPrintBillPage.startTime = startTime;
             formPrintBillPage.paymentTime = paymentTime;
-            formPrintBillPage.invoiceID = invoiceID;
+            formPrintBillPage.idInvoice = invoiceID;
 
             formPrintBillPage.totalMoney = totalMoney;
             formPrintBillPage.receivedMoney = receivedMoney;
             formPrintBillPage.changeMoney = changeMoney;
+
+            formPrintBillPage.totalPlayHour = totalPlayHour;
+            formPrintBillPage.priceHour = priceHour;
+            formPrintBillPage.amountHourPlay = amountHourPlay;
 
             formPrintBillPage.TopLevel = false;
             formPrintBillPage.FormBorderStyle = FormBorderStyle.None;
@@ -58,6 +66,7 @@ namespace BillardManager.Model
 
         private void Print(FormPrintBillPage pnl)
         {
+            pnl.BackColor = Color.White;
             PrinterSettings ps = new PrinterSettings();
             GetPrintArea(pnl);
 

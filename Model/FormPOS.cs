@@ -16,6 +16,10 @@ namespace BillardManager.Model
         public string idInvoice;
         public string PStatus;
         public string startTime;
+
+        public string totalPlayHour;
+        public string priceHour;
+        public string amountHourPlay;
         public FormPOS()
         {
             InitializeComponent();
@@ -136,6 +140,9 @@ namespace BillardManager.Model
 
             MainClass.SQL(queryUpdate, htUpdate);
 
+            totalPlayHour = roundedTotalHoursPlayed.ToString();
+            priceHour = tableTypePrice.ToString();
+            amountHourPlay = roundedTotalAmountDue.ToString();
             // Hiển thị số giờ đã chơi và tổng số tiền phải trả
             guna2DataGridViewHourPlay.Rows.Add(new object[]
             {
@@ -412,8 +419,13 @@ namespace BillardManager.Model
             FormCheckOut frmCheckOut = new FormCheckOut();
             frmCheckOut.tableID = idTable;
             frmCheckOut.amount = Convert.ToDouble(labelTotalMoneyNum.Text);
-            frmCheckOut.invoiceID = idInvoice;
+            frmCheckOut.idInvoice = idInvoice;
             frmCheckOut.startTime = startTime;
+
+            frmCheckOut.priceHour = priceHour;
+            frmCheckOut.totalPlayHour = totalPlayHour;
+            frmCheckOut.amountHourPlay = amountHourPlay;
+
             MainClass.BlurBackground(frmCheckOut);
         }
 

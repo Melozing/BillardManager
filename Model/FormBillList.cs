@@ -4,7 +4,7 @@ namespace BillardManager.Model
 {
     public partial class FormBillList : SampleAdd
     {
-        public string invoiceID;
+        public string idInvoice;
         public FormBillList()
         {
             InitializeComponent();
@@ -15,7 +15,7 @@ namespace BillardManager.Model
             if (guna2DataGridViewCategory.CurrentCell.OwningColumn.Name == "ItemCategoryEdit")
             {
                 // To see bill detail
-                invoiceID = guna2DataGridViewCategory.CurrentRow.Cells["Id"].Value.ToString();
+                idInvoice = guna2DataGridViewCategory.CurrentRow.Cells["Id"].Value.ToString();
 
             }
             if (guna2DataGridViewCategory.CurrentCell.OwningColumn.Name == "ItemCategoryDelete")

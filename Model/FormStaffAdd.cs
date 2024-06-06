@@ -3,6 +3,7 @@ using BillardManager.Admin;
 using BillardManager.Scripts.Ultility;
 using System;
 using System.Collections;
+using System.Text.RegularExpressions;
 
 namespace BillardManager.Model
 {
@@ -16,6 +17,7 @@ namespace BillardManager.Model
         public string id;
         public override void guna2ButtonSave_Click(object sender, EventArgs e)
         {
+            if (!CheckUserInputCreate()) return;
             string queryUserAccount;
             string queryUserInfo;
             string hashedPassword = PasswordHasher.HashPassword("123456");
@@ -68,7 +70,35 @@ namespace BillardManager.Model
                 guna2TextBoxUsername.Focus();
             }
         }
+        private bool CheckAccount(string username)
+        {
+            return Regex.IsMatch(username, "^[a-zA-Z0-9]{6,24}");
+        }
 
+        private bool CheckUserInputCreate()
+        {
+            // Kiểm tra tính hợp lệ của tên đăng nhập và mật khẩu
+            if (!CheckAccount(guna2TextBoxUsername.Text))
+            {
+                MessageFuctionConstans.WarningOK("Please enter a valid username and password. They should be 6-24 characters long and should not contain any special characters!");
+                return false;
+            }
+
+            // Kiểm tra số điện thoại đã tồn tại trong cơ sở dữ liệu hay chưa
+            string queryCheckPhone = "SELECT ua.*, ui.* " +
+                "FROM user_account AS ua " +
+                "JOIN user_info AS ui " +
+                "ON ua.IdUser = ui.IdUser " +
+                "WHERE ui.User_Phone = '" + guna2TextBoxPhone.Text + "' " +
+                "AND ua.AccountStatus != 1";
+            Hashtable ht = new Hashtable();
+            if (MainClass.SQL(queryCheckPhone, ht) > 0)
+            {
+                MessageFuctionConstans.WarningOK("This phone number already exists. Please enter another number.");
+                return false;
+            }
+            return true;
+        }
         private void guna2TextBoxBankAccountNumber_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))

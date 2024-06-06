@@ -15,12 +15,20 @@ namespace BillardManager.Model
 
         public double amount;
         public string tableID;
-        public string invoiceID;
+        public string idInvoice;
         public string startTime;
         public string paymentTime;
 
-        private void guna2TextBox1_TextChanged(object sender, System.EventArgs e)
+        public string totalPlayHour;
+        public string priceHour;
+        public string amountHourPlay;
+        private void guna2TextBoxReceived_TextChanged(object sender, System.EventArgs e)
         {
+            if (string.IsNullOrEmpty(guna2TextBoxReceived.Text))
+            {
+                guna2TextBoxChange.Text = null;
+                return;
+            };
             double amt = 0;
             double receipt = double.Parse(guna2TextBoxReceived.Text);
             double change = 0;
@@ -58,7 +66,7 @@ namespace BillardManager.Model
                             Invoice_Change = @change, 
                             Invoice_PaymentTime  = @paymentTime, 
                             Invoice_Status = 1 
-                            Where IdInvoice = '" + invoiceID + "'";
+                            Where IdInvoice = '" + idInvoice + "'";
         }
         private void ExportAndPrintInvoice()
         {
@@ -66,10 +74,16 @@ namespace BillardManager.Model
             paymentTime = currentTime.ToString();
             FormPrintBill frm = new FormPrintBill();
             frm.startTime = startTime;
+            frm.invoiceID = idInvoice;
             frm.paymentTime = "Payment time : " + paymentTime;
             frm.totalMoney = "$ " + guna2TextBoxBillAmount.Text;
             frm.receivedMoney = "$ " + guna2TextBoxReceived.Text;
             frm.changeMoney = "$ " + guna2TextBoxChange.Text;
+
+            frm.totalPlayHour = totalPlayHour;
+            frm.priceHour = priceHour;
+            frm.amountHourPlay = amountHourPlay;
+
             frm.ShowDialog();
         }
         private void UpdateInvoiceAndTableStatus()
@@ -80,7 +94,7 @@ namespace BillardManager.Model
             FROM invoice AS inv
             INNER JOIN invoice_detail AS inv_det ON inv.IdInvoice = inv_det.IdInvoice
             INNER JOIN table_detail AS tbl_det ON inv.TableID = tbl_det.TableID
-            WHERE inv.IdInvoice = '" + invoiceID + "' AND inv.Invoice_Status = 0;" +
+            WHERE inv.IdInvoice = '" + idInvoice + "' AND inv.Invoice_Status = 0;" +
             "UPDATE table_detail SET Status = 0 WHERE TableID = '" + tableID + "'; ";
             Hashtable ht = new Hashtable();
             MainClass.SQL(queryPay, ht);
