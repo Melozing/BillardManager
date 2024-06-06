@@ -33,10 +33,12 @@ namespace BillardManager.Model
             {
                 PStatus = "inactive";
                 FormPOS formPOS = new FormPOS();
+                formPOS.Show();
                 formPOS.idTable = id;
                 formPOS.PStatus = PStatus;
                 formPOS.WindowState = FormWindowState.Maximized;
                 MainClass.BlurBackground(formPOS);
+                FormMain.Instance.guna2ButtonTable.PerformClick();
                 SetActiveOrder();
             }
             else

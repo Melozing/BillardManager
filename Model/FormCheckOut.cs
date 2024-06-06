@@ -68,13 +68,38 @@ namespace BillardManager.Model
         {
             string queryPay = @"
             UPDATE inv
-            SET inv.Invoice_Status = 1
+            SET inv.Invoice_Status = 1, 
+            Invoice_Total = @total, 
+            Invoice_Received = @received, 
+            Invoice_Change = @change, 
+            Invoice_PaymentTime = @paymentTime 
             FROM invoice AS inv
             INNER JOIN invoice_detail AS inv_det ON inv.IdInvoice = inv_det.IdInvoice
             INNER JOIN table_detail AS tbl_det ON inv.TableID = tbl_det.TableID
             WHERE inv.IdInvoice = '" + idInvoice + "' AND inv.Invoice_Status = 0;" +
             "UPDATE table_detail SET Status = 0 WHERE TableID = '" + tableID + "'; ";
             Hashtable ht = new Hashtable();
+            ht.Add("@total", amount.ToString());
+            ht.Add("@received", guna2TextBoxReceived.Text);
+            ht.Add("@change", changeMoney);
+            ht.Add("@paymentTime", paymentTime);
+            //string queryPay = @"
+            //UPDATE inv
+            //SET inv.Invoice_Status = 1, 
+            //Invoice_Total = @total, 
+            //Invoice_Received = @received, 
+            //Invoice_Change = @change, 
+            //Invoice_PaymentTime = @paymentTime 
+            //FROM invoice AS inv
+            //INNER JOIN invoice_detail AS inv_det ON inv.IdInvoice = inv_det.IdInvoice
+            //INNER JOIN table_detail AS tbl_det ON inv.TableID = tbl_det.TableID
+            //WHERE inv.IdInvoice = '" + idInvoice + "' AND inv.Invoice_Status = 0;" +
+            //"UPDATE table_detail SET Status = 0 WHERE TableID = '" + tableID + "'; ";
+            //Hashtable ht = new Hashtable();
+            //ht.Add("@total", amount.ToString());
+            //ht.Add("@received", guna2TextBoxReceived.Text);
+            //ht.Add("@change", changeMoney);
+            //ht.Add("@paymentTime", paymentTime);
             MainClass.SQL(queryPay, ht);
             FormMain.Instance.guna2ButtonTable.PerformClick();
         }
