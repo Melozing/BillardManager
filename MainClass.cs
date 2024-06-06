@@ -13,8 +13,8 @@ namespace BillardManager
     {
         //Manh Laptop : DESKTOP-NQD44KU\MYMSSQLSERVER
         //Manh PC : DESKTOP-G0D14LK
-        public static readonly string nameServer = "DESKTOP-NQD44KU\\MYMSSQLSERVER";
-        public static readonly string connect_string = "Data Source='" + nameServer + "';Initial Catalog=db_biamanager;Initial Catalog=db_biamanager;Integrated Security=True";
+        public static readonly string nameServer = "LAGANIME";
+        public static readonly string connect_string = "Data Source='" + nameServer + "';Initial Catalog=db_billiardmanager;Initial Catalog=db_billiardmanager;Integrated Security=True";
         public static SqlConnection conn = new SqlConnection(connect_string);
 
         //Methord to check user validation
@@ -198,6 +198,32 @@ namespace BillardManager
             public string IdUser { get; set; }
             public string UserName { get; set; }
             public int UserRole { get; set; }
+        }
+
+        public static DataTable LoadDataTable(string query, Hashtable parameters)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.CommandType = CommandType.Text;
+
+                foreach (DictionaryEntry parameter in parameters)
+                {
+                    cmd.Parameters.AddWithValue((string)parameter.Key, parameter.Value);
+                }
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                MessageFuctionConstans.ErrorOK(ex.ToString());
+                conn.Close();
+                return null;
+            }
         }
     }
 }

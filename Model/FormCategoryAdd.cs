@@ -2,6 +2,7 @@
 using BillardManager.Admin;
 using System;
 using System.Collections;
+using System.Text.RegularExpressions;
 
 namespace BillardManager.Model
 {
@@ -18,6 +19,18 @@ namespace BillardManager.Model
         {
             string query;
             Hashtable ht = new Hashtable();
+            if (string.IsNullOrEmpty(guna2TextBoxName.Text))
+            {
+                MessageFuctionConstans.ErrorOK("Name cannot be empty.");
+                guna2TextBoxName.Focus();
+                return;
+            }
+            if (!Regex.IsMatch(guna2TextBoxName.Text, "^[a-zA-Z0-9]+$"))
+            {
+                MessageFuctionConstans.ErrorOK("Name can only contain letters and numbers.");
+                guna2TextBoxName.Focus();
+                return;
+            }
 
             if (string.IsNullOrEmpty(categoryId))
             {
