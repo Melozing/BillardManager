@@ -152,6 +152,12 @@
     <Compile Include="Model\FormTableDetailAdd.Designer.cs">
       <DependentUpon>FormTableDetailAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\ucBillDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Model\ucBillDetail.Designer.cs">
+      <DependentUpon>ucBillDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FormSetting.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -260,6 +266,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Model\FormTableDetailAdd.resx">
       <DependentUpon>FormTableDetailAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\ucBillDetail.resx">
+      <DependentUpon>ucBillDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormSetting.resx">
       <DependentUpon>FormSetting.cs</DependentUpon>
