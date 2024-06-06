@@ -13,8 +13,9 @@ namespace BillardManager
     {
         //Manh Laptop : DESKTOP-NQD44KU\MYMSSQLSERVER
         //Manh PC : DESKTOP-G0D14LK
-        public static readonly string nameServer = "LAGANIME";
-        public static readonly string connect_string = "Data Source='" + nameServer + "';Initial Catalog=db_billiardmanager;Initial Catalog=db_billiardmanager;Integrated Security=True";
+        //Hoang Laptop : LAGANIME
+        public static readonly string nameServer = "DESKTOP-NQD44KU\\MYMSSQLSERVER";
+        public static readonly string connect_string = "Data Source='" + nameServer + "';Initial Catalog=db_biamanager;Initial Catalog=db_biamanager;Integrated Security=True";
         public static SqlConnection conn = new SqlConnection(connect_string);
 
         //Methord to check user validation

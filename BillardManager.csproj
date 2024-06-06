@@ -164,6 +164,12 @@
     <Compile Include="Model\ucBillDetail.Designer.cs">
       <DependentUpon>ucBillDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\FormBillView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormBillView.Designer.cs">
+      <DependentUpon>FormBillView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FormSetting.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -234,6 +240,12 @@
     <Compile Include="View\FormWaiting.Designer.cs">
       <DependentUpon>FormWaiting.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\FormWaitingScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormWaitingScreen.Designer.cs">
+      <DependentUpon>FormWaitingScreen.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Admin\SampleAdd.resx">
       <DependentUpon>SampleAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -285,6 +297,9 @@
     <EmbeddedResource Include="Model\ucBillDetail.resx">
       <DependentUpon>ucBillDetail.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\FormBillView.resx">
+      <DependentUpon>FormBillView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\FormSetting.resx">
       <DependentUpon>FormSetting.cs</DependentUpon>
     </EmbeddedResource>
@@ -319,6 +334,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormWaiting.resx">
       <DependentUpon>FormWaiting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormWaitingScreen.resx">
+      <DependentUpon>FormWaitingScreen.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

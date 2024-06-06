@@ -54,13 +54,13 @@ namespace BillardManager.Model
             {
                 LoadDataItemBill();
             }
-
             this.Visible = false;
             FormWaiting formWaiting = new FormWaiting(() =>
             {
                 LoadProducts();
             });
             MainClass.BlurBackground(formWaiting);
+            formWaiting.Close();
             this.Visible = true;
             foreach (var item in frm.flowLayoutPanelProduct.Controls)
             {

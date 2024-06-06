@@ -18,14 +18,17 @@ namespace BillardManager.View
             }
             Action = action;
         }
-
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            Task.Factory.StartNew(Action).ContinueWith(t =>
+            if (Action != null)
             {
-                this.Close();
-            }, TaskScheduler.FromCurrentSynchronizationContext());
+                Task.Factory.StartNew(Action).ContinueWith(t =>
+                {
+                    this.Close();
+                }, TaskScheduler.FromCurrentSynchronizationContext());
+            }
+
         }
     }
 }

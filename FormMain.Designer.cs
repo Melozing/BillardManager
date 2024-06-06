@@ -203,6 +203,7 @@
             this.guna2ButtonBills.Size = new System.Drawing.Size(180, 45);
             this.guna2ButtonBills.TabIndex = 1;
             this.guna2ButtonBills.Text = "Bills";
+            this.guna2ButtonBills.Click += new System.EventHandler(this.guna2ButtonBills_Click);
             // 
             // guna2ButtonUser
             // 
