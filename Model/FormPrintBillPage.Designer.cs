@@ -30,11 +30,9 @@
         {
             this.guna2PanelContent = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
-            this.panelBillDetail = new System.Windows.Forms.Panel();
             this.labelPaymentTime = new System.Windows.Forms.Label();
             this.labelTimeStart = new System.Windows.Forms.Label();
             this.labelTittle = new System.Windows.Forms.Label();
-            this.guna2Separator3 = new Guna.UI2.WinForms.Guna2Separator();
             this.PanelTotal = new System.Windows.Forms.Panel();
             this.labelTotalMoney = new System.Windows.Forms.Label();
             this.labelTotalText = new System.Windows.Forms.Label();
@@ -45,6 +43,8 @@
             this.panelReceive = new System.Windows.Forms.Panel();
             this.labelRecivedAmounttxt = new System.Windows.Forms.Label();
             this.labelReceiveAmount = new System.Windows.Forms.Label();
+            this.guna2Separator3 = new Guna.UI2.WinForms.Guna2Separator();
+            this.panelBillDetail = new System.Windows.Forms.Panel();
             this.guna2PanelContent.SuspendLayout();
             this.PanelTotal.SuspendLayout();
             this.panelChange.SuspendLayout();
@@ -53,14 +53,14 @@
             // 
             // guna2PanelContent
             // 
-            this.guna2PanelContent.AutoScroll = true;
+            this.guna2PanelContent.AutoSize = true;
             this.guna2PanelContent.Controls.Add(this.PanelTotal);
             this.guna2PanelContent.Controls.Add(this.guna2Separator2);
             this.guna2PanelContent.Controls.Add(this.panelChange);
             this.guna2PanelContent.Controls.Add(this.panelReceive);
             this.guna2PanelContent.Controls.Add(this.guna2Separator3);
-            this.guna2PanelContent.Controls.Add(this.guna2Separator1);
             this.guna2PanelContent.Controls.Add(this.panelBillDetail);
+            this.guna2PanelContent.Controls.Add(this.guna2Separator1);
             this.guna2PanelContent.Controls.Add(this.labelPaymentTime);
             this.guna2PanelContent.Controls.Add(this.labelTimeStart);
             this.guna2PanelContent.Controls.Add(this.labelTittle);
@@ -78,15 +78,6 @@
             this.guna2Separator1.Name = "guna2Separator1";
             this.guna2Separator1.Size = new System.Drawing.Size(486, 10);
             this.guna2Separator1.TabIndex = 17;
-            // 
-            // panelBillDetail
-            // 
-            this.panelBillDetail.AutoSize = true;
-            this.panelBillDetail.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelBillDetail.Location = new System.Drawing.Point(0, 117);
-            this.panelBillDetail.Name = "panelBillDetail";
-            this.panelBillDetail.Size = new System.Drawing.Size(486, 0);
-            this.panelBillDetail.TabIndex = 11;
             // 
             // labelPaymentTime
             // 
@@ -121,14 +112,6 @@
             this.labelTittle.Text = "RECEIPT";
             this.labelTittle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // guna2Separator3
-            // 
-            this.guna2Separator3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Separator3.Location = new System.Drawing.Point(0, 127);
-            this.guna2Separator3.Name = "guna2Separator3";
-            this.guna2Separator3.Size = new System.Drawing.Size(486, 10);
-            this.guna2Separator3.TabIndex = 23;
-            // 
             // PanelTotal
             // 
             this.PanelTotal.Controls.Add(this.labelTotalMoney);
@@ -138,7 +121,7 @@
             this.PanelTotal.Name = "PanelTotal";
             this.PanelTotal.Padding = new System.Windows.Forms.Padding(10);
             this.PanelTotal.Size = new System.Drawing.Size(486, 52);
-            this.PanelTotal.TabIndex = 27;
+            this.PanelTotal.TabIndex = 38;
             // 
             // labelTotalMoney
             // 
@@ -168,7 +151,7 @@
             this.guna2Separator2.Location = new System.Drawing.Point(0, 241);
             this.guna2Separator2.Name = "guna2Separator2";
             this.guna2Separator2.Size = new System.Drawing.Size(486, 10);
-            this.guna2Separator2.TabIndex = 26;
+            this.guna2Separator2.TabIndex = 37;
             // 
             // panelChange
             // 
@@ -179,7 +162,7 @@
             this.panelChange.Name = "panelChange";
             this.panelChange.Padding = new System.Windows.Forms.Padding(10);
             this.panelChange.Size = new System.Drawing.Size(486, 52);
-            this.panelChange.TabIndex = 25;
+            this.panelChange.TabIndex = 36;
             // 
             // labelChangetxt
             // 
@@ -212,7 +195,7 @@
             this.panelReceive.Name = "panelReceive";
             this.panelReceive.Padding = new System.Windows.Forms.Padding(10);
             this.panelReceive.Size = new System.Drawing.Size(486, 52);
-            this.panelReceive.TabIndex = 24;
+            this.panelReceive.TabIndex = 35;
             // 
             // labelRecivedAmounttxt
             // 
@@ -236,6 +219,23 @@
             this.labelReceiveAmount.Text = "Received amount :";
             this.labelReceiveAmount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // guna2Separator3
+            // 
+            this.guna2Separator3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Separator3.Location = new System.Drawing.Point(0, 127);
+            this.guna2Separator3.Name = "guna2Separator3";
+            this.guna2Separator3.Size = new System.Drawing.Size(486, 10);
+            this.guna2Separator3.TabIndex = 34;
+            // 
+            // panelBillDetail
+            // 
+            this.panelBillDetail.AutoSize = true;
+            this.panelBillDetail.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelBillDetail.Location = new System.Drawing.Point(0, 127);
+            this.panelBillDetail.Name = "panelBillDetail";
+            this.panelBillDetail.Size = new System.Drawing.Size(486, 0);
+            this.panelBillDetail.TabIndex = 33;
+            // 
             // FormPrintBillPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -252,11 +252,11 @@
             this.panelChange.ResumeLayout(false);
             this.panelReceive.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel panelBillDetail;
         private System.Windows.Forms.Label labelPaymentTime;
         private System.Windows.Forms.Label labelTimeStart;
         private System.Windows.Forms.Label labelTittle;
@@ -273,5 +273,6 @@
         private System.Windows.Forms.Label labelRecivedAmounttxt;
         private System.Windows.Forms.Label labelReceiveAmount;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator3;
+        private System.Windows.Forms.Panel panelBillDetail;
     }
 }

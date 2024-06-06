@@ -25,13 +25,13 @@ namespace BillardManager
             }
             else
             {
+                this.Hide();
                 FormMain formMain = new FormMain();
                 if (isStaffLogin)
                 {
                     formMain.isStaffLogin = isStaffLogin;
                 }
                 formMain.Show();
-                this.Hide();
             }
         }
     }

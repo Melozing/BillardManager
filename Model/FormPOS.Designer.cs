@@ -47,7 +47,7 @@
             this.labelTotal = new System.Windows.Forms.Label();
             this.flowLayoutPanelCategory = new System.Windows.Forms.FlowLayoutPanel();
             this.panelCenter = new System.Windows.Forms.Panel();
-            this.flowLayoutPanelProduct = new System.Windows.Forms.FlowLayoutPanel();
+            this.panelProduct = new System.Windows.Forms.Panel();
             this.guna2TextBoxSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.panelLeft = new System.Windows.Forms.Panel();
             this.guna2DataGridViewCategory = new Guna.UI2.WinForms.Guna2DataGridView();
@@ -110,7 +110,6 @@
             this.labelTittle.Name = "labelTittle";
             this.labelTittle.Size = new System.Drawing.Size(884, 130);
             this.labelTittle.TabIndex = 1;
-            this.labelTittle.Text = "POS";
             this.labelTittle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2PictureBoxExit
@@ -235,7 +234,7 @@
             // 
             // panelCenter
             // 
-            this.panelCenter.Controls.Add(this.flowLayoutPanelProduct);
+            this.panelCenter.Controls.Add(this.panelProduct);
             this.panelCenter.Controls.Add(this.guna2TextBoxSearch);
             this.panelCenter.Controls.Add(this.panelLeft);
             this.panelCenter.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -244,14 +243,13 @@
             this.panelCenter.Size = new System.Drawing.Size(984, 319);
             this.panelCenter.TabIndex = 12;
             // 
-            // flowLayoutPanelProduct
+            // panelProduct
             // 
-            this.flowLayoutPanelProduct.AutoScroll = true;
-            this.flowLayoutPanelProduct.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanelProduct.Location = new System.Drawing.Point(0, 71);
-            this.flowLayoutPanelProduct.Name = "flowLayoutPanelProduct";
-            this.flowLayoutPanelProduct.Size = new System.Drawing.Size(530, 248);
-            this.flowLayoutPanelProduct.TabIndex = 15;
+            this.panelProduct.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelProduct.Location = new System.Drawing.Point(0, 71);
+            this.panelProduct.Name = "panelProduct";
+            this.panelProduct.Size = new System.Drawing.Size(530, 248);
+            this.panelProduct.TabIndex = 14;
             // 
             // guna2TextBoxSearch
             // 
@@ -277,6 +275,7 @@
             this.guna2TextBoxSearch.ShadowDecoration.Parent = this.guna2TextBoxSearch;
             this.guna2TextBoxSearch.Size = new System.Drawing.Size(530, 71);
             this.guna2TextBoxSearch.TabIndex = 13;
+            this.guna2TextBoxSearch.TextChanged += new System.EventHandler(this.guna2TextBoxSearch_TextChanged);
             // 
             // panelLeft
             // 
@@ -697,7 +696,6 @@
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn3;
         private System.Windows.Forms.Panel panelLeft;
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridViewHourPlay;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelProduct;
         public Guna.UI2.WinForms.Guna2TextBox guna2TextBoxSearch;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemSno;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
@@ -718,5 +716,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewImageColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewImageColumn6;
         public Guna.UI2.WinForms.Guna2DataGridView guna2DataGridViewCategory;
+        private System.Windows.Forms.Panel panelProduct;
     }
 }

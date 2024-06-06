@@ -66,7 +66,7 @@
             this.guna2ButtonSave.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.guna2ButtonSave.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.guna2ButtonSave.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.None;
-            this.guna2ButtonSave.Click += new System.EventHandler(this.guna2ButtonSave_Click_1);
+            this.guna2ButtonSave.Click += new System.EventHandler(this.guna2ButtonSave_Click_2);
             // 
             // guna2ButtonClose
             // 

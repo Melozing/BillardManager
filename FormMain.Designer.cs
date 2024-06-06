@@ -434,10 +434,10 @@
         private Guna.UI2.WinForms.Guna2Button guna2ButtonUserManagement;
         private Guna.UI2.WinForms.Guna2Button guna2ButtonUser;
         private Guna.UI2.WinForms.Guna2Button guna2ButtonBills;
-        private Guna.UI2.WinForms.Guna2Button guna2ButtonTable;
         private Guna.UI2.WinForms.Guna2Button guna2ButtonSetting;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2Button guna2ButtonFoodManagement;
         private Guna.UI2.WinForms.Guna2Button guna2ButtonTableDetail;
+        public Guna.UI2.WinForms.Guna2Button guna2ButtonTable;
     }
 }

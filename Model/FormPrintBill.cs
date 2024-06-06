@@ -59,11 +59,6 @@ namespace BillardManager.Model
             printPage = formPrintBillPage;
         }
 
-        private void guna2ButtonSave_Click_1(object sender, System.EventArgs e)
-        {
-            Print(this.printPage);
-        }
-
         private void Print(FormPrintBillPage pnl)
         {
             pnl.BackColor = Color.White;
@@ -83,6 +78,8 @@ namespace BillardManager.Model
             printPreviewDialogBill.Document = printDocumentBill;
             printDocumentBill.PrintPage -= printDocumentBill_PrintPage;
             printDocumentBill.PrintPage += new PrintPageEventHandler(printDocumentBill_PrintPage);
+            printPreviewDialogBill.WindowState = FormWindowState.Maximized;
+            printPreviewDialogBill.Size = Screen.PrimaryScreen.Bounds.Size;
             printPreviewDialogBill.ShowDialog();
         }
 
@@ -95,6 +92,11 @@ namespace BillardManager.Model
         private void printDocumentBill_PrintPage(object sender, PrintPageEventArgs e)
         {
             e.Graphics.DrawImage(memoryImg, 0, 0);
+        }
+
+        private void guna2ButtonSave_Click_2(object sender, System.EventArgs e)
+        {
+            Print(this.printPage);
         }
     }
 }

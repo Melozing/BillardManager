@@ -14,6 +14,7 @@ namespace BillardManager
             InitializeComponent();
         }
         public bool isStaffLogin;
+
         static FormMain _obj;
         public static FormMain Instance
         {

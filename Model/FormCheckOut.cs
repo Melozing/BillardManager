@@ -22,6 +22,8 @@ namespace BillardManager.Model
         public string totalPlayHour;
         public string priceHour;
         public string amountHourPlay;
+
+        private double changeMoney;
         private void guna2TextBoxReceived_TextChanged(object sender, System.EventArgs e)
         {
             if (string.IsNullOrEmpty(guna2TextBoxReceived.Text))
@@ -39,34 +41,10 @@ namespace BillardManager.Model
 
             //change = Math.Abs(amt - receipt);
             change = receipt - amt;
-
+            changeMoney = change;
             guna2TextBoxChange.Text = change.ToString("N0");
             guna2TextBoxReceived.Text = receipt.ToString("N0");
             guna2TextBoxReceived.SelectionStart = guna2TextBoxReceived.Text.Length;
-        }
-        public override void guna2ButtonSave_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageFuctionConstans.OKCancel("Confirm payment for this bill?");
-            if (result == DialogResult.OK)
-            {
-                DialogResult resultExportBill = MessageFuctionConstans.YesNoCancel("Do you want to generate an invoice?");
-                if (resultExportBill == DialogResult.Yes)
-                {
-                    ExportAndPrintInvoice();
-                }
-                else if (resultExportBill == DialogResult.No)
-                {
-                    UpdateInvoiceAndTableStatus();
-                    PaySuccessful();
-                }
-            }
-            string query = @"Update invoice set 
-                            Invoice_Total = @total, 
-                            Invoice_Received = @rec, 
-                            Invoice_Change = @change, 
-                            Invoice_PaymentTime  = @paymentTime, 
-                            Invoice_Status = 1 
-                            Where IdInvoice = '" + idInvoice + "'";
         }
         private void ExportAndPrintInvoice()
         {
@@ -98,10 +76,11 @@ namespace BillardManager.Model
             "UPDATE table_detail SET Status = 0 WHERE TableID = '" + tableID + "'; ";
             Hashtable ht = new Hashtable();
             MainClass.SQL(queryPay, ht);
+            FormMain.Instance.guna2ButtonTable.PerformClick();
         }
         private void PaySuccessful()
         {
-            this.Close();
+            this.Hide();
             MessageFuctionConstans.SuccessOK("Payment successful!");
         }
         private void FormCheckOut_Load(object sender, EventArgs e)
@@ -118,7 +97,33 @@ namespace BillardManager.Model
         }
         public override void guna2ButtonClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
+        }
+
+        private void guna2ButtonSave_Click_1(object sender, EventArgs e)
+        {
+            if (changeMoney < 0)
+            {
+                MessageFuctionConstans.ErrorOK("Received amount must be greater than the amount due");
+                return;
+            }
+            DialogResult result = MessageFuctionConstans.OKCancel("Confirm payment for this bill?");
+            if (result == DialogResult.OK)
+            {
+                DialogResult resultExportBill = MessageFuctionConstans.YesNoCancel("Do you want to generate an invoice?");
+                if (resultExportBill == DialogResult.Yes)
+                {
+                    this.Hide();
+                    UpdateInvoiceAndTableStatus();
+                    ExportAndPrintInvoice();
+                }
+                else if (resultExportBill == DialogResult.No)
+                {
+                    this.Hide();
+                    UpdateInvoiceAndTableStatus();
+                    PaySuccessful();
+                }
+            }
         }
     }
 }
