@@ -32,11 +32,9 @@ namespace BillardManager.Model
             labelTotalMoney.Text = totalMoney;
             labelChangetxt.Text = changeMoney;
             labelRecivedAmounttxt.Text = receivedMoney;
-
-            LoadDataItemBill();
         }
 
-        private void LoadDataItemBill()
+        public void LoadDataItemBill()
         {
             double totalAmount = 0;
             panelBillDetail.Controls.Clear();
@@ -56,12 +54,11 @@ namespace BillardManager.Model
                 ShowItemBill(w);
             }
 
-            string query = "SELECT " +
+            string query = @"SELECT " +
                 "iv.Invoice_Status, " +
-                "im.IdItem, " +
                 "id.Invoice_TotalAmount, " +
                 "im.item_Name, " +
-                "im.item_Price " +
+                "id.Invoice_Price " +
                 "FROM items_menu im " +
                 "JOIN invoice_detail id " +
                 "ON im.IdItem = id.IdItem " +

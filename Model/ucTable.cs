@@ -9,7 +9,7 @@ namespace BillardManager.Model
         {
             InitializeComponent();
         }
-        public string idTable { get; set; }
+        public string id { get; set; }
         public string idInvoice { get; set; }
         public string PName
         {
@@ -33,18 +33,17 @@ namespace BillardManager.Model
             {
                 PStatus = "inactive";
                 FormPOS formPOS = new FormPOS();
-                formPOS.Show();
-                formPOS.idTable = idTable;
+                formPOS.idTable = id;
                 formPOS.PStatus = PStatus;
                 formPOS.WindowState = FormWindowState.Maximized;
-                MainClass.BlurBackground(formPOS);
                 FormMain.Instance.guna2ButtonTable.PerformClick();
                 SetActiveOrder();
+                MainClass.BlurBackground(formPOS);
             }
             else
             {
                 FormPOS formPOS = new FormPOS();
-                formPOS.idTable = idTable;
+                formPOS.idTable = id;
                 formPOS.WindowState = FormWindowState.Maximized;
                 formPOS.idInvoice = idInvoice;
                 MainClass.BlurBackground(formPOS);

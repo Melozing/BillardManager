@@ -64,44 +64,42 @@ namespace BillardManager.Model
 
             frm.ShowDialog();
         }
-        private void UpdateInvoiceAndTableStatus()
+        private bool UpdateInvoiceAndTableStatus()
         {
+            bool state = false;
+            DateTime currentTime = DateTime.Now;
+            string idInvoiceCreate = MainClass.GenerateUniqueId("invoice", "IdInvoice", "IV");
+            idInvoice = idInvoiceCreate;
+            string formattedTime = currentTime.ToString("yyyy-MM-dd HH:mm:ss"); // Định dạng thời gian theo format của cột datetime trong database
+            paymentTime = formattedTime;
+            Hashtable ht = new Hashtable();
             string queryPay = @"
             UPDATE inv
             SET inv.Invoice_Status = 1, 
-            Invoice_Total = @total, 
-            Invoice_Received = @received, 
-            Invoice_Change = @change, 
-            Invoice_PaymentTime = @paymentTime 
+                inv.Invoice_Total = @total, 
+                inv.Invoice_Received = @received, 
+                inv.Invoice_Change = @change, 
+                inv.Invoice_PaymentTime = @paymentTime 
             FROM invoice AS inv
             INNER JOIN invoice_detail AS inv_det ON inv.IdInvoice = inv_det.IdInvoice
             INNER JOIN table_detail AS tbl_det ON inv.TableID = tbl_det.TableID
-            WHERE inv.IdInvoice = '" + idInvoice + "' AND inv.Invoice_Status = 0;" +
-            "UPDATE table_detail SET Status = 0 WHERE TableID = '" + tableID + "'; ";
-            Hashtable ht = new Hashtable();
-            ht.Add("@total", amount.ToString());
-            ht.Add("@received", guna2TextBoxReceived.Text);
+            WHERE inv.IdInvoice = @idInvoice; 
+            UPDATE table_detail SET Status = 0 WHERE TableID = @tableID;
+            ";
+
+            ht.Add("@total", amount);
+            ht.Add("@received", double.Parse(guna2TextBoxReceived.Text));
             ht.Add("@change", changeMoney);
             ht.Add("@paymentTime", paymentTime);
-            //string queryPay = @"
-            //UPDATE inv
-            //SET inv.Invoice_Status = 1, 
-            //Invoice_Total = @total, 
-            //Invoice_Received = @received, 
-            //Invoice_Change = @change, 
-            //Invoice_PaymentTime = @paymentTime 
-            //FROM invoice AS inv
-            //INNER JOIN invoice_detail AS inv_det ON inv.IdInvoice = inv_det.IdInvoice
-            //INNER JOIN table_detail AS tbl_det ON inv.TableID = tbl_det.TableID
-            //WHERE inv.IdInvoice = '" + idInvoice + "' AND inv.Invoice_Status = 0;" +
-            //"UPDATE table_detail SET Status = 0 WHERE TableID = '" + tableID + "'; ";
-            //Hashtable ht = new Hashtable();
-            //ht.Add("@total", amount.ToString());
-            //ht.Add("@received", guna2TextBoxReceived.Text);
-            //ht.Add("@change", changeMoney);
-            //ht.Add("@paymentTime", paymentTime);
-            MainClass.SQL(queryPay, ht);
-            FormMain.Instance.guna2ButtonTable.PerformClick();
+            ht.Add("@idInvoice", idInvoice);
+            ht.Add("@tableID", tableID);
+            if (MainClass.SQL(queryPay, ht) > 0)
+            {
+                FormMain.Instance.guna2ButtonTable.PerformClick();
+                state = true;
+            };
+            //MainClass.SQL(queryOrder, htOder);
+            return state;
         }
         private void PaySuccessful()
         {
@@ -127,7 +125,7 @@ namespace BillardManager.Model
 
         private void guna2ButtonSave_Click_1(object sender, EventArgs e)
         {
-            if (changeMoney < 0)
+            if (string.IsNullOrEmpty(guna2TextBoxChange.Text.ToString()) || double.Parse(guna2TextBoxChange.Text) < 0)
             {
                 MessageFuctionConstans.ErrorOK("Received amount must be greater than the amount due");
                 return;
@@ -138,15 +136,17 @@ namespace BillardManager.Model
                 DialogResult resultExportBill = MessageFuctionConstans.YesNoCancel("Do you want to generate an invoice?");
                 if (resultExportBill == DialogResult.Yes)
                 {
-                    this.Hide();
                     UpdateInvoiceAndTableStatus();
                     ExportAndPrintInvoice();
+                    this.Hide();
                 }
                 else if (resultExportBill == DialogResult.No)
                 {
-                    this.Hide();
-                    UpdateInvoiceAndTableStatus();
-                    PaySuccessful();
+                    if (UpdateInvoiceAndTableStatus())
+                    {
+                        PaySuccessful();
+                        this.Hide();
+                    };
                 }
             }
         }

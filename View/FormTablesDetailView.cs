@@ -20,7 +20,7 @@ namespace BillardManager.View
                "JOIN table_type tt ON td.TableIDType = tt.TableIDType " +
                "WHERE (tt.TableType_Name LIKE '%" + guna2TextBoxSearch.Text + "%' " +
                "OR tt.TableType_Price LIKE '%" + guna2TextBoxSearch.Text + "%') " +
-               "AND tt.TableTypeStatus != 1 ORDER BY td.TableNumber";
+               "AND td.TableStatus != 1 ORDER BY td.TableNumber";
 
             ListBox lb = new ListBox();
             lb.Items.Add(IdItemCategory);
