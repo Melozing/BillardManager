@@ -13,8 +13,36 @@ namespace BillardManager.Forms
             InitializeComponent();
         }
         public string tableId;
+        private bool CheckInputTableType()
+        {
+            if (string.IsNullOrWhiteSpace(guna2TextBoxName.Text))
+            {
+                MessageFuctionConstans.WarningOK("Please enter a valid name!");
+                return false;
+            }
+
+            if (!int.TryParse(Regex.Replace(guna2TextBoxPrice.Text, @"[^\d]", "").ToString(), out int price) || price < 0)
+            {
+                MessageFuctionConstans.WarningOK("Please enter a reasonable price level!");
+                return false;
+            }
+
+            Hashtable ht = new Hashtable();
+
+            string queryCheck = "SELECT * FROM table_type WHERE TableType_Name = '" + guna2TextBoxName.Text + "' " +
+                "AND TableTypeStatus != 1 AND TableIDType != '" + tableId + "'";
+
+            if (MainClass.SQL(queryCheck, ht) > 0)
+            {
+                MessageFuctionConstans.WarningOK("This TableType name already exists. Please enter another name.");
+                return false;
+            }
+            return true;
+        }
         public override void guna2ButtonSave_Click(object sender, EventArgs e)
         {
+            if (!CheckInputTableType()) return;
+
             string query;
             Hashtable ht = new Hashtable();
 
@@ -26,7 +54,7 @@ namespace BillardManager.Forms
             }
             else
             {
-                query = "UPDATE table_type SET TableType_Name = @Name, TableType_Price = @Price WHERE IdItemCategory = @id";
+                query = "UPDATE table_type SET TableType_Name = @Name, TableType_Price = @Price WHERE TableIDType = @id";
                 ht.Add("@id", tableId);
             }
 
@@ -36,10 +64,13 @@ namespace BillardManager.Forms
             if (MainClass.SQL(query, ht) > 0)
             {
                 MessageFuctionConstans.SuccessOK("Saved successfully...");
-                tableId = null;
-                guna2TextBoxName.Clear();
-                guna2TextBoxPrice.Clear();
-                guna2TextBoxName.Focus();
+                if (tableId == null)
+                {
+                    tableId = null;
+                    guna2TextBoxName.Clear();
+                    guna2TextBoxPrice.Clear();
+                    guna2TextBoxName.Focus();
+                }
             }
         }
 

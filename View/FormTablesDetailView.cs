@@ -38,6 +38,7 @@ namespace BillardManager.View
 
         private void guna2DataGridViewCategory_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (guna2DataGridViewCategory.RowCount < 1) return;
             if (guna2DataGridViewCategory.CurrentCell.OwningColumn.Name == "ItemCategoryEdit")
             {
                 FormTableDetailAdd frm = new FormTableDetailAdd();
