@@ -21,7 +21,7 @@ namespace BillardManager.Model
         private void LoadProducts()
         {
             string query = "SELECT * " +
-                           "FROM table_detail ORDER BY TableNumber";
+                           "FROM table_detail WHERE TableStatus != 1 ORDER BY TableNumber";
 
             SqlCommand cmd = new SqlCommand(query, MainClass.conn);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -62,11 +62,11 @@ namespace BillardManager.Model
             }
             var w = new ucTable()
             {
+                idTable = idTable,
                 PName = "Table " + tableNumber,
                 PImageStatus = imgStatus,
                 PImage = imgType,
                 PStatus = status,
-                id = idTable,
                 idInvoice = idInvoiceGet,
 
             };
@@ -78,6 +78,7 @@ namespace BillardManager.Model
             {
                 w.SetInactiveOrder();
             }
+
             flowLayoutPanelProduct.Controls.Add(w);
         }
         private void GetInvoiceID(string idTable)

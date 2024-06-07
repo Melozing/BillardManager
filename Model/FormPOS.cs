@@ -189,7 +189,6 @@ namespace BillardManager.Model
             using (SqlCommand cmd = new SqlCommand(query, MainClass.conn))
             {
                 cmd.Parameters.AddWithValue("@TableID", idTable);
-
                 if (MainClass.conn.State == ConnectionState.Closed)
                 {
                     MainClass.conn.Open();
@@ -200,7 +199,7 @@ namespace BillardManager.Model
                     if (reader.Read())
                     {
                         DateTime invoiceTime = reader.GetDateTime(0);
-                        string idInvoiceGet = reader.GetString(1); // hoặc reader.GetInt32(1) nếu IdInvoice là số
+                        string idInvoiceGet = reader.GetString(1);
                         idInvoice = idInvoiceGet;
                         if (MainClass.conn.State == ConnectionState.Open)
                         {

@@ -22,6 +22,9 @@ namespace BillardManager.Model
         public string categoryId;
         private string filePath;
         private Byte[] imageByteArray;
+
+        private bool choiceImg = false;
+        private bool isUpdate = false;
         private void FormFoodAdd_Load(object sender, System.EventArgs e)
         {
             string query = "Select IdItemCategory 'id', ItemCategory_Name 'name' from items_category WHERE ItemCategoryStatus != 1";
@@ -36,9 +39,48 @@ namespace BillardManager.Model
                 ForUpdateLoadData();
             }
         }
+        private bool CheckInput()
+        {
+            if (string.IsNullOrWhiteSpace(guna2TextBoxName.Text))
+            {
+                MessageFuctionConstans.WarningOK("Please enter a valid name!");
+                return false;
+            }
 
+            if (string.IsNullOrWhiteSpace(comboBoxCategory.Text))
+            {
+                MessageFuctionConstans.WarningOK("Please enter a valid type of Item!");
+                return false;
+            }
+
+            if (!int.TryParse(Regex.Replace(guna2TextBoxPrice.Text, @"[^\d]", "").ToString(), out int price) || price < 0)
+            {
+                MessageFuctionConstans.WarningOK("Please enter a reasonable price level!");
+                return false;
+            }
+            if (!string.IsNullOrEmpty(id))
+            {
+                choiceImg = true;
+            }
+
+            if (guna2CirclePictureBoxFood.Image == null || !choiceImg)
+            {
+                MessageFuctionConstans.WarningOK("Please enter an image!");
+                return false;
+            }
+            Hashtable ht = new Hashtable();
+            string queryCheck = "SELECT item_Name FROM items_menu WHERE item_Name = '" + guna2TextBoxName.Text + "' AND ItemStatus != 1";
+            if (MainClass.SQL(queryCheck, ht) > 0)
+            {
+                MessageFuctionConstans.WarningOK("This Item already exists. Please enter another name.");
+                return false;
+            }
+
+            return true;
+        }
         private void guna2ButtonBrowse_Click(object sender, System.EventArgs e)
         {
+            choiceImg = true;
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "Images(.jpg, .png)|* .png; *.jpg";
             if (ofd.ShowDialog() == DialogResult.OK)
@@ -49,6 +91,8 @@ namespace BillardManager.Model
         }
         public override void guna2ButtonSave_Click(object sender, EventArgs e)
         {
+            if (!CheckInput()) return;
+            choiceImg = true;
             string query;
             Hashtable ht = new Hashtable();
 
@@ -62,9 +106,11 @@ namespace BillardManager.Model
                                    "VALUES (@id, @Name, @cat, @price, @image, 0)";
 
                 ht.Add("@id", id);
+                isUpdate = false;
             }
             else
             {
+                isUpdate = true;
                 // Update user_account
                 query = "UPDATE items_menu SET item_Name = @Name, IdItemCategory = @cat, item_Price = @price " +
                                    "WHERE IdItem = @id";
@@ -86,14 +132,18 @@ namespace BillardManager.Model
             if (MainClass.SQL(query, ht) > 0)
             {
                 MessageFuctionConstans.SuccessOK("Saved successfully...");
-                id = null;
-                categoryId = null;
-                guna2TextBoxName.Clear();
-                guna2TextBoxPrice.Clear();
-                comboBoxCategory.SelectedIndex = 0;
-                comboBoxCategory.SelectedIndex = -1;
-                guna2CirclePictureBoxFood.Image = Resources.food_add;
-                guna2TextBoxName.Focus();
+                if (!isUpdate)
+                {
+                    id = null;
+                    categoryId = null;
+                    guna2TextBoxName.Clear();
+                    guna2TextBoxPrice.Clear();
+                    comboBoxCategory.SelectedIndex = 0;
+                    comboBoxCategory.SelectedIndex = -1;
+                    guna2CirclePictureBoxFood.Image = Resources.food_add;
+                    guna2TextBoxName.Focus();
+                    choiceImg = false;
+                }
             }
         }
 

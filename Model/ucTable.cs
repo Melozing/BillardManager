@@ -9,7 +9,7 @@ namespace BillardManager.Model
         {
             InitializeComponent();
         }
-        public string id { get; set; }
+        public string idTable { get; set; }
         public string idInvoice { get; set; }
         public string PName
         {
@@ -34,7 +34,7 @@ namespace BillardManager.Model
                 PStatus = "inactive";
                 FormPOS formPOS = new FormPOS();
                 formPOS.Show();
-                formPOS.idTable = id;
+                formPOS.idTable = idTable;
                 formPOS.PStatus = PStatus;
                 formPOS.WindowState = FormWindowState.Maximized;
                 MainClass.BlurBackground(formPOS);
@@ -44,7 +44,7 @@ namespace BillardManager.Model
             else
             {
                 FormPOS formPOS = new FormPOS();
-                formPOS.idTable = id;
+                formPOS.idTable = idTable;
                 formPOS.WindowState = FormWindowState.Maximized;
                 formPOS.idInvoice = idInvoice;
                 MainClass.BlurBackground(formPOS);
