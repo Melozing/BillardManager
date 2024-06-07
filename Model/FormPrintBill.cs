@@ -51,7 +51,6 @@ namespace BillardManager.Model
             int y = formPrintBillPage.Location.Y;
 
             formPrintBillPage.Location = new Point(x, y);
-            formPrintBillPage.LoadDataItemBill();
             printPage = formPrintBillPage;
             guna2PanelContent.Controls.Clear();
             guna2PanelContent.Controls.Add(formPrintBillPage);

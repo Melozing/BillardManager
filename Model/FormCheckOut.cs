@@ -68,8 +68,6 @@ namespace BillardManager.Model
         {
             bool state = false;
             DateTime currentTime = DateTime.Now;
-            string idInvoiceCreate = MainClass.GenerateUniqueId("invoice", "IdInvoice", "IV");
-            idInvoice = idInvoiceCreate;
             string formattedTime = currentTime.ToString("yyyy-MM-dd HH:mm:ss"); // Định dạng thời gian theo format của cột datetime trong database
             paymentTime = formattedTime;
             Hashtable ht = new Hashtable();
