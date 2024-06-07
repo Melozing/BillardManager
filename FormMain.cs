@@ -114,5 +114,10 @@ namespace BillardManager
         {
             AddControls(new FormBillView());
         }
+
+        private void guna2ButtonUser_Click(object sender, EventArgs e)
+        {
+            AddControls(new FormUserInfoView());
+        }
     }
 }

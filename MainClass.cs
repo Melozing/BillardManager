@@ -11,10 +11,11 @@ namespace BillardManager
 {
     class MainClass
     {
+        //Manh Laptop : Environment.MachineName + "\\MYMSSQLSERVER"
         //Manh Laptop : DESKTOP-NQD44KU\MYMSSQLSERVER
         //Manh PC : DESKTOP-G0D14LK
         //Hoang Laptop : LAGANIME
-        public static readonly string nameServer = "DESKTOP-G0D14LK";
+        public static readonly string nameServer = Environment.MachineName + "\\MYMSSQLSERVER";
         public static readonly string connect_string = "Data Source='" + nameServer + "';Initial Catalog=db_biamanager;Integrated Security=True";
         public static SqlConnection conn = new SqlConnection(connect_string);
 

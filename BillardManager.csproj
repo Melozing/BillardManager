@@ -234,6 +234,12 @@
     <Compile Include="View\FormTablesView.Designer.cs">
       <DependentUpon>FormTablesView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\FormUserInfoView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormUserInfoView.Designer.cs">
+      <DependentUpon>FormUserInfoView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FormWaiting.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -328,6 +334,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormTablesView.resx">
       <DependentUpon>FormTablesView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormUserInfoView.resx">
+      <DependentUpon>FormUserInfoView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormWaiting.resx">
       <DependentUpon>FormWaiting.cs</DependentUpon>

@@ -50,18 +50,19 @@ namespace BillardManager.Model
             string query;
             if (string.IsNullOrEmpty(tableDetailId))
             {
+
                 // Thêm mới bàn
                 query = "INSERT INTO table_detail (TableID, TableNumber, Status, TableIDType, TableStatus) VALUES (@id, @TableNumber, 0, @idType, 0)";
+                ht.Add("@TableNumber", nextTableNumber);
             }
             else
             {
                 // Cập nhật thông tin bàn
-                query = "UPDATE table_detail SET TableNumber = @TableNumber WHERE TableID = @id";
+                query = "UPDATE table_detail SET TableIDType = @idType WHERE TableID = @id";
             }
 
-            // Thêm thông tin vào Hashtable
             ht.Add("@id", tableDetailIdSet);
-            ht.Add("@TableNumber", nextTableNumber);
+            // Thêm thông tin vào Hashtable
             ht.Add("@idType", comboBoxCategory.SelectedValue.ToString());
 
             // Thực thi truy vấn SQL và kiểm tra xem có thành công không

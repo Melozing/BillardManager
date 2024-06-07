@@ -200,10 +200,12 @@ namespace BillardManager.Model
             // Create an EncoderParameters object
             EncoderParameters myEncoderParameters = new EncoderParameters(1);
 
-            EncoderParameter myEncoderParameter = new EncoderParameter(myEncoder, quality);
+            EncoderParameter myEncoderParameter = new EncoderParameter(myEncoder, 20L); // Giảm chất lượng xuống còn 20%
             myEncoderParameters.Param[0] = myEncoderParameter;
             image.Save(ms, jpgEncoder, myEncoderParameters);
         }
+
+
 
         private ImageCodecInfo GetEncoder(ImageFormat format)
         {

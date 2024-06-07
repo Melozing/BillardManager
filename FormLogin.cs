@@ -1,5 +1,4 @@
 ﻿using BiaManager.Script;
-using System;
 using System.Windows.Forms;
 
 namespace BillardManager
@@ -14,7 +13,6 @@ namespace BillardManager
         public FormLogin()
         {
             InitializeComponent();
-            string appDirectory = AppDomain.CurrentDomain.BaseDirectory;
         }
 
         private void guna2ButtonExit_Click(object sender, System.EventArgs e)

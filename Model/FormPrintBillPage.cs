@@ -30,7 +30,7 @@ namespace BillardManager.Model
 
         private void FormPrintBillPage_Load(object sender, EventArgs e)
         {
-            labelTimeStart.Text = "Start Time : " + startTime;
+            labelTimeStart.Text = startTime;
             labelPaymentTime.Text = paymentTime;
             labelTotalMoney.Text = totalMoney;
             labelChangetxt.Text = changeMoney;
@@ -80,6 +80,7 @@ namespace BillardManager.Model
                         if (reader.Read())
                         {
                             startTime = reader.GetDateTime(0).ToString();
+                            labelTimeStart.Text = "Start Time : " + startTime;
                             paymentTime = "Payment time : " + reader.GetDateTime(1).ToString();
                             totalMoney = "$ " + reader.GetDecimal(2).ToString("N0");
                             receivedMoney = "$ " + reader.GetDecimal(3).ToString("N0");
