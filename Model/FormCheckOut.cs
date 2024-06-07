@@ -61,7 +61,7 @@ namespace BillardManager.Model
             frm.totalPlayHour = totalPlayHour;
             frm.priceHour = priceHour;
             frm.amountHourPlay = amountHourPlay;
-
+            frm.LoadPrintPage();
             frm.ShowDialog();
         }
         private bool UpdateInvoiceAndTableStatus()

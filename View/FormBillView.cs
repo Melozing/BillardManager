@@ -1,7 +1,5 @@
-﻿using BiaManager.Script;
-using BillardManager.Model;
+﻿using BillardManager.Model;
 using System;
-using System.Collections;
 using System.Windows.Forms;
 
 namespace BillardManager.View
@@ -67,22 +65,21 @@ namespace BillardManager.View
                 formPrintBillPage.AddHeaderDetailBill();
                 formPrintBillPage.LoadDataItemBill();
                 formPrintBillPage.BringToFront();
-
+                formPrintBillPage.ShowExitBtn();
                 MainClass.BlurBackground(formPrintBillPage);
             }
             if (guna2DataGridViewCategory.CurrentCell.OwningColumn.Name == "ItemCategoryDelete")
             {
-                DialogResult dialogResult = MessageFuctionConstans.OKCancel("Are you sure you want to delete?");
-                if (dialogResult == DialogResult.OK)
-                {
-                    string id = guna2DataGridViewCategory.CurrentRow.Cells["Id"].Value.ToString();
-                    string query = "Update user_account set AccountStatus = 1 where IdUser ='" + id + "'";
-                    Hashtable hashtable = new Hashtable();
-                    MainClass.SQL(query, hashtable);
-
-                    MessageFuctionConstans.SuccessOK("Deleted successfully!");
-                    GetData();
-                }
+                FormPrintBillPage formPrintBillPage = new FormPrintBillPage();
+                formPrintBillPage.GetBillInfoByID(guna2DataGridViewCategory.CurrentRow.Cells["Id"].Value.ToString());
+                formPrintBillPage.FormBorderStyle = FormBorderStyle.None;
+                formPrintBillPage.StartPosition = FormStartPosition.CenterScreen;
+                formPrintBillPage.AddHeaderDetailBill();
+                formPrintBillPage.LoadDataItemBill();
+                FormPrintBill page = new FormPrintBill();
+                page.invoiceID = guna2DataGridViewCategory.CurrentRow.Cells["Id"].Value.ToString();
+                page.PrintPage(formPrintBillPage);
+                page.ShowDialog();
             }
         }
 

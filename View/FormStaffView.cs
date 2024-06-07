@@ -29,7 +29,7 @@ namespace BillardManager.View
                "OR ui.User_Phone LIKE '%" + guna2TextBoxSearch.Text + "%' " +
                "OR ui.User_BankAccountNumber LIKE '%" + guna2TextBoxSearch.Text + "%' " +
                "OR ui.User_BankName LIKE '%" + guna2TextBoxSearch.Text + "%') " +
-               "AND ua.AccountStatus != 1";
+               "AND ua.AccountStatus != 1 AND ua.idUser != 'U0'";
 
             ListBox lb = new ListBox();
             lb.Items.Add(Id);

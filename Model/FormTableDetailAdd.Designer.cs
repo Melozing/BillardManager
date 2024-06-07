@@ -30,8 +30,6 @@
         {
             this.comboBoxCategory = new System.Windows.Forms.ComboBox();
             this.labelCategory = new System.Windows.Forms.Label();
-            this.guna2TextBoxName = new Guna.UI2.WinForms.Guna2TextBox();
-            this.labelName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBoxTop)).BeginInit();
             this.guna2PanelTop.SuspendLayout();
             this.guna2PanelBottom.SuspendLayout();
@@ -90,7 +88,7 @@
             // 
             this.comboBoxCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCategory.FormattingEnabled = true;
-            this.comboBoxCategory.Location = new System.Drawing.Point(14, 181);
+            this.comboBoxCategory.Location = new System.Drawing.Point(12, 116);
             this.comboBoxCategory.Name = "comboBoxCategory";
             this.comboBoxCategory.Size = new System.Drawing.Size(382, 25);
             this.comboBoxCategory.TabIndex = 20;
@@ -98,44 +96,11 @@
             // labelCategory
             // 
             this.labelCategory.AutoSize = true;
-            this.labelCategory.Location = new System.Drawing.Point(9, 161);
+            this.labelCategory.Location = new System.Drawing.Point(7, 96);
             this.labelCategory.Name = "labelCategory";
             this.labelCategory.Size = new System.Drawing.Size(61, 17);
             this.labelCategory.TabIndex = 18;
             this.labelCategory.Text = "Category";
-            // 
-            // guna2TextBoxName
-            // 
-            this.guna2TextBoxName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBoxName.DefaultText = "";
-            this.guna2TextBoxName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBoxName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBoxName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBoxName.DisabledState.Parent = this.guna2TextBoxName;
-            this.guna2TextBoxName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBoxName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBoxName.FocusedState.Parent = this.guna2TextBoxName;
-            this.guna2TextBoxName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBoxName.HoverState.Parent = this.guna2TextBoxName;
-            this.guna2TextBoxName.Location = new System.Drawing.Point(14, 123);
-            this.guna2TextBoxName.Margin = new System.Windows.Forms.Padding(7);
-            this.guna2TextBoxName.Name = "guna2TextBoxName";
-            this.guna2TextBoxName.PasswordChar = '\0';
-            this.guna2TextBoxName.PlaceholderText = "";
-            this.guna2TextBoxName.SelectedText = "";
-            this.guna2TextBoxName.ShadowDecoration.Parent = this.guna2TextBoxName;
-            this.guna2TextBoxName.Size = new System.Drawing.Size(382, 33);
-            this.guna2TextBoxName.TabIndex = 17;
-            this.guna2TextBoxName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.guna2TextBoxName_KeyPress);
-            // 
-            // labelName
-            // 
-            this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(11, 99);
-            this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(91, 17);
-            this.labelName.TabIndex = 19;
-            this.labelName.Text = "Table Number";
             // 
             // FormTableDetailAdd
             // 
@@ -146,15 +111,11 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.comboBoxCategory);
             this.Controls.Add(this.labelCategory);
-            this.Controls.Add(this.guna2TextBoxName);
-            this.Controls.Add(this.labelName);
             this.Name = "FormTableDetailAdd";
             this.Text = "FormTableDetailAdd";
             this.Load += new System.EventHandler(this.FormTableDetailAdd_Load);
             this.Controls.SetChildIndex(this.guna2PanelTop, 0);
             this.Controls.SetChildIndex(this.guna2PanelBottom, 0);
-            this.Controls.SetChildIndex(this.labelName, 0);
-            this.Controls.SetChildIndex(this.guna2TextBoxName, 0);
             this.Controls.SetChildIndex(this.labelCategory, 0);
             this.Controls.SetChildIndex(this.comboBoxCategory, 0);
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBoxTop)).EndInit();
@@ -170,7 +131,5 @@
 
         private System.Windows.Forms.ComboBox comboBoxCategory;
         private System.Windows.Forms.Label labelCategory;
-        public Guna.UI2.WinForms.Guna2TextBox guna2TextBoxName;
-        private System.Windows.Forms.Label labelName;
     }
 }

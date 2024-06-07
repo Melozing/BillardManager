@@ -87,11 +87,13 @@ CREATE TABLE [dbo].[user_info] (
     [User_Phone] varchar(10) COLLATE Vietnamese_CI_AS NOT NULL,
     [User_BankAccountNumber] varchar(12) COLLATE Vietnamese_CI_AS NULL,
     [User_BankName] varchar(50) COLLATE Vietnamese_CI_AS NULL,
+    [User_BillPath] varchar(200) COLLATE Vietnamese_CI_AS NULL,
     CONSTRAINT [FK_user_info_user] FOREIGN KEY ([idUser]) REFERENCES [dbo].[user_account] ([IdUser])
 );
 GO
 
 INSERT INTO user_account (IdUser,UserName, UserPassword, UserRole) VALUES ('U0', 'admin', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', 0);
+INSERT INTO user_info (idUser, User_FullName, User_Phone, User_BankAccountNumber, User_BankName, User_BillPath) VALUES ('U0', 'Administrator', '', '', '', '');
 INSERT INTO table_type (TableIDType,TableType_Name, TableType_Price) VALUES ('TBT01', 'Carom billiards', 25000);
 INSERT INTO table_type (TableIDType,TableType_Name, TableType_Price) VALUES ('TBT02', 'Pocket Billiards', 30000);
 INSERT INTO items_category (IdItemCategory, ItemCategory_Name) VALUES ('ICD', 'Other');

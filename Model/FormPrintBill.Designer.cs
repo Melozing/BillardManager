@@ -44,7 +44,7 @@
             // 
             // labelTop
             // 
-            this.labelTop.Size = new System.Drawing.Size(102, 32);
+            this.labelTop.Size = new System.Drawing.Size(83, 25);
             this.labelTop.Text = "Print bill";
             // 
             // gunaPictureBoxTop
@@ -174,7 +174,7 @@
             // 
             // FormPrintBill
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(609, 735);
             this.Controls.Add(this.guna2PanelContent);
@@ -201,7 +201,7 @@
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBoxClose;
         private System.Drawing.Printing.PrintDocument printDocumentBill;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialogBill;
-        private Guna.UI2.WinForms.Guna2Panel guna2PanelContent;
         private System.Windows.Forms.Panel panelBillDetail;
+        public Guna.UI2.WinForms.Guna2Panel guna2PanelContent;
     }
 }

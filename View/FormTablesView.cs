@@ -57,11 +57,16 @@ namespace BillardManager.View
             }
             if (guna2DataGridViewCategory.CurrentCell.OwningColumn.Name == "ItemCategoryDelete")
             {
+                string tempID = guna2DataGridViewCategory.CurrentRow.Cells["IdItemCategory"].Value.ToString();
+                if (tempID == "TBT01" || tempID == "TBT02")
+                {
+                    MessageFuctionConstans.WarningOK("You can't delete default table types.");
+                    return;
+                }
                 DialogResult dialogResult = MessageFuctionConstans.OKCancel("Are you sure you want to delete?");
                 if (dialogResult == DialogResult.OK)
                 {
-                    string id = guna2DataGridViewCategory.CurrentRow.Cells["IdItemCategory"].Value.ToString();
-                    string query = "Update table_type set TableTypeStatus = 1 where TableIDType ='" + id + "'";
+                    string query = "Update table_type set TableTypeStatus = 1 where TableIDType ='" + tempID + "'";
                     Hashtable hashtable = new Hashtable();
                     MainClass.SQL(query, hashtable);
 

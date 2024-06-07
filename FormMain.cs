@@ -14,6 +14,12 @@ namespace BillardManager
             InitializeComponent();
         }
         public bool isStaffLogin;
+        public string userPathBill;
+        public string idUser;
+        public string userFullName;
+        public string userBillPath;
+
+        public static string pathExportBill;
 
         static FormMain _obj;
         public static FormMain Instance
@@ -39,6 +45,14 @@ namespace BillardManager
             if (isStaffLogin)
             {
                 StaffLogin();
+            }
+            if (!string.IsNullOrEmpty(userPathBill))
+            {
+                pathExportBill = userPathBill;
+            }
+            else
+            {
+                pathExportBill = AppDomain.CurrentDomain.BaseDirectory;
             }
         }
         private void StaffLogin()

@@ -2,8 +2,8 @@
 using BillardManager.Admin;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
 
 namespace BillardManager.Model
 {
@@ -25,107 +25,85 @@ namespace BillardManager.Model
             {
                 comboBoxCategory.SelectedValue = tableTypeId;
             }
-            if (!string.IsNullOrEmpty(tableDetailId))
-            {
-                ForUpdateLoadData();
-            }
-        }
-        private bool CheckInput()
-        {
-            if (string.IsNullOrWhiteSpace(guna2TextBoxName.Text))
-            {
-                MessageFuctionConstans.WarningOK("Please enter a valid name!");
-                return false;
-            }
-            if (string.IsNullOrWhiteSpace(comboBoxCategory.Text))
-            {
-                MessageFuctionConstans.WarningOK("Please enter a valid type of table!");
-                return false;
-            }
-
-            string queryCheck = "SELECT TableNumber FROM table_detail WHERE TableNumber = @Name AND TableStatus != 1";
-            Hashtable htCheck = new Hashtable();
-            htCheck.Add("@Name", guna2TextBoxName.Text);
-            DataTable checkQuery = MainClass.LoadDataTable(queryCheck, htCheck);
-
-            if (checkQuery.Rows.Count > 0)
-            {
-                MessageFuctionConstans.WarningOK("This Table already exists. Please enter another name.");
-                return false;
-            }
-
-            return true;
-        }
-        private int GenerateUniqueTableNumber(int initialNumber)
-        {
-            int tableNumber = initialNumber;
-            string queryCheck;
-            Hashtable htCheck;
-            DataTable checkQuery;
-
-            do
-            {
-                queryCheck = "SELECT TableNumber FROM table_detail WHERE TableNumber = @Number AND TableStatus != 1";
-                htCheck = new Hashtable();
-                htCheck.Add("@Number", tableNumber);
-                checkQuery = MainClass.LoadDataTable(queryCheck, htCheck);
-
-                if (checkQuery.Rows.Count > 0)
-                {
-                    tableNumber++;
-                }
-            } while (checkQuery.Rows.Count > 0);
-
-            return tableNumber;
         }
 
-
-        private void guna2ButtonSave_Click_1(object sender, System.EventArgs e)
+        private void guna2ButtonSave_Click_1(object sender, EventArgs e)
         {
-            string query;
+            // Kiểm tra xem người dùng đã chọn loại bàn chưa
+            if (comboBoxCategory.SelectedIndex < 0)
+            {
+                MessageFuctionConstans.WarningOK("Please select a table type!");
+                comboBoxCategory.Focus();
+                return;
+            }
+
+            // Xác định số bàn tiếp theo dựa trên dữ liệu hiện có trong cơ sở dữ liệu
+            int nextTableNumber = GetNextTableNumber();
+
+            // Tạo một Hashtable chứa thông tin cần thiết cho truy vấn SQL
             Hashtable ht = new Hashtable();
 
-            if (!CheckInput())
-            {
-                guna2TextBoxName.Focus();
-                return;
-            }
+            // Tạo một id cho bàn mới nếu là trường hợp thêm mới
+            string tableDetailIdSet = string.IsNullOrEmpty(tableDetailId) ? MainClass.GenerateUniqueId("table_detail", "TableID", "TDT") : tableDetailId;
 
-            int tableNumber;
-            if (!int.TryParse(guna2TextBoxName.Text, out tableNumber))
-            {
-                MessageFuctionConstans.ErrorOK("Table Number must be a valid integer.");
-                guna2TextBoxName.Focus();
-                return;
-            }
-
-            tableNumber = GenerateUniqueTableNumber(tableNumber);
-            guna2TextBoxName.Text = tableNumber.ToString();
-
+            // Thực hiện truy vấn SQL để thêm hoặc cập nhật dữ liệu
+            string query;
             if (string.IsNullOrEmpty(tableDetailId))
             {
-                tableDetailId = MainClass.GenerateUniqueId("table_detail", "TableID", "TDT"); // Generate a new unique ID
-                query = "INSERT INTO table_detail (TableID, TableNumber, Status, TableIDType, TableStatus) VALUES (@id, @Name, 0, @idType, 0)";
-                ht.Add("@id", tableDetailId);
+                // Thêm mới bàn
+                query = "INSERT INTO table_detail (TableID, TableNumber, Status, TableIDType, TableStatus) VALUES (@id, @TableNumber, 0, @idType, 0)";
             }
             else
             {
-                query = "UPDATE table_detail SET TableNumber = @Name WHERE TableID = @id";
-                ht.Add("@id", tableDetailId);
+                // Cập nhật thông tin bàn
+                query = "UPDATE table_detail SET TableNumber = @TableNumber WHERE TableID = @id";
             }
 
-            ht.Add("@Name", guna2TextBoxName.Text);
+            // Thêm thông tin vào Hashtable
+            ht.Add("@id", tableDetailIdSet);
+            ht.Add("@TableNumber", nextTableNumber);
             ht.Add("@idType", comboBoxCategory.SelectedValue.ToString());
+
+            // Thực thi truy vấn SQL và kiểm tra xem có thành công không
             if (MainClass.SQL(query, ht) > 0)
             {
+                // Hiển thị thông báo và làm sạch các trường nhập liệu
                 MessageFuctionConstans.SuccessOK("Saved successfully...");
-                tableDetailId = null;
-                guna2TextBoxName.Clear();
-                comboBoxCategory.SelectedIndex = 0;
+                tableDetailId = null; // Không sửa đổi giá trị của biến này
                 comboBoxCategory.SelectedIndex = -1;
-                guna2TextBoxName.Focus();
+                comboBoxCategory.Focus();
             }
         }
+        private int GetNextTableNumber()
+        {
+            // Khởi tạo số bàn mặc định
+            int nextTableNumber = 1;
+            Hashtable ht = new Hashtable();
+            // Tạo câu truy vấn SQL để lấy số bàn lớn nhất hiện có
+            string query = "SELECT TableNumber FROM table_detail WHERE TableStatus != 1 ORDER BY TableNumber ASC";
+            DataTable dt = MainClass.LoadDataTable(query, ht);
+
+            // Tạo một danh sách các số bàn đã được sử dụng
+            List<int> usedTableNumbers = new List<int>();
+            foreach (DataRow row in dt.Rows)
+            {
+                usedTableNumbers.Add(Convert.ToInt32(row["TableNumber"]));
+            }
+
+            // Tìm số bàn tiếp theo dựa trên các số bàn đã sử dụng
+            for (int i = 1; i <= usedTableNumbers.Count + 1; i++)
+            {
+                if (!usedTableNumbers.Contains(i))
+                {
+                    nextTableNumber = i;
+                    break;
+                }
+            }
+
+            return nextTableNumber;
+        }
+
+
 
         private void guna2TextBoxName_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
         {
@@ -138,20 +116,5 @@ namespace BillardManager.Model
         {
             this.Close();
         }
-        private void ForUpdateLoadData()
-        {
-            string query = @"Select * from table_detail where TableID = '" + tableDetailId + "'";
-            SqlCommand cmd = new SqlCommand(query, MainClass.conn);
-            SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            dataAdapter.Fill(dt);
-
-            if (dt.Rows.Count > 0)
-            {
-                guna2TextBoxName.Text = dt.Rows[0]["TableNumber"].ToString();
-            }
-        }
-
-
     }
 }

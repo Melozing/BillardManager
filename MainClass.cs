@@ -23,14 +23,28 @@ namespace BillardManager
         {
             bool isValid = false;
             string hashedPassword = PasswordHasher.HashPassword(password);
-            string query = "SELECT * FROM user_account WHERE UserName = '" + username + "' AND UserPassword = '" + hashedPassword + "'";
+            string query = @"
+        SELECT ua.IdUser, ui.User_FullName, ui.User_BillPath 
+        FROM user_account ua 
+        INNER JOIN user_info ui ON ua.IdUser = ui.idUser
+        WHERE ua.UserName = @Username AND ua.UserPassword = @Password";
             SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@Username", username);
+            cmd.Parameters.AddWithValue("@Password", hashedPassword);
+
             DataTable data = new DataTable();
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             adapter.Fill(data);
+
             if (data.Rows.Count > 0)
             {
                 isValid = true;
+                // Lấy thông tin từ dòng đầu tiên của bảng dữ liệu
+                DataRow row = data.Rows[0];
+                FormLogin.idUser = row["IdUser"].ToString();
+                FormLogin.userFullName = row["User_FullName"].ToString();
+                FormLogin.userBillPath = row["User_BillPath"].ToString();
+
                 User user = GetUser(username, password);
                 if (user != null && user.UserRole > 0)
                 {
@@ -43,6 +57,7 @@ namespace BillardManager
             }
             return isValid;
         }
+
         private static User GetUser(string username, string password)
         {
             User user = null;
