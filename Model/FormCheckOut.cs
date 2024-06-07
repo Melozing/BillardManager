@@ -31,9 +31,9 @@ namespace BillardManager.Model
                 guna2TextBoxChange.Text = null;
                 return;
             };
-            double amt = 0;
+            double amt;
             double receipt = double.Parse(guna2TextBoxReceived.Text);
-            double change = 0;
+            double change;
 
             double.TryParse(guna2TextBoxBillAmount.Text, out amt);
             double.TryParse(guna2TextBoxReceived.Text, out receipt);

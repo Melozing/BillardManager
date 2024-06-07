@@ -36,7 +36,6 @@ namespace BillardManager.Model
                 formPOS.idTable = id;
                 formPOS.PStatus = PStatus;
                 formPOS.WindowState = FormWindowState.Maximized;
-                FormMain.Instance.guna2ButtonTable.PerformClick();
                 SetActiveOrder();
                 MainClass.BlurBackground(formPOS);
             }

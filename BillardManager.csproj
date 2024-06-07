@@ -91,12 +91,6 @@
     <Compile Include="Forms\FormHome.Designer.cs">
       <DependentUpon>FormHome.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\FormBillList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Model\FormBillList.Designer.cs">
-      <DependentUpon>FormBillList.cs</DependentUpon>
-    </Compile>
     <Compile Include="Model\FormCheckOut.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -261,9 +255,6 @@
     <EmbeddedResource Include="Forms\FormHome.resx">
       <DependentUpon>FormHome.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Model\FormBillList.resx">
-      <DependentUpon>FormBillList.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Model\FormCheckOut.resx">
       <DependentUpon>FormCheckOut.cs</DependentUpon>
     </EmbeddedResource>
@@ -357,6 +348,9 @@
   <ItemGroup>
     <Content Include="Guna2\Guna.UI.dll" />
     <Content Include="Guna2\Guna.UI2.dll" />
+    <None Include="Resources\no.png" />
+    <None Include="Resources\printer1.png" />
+    <None Include="Resources\search_icon.png" />
     <None Include="Resources\minus.png" />
     <None Include="Resources\plus.png" />
     <None Include="Resources\printer.png" />

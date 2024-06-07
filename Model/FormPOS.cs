@@ -53,6 +53,7 @@ namespace BillardManager.Model
                 var prod = (ucProduct)item;
                 this.ClickItem(prod);
             }
+            FormMain.Instance.guna2ButtonTable.PerformClick();
         }
         private void AddHourPlay()
         {
