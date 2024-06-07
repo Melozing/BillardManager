@@ -6,6 +6,7 @@ using System.Collections;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -103,7 +104,7 @@ namespace BillardManager.Model
 
                 // Insert into user_account
                 query = "INSERT INTO items_menu (IdItem, item_Name, IdItemCategory, item_Price, item_image, ItemStatus) " +
-                                   "VALUES (@id, @Name, @cat, @price, @image, 0)";
+                                       "VALUES (@id, @Name, @cat, @price, @image, 0)";
 
                 ht.Add("@id", id);
                 isUpdate = false;
@@ -113,16 +114,18 @@ namespace BillardManager.Model
                 isUpdate = true;
                 // Update user_account
                 query = "UPDATE items_menu SET item_Name = @Name, IdItemCategory = @cat, item_Price = @price " +
-                                   "WHERE IdItem = @id";
+                                       "WHERE IdItem = @id";
 
                 ht.Add("@id", id);
             }
 
-            //For Image
+            // Nén hình ảnh trước khi lưu
             Image temp = new Bitmap(guna2CirclePictureBoxFood.Image);
-            MemoryStream ms = new MemoryStream();
-            temp.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-            imageByteArray = ms.ToArray();
+            using (MemoryStream ms = new MemoryStream())
+            {
+                SaveImageWithCompression(temp, ms, 50L); // Chất lượng 50
+                imageByteArray = ms.ToArray();
+            }
 
             ht.Add("@Name", guna2TextBoxName.Text);
             ht.Add("@cat", comboBoxCategory.SelectedValue.ToString());
@@ -187,5 +190,33 @@ namespace BillardManager.Model
         {
             this.Close();
         }
+        private void SaveImageWithCompression(Image image, MemoryStream ms, long quality)
+        {
+            ImageCodecInfo jpgEncoder = GetEncoder(ImageFormat.Jpeg);
+
+            // Create an Encoder object based on the GUID for Quality
+            System.Drawing.Imaging.Encoder myEncoder = System.Drawing.Imaging.Encoder.Quality;
+
+            // Create an EncoderParameters object
+            EncoderParameters myEncoderParameters = new EncoderParameters(1);
+
+            EncoderParameter myEncoderParameter = new EncoderParameter(myEncoder, quality);
+            myEncoderParameters.Param[0] = myEncoderParameter;
+            image.Save(ms, jpgEncoder, myEncoderParameters);
+        }
+
+        private ImageCodecInfo GetEncoder(ImageFormat format)
+        {
+            ImageCodecInfo[] codecs = ImageCodecInfo.GetImageDecoders();
+            foreach (ImageCodecInfo codec in codecs)
+            {
+                if (codec.FormatID == format.Guid)
+                {
+                    return codec;
+                }
+            }
+            return null;
+        }
+
     }
 }
