@@ -227,6 +227,7 @@
             this.guna2ButtonUser.Size = new System.Drawing.Size(180, 45);
             this.guna2ButtonUser.TabIndex = 1;
             this.guna2ButtonUser.Text = "User";
+            this.guna2ButtonUser.Click += new System.EventHandler(this.guna2ButtonUser_Click);
             // 
             // guna2ButtonTable
             // 
