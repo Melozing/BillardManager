@@ -1,5 +1,4 @@
 ﻿using BiaManager.Script;
-using BillardManager.View;
 using System;
 using System.Collections;
 using System.Data;
@@ -26,11 +25,6 @@ namespace BillardManager.Model
         {
             InitializeComponent();
         }
-        static FormPOS _obj;
-        public static FormPOS Instance
-        {
-            get { if (_obj == null) { _obj = new FormPOS(); } return _obj; }
-        }
         private void guna2PictureBoxExit_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -42,7 +36,6 @@ namespace BillardManager.Model
             flowLayoutPanelCategory.Controls.Clear();
             panelProduct.Controls.Clear();
             frm = new FormShowProducts();
-
             if (PStatus == "inactive")
             {
                 AddHourPlay();
@@ -54,14 +47,7 @@ namespace BillardManager.Model
             {
                 LoadDataItemBill();
             }
-            this.Visible = false;
-            FormWaiting formWaiting = new FormWaiting(() =>
-            {
-                LoadProducts();
-            });
-            MainClass.BlurBackground(formWaiting);
-            formWaiting.Close();
-            this.Visible = true;
+            LoadProducts();
             foreach (var item in frm.flowLayoutPanelProduct.Controls)
             {
                 var prod = (ucProduct)item;
@@ -181,44 +167,57 @@ namespace BillardManager.Model
 
         private (DateTime, string) GetInvoiceTimeFromDatabase()
         {
+            // Đảm bảo idTable không null hoặc rỗng
+
             string query = @"
             SELECT Invoice_time, IdInvoice
             FROM invoice
             WHERE TableID = @TableID AND Invoice_Status = 0";
 
-            using (SqlCommand cmd = new SqlCommand(query, MainClass.conn))
+            Hashtable ht = new Hashtable();
+            ht.Add("@TableID", idTable);
+
+            try
             {
-                cmd.Parameters.AddWithValue("@TableID", idTable);
-                if (MainClass.conn.State == ConnectionState.Closed)
+                using (SqlCommand cmd = new SqlCommand(query, MainClass.conn))
                 {
-                    MainClass.conn.Open();
-                }
-
-                using (SqlDataReader reader = cmd.ExecuteReader())
-                {
-                    if (reader.Read())
+                    foreach (DictionaryEntry item in ht)
                     {
-                        DateTime invoiceTime = reader.GetDateTime(0);
-                        string idInvoiceGet = reader.GetString(1);
-                        idInvoice = idInvoiceGet;
-                        if (MainClass.conn.State == ConnectionState.Open)
-                        {
-                            MainClass.conn.Close();
-                        }
-
-                        return (invoiceTime, idInvoiceGet);
+                        cmd.Parameters.AddWithValue(item.Key.ToString(), item.Value);
                     }
-                    else
+
+                    if (MainClass.conn.State == ConnectionState.Closed)
                     {
-                        if (MainClass.conn.State == ConnectionState.Open)
+                        MainClass.conn.Open();
+                    }
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
                         {
-                            MainClass.conn.Close();
+                            DateTime invoiceTime = reader.GetDateTime(0);
+                            string idInvoiceGet = reader.GetString(1);
+                            idInvoice = idInvoiceGet;
+
+                            return (invoiceTime, idInvoiceGet);
                         }
-                        throw new Exception("Invoice not found.");
+                        else
+                        {
+                            throw new Exception("Invoice not found.");
+                        }
                     }
                 }
             }
+            finally
+            {
+                if (MainClass.conn.State == ConnectionState.Open)
+                {
+                    MainClass.conn.Close();
+                }
+            }
         }
+
+
 
         private void AddCategory()
         {

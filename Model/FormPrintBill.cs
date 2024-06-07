@@ -30,9 +30,9 @@ namespace BillardManager.Model
         {
             guna2ControlBoxMaximize.PerformClick();
             FormPrintBillPage formPrintBillPage = new FormPrintBillPage();
+            formPrintBillPage.idInvoice = invoiceID;
             formPrintBillPage.startTime = startTime;
             formPrintBillPage.paymentTime = paymentTime;
-            formPrintBillPage.idInvoice = invoiceID;
 
             formPrintBillPage.totalMoney = totalMoney;
             formPrintBillPage.receivedMoney = receivedMoney;
@@ -51,12 +51,12 @@ namespace BillardManager.Model
             int y = formPrintBillPage.Location.Y;
 
             formPrintBillPage.Location = new Point(x, y);
-
+            formPrintBillPage.LoadDataItemBill();
+            printPage = formPrintBillPage;
             guna2PanelContent.Controls.Clear();
             guna2PanelContent.Controls.Add(formPrintBillPage);
             formPrintBillPage.Show();
             formPrintBillPage.BringToFront();
-            printPage = formPrintBillPage;
         }
 
         private void Print(FormPrintBillPage pnl)

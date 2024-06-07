@@ -62,8 +62,8 @@ namespace BillardManager.Model
             }
             var w = new ucTable()
             {
-                idTable = idTable,
-                PName = "Table " + tableNumber,
+                id = idTable,
+                PName = "Table " + tableNumber.ToString(),
                 PImageStatus = imgStatus,
                 PImage = imgType,
                 PStatus = status,
