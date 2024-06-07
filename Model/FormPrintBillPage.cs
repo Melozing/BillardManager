@@ -21,7 +21,7 @@ namespace BillardManager.Model
         public string priceHour;
         public string amountHourPlay;
 
-        private bool isShowBillList = false;
+        private int num = 0;
 
         public FormPrintBillPage()
         {
@@ -30,16 +30,19 @@ namespace BillardManager.Model
 
         private void FormPrintBillPage_Load(object sender, EventArgs e)
         {
-            labelTimeStart.Text = startTime;
+            labelTimeStart.Text = "Start Time : " + startTime;
             labelPaymentTime.Text = paymentTime;
             labelTotalMoney.Text = totalMoney;
             labelChangetxt.Text = changeMoney;
             labelRecivedAmounttxt.Text = receivedMoney;
+            labelBillCashier.Text = "The bill cashier : " + FormMain.Instance.userFullName;
+            labelIDInvoice.Text = "Invoice Code : " + idInvoice;
         }
 
         public void GetBillInfoByID(string idInvoiceGet)
         {
             idInvoice = idInvoiceGet;
+            labelIDInvoice.Text = "Invoice Code: " + idInvoice;
             string queryGet = @"
             SELECT Invoice_time, 
                    Invoice_PaymentTime, 
@@ -121,7 +124,6 @@ namespace BillardManager.Model
                     MainClass.conn.Close();
                 }
             }
-            isShowBillList = true;
         }
 
 
@@ -134,13 +136,14 @@ namespace BillardManager.Model
             ucTittle.Dock = DockStyle.Top;
             if (float.Parse(amountHourPlay.ToString()) > 0)
             {
+                num++;
                 var w = new ucBillDetail()
                 {
                     PName = "Play time",
                     PPrice = priceHour,
                     PQuantity = totalPlayHour,
                     PAmount = amountHourPlay,
-                    PSr = "1"
+                    PSr = num.ToString()
                 };
                 ShowItemBill(w);
             }
@@ -148,7 +151,6 @@ namespace BillardManager.Model
 
         public void LoadDataItemBill()
         {
-            double totalAmount = 0;
 
             string query = "SELECT " +
                 "iv.Invoice_Status, " +
@@ -170,9 +172,10 @@ namespace BillardManager.Model
             adapter.Fill(dataTable);
             if (dataTable.Rows.Count > 0)
             {
-                int num = 1;
+
                 foreach (DataRow row in dataTable.Rows)
                 {
+                    double totalAmount = 0;
                     num++;
                     int quantity = int.Parse(Regex.Replace(row["Invoice_TotalAmount"].ToString(), @"[^0-9.]", ""));
 
@@ -191,9 +194,11 @@ namespace BillardManager.Model
                     ShowItemBill(b);
                 }
             }
-            pictureBoxExit.Visible = isShowBillList;
         }
-
+        public void ShowExitBtn()
+        {
+            pictureBoxExit.Visible = true;
+        }
         private void ShowItemBill(ucBillDetail bdt)
         {
             panelBillDetail.Controls.Add(bdt);

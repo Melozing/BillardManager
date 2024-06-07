@@ -74,6 +74,10 @@ namespace BillardManager.Model
         {
             return Regex.IsMatch(username, "^[a-zA-Z0-9]{6,24}");
         }
+        private bool CheckFullName(string name)
+        {
+            return Regex.IsMatch(name, "^[a-zA-Z0-9]{1,5}");
+        }
 
         private bool CheckUserInputCreate()
         {
@@ -81,6 +85,11 @@ namespace BillardManager.Model
             if (!CheckAccount(guna2TextBoxUsername.Text))
             {
                 MessageFuctionConstans.WarningOK("Please enter a valid username and password. They should be 6-24 characters long and should not contain any special characters!");
+                return false;
+            }
+            if (!CheckFullName(guna2TextBoxFullName.Text))
+            {
+                MessageFuctionConstans.WarningOK("Please enter a valid Full Name.");
                 return false;
             }
 
