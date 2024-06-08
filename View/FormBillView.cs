@@ -68,24 +68,25 @@ namespace BillardManager.View
                 formPrintBillPage.ShowExitBtn();
                 MainClass.BlurBackground(formPrintBillPage);
             }
-            if (guna2DataGridViewCategory.CurrentCell.OwningColumn.Name == "ItemCategoryDelete")
-            {
-                FormPrintBillPage formPrintBillPage = new FormPrintBillPage();
-                formPrintBillPage.GetBillInfoByID(guna2DataGridViewCategory.CurrentRow.Cells["Id"].Value.ToString());
-                formPrintBillPage.FormBorderStyle = FormBorderStyle.None;
-                formPrintBillPage.StartPosition = FormStartPosition.CenterScreen;
-                formPrintBillPage.AddHeaderDetailBill();
-                formPrintBillPage.LoadDataItemBill();
-                FormPrintBill page = new FormPrintBill();
-                page.invoiceID = guna2DataGridViewCategory.CurrentRow.Cells["Id"].Value.ToString();
-                page.PrintPage(formPrintBillPage);
-                page.ShowDialog();
-            }
         }
 
         private void guna2TextBoxSearch_TextChanged_1(object sender, EventArgs e)
         {
             GetData();
+        }
+
+        private void guna2DataGridViewCategory_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (guna2DataGridViewCategory.Columns[e.ColumnIndex].Name == "received" ||
+         guna2DataGridViewCategory.Columns[e.ColumnIndex].Name == "amount" ||
+         guna2DataGridViewCategory.Columns[e.ColumnIndex].Name == "change")
+            {
+                if (e.Value != null && e.Value is decimal)
+                {
+                    e.Value = ((decimal)e.Value).ToString("N0");
+                    e.FormattingApplied = true;
+                }
+            }
         }
     }
 }

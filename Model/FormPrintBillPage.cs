@@ -2,11 +2,11 @@
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
-using System.Drawing.Printing;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -29,6 +29,10 @@ namespace BillardManager.Model
 
         private int num = 0;
         private Bitmap memoryImg;
+
+        private int currentPageIndex = 0;
+        private List<Bitmap> pages = new List<Bitmap>();
+
         public FormPrintBillPage()
         {
             InitializeComponent();
@@ -234,11 +238,13 @@ namespace BillardManager.Model
                 WindowStyle = ProcessWindowStyle.Hidden,
                 UseShellExecute = true
             };
-            printProcess.Start();
+            //printProcess.Start();
         }
+
         private void SaveToPdf(FormPrintBillPage pnl)
         {
-            GetPrintArea(pnl);
+            int pageHeight = 1120; // Chiều cao mặc định cho mỗi trang
+            GetPrintArea(pnl, pageHeight);
 
             string directory = FormMain.pathExportBill;
             string baseFileName = "Bill_" + invoiceID;
@@ -246,28 +252,31 @@ namespace BillardManager.Model
 
             using (FileStream fs = new FileStream(filePath, FileMode.Create, FileAccess.Write, FileShare.None))
             {
-                // Tạo một tài liệu PDF với kích thước của hình ảnh
-                iTextSharp.text.Rectangle pageSize = new iTextSharp.text.Rectangle(0, 0, memoryImg.Width, memoryImg.Height);
-                Document doc = new Document(pageSize, 0, 0, 0, 0);
+                Document doc = new Document(new iTextSharp.text.Rectangle(pnl.Width, pageHeight), 0, 0, 0, 0);
                 PdfWriter writer = PdfWriter.GetInstance(doc, fs);
                 doc.Open();
 
-                // Chuyển đổi Bitmap thành hình ảnh iTextSharp và thêm nó vào tài liệu
-                iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(memoryImg, System.Drawing.Imaging.ImageFormat.Png);
-                img.SetAbsolutePosition(0, 0);
-                doc.Add(img);
+                foreach (Bitmap page in pages)
+                {
+                    if (doc.PageNumber > 0)
+                    {
+                        doc.NewPage();
+                    }
+
+                    iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(page, System.Drawing.Imaging.ImageFormat.Png);
+                    img.SetAbsolutePosition(0, 0);
+                    img.ScaleToFit(pnl.Width, pageHeight); // Đảm bảo ảnh vừa với kích thước trang
+                    doc.Add(img);
+                }
 
                 doc.Close();
                 writer.Close();
             }
 
-            // Mở tệp PDF
             Process.Start(new ProcessStartInfo(filePath) { UseShellExecute = true });
-
             PrintPdf(filePath);
             this.Close();
         }
-
 
         private string GenerateUniqueFilePath(string directory, string baseFileName, string extension)
         {
@@ -283,36 +292,21 @@ namespace BillardManager.Model
 
             return filePath;
         }
-        private void GetPrintArea(Control pnl)
+
+        private void GetPrintArea(Control pnl, int pageHeight)
         {
-            // Tính toán chiều cao đầy đủ của panel bao gồm cả phần có thể cuộn
-            int scrollableHeight = pnl.DisplayRectangle.Height;
+            int totalHeight = pnl.DisplayRectangle.Height;
+            int pageCount = (int)Math.Ceiling((double)totalHeight / pageHeight);
 
-            // Tạo một bitmap với kích thước phù hợp
-            memoryImg = new Bitmap(pnl.DisplayRectangle.Width, scrollableHeight);
+            pages.Clear();
 
-            // Vẽ toàn bộ nội dung của panel vào bitmap
-            pnl.DrawToBitmap(memoryImg, new System.Drawing.Rectangle(0, 0, pnl.DisplayRectangle.Width, scrollableHeight));
-
-            // Vẽ từng điều khiển con của panel vào bitmap
-            foreach (Control control in pnl.Controls)
+            for (int i = 0; i < pageCount; i++)
             {
-                control.DrawToBitmap(memoryImg, new System.Drawing.Rectangle(control.Location.X, control.Location.Y, control.Width, control.Height));
+                Bitmap page = new Bitmap(pnl.DisplayRectangle.Width, pageHeight);
+                pnl.DrawToBitmap(page, new System.Drawing.Rectangle(0, -i * pageHeight, pnl.DisplayRectangle.Width, totalHeight));
+                pages.Add(page);
             }
         }
-
-
-
-        private void printDocumentBill_PrintPage(object sender, PrintPageEventArgs e)
-        {
-            // Điều chỉnh kích thước hình ảnh để phù hợp với trang
-            float scale = Math.Min((float)e.MarginBounds.Width / memoryImg.Width, (float)e.MarginBounds.Height / memoryImg.Height);
-            float width = memoryImg.Width * scale;
-            float height = memoryImg.Height * scale;
-
-            e.Graphics.DrawImage(memoryImg, 0, 0, width, height);
-        }
-
 
         public void PrintPage(FormPrintBillPage formPrintBillPage)
         {
