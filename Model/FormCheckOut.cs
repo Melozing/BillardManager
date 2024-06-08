@@ -50,7 +50,7 @@ namespace BillardManager.Model
         {
             DateTime currentTime = DateTime.Now;
             paymentTime = currentTime.ToString();
-            FormPrintBill frm = new FormPrintBill();
+            FormPrintBillPage frm = new FormPrintBillPage();
             frm.startTime = startTime;
             frm.invoiceID = idInvoice;
             frm.paymentTime = "Payment time : " + paymentTime;
@@ -61,7 +61,7 @@ namespace BillardManager.Model
             frm.totalPlayHour = totalPlayHour;
             frm.priceHour = priceHour;
             frm.amountHourPlay = amountHourPlay;
-            frm.LoadPrintPage();
+            frm.ShowExitBtn();
             frm.ShowDialog();
         }
         private bool UpdateInvoiceAndTableStatus()

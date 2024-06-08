@@ -1,7 +1,13 @@
 ﻿using BiaManager.Script;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
+using System.Drawing;
+using System.Drawing.Printing;
+using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -9,7 +15,7 @@ namespace BillardManager.Model
 {
     public partial class FormPrintBillPage : Form
     {
-        public string idInvoice;
+        public string invoiceID;
         public string startTime;
         public string paymentTime;
 
@@ -22,7 +28,7 @@ namespace BillardManager.Model
         public string amountHourPlay;
 
         private int num = 0;
-
+        private Bitmap memoryImg;
         public FormPrintBillPage()
         {
             InitializeComponent();
@@ -36,13 +42,13 @@ namespace BillardManager.Model
             labelChangetxt.Text = changeMoney;
             labelRecivedAmounttxt.Text = receivedMoney;
             labelBillCashier.Text = "The bill cashier : " + FormMain.Instance.userFullName;
-            labelIDInvoice.Text = "Invoice Code : " + idInvoice;
+            labelIDInvoice.Text = "Invoice Code : " + invoiceID;
         }
 
         public void GetBillInfoByID(string idInvoiceGet)
         {
-            idInvoice = idInvoiceGet;
-            labelIDInvoice.Text = "Invoice Code: " + idInvoice;
+            invoiceID = idInvoiceGet;
+            labelIDInvoice.Text = "Invoice Code: " + invoiceID;
             string queryGet = @"
             SELECT Invoice_time, 
                    Invoice_PaymentTime, 
@@ -127,8 +133,6 @@ namespace BillardManager.Model
             }
         }
 
-
-
         public void AddHeaderDetailBill()
         {
             panelBillDetail.Controls.Clear();
@@ -152,7 +156,6 @@ namespace BillardManager.Model
 
         public void LoadDataItemBill()
         {
-
             string query = "SELECT " +
                 "iv.Invoice_Status, " +
                 "im.IdItem, " +
@@ -164,7 +167,7 @@ namespace BillardManager.Model
                 "ON im.IdItem = id.IdItem " +
                 "JOIN invoice iv " +
                 "ON iv.IdInvoice = id.IdInvoice " +
-                "WHERE iv.IdInvoice = '" + idInvoice + "' " +
+                "WHERE iv.IdInvoice = '" + invoiceID + "' " +
                 "AND im.IdItem != 'IHour'";
 
             SqlCommand cmd = new SqlCommand(query, MainClass.conn);
@@ -173,7 +176,6 @@ namespace BillardManager.Model
             adapter.Fill(dataTable);
             if (dataTable.Rows.Count > 0)
             {
-
                 foreach (DataRow row in dataTable.Rows)
                 {
                     double totalAmount = 0;
@@ -196,10 +198,13 @@ namespace BillardManager.Model
                 }
             }
         }
+
         public void ShowExitBtn()
         {
             pictureBoxExit.Visible = true;
+            guna2PictureBoxPrint.Visible = true;
         }
+
         private void ShowItemBill(ucBillDetail bdt)
         {
             panelBillDetail.Controls.Add(bdt);
@@ -211,6 +216,113 @@ namespace BillardManager.Model
         private void pictureBoxExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void guna2PictureBoxPrint_Click(object sender, EventArgs e)
+        {
+            SaveToPdf(this);
+        }
+
+        private void PrintPdf(string filePath)
+        {
+            Process printProcess = new Process();
+            printProcess.StartInfo = new ProcessStartInfo
+            {
+                FileName = filePath,
+                Verb = "print",
+                CreateNoWindow = true,
+                WindowStyle = ProcessWindowStyle.Hidden,
+                UseShellExecute = true
+            };
+            printProcess.Start();
+        }
+        private void SaveToPdf(FormPrintBillPage pnl)
+        {
+            GetPrintArea(pnl);
+
+            string directory = FormMain.pathExportBill;
+            string baseFileName = "Bill_" + invoiceID;
+            string filePath = GenerateUniqueFilePath(directory, baseFileName, ".pdf");
+
+            using (FileStream fs = new FileStream(filePath, FileMode.Create, FileAccess.Write, FileShare.None))
+            {
+                // Tạo một tài liệu PDF với kích thước của hình ảnh
+                iTextSharp.text.Rectangle pageSize = new iTextSharp.text.Rectangle(0, 0, memoryImg.Width, memoryImg.Height);
+                Document doc = new Document(pageSize, 0, 0, 0, 0);
+                PdfWriter writer = PdfWriter.GetInstance(doc, fs);
+                doc.Open();
+
+                // Chuyển đổi Bitmap thành hình ảnh iTextSharp và thêm nó vào tài liệu
+                iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(memoryImg, System.Drawing.Imaging.ImageFormat.Png);
+                img.SetAbsolutePosition(0, 0);
+                doc.Add(img);
+
+                doc.Close();
+                writer.Close();
+            }
+
+            // Mở tệp PDF
+            Process.Start(new ProcessStartInfo(filePath) { UseShellExecute = true });
+
+            PrintPdf(filePath);
+            this.Close();
+        }
+
+
+        private string GenerateUniqueFilePath(string directory, string baseFileName, string extension)
+        {
+            string filePath = Path.Combine(directory, baseFileName + extension);
+            int count = 1;
+
+            while (File.Exists(filePath))
+            {
+                string tempFileName = $"{baseFileName}({count})";
+                filePath = Path.Combine(directory, tempFileName + extension);
+                count++;
+            }
+
+            return filePath;
+        }
+        private void GetPrintArea(Control pnl)
+        {
+            // Tính toán chiều cao đầy đủ của panel bao gồm cả phần có thể cuộn
+            int scrollableHeight = pnl.DisplayRectangle.Height;
+
+            // Tạo một bitmap với kích thước phù hợp
+            memoryImg = new Bitmap(pnl.DisplayRectangle.Width, scrollableHeight);
+
+            // Vẽ toàn bộ nội dung của panel vào bitmap
+            pnl.DrawToBitmap(memoryImg, new System.Drawing.Rectangle(0, 0, pnl.DisplayRectangle.Width, scrollableHeight));
+
+            // Vẽ từng điều khiển con của panel vào bitmap
+            foreach (Control control in pnl.Controls)
+            {
+                control.DrawToBitmap(memoryImg, new System.Drawing.Rectangle(control.Location.X, control.Location.Y, control.Width, control.Height));
+            }
+        }
+
+
+
+        private void printDocumentBill_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            // Điều chỉnh kích thước hình ảnh để phù hợp với trang
+            float scale = Math.Min((float)e.MarginBounds.Width / memoryImg.Width, (float)e.MarginBounds.Height / memoryImg.Height);
+            float width = memoryImg.Width * scale;
+            float height = memoryImg.Height * scale;
+
+            e.Graphics.DrawImage(memoryImg, 0, 0, width, height);
+        }
+
+
+        public void PrintPage(FormPrintBillPage formPrintBillPage)
+        {
+            formPrintBillPage.TopLevel = false;
+            formPrintBillPage.FormBorderStyle = FormBorderStyle.None;
+            formPrintBillPage.StartPosition = FormStartPosition.Manual;
+            guna2PanelContent.Controls.Clear();
+            guna2PanelContent.Controls.Add(formPrintBillPage);
+            formPrintBillPage.Show();
+            formPrintBillPage.BringToFront();
         }
     }
 }
