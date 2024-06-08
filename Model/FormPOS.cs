@@ -413,7 +413,7 @@ namespace BillardManager.Model
 
         private void guna2TextBoxSearch_TextChanged(object sender, EventArgs e)
         {
-            foreach (var item in panelProduct.Controls)
+            foreach (var item in frm.flowLayoutPanelProduct.Controls)
             {
                 var prod = (ucProduct)item;
                 prod.Visible = prod.PName.ToLower().Contains(guna2TextBoxSearch.Text.Trim().ToLower());

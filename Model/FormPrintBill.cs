@@ -40,7 +40,7 @@ namespace BillardManager.Model
         public void LoadPrintPage()
         {
             FormPrintBillPage formPrintBillPage = new FormPrintBillPage();
-            formPrintBillPage.idInvoice = invoiceID;
+            formPrintBillPage.invoiceID = invoiceID;
             formPrintBillPage.startTime = startTime;
             formPrintBillPage.paymentTime = paymentTime;
 
@@ -56,10 +56,10 @@ namespace BillardManager.Model
             formPrintBillPage.FormBorderStyle = FormBorderStyle.None;
             formPrintBillPage.StartPosition = FormStartPosition.Manual;
 
-            int x = (guna2PanelContent.Width - formPrintBillPage.Width) / 2;
-            int y = formPrintBillPage.Location.Y;
+            //int x = (guna2PanelContent.Width - formPrintBillPage.Width) / 2;
+            //int y = formPrintBillPage.Location.Y;
 
-            formPrintBillPage.Location = new Point(x, y);
+            //formPrintBillPage.Location = new Point(x, y);
             formPrintBillPage.AddHeaderDetailBill();
             formPrintBillPage.LoadDataItemBill();
             printPage = formPrintBillPage;
@@ -75,63 +75,68 @@ namespace BillardManager.Model
             formPrintBillPage.TopLevel = false;
             formPrintBillPage.FormBorderStyle = FormBorderStyle.None;
             formPrintBillPage.StartPosition = FormStartPosition.Manual;
-            int x = (guna2PanelContent.Width - formPrintBillPage.Width) / 2;
-            int y = formPrintBillPage.Location.Y;
+            //int x = (guna2PanelContent.Width - formPrintBillPage.Width) / 2;
+            //int y = formPrintBillPage.Location.Y;
 
-            formPrintBillPage.Location = new Point(x, y);
+            //formPrintBillPage.Location = new Point(x, y);
             guna2PanelContent.Controls.Clear();
             guna2PanelContent.Controls.Add(formPrintBillPage);
             formPrintBillPage.Show();
             formPrintBillPage.BringToFront();
         }
-        /*
-        private void Print(FormPrintBillPage pnl)
-        {
-            pnl.BackColor = Color.White;
-            GetPrintArea(pnl);
-
-            int panelWidth = pnl.Width;
-            int panelHeight = pnl.Height;
-
-            // Convert the panel size to hundredths of an inch for printing
-            int paperWidth = (int)(panelWidth / 96.0 * 100);
-            int paperHeight = (int)(panelHeight / 96.0 * 100);
-
-            printDocumentBill.DefaultPageSettings.PaperSize = new PaperSize("Custom", paperWidth, paperHeight);
-            printDocumentBill.DefaultPageSettings.Margins = new Margins(0, 0, 0, 0);
-
-            printPreviewDialogBill.Document = printDocumentBill;
-            printDocumentBill.PrintPage -= printDocumentBill_PrintPage;
-            printDocumentBill.PrintPage += new PrintPageEventHandler(printDocumentBill_PrintPage);
-            printPreviewDialogBill.WindowState = FormWindowState.Maximized;
-            printPreviewDialogBill.Size = Screen.PrimaryScreen.Bounds.Size;
-            printPreviewDialogBill.ShowDialog();
-        }*/
 
         private void GetPrintArea(FormPrintBillPage pnl)
         {
-            memoryImg = new Bitmap(pnl.Width, pnl.Height);
-            pnl.DrawToBitmap(memoryImg, new System.Drawing.Rectangle(0, 0, pnl.Width, pnl.Height));
+            // Create a bitmap of the size of the entire scrollable area
+            memoryImg = new Bitmap(pnl.DisplayRectangle.Width, pnl.DisplayRectangle.Height);
+            pnl.DrawToBitmap(memoryImg, new System.Drawing.Rectangle(0, 0, pnl.DisplayRectangle.Width, pnl.DisplayRectangle.Height));
         }
 
         private void printDocumentBill_PrintPage(object sender, PrintPageEventArgs e)
         {
-            e.Graphics.DrawImage(memoryImg, 0, 0);
+            // Adjust the image size to fit the page
+            float scale = Math.Min((float)e.MarginBounds.Width / memoryImg.Width, (float)e.MarginBounds.Height / memoryImg.Height);
+            float width = memoryImg.Width * scale;
+            float height = memoryImg.Height * scale;
+
+            e.Graphics.DrawImage(memoryImg, 0, 0, width, height);
+        }
+
+        private string GenerateUniqueFilePath(string directory, string baseFileName, string extension)
+        {
+            string filePath = Path.Combine(directory, baseFileName + extension);
+            int count = 1;
+
+            while (File.Exists(filePath))
+            {
+                string tempFileName = $"{baseFileName}({count})";
+                filePath = Path.Combine(directory, tempFileName + extension);
+                count++;
+            }
+
+            return filePath;
         }
 
         private void SaveToPdf(FormPrintBillPage pnl)
         {
             GetPrintArea(pnl);
 
-            string filePath = Path.Combine(FormMain.pathExportBill, "Bill_" + invoiceID + ".pdf");
+            string directory = FormMain.pathExportBill;
+            string baseFileName = "Bill_" + invoiceID;
+            string filePath = GenerateUniqueFilePath(directory, baseFileName, ".pdf");
+
             using (FileStream fs = new FileStream(filePath, FileMode.Create, FileAccess.Write, FileShare.None))
             {
-                Document doc = new Document(new iTextSharp.text.Rectangle(pnl.Width, pnl.Height), 0, 0, 0, 0); // Set all margins to 0
+                // Create a PDF document with the size of the image
+                Document doc = new Document(new iTextSharp.text.Rectangle(memoryImg.Width, memoryImg.Height), 0, 0, 0, 0);
                 PdfWriter writer = PdfWriter.GetInstance(doc, fs);
                 doc.Open();
+
+                // Convert the Bitmap to iTextSharp image and add it to the document
                 iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(memoryImg, System.Drawing.Imaging.ImageFormat.Png);
-                img.SetAbsolutePosition(0, 0); // Set image position to (0,0)
+                img.SetAbsolutePosition(0, 0);
                 doc.Add(img);
+
                 doc.Close();
                 writer.Close();
             }
@@ -145,7 +150,6 @@ namespace BillardManager.Model
 
         private void PrintPdf(string filePath)
         {
-            // Use a Process to open the default print dialog for the PDF
             Process printProcess = new Process();
             printProcess.StartInfo = new ProcessStartInfo
             {
@@ -153,8 +157,9 @@ namespace BillardManager.Model
                 Verb = "print",
                 CreateNoWindow = true,
                 WindowStyle = ProcessWindowStyle.Hidden,
-                UseShellExecute = true // Ensure UseShellExecute is true
+                UseShellExecute = true
             };
+            printProcess.Start();
         }
 
         private void guna2ButtonSave_Click_2(object sender, EventArgs e)

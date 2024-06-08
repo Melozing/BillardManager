@@ -15,7 +15,8 @@ namespace BillardManager
         //Manh Laptop : DESKTOP-NQD44KU\MYMSSQLSERVER
         //Manh PC : DESKTOP-G0D14LK
         //Hoang Laptop : LAGANIME
-        public static readonly string nameServer = Environment.MachineName + "\\MYMSSQLSERVER";
+        public static readonly string addPath = "\\MYMSSQLSERVER";
+        public static readonly string nameServer = Environment.MachineName + addPath;
         public static readonly string connect_string = "Data Source='" + nameServer + "';Initial Catalog=db_biamanager;Integrated Security=True";
         public static SqlConnection conn = new SqlConnection(connect_string);
 
@@ -25,10 +26,10 @@ namespace BillardManager
             bool isValid = false;
             string hashedPassword = PasswordHasher.HashPassword(password);
             string query = @"
-        SELECT ua.IdUser, ui.User_FullName, ui.User_BillPath 
-        FROM user_account ua 
-        INNER JOIN user_info ui ON ua.IdUser = ui.idUser
-        WHERE ua.UserName = @Username AND ua.UserPassword = @Password";
+            SELECT ua.IdUser, ui.User_FullName, ui.User_BillPath 
+            FROM user_account ua 
+            INNER JOIN user_info ui ON ua.IdUser = ui.idUser
+            WHERE ua.UserName = @Username AND ua.UserPassword = @Password AND ua.AccountStatus != 1";
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@Username", username);
             cmd.Parameters.AddWithValue("@Password", hashedPassword);
