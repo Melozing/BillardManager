@@ -51,6 +51,7 @@ namespace BillardManager.Model
             DateTime currentTime = DateTime.Now;
             paymentTime = currentTime.ToString();
             FormPrintBillPage frm = new FormPrintBillPage();
+            frm.StartPosition = FormStartPosition.CenterScreen;
             frm.startTime = startTime;
             frm.invoiceID = idInvoice;
             frm.paymentTime = "Payment time : " + paymentTime;

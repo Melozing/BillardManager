@@ -27,10 +27,9 @@ namespace BillardManager.Model
         public string priceHour;
         public string amountHourPlay;
 
-        private int num = 0;
-        private Bitmap memoryImg;
+        public string cashier;
 
-        private int currentPageIndex = 0;
+        private int num = 0;
         private List<Bitmap> pages = new List<Bitmap>();
 
         public FormPrintBillPage()
@@ -45,7 +44,7 @@ namespace BillardManager.Model
             labelTotalMoney.Text = totalMoney;
             labelChangetxt.Text = changeMoney;
             labelRecivedAmounttxt.Text = receivedMoney;
-            labelBillCashier.Text = "The bill cashier : " + FormMain.Instance.userFullName;
+            labelBillCashier.Text = cashier;
             labelIDInvoice.Text = "Invoice Code : " + invoiceID;
         }
 
@@ -54,21 +53,24 @@ namespace BillardManager.Model
             invoiceID = idInvoiceGet;
             labelIDInvoice.Text = "Invoice Code: " + invoiceID;
             string queryGet = @"
-            SELECT Invoice_time, 
-                   Invoice_PaymentTime, 
-                   Invoice_Total, 
-                   Invoice_Received, 
-                   Invoice_Change  
-            FROM invoice 
-            WHERE IdInvoice = @idInvoice";
+    SELECT Invoice_time, 
+           Invoice_PaymentTime, 
+           Invoice_Total, 
+           Invoice_Received, 
+           Invoice_Change 
+    FROM invoice 
+    WHERE IdInvoice = @idInvoice";
 
             string queryGetHour = @"
-            SELECT inv_det.Invoice_TotalAmount, tbl_type.TableType_Price
-            FROM invoice_detail inv_det
-            INNER JOIN invoice inv ON inv_det.IdInvoice = inv.IdInvoice
-            INNER JOIN table_detail tbl_det ON inv.TableID = tbl_det.TableID
-            INNER JOIN table_type tbl_type ON tbl_det.TableIDType = tbl_type.TableIDType
-            WHERE inv_det.IdInvoice = @idInvoice AND inv_det.IdItem = 'IHour'";
+    SELECT inv_det.Invoice_TotalAmount, 
+           tbl_type.TableType_Price, 
+           tbl_uinfo.User_FullName 
+    FROM invoice_detail inv_det
+    INNER JOIN invoice inv ON inv_det.IdInvoice = inv.IdInvoice
+    INNER JOIN table_detail tbl_det ON inv.TableID = tbl_det.TableID
+    INNER JOIN table_type tbl_type ON tbl_det.TableIDType = tbl_type.TableIDType
+    INNER JOIN user_info tbl_uinfo ON inv.IdUser = tbl_uinfo.idUser
+    WHERE inv_det.IdInvoice = @idInvoice AND inv_det.IdItem = 'IHour'";
 
             try
             {
@@ -89,8 +91,7 @@ namespace BillardManager.Model
                     {
                         if (reader.Read())
                         {
-                            startTime = reader.GetDateTime(0).ToString();
-                            labelTimeStart.Text = "Start Time : " + startTime;
+                            startTime = "Start Time : " + reader.GetDateTime(0).ToString();
                             paymentTime = "Payment time : " + reader.GetDateTime(1).ToString();
                             totalMoney = "$ " + reader.GetDecimal(2).ToString("N0");
                             receivedMoney = "$ " + reader.GetDecimal(3).ToString("N0");
@@ -112,17 +113,13 @@ namespace BillardManager.Model
                         {
                             double totalAmount = reader.GetDouble(0);
                             int hourlyRate = reader.GetInt32(1);
+                            string cashier = reader.GetString(2);
 
-                            amountHourPlay = (totalAmount * hourlyRate).ToString("N0"); // Total hours played
-                            priceHour = hourlyRate.ToString("N0"); // Hourly rate
-                            totalPlayHour = totalAmount.ToString("N2"); // Total amount paid for playing hours
+                            amountHourPlay = (totalAmount * hourlyRate).ToString("N0");
+                            priceHour = hourlyRate.ToString("N0");
+                            totalPlayHour = totalAmount.ToString("N2");
+                            labelBillCashier.Text = "The bill cashier : " + cashier;
                         }
-                    }
-
-                    // Close the connection if it is open
-                    if (MainClass.conn.State == ConnectionState.Open)
-                    {
-                        MainClass.conn.Close();
                     }
                 }
             }
@@ -130,12 +127,16 @@ namespace BillardManager.Model
             {
                 // Handle exceptions
                 MessageFuctionConstans.ErrorOK(ex.ToString());
+            }
+            finally
+            {
                 if (MainClass.conn.State == ConnectionState.Open)
                 {
                     MainClass.conn.Close();
                 }
             }
         }
+
 
         public void AddHeaderDetailBill()
         {
@@ -165,12 +166,15 @@ namespace BillardManager.Model
                 "im.IdItem, " +
                 "id.Invoice_TotalAmount, " +
                 "im.item_Name, " +
-                "im.item_Price " +
+                "im.item_Price, " +
+                "tbl_uinfo.User_FullName " +
                 "FROM items_menu im " +
                 "JOIN invoice_detail id " +
                 "ON im.IdItem = id.IdItem " +
                 "JOIN invoice iv " +
                 "ON iv.IdInvoice = id.IdInvoice " +
+                "JOIN user_info tbl_uinfo " +
+                "ON tbl_uinfo.idUser = iv.IdUser " +
                 "WHERE iv.IdInvoice = '" + invoiceID + "' " +
                 "AND im.IdItem != 'IHour'";
 
@@ -187,7 +191,7 @@ namespace BillardManager.Model
                     int quantity = int.Parse(Regex.Replace(row["Invoice_TotalAmount"].ToString(), @"[^0-9.]", ""));
 
                     double price = double.Parse(Regex.Replace(row["item_Price"].ToString(), @"[^0-9.]", ""));
-
+                    cashier = "The bill cashier : " + row["User_FullName"].ToString();
                     double itemTotal = quantity * price;
                     totalAmount += itemTotal;
                     var b = new ucBillDetail()
