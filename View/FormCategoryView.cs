@@ -56,6 +56,12 @@ namespace BillardManager.View
             }
             if (guna2DataGridViewCategory.CurrentCell.OwningColumn.Name == "ItemCategoryDelete")
             {
+                string tempID = guna2DataGridViewCategory.CurrentRow.Cells["IdItemCategory"].Value.ToString();
+                if (tempID == "ICD")
+                {
+                    MessageFuctionConstans.WarningOK("You can't delete default table types.");
+                    return;
+                }
                 DialogResult dialogResult = MessageFuctionConstans.OKCancel("Are you sure you want to delete?");
                 if (dialogResult == DialogResult.OK)
                 {
