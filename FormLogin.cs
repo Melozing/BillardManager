@@ -19,7 +19,10 @@ namespace BillardManager
         {
             this.Close();
         }
-
+        private void panelTittleBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            WindowSizeCtrl.MoveWindow(this.Handle);
+        }
         private void guna2ButtonLogin_Click(object sender, System.EventArgs e)
         {
             if (!MainClass.IsValidUser(guna2TextBoxUsername.Text, guna2TextBoxPassword.Text))
@@ -41,6 +44,28 @@ namespace BillardManager
                 }
                 formMain.Show();
             }
+        }
+
+        private void guna2CheckBox1_CheckedChanged(object sender, System.EventArgs e)
+        {
+            if (guna2CheckBox1.Checked == false)
+            {
+                guna2TextBoxPassword.UseSystemPasswordChar =  true;
+            }
+            else
+            {
+                guna2TextBoxPassword.UseSystemPasswordChar = false;
+            }
+        }
+
+        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
+        {
+            WindowSizeCtrl.MoveWindow(this.Handle);
+        }
+
+        private void pictureBox2_Click(object sender, System.EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://vtc.edu.vn/");
         }
     }
 }

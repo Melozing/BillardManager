@@ -107,3 +107,51 @@ INSERT INTO table_type (TableIDType,TableType_Name, TableType_Price) VALUES ('TB
 INSERT INTO table_type (TableIDType,TableType_Name, TableType_Price) VALUES ('TBT02', 'Pocket Billiards', 30000);
 INSERT INTO items_category (IdItemCategory, ItemCategory_Name) VALUES ('ICD', 'Other');
 INSERT INTO items_menu (IdItem, item_Name, IdItemCategory, item_Price) VALUES ('IHour', 'Play time', 'ICD', 30000);
+
+
+
+CREATE TABLE [dbo].[login_history] (
+    [LoginID] INT IDENTITY(1,1) NOT NULL,
+    [IdUser] VARCHAR(15) COLLATE Vietnamese_CI_AS NOT NULL,
+    [LoginTime] DATETIME NOT NULL,
+    [LogoutTime] DATETIME NULL,
+    PRIMARY KEY CLUSTERED ([LoginID]),
+    CONSTRAINT [FK_login_history_user_account] FOREIGN KEY ([IdUser]) REFERENCES [dbo].[user_account] ([IdUser])
+);
+GO
+CREATE TRIGGER trg_insert_login_history
+ON [dbo].[user_account]
+AFTER INSERT
+AS
+BEGIN
+    IF EXISTS (SELECT 1 FROM inserted WHERE UserRole = 1)
+    BEGIN
+        INSERT INTO [dbo].[login_history] (IdUser, LoginTime)
+        SELECT IdUser, GETDATE() FROM inserted;
+    END
+END;
+GO
+CREATE TABLE [dbo].[work_schedule] (
+    [IdSchedule] INT IDENTITY(1,1) NOT NULL,
+    [IdUser] VARCHAR(15) COLLATE Vietnamese_CI_AS NOT NULL,
+    [WorkDate] DATE NOT NULL,
+    [StartTime] TIME NOT NULL,
+    [EndTime] TIME NOT NULL,
+    PRIMARY KEY CLUSTERED ([IdSchedule]),
+    CONSTRAINT [FK_work_schedule_user_account] FOREIGN KEY ([IdUser]) REFERENCES [dbo].[user_account] ([IdUser])
+);
+GO
+CREATE TRIGGER trg_update_logout_time
+ON [dbo].[user_account]
+AFTER UPDATE
+AS
+BEGIN
+    IF EXISTS (SELECT 1 FROM inserted WHERE UserRole = 1 AND AccountStatus = 'logged_out')
+    BEGIN
+        UPDATE [dbo].[login_history]
+        SET LogoutTime = GETDATE()
+        WHERE IdUser = (SELECT IdUser FROM inserted)
+        AND LogoutTime IS NULL;
+    END
+END;
+GO

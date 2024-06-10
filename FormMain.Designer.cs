@@ -31,6 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.gunaPanelSide = new Guna.UI.WinForms.GunaPanel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.gunaPanelTop = new Guna.UI.WinForms.GunaPanel();
+            this.guna2ControlBoxMinimize = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.guna2ControlBoxMaximize = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.guna2ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.gunaPanelContent = new Guna.UI.WinForms.GunaPanel();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2ButtonTimeTable = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ButtonTableDetail = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ButtonSetting = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ButtonHome = new Guna.UI2.WinForms.Guna2Button();
@@ -42,15 +49,10 @@
             this.guna2ButtonFoodType = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ButtonUserManagement = new Guna.UI2.WinForms.Guna2Button();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.gunaPanelTop = new Guna.UI.WinForms.GunaPanel();
-            this.guna2ControlBoxMinimize = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.guna2ControlBoxMaximize = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.guna2ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.gunaPanelContent = new Guna.UI.WinForms.GunaPanel();
             this.gunaPanelSide.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.gunaPanelTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // gunaPanelSide
@@ -61,12 +63,14 @@
             this.gunaPanelSide.Dock = System.Windows.Forms.DockStyle.Left;
             this.gunaPanelSide.Location = new System.Drawing.Point(0, 0);
             this.gunaPanelSide.Name = "gunaPanelSide";
-            this.gunaPanelSide.Size = new System.Drawing.Size(200, 588);
+            this.gunaPanelSide.Size = new System.Drawing.Size(218, 588);
             this.gunaPanelSide.TabIndex = 0;
             // 
             // guna2Panel1
             // 
             this.guna2Panel1.AutoScroll = true;
+            this.guna2Panel1.Controls.Add(this.guna2Button1);
+            this.guna2Panel1.Controls.Add(this.guna2ButtonTimeTable);
             this.guna2Panel1.Controls.Add(this.guna2ButtonTableDetail);
             this.guna2Panel1.Controls.Add(this.guna2ButtonSetting);
             this.guna2Panel1.Controls.Add(this.guna2ButtonHome);
@@ -81,8 +85,115 @@
             this.guna2Panel1.Location = new System.Drawing.Point(0, 90);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
-            this.guna2Panel1.Size = new System.Drawing.Size(200, 498);
+            this.guna2Panel1.Size = new System.Drawing.Size(218, 498);
             this.guna2Panel1.TabIndex = 1;
+            // 
+            // gunaPanelTop
+            // 
+            this.gunaPanelTop.BackColor = System.Drawing.Color.Gainsboro;
+            this.gunaPanelTop.Controls.Add(this.guna2ControlBoxMinimize);
+            this.gunaPanelTop.Controls.Add(this.guna2ControlBoxMaximize);
+            this.gunaPanelTop.Controls.Add(this.guna2ControlBoxClose);
+            this.gunaPanelTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gunaPanelTop.Location = new System.Drawing.Point(218, 0);
+            this.gunaPanelTop.Name = "gunaPanelTop";
+            this.gunaPanelTop.Size = new System.Drawing.Size(715, 62);
+            this.gunaPanelTop.TabIndex = 0;
+            // 
+            // guna2ControlBoxMinimize
+            // 
+            this.guna2ControlBoxMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBoxMinimize.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
+            this.guna2ControlBoxMinimize.FillColor = System.Drawing.Color.Transparent;
+            this.guna2ControlBoxMinimize.HoverState.Parent = this.guna2ControlBoxMinimize;
+            this.guna2ControlBoxMinimize.IconColor = System.Drawing.Color.Black;
+            this.guna2ControlBoxMinimize.Location = new System.Drawing.Point(598, 12);
+            this.guna2ControlBoxMinimize.Name = "guna2ControlBoxMinimize";
+            this.guna2ControlBoxMinimize.ShadowDecoration.Parent = this.guna2ControlBoxMinimize;
+            this.guna2ControlBoxMinimize.Size = new System.Drawing.Size(31, 27);
+            this.guna2ControlBoxMinimize.TabIndex = 0;
+            // 
+            // guna2ControlBoxMaximize
+            // 
+            this.guna2ControlBoxMaximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBoxMaximize.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
+            this.guna2ControlBoxMaximize.FillColor = System.Drawing.Color.Transparent;
+            this.guna2ControlBoxMaximize.HoverState.Parent = this.guna2ControlBoxMaximize;
+            this.guna2ControlBoxMaximize.IconColor = System.Drawing.Color.Black;
+            this.guna2ControlBoxMaximize.Location = new System.Drawing.Point(635, 12);
+            this.guna2ControlBoxMaximize.Name = "guna2ControlBoxMaximize";
+            this.guna2ControlBoxMaximize.ShadowDecoration.Parent = this.guna2ControlBoxMaximize;
+            this.guna2ControlBoxMaximize.Size = new System.Drawing.Size(31, 27);
+            this.guna2ControlBoxMaximize.TabIndex = 0;
+            // 
+            // guna2ControlBoxClose
+            // 
+            this.guna2ControlBoxClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBoxClose.FillColor = System.Drawing.Color.Transparent;
+            this.guna2ControlBoxClose.HoverState.Parent = this.guna2ControlBoxClose;
+            this.guna2ControlBoxClose.IconColor = System.Drawing.Color.Black;
+            this.guna2ControlBoxClose.Location = new System.Drawing.Point(672, 12);
+            this.guna2ControlBoxClose.Name = "guna2ControlBoxClose";
+            this.guna2ControlBoxClose.ShadowDecoration.Parent = this.guna2ControlBoxClose;
+            this.guna2ControlBoxClose.Size = new System.Drawing.Size(31, 27);
+            this.guna2ControlBoxClose.TabIndex = 0;
+            this.guna2ControlBoxClose.Click += new System.EventHandler(this.guna2ControlBoxClose_Click);
+            // 
+            // gunaPanelContent
+            // 
+            this.gunaPanelContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gunaPanelContent.Location = new System.Drawing.Point(218, 62);
+            this.gunaPanelContent.Name = "gunaPanelContent";
+            this.gunaPanelContent.Size = new System.Drawing.Size(715, 526);
+            this.gunaPanelContent.TabIndex = 0;
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.AutoRoundedCorners = true;
+            this.guna2Button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.guna2Button1.BorderRadius = 21;
+            this.guna2Button1.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.guna2Button1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.guna2Button1.CheckedState.Image = global::BillardManager.Properties.Resources.pool_table__1_;
+            this.guna2Button1.CheckedState.Parent = this.guna2Button1;
+            this.guna2Button1.CustomImages.Parent = this.guna2Button1;
+            this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.HoverState.Parent = this.guna2Button1;
+            this.guna2Button1.Image = global::BillardManager.Properties.Resources.billiard;
+            this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.guna2Button1.Location = new System.Drawing.Point(3, 519);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
+            this.guna2Button1.Size = new System.Drawing.Size(180, 45);
+            this.guna2Button1.TabIndex = 3;
+            this.guna2Button1.Text = "Reveune Report";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
+            // guna2ButtonTimeTable
+            // 
+            this.guna2ButtonTimeTable.AutoRoundedCorners = true;
+            this.guna2ButtonTimeTable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.guna2ButtonTimeTable.BorderRadius = 21;
+            this.guna2ButtonTimeTable.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.guna2ButtonTimeTable.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.guna2ButtonTimeTable.CheckedState.Image = global::BillardManager.Properties.Resources.snooker;
+            this.guna2ButtonTimeTable.CheckedState.Parent = this.guna2ButtonTimeTable;
+            this.guna2ButtonTimeTable.CustomImages.Parent = this.guna2ButtonTimeTable;
+            this.guna2ButtonTimeTable.FillColor = System.Drawing.Color.Transparent;
+            this.guna2ButtonTimeTable.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2ButtonTimeTable.ForeColor = System.Drawing.Color.White;
+            this.guna2ButtonTimeTable.HoverState.Parent = this.guna2ButtonTimeTable;
+            this.guna2ButtonTimeTable.Image = global::BillardManager.Properties.Resources.Time_Machine;
+            this.guna2ButtonTimeTable.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.guna2ButtonTimeTable.Location = new System.Drawing.Point(3, 468);
+            this.guna2ButtonTimeTable.Name = "guna2ButtonTimeTable";
+            this.guna2ButtonTimeTable.ShadowDecoration.Parent = this.guna2ButtonTimeTable;
+            this.guna2ButtonTimeTable.Size = new System.Drawing.Size(180, 45);
+            this.guna2ButtonTimeTable.TabIndex = 3;
+            this.guna2ButtonTimeTable.Text = "Time Table";
+            this.guna2ButtonTimeTable.Click += new System.EventHandler(this.guna2ButtonTimeTable_Click);
             // 
             // guna2ButtonTableDetail
             // 
@@ -95,12 +206,12 @@
             this.guna2ButtonTableDetail.CheckedState.Parent = this.guna2ButtonTableDetail;
             this.guna2ButtonTableDetail.CustomImages.Parent = this.guna2ButtonTableDetail;
             this.guna2ButtonTableDetail.FillColor = System.Drawing.Color.Transparent;
-            this.guna2ButtonTableDetail.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2ButtonTableDetail.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2ButtonTableDetail.ForeColor = System.Drawing.Color.White;
             this.guna2ButtonTableDetail.HoverState.Parent = this.guna2ButtonTableDetail;
             this.guna2ButtonTableDetail.Image = global::BillardManager.Properties.Resources.billiard;
             this.guna2ButtonTableDetail.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.guna2ButtonTableDetail.Location = new System.Drawing.Point(-20, 413);
+            this.guna2ButtonTableDetail.Location = new System.Drawing.Point(3, 420);
             this.guna2ButtonTableDetail.Name = "guna2ButtonTableDetail";
             this.guna2ButtonTableDetail.ShadowDecoration.Parent = this.guna2ButtonTableDetail;
             this.guna2ButtonTableDetail.Size = new System.Drawing.Size(180, 45);
@@ -119,12 +230,12 @@
             this.guna2ButtonSetting.CheckedState.Parent = this.guna2ButtonSetting;
             this.guna2ButtonSetting.CustomImages.Parent = this.guna2ButtonSetting;
             this.guna2ButtonSetting.FillColor = System.Drawing.Color.Transparent;
-            this.guna2ButtonSetting.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2ButtonSetting.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2ButtonSetting.ForeColor = System.Drawing.Color.White;
             this.guna2ButtonSetting.HoverState.Parent = this.guna2ButtonSetting;
             this.guna2ButtonSetting.Image = ((System.Drawing.Image)(resources.GetObject("guna2ButtonSetting.Image")));
             this.guna2ButtonSetting.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.guna2ButtonSetting.Location = new System.Drawing.Point(-20, 461);
+            this.guna2ButtonSetting.Location = new System.Drawing.Point(3, 567);
             this.guna2ButtonSetting.Name = "guna2ButtonSetting";
             this.guna2ButtonSetting.ShadowDecoration.Parent = this.guna2ButtonSetting;
             this.guna2ButtonSetting.Size = new System.Drawing.Size(180, 45);
@@ -144,12 +255,12 @@
             this.guna2ButtonHome.CheckedState.Parent = this.guna2ButtonHome;
             this.guna2ButtonHome.CustomImages.Parent = this.guna2ButtonHome;
             this.guna2ButtonHome.FillColor = System.Drawing.Color.Transparent;
-            this.guna2ButtonHome.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2ButtonHome.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2ButtonHome.ForeColor = System.Drawing.Color.White;
             this.guna2ButtonHome.HoverState.Parent = this.guna2ButtonHome;
             this.guna2ButtonHome.Image = ((System.Drawing.Image)(resources.GetObject("guna2ButtonHome.Image")));
             this.guna2ButtonHome.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.guna2ButtonHome.Location = new System.Drawing.Point(-20, 11);
+            this.guna2ButtonHome.Location = new System.Drawing.Point(3, 18);
             this.guna2ButtonHome.Name = "guna2ButtonHome";
             this.guna2ButtonHome.ShadowDecoration.Parent = this.guna2ButtonHome;
             this.guna2ButtonHome.Size = new System.Drawing.Size(180, 45);
@@ -168,12 +279,12 @@
             this.guna2ButtonTableManagement.CheckedState.Parent = this.guna2ButtonTableManagement;
             this.guna2ButtonTableManagement.CustomImages.Parent = this.guna2ButtonTableManagement;
             this.guna2ButtonTableManagement.FillColor = System.Drawing.Color.Transparent;
-            this.guna2ButtonTableManagement.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2ButtonTableManagement.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2ButtonTableManagement.ForeColor = System.Drawing.Color.White;
             this.guna2ButtonTableManagement.HoverState.Parent = this.guna2ButtonTableManagement;
             this.guna2ButtonTableManagement.Image = global::BillardManager.Properties.Resources.snooker__1_;
             this.guna2ButtonTableManagement.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.guna2ButtonTableManagement.Location = new System.Drawing.Point(-20, 362);
+            this.guna2ButtonTableManagement.Location = new System.Drawing.Point(3, 369);
             this.guna2ButtonTableManagement.Name = "guna2ButtonTableManagement";
             this.guna2ButtonTableManagement.ShadowDecoration.Parent = this.guna2ButtonTableManagement;
             this.guna2ButtonTableManagement.Size = new System.Drawing.Size(180, 45);
@@ -192,12 +303,12 @@
             this.guna2ButtonBills.CheckedState.Parent = this.guna2ButtonBills;
             this.guna2ButtonBills.CustomImages.Parent = this.guna2ButtonBills;
             this.guna2ButtonBills.FillColor = System.Drawing.Color.Transparent;
-            this.guna2ButtonBills.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2ButtonBills.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2ButtonBills.ForeColor = System.Drawing.Color.White;
             this.guna2ButtonBills.HoverState.Parent = this.guna2ButtonBills;
             this.guna2ButtonBills.Image = ((System.Drawing.Image)(resources.GetObject("guna2ButtonBills.Image")));
             this.guna2ButtonBills.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.guna2ButtonBills.Location = new System.Drawing.Point(-20, 113);
+            this.guna2ButtonBills.Location = new System.Drawing.Point(3, 120);
             this.guna2ButtonBills.Name = "guna2ButtonBills";
             this.guna2ButtonBills.ShadowDecoration.Parent = this.guna2ButtonBills;
             this.guna2ButtonBills.Size = new System.Drawing.Size(180, 45);
@@ -216,12 +327,12 @@
             this.guna2ButtonUser.CheckedState.Parent = this.guna2ButtonUser;
             this.guna2ButtonUser.CustomImages.Parent = this.guna2ButtonUser;
             this.guna2ButtonUser.FillColor = System.Drawing.Color.Transparent;
-            this.guna2ButtonUser.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2ButtonUser.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2ButtonUser.ForeColor = System.Drawing.Color.White;
             this.guna2ButtonUser.HoverState.Parent = this.guna2ButtonUser;
             this.guna2ButtonUser.Image = ((System.Drawing.Image)(resources.GetObject("guna2ButtonUser.Image")));
             this.guna2ButtonUser.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.guna2ButtonUser.Location = new System.Drawing.Point(-20, 164);
+            this.guna2ButtonUser.Location = new System.Drawing.Point(3, 171);
             this.guna2ButtonUser.Name = "guna2ButtonUser";
             this.guna2ButtonUser.ShadowDecoration.Parent = this.guna2ButtonUser;
             this.guna2ButtonUser.Size = new System.Drawing.Size(180, 45);
@@ -240,12 +351,12 @@
             this.guna2ButtonTable.CheckedState.Parent = this.guna2ButtonTable;
             this.guna2ButtonTable.CustomImages.Parent = this.guna2ButtonTable;
             this.guna2ButtonTable.FillColor = System.Drawing.Color.Transparent;
-            this.guna2ButtonTable.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2ButtonTable.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2ButtonTable.ForeColor = System.Drawing.Color.White;
             this.guna2ButtonTable.HoverState.Parent = this.guna2ButtonTable;
             this.guna2ButtonTable.Image = global::BillardManager.Properties.Resources.billiards__3_;
             this.guna2ButtonTable.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.guna2ButtonTable.Location = new System.Drawing.Point(-20, 62);
+            this.guna2ButtonTable.Location = new System.Drawing.Point(3, 69);
             this.guna2ButtonTable.Name = "guna2ButtonTable";
             this.guna2ButtonTable.ShadowDecoration.Parent = this.guna2ButtonTable;
             this.guna2ButtonTable.Size = new System.Drawing.Size(180, 45);
@@ -264,12 +375,12 @@
             this.guna2ButtonFoodManagement.CheckedState.Parent = this.guna2ButtonFoodManagement;
             this.guna2ButtonFoodManagement.CustomImages.Parent = this.guna2ButtonFoodManagement;
             this.guna2ButtonFoodManagement.FillColor = System.Drawing.Color.Transparent;
-            this.guna2ButtonFoodManagement.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2ButtonFoodManagement.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2ButtonFoodManagement.ForeColor = System.Drawing.Color.White;
             this.guna2ButtonFoodManagement.HoverState.Parent = this.guna2ButtonFoodManagement;
             this.guna2ButtonFoodManagement.Image = global::BillardManager.Properties.Resources.food_white;
             this.guna2ButtonFoodManagement.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.guna2ButtonFoodManagement.Location = new System.Drawing.Point(-20, 317);
+            this.guna2ButtonFoodManagement.Location = new System.Drawing.Point(3, 324);
             this.guna2ButtonFoodManagement.Name = "guna2ButtonFoodManagement";
             this.guna2ButtonFoodManagement.ShadowDecoration.Parent = this.guna2ButtonFoodManagement;
             this.guna2ButtonFoodManagement.Size = new System.Drawing.Size(180, 45);
@@ -288,12 +399,12 @@
             this.guna2ButtonFoodType.CheckedState.Parent = this.guna2ButtonFoodType;
             this.guna2ButtonFoodType.CustomImages.Parent = this.guna2ButtonFoodType;
             this.guna2ButtonFoodType.FillColor = System.Drawing.Color.Transparent;
-            this.guna2ButtonFoodType.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2ButtonFoodType.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2ButtonFoodType.ForeColor = System.Drawing.Color.White;
             this.guna2ButtonFoodType.HoverState.Parent = this.guna2ButtonFoodType;
             this.guna2ButtonFoodType.Image = ((System.Drawing.Image)(resources.GetObject("guna2ButtonFoodType.Image")));
             this.guna2ButtonFoodType.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.guna2ButtonFoodType.Location = new System.Drawing.Point(-20, 266);
+            this.guna2ButtonFoodType.Location = new System.Drawing.Point(3, 273);
             this.guna2ButtonFoodType.Name = "guna2ButtonFoodType";
             this.guna2ButtonFoodType.ShadowDecoration.Parent = this.guna2ButtonFoodType;
             this.guna2ButtonFoodType.Size = new System.Drawing.Size(180, 45);
@@ -312,12 +423,12 @@
             this.guna2ButtonUserManagement.CheckedState.Parent = this.guna2ButtonUserManagement;
             this.guna2ButtonUserManagement.CustomImages.Parent = this.guna2ButtonUserManagement;
             this.guna2ButtonUserManagement.FillColor = System.Drawing.Color.Transparent;
-            this.guna2ButtonUserManagement.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2ButtonUserManagement.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2ButtonUserManagement.ForeColor = System.Drawing.Color.White;
             this.guna2ButtonUserManagement.HoverState.Parent = this.guna2ButtonUserManagement;
             this.guna2ButtonUserManagement.Image = ((System.Drawing.Image)(resources.GetObject("guna2ButtonUserManagement.Image")));
             this.guna2ButtonUserManagement.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.guna2ButtonUserManagement.Location = new System.Drawing.Point(-20, 215);
+            this.guna2ButtonUserManagement.Location = new System.Drawing.Point(3, 222);
             this.guna2ButtonUserManagement.Name = "guna2ButtonUserManagement";
             this.guna2ButtonUserManagement.ShadowDecoration.Parent = this.guna2ButtonUserManagement;
             this.guna2ButtonUserManagement.Size = new System.Drawing.Size(180, 45);
@@ -328,77 +439,18 @@
             // guna2PictureBox1
             // 
             this.guna2PictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
+            this.guna2PictureBox1.Image = global::BillardManager.Properties.Resources.ico_app;
             this.guna2PictureBox1.Location = new System.Drawing.Point(0, 0);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
             this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
-            this.guna2PictureBox1.Size = new System.Drawing.Size(200, 90);
+            this.guna2PictureBox1.Size = new System.Drawing.Size(218, 90);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2PictureBox1.TabIndex = 0;
             this.guna2PictureBox1.TabStop = false;
             // 
-            // gunaPanelTop
-            // 
-            this.gunaPanelTop.BackColor = System.Drawing.Color.Gainsboro;
-            this.gunaPanelTop.Controls.Add(this.guna2ControlBoxMinimize);
-            this.gunaPanelTop.Controls.Add(this.guna2ControlBoxMaximize);
-            this.gunaPanelTop.Controls.Add(this.guna2ControlBoxClose);
-            this.gunaPanelTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gunaPanelTop.Location = new System.Drawing.Point(200, 0);
-            this.gunaPanelTop.Name = "gunaPanelTop";
-            this.gunaPanelTop.Size = new System.Drawing.Size(733, 62);
-            this.gunaPanelTop.TabIndex = 0;
-            // 
-            // guna2ControlBoxMinimize
-            // 
-            this.guna2ControlBoxMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBoxMinimize.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
-            this.guna2ControlBoxMinimize.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
-            this.guna2ControlBoxMinimize.HoverState.Parent = this.guna2ControlBoxMinimize;
-            this.guna2ControlBoxMinimize.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBoxMinimize.Location = new System.Drawing.Point(616, 12);
-            this.guna2ControlBoxMinimize.Name = "guna2ControlBoxMinimize";
-            this.guna2ControlBoxMinimize.ShadowDecoration.Parent = this.guna2ControlBoxMinimize;
-            this.guna2ControlBoxMinimize.Size = new System.Drawing.Size(31, 27);
-            this.guna2ControlBoxMinimize.TabIndex = 0;
-            // 
-            // guna2ControlBoxMaximize
-            // 
-            this.guna2ControlBoxMaximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBoxMaximize.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
-            this.guna2ControlBoxMaximize.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
-            this.guna2ControlBoxMaximize.HoverState.Parent = this.guna2ControlBoxMaximize;
-            this.guna2ControlBoxMaximize.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBoxMaximize.Location = new System.Drawing.Point(653, 12);
-            this.guna2ControlBoxMaximize.Name = "guna2ControlBoxMaximize";
-            this.guna2ControlBoxMaximize.ShadowDecoration.Parent = this.guna2ControlBoxMaximize;
-            this.guna2ControlBoxMaximize.Size = new System.Drawing.Size(31, 27);
-            this.guna2ControlBoxMaximize.TabIndex = 0;
-            // 
-            // guna2ControlBoxClose
-            // 
-            this.guna2ControlBoxClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBoxClose.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
-            this.guna2ControlBoxClose.HoverState.Parent = this.guna2ControlBoxClose;
-            this.guna2ControlBoxClose.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBoxClose.Location = new System.Drawing.Point(690, 12);
-            this.guna2ControlBoxClose.Name = "guna2ControlBoxClose";
-            this.guna2ControlBoxClose.ShadowDecoration.Parent = this.guna2ControlBoxClose;
-            this.guna2ControlBoxClose.Size = new System.Drawing.Size(31, 27);
-            this.guna2ControlBoxClose.TabIndex = 0;
-            this.guna2ControlBoxClose.Click += new System.EventHandler(this.guna2ControlBoxClose_Click);
-            // 
-            // gunaPanelContent
-            // 
-            this.gunaPanelContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gunaPanelContent.Location = new System.Drawing.Point(200, 62);
-            this.gunaPanelContent.Name = "gunaPanelContent";
-            this.gunaPanelContent.Size = new System.Drawing.Size(733, 526);
-            this.gunaPanelContent.TabIndex = 0;
-            // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(933, 588);
             this.ControlBox = false;
@@ -415,8 +467,8 @@
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.gunaPanelSide.ResumeLayout(false);
             this.guna2Panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.gunaPanelTop.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -441,5 +493,7 @@
         private Guna.UI2.WinForms.Guna2Button guna2ButtonFoodManagement;
         private Guna.UI2.WinForms.Guna2Button guna2ButtonTableDetail;
         public Guna.UI2.WinForms.Guna2Button guna2ButtonTable;
+        private Guna.UI2.WinForms.Guna2Button guna2ButtonTimeTable;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }
