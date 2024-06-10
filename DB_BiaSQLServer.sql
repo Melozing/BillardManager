@@ -47,30 +47,6 @@ CREATE TABLE [dbo].[table_detail] (
 );
 GO
 
-CREATE TABLE [dbo].[invoice] (
-    [IdInvoice] varchar(10) COLLATE Vietnamese_CI_AS NOT NULL,
-    [TableID] varchar(10) COLLATE Vietnamese_CI_AS NOT NULL,
-    [Invoice_time] datetime NOT NULL,
-    [Invoice_Status] int NULL,
-    [Invoice_Total] decimal(18, 2) NULL,
-    [Invoice_Received] decimal(18, 2) NULL,
-    [Invoice_Change] decimal(18, 2) NULL,
-    [Invoice_PaymentTime] datetime NULL,
-    PRIMARY KEY CLUSTERED ([IdInvoice]),
-    CONSTRAINT [FK_orders_table] FOREIGN KEY ([TableID]) REFERENCES [dbo].[table_detail] ([TableID])
-);
-GO
-
-CREATE TABLE [dbo].[invoice_detail] (
-    [IdInvoice] varchar(10) COLLATE Vietnamese_CI_AS NOT NULL,
-    [IdItem] varchar(10) COLLATE Vietnamese_CI_AS NOT NULL,
-    [Invoice_TotalAmount] float NOT NULL,
-    [Invoice_Price] int NOT NULL,
-    CONSTRAINT [FK_invoice_detail_invoice] FOREIGN KEY ([IdInvoice]) REFERENCES [dbo].[invoice] ([IdInvoice]),
-    CONSTRAINT [FK_invoice_detail_items_menu] FOREIGN KEY ([IdItem]) REFERENCES [dbo].[items_menu] ([IdItem])
-);
-GO
-
 CREATE TABLE [dbo].[user_account] (
     [IdUser] varchar(15) COLLATE Vietnamese_CI_AS NOT NULL,
     [UserName] varchar(200) COLLATE Vietnamese_CI_AS NOT NULL,
@@ -98,6 +74,78 @@ CREATE TABLE [dbo].[login_history] (
     [LogoutTime] DATETIME NULL,
     PRIMARY KEY CLUSTERED ([LoginID]),
     CONSTRAINT [FK_login_history_user_account] FOREIGN KEY ([IdUser]) REFERENCES [dbo].[user_account] ([IdUser])
+);
+GO
+
+CREATE TRIGGER trg_insert_login_history
+ON [dbo].[user_account]
+AFTER INSERT
+AS
+BEGIN
+    IF EXISTS (SELECT 1 FROM inserted WHERE UserRole = 1)
+    BEGIN
+        INSERT INTO [dbo].[login_history] (IdUser, LoginTime)
+        SELECT IdUser, GETDATE() FROM inserted;
+    END
+END;
+GO
+CREATE TABLE [dbo].[work_schedule] (
+    [IdSchedule] INT IDENTITY(1,1) NOT NULL,
+    [IdUser] VARCHAR(15) COLLATE Vietnamese_CI_AS NOT NULL,
+    [WorkDate] DATE NOT NULL,
+    [StartTime] TIME NOT NULL,
+    [EndTime] TIME NOT NULL,
+    PRIMARY KEY CLUSTERED ([IdSchedule]),
+    CONSTRAINT [FK_work_schedule_user_account] FOREIGN KEY ([IdUser]) REFERENCES [dbo].[user_account] ([IdUser])
+);
+GO
+CREATE TRIGGER trg_update_logout_time
+ON [dbo].[user_account]
+AFTER UPDATE
+AS
+BEGIN
+    IF EXISTS (SELECT 1 FROM inserted WHERE UserRole = 1 AND AccountStatus = 'logged_out')
+    BEGIN
+        UPDATE [dbo].[login_history]
+        SET LogoutTime = GETDATE()
+        WHERE IdUser = (SELECT IdUser FROM inserted)
+        AND LogoutTime IS NULL;
+    END
+END;
+GO
+
+CREATE TABLE [dbo].[work_shift_log] (
+    [LogID] INT IDENTITY(1,1) PRIMARY KEY,
+    [IdUser] varchar(15) COLLATE Vietnamese_CI_AS NOT NULL,
+    [ShiftStart] DATETIME NOT NULL,
+    [ShiftEnd] DATETIME NULL,
+    CONSTRAINT [FK_work_shift_log_user_account] FOREIGN KEY ([IdUser]) REFERENCES [dbo].[user_account] ([IdUser])
+);
+GO
+
+CREATE TABLE [dbo].[invoice] (
+    [IdInvoice] varchar(10) COLLATE Vietnamese_CI_AS NOT NULL,
+    [TableID] varchar(10) COLLATE Vietnamese_CI_AS NOT NULL,
+    [Invoice_time] datetime NOT NULL,
+    [Invoice_Status] int NULL,
+    [Invoice_Total] decimal(18, 2) NULL,
+    [Invoice_Received] decimal(18, 2) NULL,
+    [Invoice_Change] decimal(18, 2) NULL,
+    [Invoice_PaymentTime] datetime NULL,
+    [IdUser] varchar(15) COLLATE Vietnamese_CI_AS NOT NULL,
+    PRIMARY KEY CLUSTERED ([IdInvoice]),
+    CONSTRAINT [FK_orders_table] FOREIGN KEY ([TableID]) REFERENCES [dbo].[table_detail] ([TableID]),
+    CONSTRAINT [IdUser] FOREIGN KEY ([IdUser]) REFERENCES [dbo].[user_account] ([IdUser]),
+);
+GO
+
+CREATE TABLE [dbo].[invoice_detail] (
+    [IdInvoice] varchar(10) COLLATE Vietnamese_CI_AS NOT NULL,
+    [IdItem] varchar(10) COLLATE Vietnamese_CI_AS NOT NULL,
+    [Invoice_TotalAmount] float NOT NULL,
+    [Invoice_Price] int NOT NULL,
+    CONSTRAINT [FK_invoice_detail_invoice] FOREIGN KEY ([IdInvoice]) REFERENCES [dbo].[invoice] ([IdInvoice]),
+    CONSTRAINT [FK_invoice_detail_items_menu] FOREIGN KEY ([IdItem]) REFERENCES [dbo].[items_menu] ([IdItem])
 );
 GO
 

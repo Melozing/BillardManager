@@ -35,11 +35,9 @@
             this.printDocumentBill = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialogBill = new System.Windows.Forms.PrintPreviewDialog();
             this.guna2PanelContent = new Guna.UI2.WinForms.Guna2Panel();
-            this.panelBillDetail = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBoxTop)).BeginInit();
             this.guna2PanelTop.SuspendLayout();
             this.guna2PanelBottom.SuspendLayout();
-            this.guna2PanelContent.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelTop
@@ -159,26 +157,17 @@
             // guna2PanelContent
             // 
             this.guna2PanelContent.AutoScroll = true;
-            this.guna2PanelContent.Controls.Add(this.panelBillDetail);
+            this.guna2PanelContent.AutoSize = true;
             this.guna2PanelContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2PanelContent.Location = new System.Drawing.Point(0, 85);
             this.guna2PanelContent.Name = "guna2PanelContent";
             this.guna2PanelContent.ShadowDecoration.Parent = this.guna2PanelContent;
             this.guna2PanelContent.Size = new System.Drawing.Size(609, 580);
-            this.guna2PanelContent.TabIndex = 5;
-            // 
-            // panelBillDetail
-            // 
-            this.panelBillDetail.AutoSize = true;
-            this.panelBillDetail.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelBillDetail.Location = new System.Drawing.Point(0, 0);
-            this.panelBillDetail.Name = "panelBillDetail";
-            this.panelBillDetail.Size = new System.Drawing.Size(609, 0);
-            this.panelBillDetail.TabIndex = 11;
+            this.guna2PanelContent.TabIndex = 6;
             // 
             // FormPrintBill
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(609, 735);
             this.Controls.Add(this.guna2PanelContent);
@@ -192,9 +181,8 @@
             this.guna2PanelTop.ResumeLayout(false);
             this.guna2PanelTop.PerformLayout();
             this.guna2PanelBottom.ResumeLayout(false);
-            this.guna2PanelContent.ResumeLayout(false);
-            this.guna2PanelContent.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -205,7 +193,6 @@
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBoxClose;
         private System.Drawing.Printing.PrintDocument printDocumentBill;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialogBill;
-        private System.Windows.Forms.Panel panelBillDetail;
         public Guna.UI2.WinForms.Guna2Panel guna2PanelContent;
     }
 }

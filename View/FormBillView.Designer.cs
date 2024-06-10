@@ -41,13 +41,7 @@
             this.change = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemCategoryEdit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.ItemCategoryDelete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.guna2TextBoxSearch = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2PanelTop = new Guna.UI2.WinForms.Guna2Panel();
-            this.labelTop = new System.Windows.Forms.Label();
-            this.gunaPictureBoxTop = new Guna.UI.WinForms.GunaPictureBox();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+
             this.panelContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridViewCategory)).BeginInit();
             this.guna2PanelTop.SuspendLayout();
@@ -95,8 +89,7 @@
             this.received,
             this.change,
             this.amount,
-            this.ItemCategoryEdit,
-            this.ItemCategoryDelete});
+            this.ItemCategoryEdit});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -141,6 +134,7 @@
             this.guna2DataGridViewCategory.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.guna2DataGridViewCategory.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.guna2DataGridViewCategory.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridViewCategory_CellContentClick);
+            this.guna2DataGridViewCategory.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.guna2DataGridViewCategory_CellFormatting);
             // 
             // ItemSno
             // 
@@ -308,6 +302,76 @@
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.Width = 50;
             // 
+            // ItemSno
+            // 
+            this.ItemSno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ItemSno.FillWeight = 40F;
+            this.ItemSno.HeaderText = "Sr#";
+            this.ItemSno.MinimumWidth = 40;
+            this.ItemSno.Name = "ItemSno";
+            this.ItemSno.ReadOnly = true;
+            this.ItemSno.Width = 40;
+            // 
+            // Id
+            // 
+            this.Id.FillWeight = 60F;
+            this.Id.HeaderText = "IdItem";
+            this.Id.MinimumWidth = 60;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            // 
+            // startTime
+            // 
+            this.startTime.FillWeight = 80F;
+            this.startTime.HeaderText = "Start time";
+            this.startTime.MinimumWidth = 80;
+            this.startTime.Name = "startTime";
+            this.startTime.ReadOnly = true;
+            // 
+            // paymentTime
+            // 
+            this.paymentTime.FillWeight = 80F;
+            this.paymentTime.HeaderText = "Payment Time";
+            this.paymentTime.MinimumWidth = 80;
+            this.paymentTime.Name = "paymentTime";
+            this.paymentTime.ReadOnly = true;
+            // 
+            // received
+            // 
+            this.received.FillWeight = 60F;
+            this.received.HeaderText = "Received";
+            this.received.MinimumWidth = 60;
+            this.received.Name = "received";
+            this.received.ReadOnly = true;
+            // 
+            // change
+            // 
+            this.change.FillWeight = 60F;
+            this.change.HeaderText = "Change";
+            this.change.MinimumWidth = 60;
+            this.change.Name = "change";
+            this.change.ReadOnly = true;
+            // 
+            // amount
+            // 
+            this.amount.FillWeight = 60F;
+            this.amount.HeaderText = "Amount";
+            this.amount.MinimumWidth = 60;
+            this.amount.Name = "amount";
+            this.amount.ReadOnly = true;
+            // 
+            // ItemCategoryEdit
+            // 
+            this.ItemCategoryEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ItemCategoryEdit.FillWeight = 40F;
+            this.ItemCategoryEdit.HeaderText = "";
+            this.ItemCategoryEdit.Image = global::BillardManager.Properties.Resources.printer;
+            this.ItemCategoryEdit.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.ItemCategoryEdit.MinimumWidth = 30;
+            this.ItemCategoryEdit.Name = "ItemCategoryEdit";
+            this.ItemCategoryEdit.ReadOnly = true;
+            this.ItemCategoryEdit.Width = 30;
+            // 
             // FormBillView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -346,6 +410,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn change;
         private System.Windows.Forms.DataGridViewTextBoxColumn amount;
         private System.Windows.Forms.DataGridViewImageColumn ItemCategoryEdit;
-        private System.Windows.Forms.DataGridViewImageColumn ItemCategoryDelete;
     }
 }

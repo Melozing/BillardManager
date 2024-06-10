@@ -123,6 +123,12 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormChangePassword.Designer.cs">
+      <DependentUpon>FormChangePassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -315,6 +321,9 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormChangePassword.resx">
+      <DependentUpon>FormChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormHome.resx">
       <DependentUpon>FormHome.cs</DependentUpon>
     </EmbeddedResource>
@@ -395,16 +404,6 @@
     <EmbeddedResource Include="View\FormUserInfoView.resx">
       <DependentUpon>FormUserInfoView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\FormWaiting.resx">
-      <DependentUpon>FormWaiting.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\FormWaitingScreen.resx">
-      <DependentUpon>FormWaitingScreen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\messageBox.resx">
-      <DependentUpon>messageBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <None Include="BillardManager_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -419,9 +418,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Reports\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Guna2\Guna.UI.dll" />
     <Content Include="Guna2\Guna.UI2.dll" />

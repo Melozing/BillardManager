@@ -69,8 +69,8 @@ namespace BillardManager.Model
             UPDATE table_detail 
             SET Status = 1 
             WHERE TableID = '" + idTable + "';" +
-            "INSERT INTO invoice(IdInvoice, TableID, Invoice_time, Invoice_Status)" +
-            "VALUES(@NewIDInvoice, '" + idTable + "', @FormattedTime, '0');" +
+            "INSERT INTO invoice(IdInvoice, TableID, Invoice_time, Invoice_Status, idUser)" +
+            "VALUES(@NewIDInvoice, '" + idTable + "', @FormattedTime, '0', '" + FormMain.Instance.idUser + "');" +
             "INSERT INTO invoice_detail(IdInvoice, IdItem, Invoice_TotalAmount, Invoice_Price)" +
             "VALUES(@NewIDInvoice, 'IHour', 1, 1);" +
             "COMMIT TRANSACTION;";
@@ -413,7 +413,7 @@ namespace BillardManager.Model
 
         private void guna2TextBoxSearch_TextChanged(object sender, EventArgs e)
         {
-            foreach (var item in panelProduct.Controls)
+            foreach (var item in frm.flowLayoutPanelProduct.Controls)
             {
                 var prod = (ucProduct)item;
                 prod.Visible = prod.PName.ToLower().Contains(guna2TextBoxSearch.Text.Trim().ToLower());
