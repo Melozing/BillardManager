@@ -56,6 +56,7 @@
     <Reference Include="System.Management" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -176,6 +177,12 @@
     <Compile Include="View\FormBillView.Designer.cs">
       <DependentUpon>FormBillView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Formrreport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Formrreport.Designer.cs">
+      <DependentUpon>Formrreport.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FormSetting.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -240,6 +247,12 @@
     <Compile Include="View\FormTablesView.Designer.cs">
       <DependentUpon>FormTablesView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\FormTimeTableWork.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormTimeTableWork.Designer.cs">
+      <DependentUpon>FormTimeTableWork.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FormUserInfoView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -300,6 +313,9 @@
     <EmbeddedResource Include="View\FormBillView.resx">
       <DependentUpon>FormBillView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Formrreport.resx">
+      <DependentUpon>Formrreport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\FormSetting.resx">
       <DependentUpon>FormSetting.cs</DependentUpon>
     </EmbeddedResource>
@@ -332,6 +348,9 @@
     <EmbeddedResource Include="View\FormTablesView.resx">
       <DependentUpon>FormTablesView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\FormTimeTableWork.resx">
+      <DependentUpon>FormTimeTableWork.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\FormUserInfoView.resx">
       <DependentUpon>FormUserInfoView.cs</DependentUpon>
     </EmbeddedResource>
@@ -353,6 +372,16 @@
   <ItemGroup>
     <Content Include="Guna2\Guna.UI.dll" />
     <Content Include="Guna2\Guna.UI2.dll" />
+    <None Include="Resources\Billiard VTC.png" />
+    <None Include="Resources\ico_app.png" />
+    <None Include="Resources\Billiard Club1.png" />
+    <None Include="Resources\Timetable.png" />
+    <None Include="Resources\Time Machine.png" />
+    <None Include="Resources\banner _login.jpg" />
+    <None Include="Resources\Google.png" />
+    <None Include="Resources\GitHub.png" />
+    <None Include="Resources\latest.png" />
+    <None Include="Resources\billiards_login.png" />
     <None Include="Resources\folder.png" />
     <None Include="Resources\no.png" />
     <None Include="Resources\printer1.png" />

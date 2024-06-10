@@ -25,7 +25,7 @@ namespace BillardManager
         {
             bool isValid = false;
             string hashedPassword = PasswordHasher.HashPassword(password);
-            string query = @"
+            string query = @"   
             SELECT ua.IdUser, ui.User_FullName, ui.User_BillPath 
             FROM user_account ua 
             INNER JOIN user_info ui ON ua.IdUser = ui.idUser

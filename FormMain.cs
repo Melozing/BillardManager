@@ -62,6 +62,7 @@ namespace BillardManager
             guna2ButtonFoodManagement.Hide();
             guna2ButtonTableManagement.Hide();
             guna2ButtonTableDetail.Hide();
+            guna2ButtonTimeTable.Hide();
             guna2ButtonSetting.Location = new Point(-20, 215);
         }
 
@@ -118,6 +119,16 @@ namespace BillardManager
         private void guna2ButtonUser_Click(object sender, EventArgs e)
         {
             AddControls(new FormUserInfoView());
+        }
+
+        private void guna2ButtonTimeTable_Click(object sender, EventArgs e)
+        {
+            AddControls((new FormTimeTableWork()));
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            AddControls(new Formrreport());
         }
     }
 }
