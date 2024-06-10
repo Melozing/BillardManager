@@ -47,30 +47,6 @@ CREATE TABLE [dbo].[table_detail] (
 );
 GO
 
-CREATE TABLE [dbo].[invoice] (
-    [IdInvoice] varchar(10) COLLATE Vietnamese_CI_AS NOT NULL,
-    [TableID] varchar(10) COLLATE Vietnamese_CI_AS NOT NULL,
-    [Invoice_time] datetime NOT NULL,
-    [Invoice_Status] int NULL,
-    [Invoice_Total] decimal(18, 2) NULL,
-    [Invoice_Received] decimal(18, 2) NULL,
-    [Invoice_Change] decimal(18, 2) NULL,
-    [Invoice_PaymentTime] datetime NULL,
-    PRIMARY KEY CLUSTERED ([IdInvoice]),
-    CONSTRAINT [FK_orders_table] FOREIGN KEY ([TableID]) REFERENCES [dbo].[table_detail] ([TableID])
-);
-GO
-
-CREATE TABLE [dbo].[invoice_detail] (
-    [IdInvoice] varchar(10) COLLATE Vietnamese_CI_AS NOT NULL,
-    [IdItem] varchar(10) COLLATE Vietnamese_CI_AS NOT NULL,
-    [Invoice_TotalAmount] float NOT NULL,
-    [Invoice_Price] int NOT NULL,
-    CONSTRAINT [FK_invoice_detail_invoice] FOREIGN KEY ([IdInvoice]) REFERENCES [dbo].[invoice] ([IdInvoice]),
-    CONSTRAINT [FK_invoice_detail_items_menu] FOREIGN KEY ([IdItem]) REFERENCES [dbo].[items_menu] ([IdItem])
-);
-GO
-
 CREATE TABLE [dbo].[user_account] (
     [IdUser] varchar(15) COLLATE Vietnamese_CI_AS NOT NULL,
     [UserName] varchar(200) COLLATE Vietnamese_CI_AS NOT NULL,
@@ -136,6 +112,41 @@ BEGIN
         AND LogoutTime IS NULL;
     END
 END;
+GO
+
+CREATE TABLE [dbo].[work_shift_log] (
+    [LogID] INT IDENTITY(1,1) PRIMARY KEY,
+    [IdUser] varchar(15) COLLATE Vietnamese_CI_AS NOT NULL,
+    [ShiftStart] DATETIME NOT NULL,
+    [ShiftEnd] DATETIME NULL,
+    CONSTRAINT [FK_work_shift_log_user_account] FOREIGN KEY ([IdUser]) REFERENCES [dbo].[user_account] ([IdUser])
+);
+GO
+
+CREATE TABLE [dbo].[invoice] (
+    [IdInvoice] varchar(10) COLLATE Vietnamese_CI_AS NOT NULL,
+    [TableID] varchar(10) COLLATE Vietnamese_CI_AS NOT NULL,
+    [Invoice_time] datetime NOT NULL,
+    [Invoice_Status] int NULL,
+    [Invoice_Total] decimal(18, 2) NULL,
+    [Invoice_Received] decimal(18, 2) NULL,
+    [Invoice_Change] decimal(18, 2) NULL,
+    [Invoice_PaymentTime] datetime NULL,
+    [IdUser] varchar(15) COLLATE Vietnamese_CI_AS NOT NULL,
+    PRIMARY KEY CLUSTERED ([IdInvoice]),
+    CONSTRAINT [FK_orders_table] FOREIGN KEY ([TableID]) REFERENCES [dbo].[table_detail] ([TableID]),
+    CONSTRAINT [IdUser] FOREIGN KEY ([IdUser]) REFERENCES [dbo].[user_account] ([IdUser]),
+);
+GO
+
+CREATE TABLE [dbo].[invoice_detail] (
+    [IdInvoice] varchar(10) COLLATE Vietnamese_CI_AS NOT NULL,
+    [IdItem] varchar(10) COLLATE Vietnamese_CI_AS NOT NULL,
+    [Invoice_TotalAmount] float NOT NULL,
+    [Invoice_Price] int NOT NULL,
+    CONSTRAINT [FK_invoice_detail_invoice] FOREIGN KEY ([IdInvoice]) REFERENCES [dbo].[invoice] ([IdInvoice]),
+    CONSTRAINT [FK_invoice_detail_items_menu] FOREIGN KEY ([IdItem]) REFERENCES [dbo].[items_menu] ([IdItem])
+);
 GO
 
 INSERT INTO user_account (IdUser,UserName, UserPassword, UserRole) VALUES ('U0', 'admin', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', 0);

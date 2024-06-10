@@ -104,8 +104,6 @@ namespace BillardManager.Model
             return nextTableNumber;
         }
 
-
-
         private void guna2TextBoxName_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
