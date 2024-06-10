@@ -14,18 +14,21 @@ namespace BillardManager.Model
         public FormTableDetailAdd()
         {
             InitializeComponent();
+            
         }
 
         private void FormTableDetailAdd_Load(object sender, System.EventArgs e)
         {
             string query = "Select TableIDType 'id', TableType_Name 'name' from table_type Where TableTypeStatus != 1";
             MainClass.CBFILL(query, comboBoxCategory);
-
+            pic_table.Image = null;
             if (!string.IsNullOrEmpty(tableTypeId))
             {
                 comboBoxCategory.SelectedValue = tableTypeId;
             }
         }
+
+
 
         private void guna2ButtonSave_Click_1(object sender, EventArgs e)
         {
@@ -116,6 +119,28 @@ namespace BillardManager.Model
         public override void guna2ButtonClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void ComboBoxCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Hiển thị PictureBox tương ứng với giá trị đã chọn trong ComboBox
+            if (comboBoxCategory.SelectedValue != null)
+            {
+                string selectedValue = comboBoxCategory.Text.ToString();
+
+                if (selectedValue == "Carom billiards")
+                {
+                    pic_table.Image = Properties.Resources.caromBilliards; // Ảnh bàn carrom
+                }
+                else if (selectedValue == "Pocket billiards")
+                {
+                    pic_table.Image = Properties.Resources.pocketBilliards; // Ảnh bàn pool
+                }
+                else
+                {
+                    pic_table.Image = Properties.Resources.defaultTable; // Ảnh mặc định
+                }
+            }
         }
     }
 }

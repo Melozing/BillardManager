@@ -52,18 +52,19 @@ namespace BillardManager.Model
         public void SetActiveOrder()
         {
             pictureBoxStatus.Image = Properties.Resources.Status_Playing;
-            PanelTableName.BackColor = Color.Firebrick;
-            PictureBoxTable.BackColor = Color.IndianRed;
+            PanelTableName.BackColor = Color.Yellow;
+            LabelTableName.ForeColor = Color.Black;
             guna2ButtonStart.Text = "Order";
-            guna2ButtonStart.FillColor = Color.ForestGreen;
+            guna2ButtonStart.FillColor = Color.Yellow;
+            guna2ButtonStart.ForeColor = Color.Black;
         }
         public void SetInactiveOrder()
         {
             pictureBoxStatus.Image = Properties.Resources.Status_Empty;
             PanelTableName.BackColor = Color.DarkGreen;
-            PictureBoxTable.BackColor = Color.ForestGreen;
+            LabelTableName.ForeColor = Color.White;
             guna2ButtonStart.Text = "Start";
-            guna2ButtonStart.FillColor = Color.FromArgb(255, 128, 128);
+            guna2ButtonStart.FillColor = Color.FromArgb(0, 192, 08);
         }
     }
 }

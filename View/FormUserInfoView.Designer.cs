@@ -36,10 +36,15 @@
             this.labelPhone = new System.Windows.Forms.Label();
             this.guna2TextBoxFullName = new Guna.UI2.WinForms.Guna2TextBox();
             this.labelFullName = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2TextBoxBankName
             // 
+            this.guna2TextBoxBankName.BorderColor = System.Drawing.Color.Gray;
+            this.guna2TextBoxBankName.BorderRadius = 10;
             this.guna2TextBoxBankName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.guna2TextBoxBankName.DefaultText = "";
             this.guna2TextBoxBankName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -59,11 +64,13 @@
             this.guna2TextBoxBankName.PlaceholderText = "";
             this.guna2TextBoxBankName.SelectedText = "";
             this.guna2TextBoxBankName.ShadowDecoration.Parent = this.guna2TextBoxBankName;
-            this.guna2TextBoxBankName.Size = new System.Drawing.Size(306, 57);
+            this.guna2TextBoxBankName.Size = new System.Drawing.Size(310, 57);
             this.guna2TextBoxBankName.TabIndex = 10;
             // 
             // guna2TextBoxBankAccountNumber
             // 
+            this.guna2TextBoxBankAccountNumber.BorderColor = System.Drawing.Color.Gray;
+            this.guna2TextBoxBankAccountNumber.BorderRadius = 10;
             this.guna2TextBoxBankAccountNumber.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.guna2TextBoxBankAccountNumber.DefaultText = "";
             this.guna2TextBoxBankAccountNumber.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -83,11 +90,13 @@
             this.guna2TextBoxBankAccountNumber.PlaceholderText = "";
             this.guna2TextBoxBankAccountNumber.SelectedText = "";
             this.guna2TextBoxBankAccountNumber.ShadowDecoration.Parent = this.guna2TextBoxBankAccountNumber;
-            this.guna2TextBoxBankAccountNumber.Size = new System.Drawing.Size(306, 57);
+            this.guna2TextBoxBankAccountNumber.Size = new System.Drawing.Size(317, 57);
             this.guna2TextBoxBankAccountNumber.TabIndex = 9;
             // 
             // guna2TextBoxPhone
             // 
+            this.guna2TextBoxPhone.BorderColor = System.Drawing.Color.Gray;
+            this.guna2TextBoxPhone.BorderRadius = 10;
             this.guna2TextBoxPhone.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.guna2TextBoxPhone.DefaultText = "";
             this.guna2TextBoxPhone.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -107,16 +116,16 @@
             this.guna2TextBoxPhone.PlaceholderText = "";
             this.guna2TextBoxPhone.SelectedText = "";
             this.guna2TextBoxPhone.ShadowDecoration.Parent = this.guna2TextBoxPhone;
-            this.guna2TextBoxPhone.Size = new System.Drawing.Size(306, 57);
+            this.guna2TextBoxPhone.Size = new System.Drawing.Size(317, 57);
             this.guna2TextBoxPhone.TabIndex = 8;
             // 
             // labelBankName
             // 
             this.labelBankName.AutoSize = true;
-            this.labelBankName.Location = new System.Drawing.Point(419, 275);
+            this.labelBankName.Location = new System.Drawing.Point(429, 275);
             this.labelBankName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelBankName.Name = "labelBankName";
-            this.labelBankName.Size = new System.Drawing.Size(108, 25);
+            this.labelBankName.Size = new System.Drawing.Size(85, 20);
             this.labelBankName.TabIndex = 11;
             this.labelBankName.Text = "Bank Name";
             // 
@@ -126,7 +135,7 @@
             this.labelBankAccountNumber.Location = new System.Drawing.Point(48, 275);
             this.labelBankAccountNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelBankAccountNumber.Name = "labelBankAccountNumber";
-            this.labelBankAccountNumber.Size = new System.Drawing.Size(201, 25);
+            this.labelBankAccountNumber.Size = new System.Drawing.Size(157, 20);
             this.labelBankAccountNumber.TabIndex = 12;
             this.labelBankAccountNumber.Text = "Bank Account Number";
             // 
@@ -136,12 +145,14 @@
             this.labelPhone.Location = new System.Drawing.Point(48, 161);
             this.labelPhone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelPhone.Name = "labelPhone";
-            this.labelPhone.Size = new System.Drawing.Size(66, 25);
+            this.labelPhone.Size = new System.Drawing.Size(50, 20);
             this.labelPhone.TabIndex = 13;
             this.labelPhone.Text = "Phone";
             // 
             // guna2TextBoxFullName
             // 
+            this.guna2TextBoxFullName.BorderColor = System.Drawing.Color.Gray;
+            this.guna2TextBoxFullName.BorderRadius = 10;
             this.guna2TextBoxFullName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.guna2TextBoxFullName.DefaultText = "";
             this.guna2TextBoxFullName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -161,7 +172,7 @@
             this.guna2TextBoxFullName.PlaceholderText = "";
             this.guna2TextBoxFullName.SelectedText = "";
             this.guna2TextBoxFullName.ShadowDecoration.Parent = this.guna2TextBoxFullName;
-            this.guna2TextBoxFullName.Size = new System.Drawing.Size(306, 57);
+            this.guna2TextBoxFullName.Size = new System.Drawing.Size(317, 57);
             this.guna2TextBoxFullName.TabIndex = 7;
             // 
             // labelFullName
@@ -170,15 +181,38 @@
             this.labelFullName.Location = new System.Drawing.Point(48, 65);
             this.labelFullName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelFullName.Name = "labelFullName";
-            this.labelFullName.Size = new System.Drawing.Size(97, 25);
+            this.labelFullName.Size = new System.Drawing.Size(76, 20);
             this.labelFullName.TabIndex = 14;
             this.labelFullName.Text = "Full Name";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::BillardManager.Properties.Resources.Male_User;
+            this.pictureBox1.Location = new System.Drawing.Point(433, 97);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(301, 156);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(360, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 40);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Info";
+            // 
             // FormUserInfoView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(822, 566);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.guna2TextBoxBankName);
             this.Controls.Add(this.guna2TextBoxBankAccountNumber);
             this.Controls.Add(this.guna2TextBoxPhone);
@@ -191,8 +225,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormUserInfoView";
-            this.Text = "FormUserInfoView";
+            this.Text = "e";
             this.Load += new System.EventHandler(this.FormUserInfoView_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,5 +243,7 @@
         private System.Windows.Forms.Label labelPhone;
         public Guna.UI2.WinForms.Guna2TextBox guna2TextBoxFullName;
         private System.Windows.Forms.Label labelFullName;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label1;
     }
 }

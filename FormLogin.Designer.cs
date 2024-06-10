@@ -116,14 +116,14 @@
             this.guna2TextBoxUsername.FocusedState.Parent = this.guna2TextBoxUsername;
             this.guna2TextBoxUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBoxUsername.HoverState.Parent = this.guna2TextBoxUsername;
-            this.guna2TextBoxUsername.Location = new System.Drawing.Point(23, 137);
+            this.guna2TextBoxUsername.Location = new System.Drawing.Point(18, 138);
             this.guna2TextBoxUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2TextBoxUsername.Name = "guna2TextBoxUsername";
             this.guna2TextBoxUsername.PasswordChar = '\0';
             this.guna2TextBoxUsername.PlaceholderText = "Username";
             this.guna2TextBoxUsername.SelectedText = "";
             this.guna2TextBoxUsername.ShadowDecoration.Parent = this.guna2TextBoxUsername;
-            this.guna2TextBoxUsername.Size = new System.Drawing.Size(258, 49);
+            this.guna2TextBoxUsername.Size = new System.Drawing.Size(270, 49);
             this.guna2TextBoxUsername.TabIndex = 2;
             // 
             // guna2TextBoxPassword
@@ -142,14 +142,14 @@
             this.guna2TextBoxPassword.FocusedState.Parent = this.guna2TextBoxPassword;
             this.guna2TextBoxPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBoxPassword.HoverState.Parent = this.guna2TextBoxPassword;
-            this.guna2TextBoxPassword.Location = new System.Drawing.Point(21, 207);
+            this.guna2TextBoxPassword.Location = new System.Drawing.Point(18, 207);
             this.guna2TextBoxPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2TextBoxPassword.Name = "guna2TextBoxPassword";
             this.guna2TextBoxPassword.PasswordChar = '\0';
             this.guna2TextBoxPassword.PlaceholderText = "Passsword";
             this.guna2TextBoxPassword.SelectedText = "";
             this.guna2TextBoxPassword.ShadowDecoration.Parent = this.guna2TextBoxPassword;
-            this.guna2TextBoxPassword.Size = new System.Drawing.Size(262, 49);
+            this.guna2TextBoxPassword.Size = new System.Drawing.Size(270, 49);
             this.guna2TextBoxPassword.TabIndex = 4;
             this.guna2TextBoxPassword.UseSystemPasswordChar = true;
             // 
@@ -247,7 +247,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(115, 105);
+            this.label1.Location = new System.Drawing.Point(115, 102);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 30);
             this.label1.TabIndex = 12;

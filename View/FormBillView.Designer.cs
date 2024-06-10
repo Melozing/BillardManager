@@ -31,15 +31,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBillView));
             this.panelContainer = new System.Windows.Forms.Panel();
             this.guna2DataGridViewCategory = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.guna2TextBoxSearch = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2PanelTop = new Guna.UI2.WinForms.Guna2Panel();
-            this.labelTop = new System.Windows.Forms.Label();
-            this.gunaPictureBoxTop = new Guna.UI.WinForms.GunaPictureBox();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.ItemSno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.startTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +42,12 @@
             this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemCategoryEdit = new System.Windows.Forms.DataGridViewImageColumn();
             this.ItemCategoryDelete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.guna2TextBoxSearch = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2PanelTop = new Guna.UI2.WinForms.Guna2Panel();
+            this.labelTop = new System.Windows.Forms.Label();
+            this.gunaPictureBoxTop = new Guna.UI.WinForms.GunaPictureBox();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panelContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridViewCategory)).BeginInit();
             this.guna2PanelTop.SuspendLayout();
@@ -143,90 +142,6 @@
             this.guna2DataGridViewCategory.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.guna2DataGridViewCategory.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridViewCategory_CellContentClick);
             // 
-            // guna2TextBoxSearch
-            // 
-            this.guna2TextBoxSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBoxSearch.DefaultText = "";
-            this.guna2TextBoxSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBoxSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBoxSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBoxSearch.DisabledState.Parent = this.guna2TextBoxSearch;
-            this.guna2TextBoxSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBoxSearch.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2TextBoxSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBoxSearch.FocusedState.Parent = this.guna2TextBoxSearch;
-            this.guna2TextBoxSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBoxSearch.HoverState.Parent = this.guna2TextBoxSearch;
-            this.guna2TextBoxSearch.IconLeft = ((System.Drawing.Image)(resources.GetObject("guna2TextBoxSearch.IconLeft")));
-            this.guna2TextBoxSearch.Location = new System.Drawing.Point(0, 85);
-            this.guna2TextBoxSearch.Margin = new System.Windows.Forms.Padding(0);
-            this.guna2TextBoxSearch.Name = "guna2TextBoxSearch";
-            this.guna2TextBoxSearch.PasswordChar = '\0';
-            this.guna2TextBoxSearch.PlaceholderText = "Search here...";
-            this.guna2TextBoxSearch.SelectedText = "";
-            this.guna2TextBoxSearch.ShadowDecoration.Parent = this.guna2TextBoxSearch;
-            this.guna2TextBoxSearch.Size = new System.Drawing.Size(600, 33);
-            this.guna2TextBoxSearch.TabIndex = 15;
-            this.guna2TextBoxSearch.TextChanged += new System.EventHandler(this.guna2TextBoxSearch_TextChanged_1);
-            // 
-            // guna2PanelTop
-            // 
-            this.guna2PanelTop.Controls.Add(this.labelTop);
-            this.guna2PanelTop.Controls.Add(this.gunaPictureBoxTop);
-            this.guna2PanelTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2PanelTop.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.guna2PanelTop.Location = new System.Drawing.Point(0, 0);
-            this.guna2PanelTop.Name = "guna2PanelTop";
-            this.guna2PanelTop.ShadowDecoration.Parent = this.guna2PanelTop;
-            this.guna2PanelTop.Size = new System.Drawing.Size(600, 85);
-            this.guna2PanelTop.TabIndex = 14;
-            // 
-            // labelTop
-            // 
-            this.labelTop.AutoSize = true;
-            this.labelTop.BackColor = System.Drawing.Color.Transparent;
-            this.labelTop.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTop.ForeColor = System.Drawing.Color.White;
-            this.labelTop.Location = new System.Drawing.Point(84, 48);
-            this.labelTop.Name = "labelTop";
-            this.labelTop.Size = new System.Drawing.Size(71, 25);
-            this.labelTop.TabIndex = 2;
-            this.labelTop.Text = "Bill List";
-            // 
-            // gunaPictureBoxTop
-            // 
-            this.gunaPictureBoxTop.BackColor = System.Drawing.Color.Transparent;
-            this.gunaPictureBoxTop.BaseColor = System.Drawing.Color.White;
-            this.gunaPictureBoxTop.Image = global::BillardManager.Properties.Resources.bill;
-            this.gunaPictureBoxTop.Location = new System.Drawing.Point(12, 12);
-            this.gunaPictureBoxTop.Name = "gunaPictureBoxTop";
-            this.gunaPictureBoxTop.Size = new System.Drawing.Size(66, 64);
-            this.gunaPictureBoxTop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.gunaPictureBoxTop.TabIndex = 1;
-            this.gunaPictureBoxTop.TabStop = false;
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewImageColumn1.FillWeight = 30F;
-            this.dataGridViewImageColumn1.HeaderText = "";
-            this.dataGridViewImageColumn1.Image = global::BillardManager.Properties.Resources.search_icon;
-            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn1.MinimumWidth = 30;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Width = 50;
-            // 
-            // dataGridViewImageColumn2
-            // 
-            this.dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewImageColumn2.FillWeight = 30F;
-            this.dataGridViewImageColumn2.HeaderText = "";
-            this.dataGridViewImageColumn2.Image = global::BillardManager.Properties.Resources.printer1;
-            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn2.MinimumWidth = 30;
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.Width = 50;
-            // 
             // ItemSno
             // 
             this.ItemSno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -308,6 +223,90 @@
             this.ItemCategoryDelete.Name = "ItemCategoryDelete";
             this.ItemCategoryDelete.ReadOnly = true;
             this.ItemCategoryDelete.Width = 30;
+            // 
+            // guna2TextBoxSearch
+            // 
+            this.guna2TextBoxSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.guna2TextBoxSearch.DefaultText = "";
+            this.guna2TextBoxSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.guna2TextBoxSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.guna2TextBoxSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBoxSearch.DisabledState.Parent = this.guna2TextBoxSearch;
+            this.guna2TextBoxSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBoxSearch.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2TextBoxSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBoxSearch.FocusedState.Parent = this.guna2TextBoxSearch;
+            this.guna2TextBoxSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBoxSearch.HoverState.Parent = this.guna2TextBoxSearch;
+            this.guna2TextBoxSearch.IconLeft = global::BillardManager.Properties.Resources.Search;
+            this.guna2TextBoxSearch.Location = new System.Drawing.Point(0, 85);
+            this.guna2TextBoxSearch.Margin = new System.Windows.Forms.Padding(0);
+            this.guna2TextBoxSearch.Name = "guna2TextBoxSearch";
+            this.guna2TextBoxSearch.PasswordChar = '\0';
+            this.guna2TextBoxSearch.PlaceholderText = "Search here...";
+            this.guna2TextBoxSearch.SelectedText = "";
+            this.guna2TextBoxSearch.ShadowDecoration.Parent = this.guna2TextBoxSearch;
+            this.guna2TextBoxSearch.Size = new System.Drawing.Size(600, 33);
+            this.guna2TextBoxSearch.TabIndex = 15;
+            this.guna2TextBoxSearch.TextChanged += new System.EventHandler(this.guna2TextBoxSearch_TextChanged_1);
+            // 
+            // guna2PanelTop
+            // 
+            this.guna2PanelTop.Controls.Add(this.labelTop);
+            this.guna2PanelTop.Controls.Add(this.gunaPictureBoxTop);
+            this.guna2PanelTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2PanelTop.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.guna2PanelTop.Location = new System.Drawing.Point(0, 0);
+            this.guna2PanelTop.Name = "guna2PanelTop";
+            this.guna2PanelTop.ShadowDecoration.Parent = this.guna2PanelTop;
+            this.guna2PanelTop.Size = new System.Drawing.Size(600, 85);
+            this.guna2PanelTop.TabIndex = 14;
+            // 
+            // labelTop
+            // 
+            this.labelTop.AutoSize = true;
+            this.labelTop.BackColor = System.Drawing.Color.Transparent;
+            this.labelTop.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTop.ForeColor = System.Drawing.Color.White;
+            this.labelTop.Location = new System.Drawing.Point(84, 48);
+            this.labelTop.Name = "labelTop";
+            this.labelTop.Size = new System.Drawing.Size(71, 25);
+            this.labelTop.TabIndex = 2;
+            this.labelTop.Text = "Bill List";
+            // 
+            // gunaPictureBoxTop
+            // 
+            this.gunaPictureBoxTop.BackColor = System.Drawing.Color.Transparent;
+            this.gunaPictureBoxTop.BaseColor = System.Drawing.Color.White;
+            this.gunaPictureBoxTop.Image = global::BillardManager.Properties.Resources.bill;
+            this.gunaPictureBoxTop.Location = new System.Drawing.Point(12, 12);
+            this.gunaPictureBoxTop.Name = "gunaPictureBoxTop";
+            this.gunaPictureBoxTop.Size = new System.Drawing.Size(66, 64);
+            this.gunaPictureBoxTop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.gunaPictureBoxTop.TabIndex = 1;
+            this.gunaPictureBoxTop.TabStop = false;
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewImageColumn1.FillWeight = 30F;
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.Image = global::BillardManager.Properties.Resources.search_icon;
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.MinimumWidth = 30;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Width = 50;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewImageColumn2.FillWeight = 30F;
+            this.dataGridViewImageColumn2.HeaderText = "";
+            this.dataGridViewImageColumn2.Image = global::BillardManager.Properties.Resources.printer1;
+            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn2.MinimumWidth = 30;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.Width = 50;
             // 
             // FormBillView
             // 

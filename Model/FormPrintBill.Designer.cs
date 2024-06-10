@@ -44,7 +44,10 @@
             // 
             // labelTop
             // 
-            this.labelTop.Size = new System.Drawing.Size(83, 25);
+            this.labelTop.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTop.ForeColor = System.Drawing.Color.Black;
+            this.labelTop.Location = new System.Drawing.Point(84, 35);
+            this.labelTop.Size = new System.Drawing.Size(105, 32);
             this.labelTop.Text = "Print bill";
             // 
             // gunaPictureBoxTop
@@ -86,6 +89,7 @@
             this.guna2PanelTop.Controls.Add(this.guna2ControlBoxMinimize);
             this.guna2PanelTop.Controls.Add(this.guna2ControlBoxMaximize);
             this.guna2PanelTop.Controls.Add(this.guna2ControlBoxClose);
+            this.guna2PanelTop.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.guna2PanelTop.ShadowDecoration.Parent = this.guna2PanelTop;
             this.guna2PanelTop.Size = new System.Drawing.Size(609, 85);
             this.guna2PanelTop.Controls.SetChildIndex(this.gunaPictureBoxTop, 0);
@@ -104,9 +108,9 @@
             // 
             this.guna2ControlBoxMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2ControlBoxMinimize.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
-            this.guna2ControlBoxMinimize.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
+            this.guna2ControlBoxMinimize.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.guna2ControlBoxMinimize.HoverState.Parent = this.guna2ControlBoxMinimize;
-            this.guna2ControlBoxMinimize.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBoxMinimize.IconColor = System.Drawing.Color.Black;
             this.guna2ControlBoxMinimize.Location = new System.Drawing.Point(492, 12);
             this.guna2ControlBoxMinimize.Name = "guna2ControlBoxMinimize";
             this.guna2ControlBoxMinimize.ShadowDecoration.Parent = this.guna2ControlBoxMinimize;
@@ -117,9 +121,9 @@
             // 
             this.guna2ControlBoxMaximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2ControlBoxMaximize.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
-            this.guna2ControlBoxMaximize.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
+            this.guna2ControlBoxMaximize.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.guna2ControlBoxMaximize.HoverState.Parent = this.guna2ControlBoxMaximize;
-            this.guna2ControlBoxMaximize.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBoxMaximize.IconColor = System.Drawing.Color.Black;
             this.guna2ControlBoxMaximize.Location = new System.Drawing.Point(529, 12);
             this.guna2ControlBoxMaximize.Name = "guna2ControlBoxMaximize";
             this.guna2ControlBoxMaximize.ShadowDecoration.Parent = this.guna2ControlBoxMaximize;
@@ -129,9 +133,9 @@
             // guna2ControlBoxClose
             // 
             this.guna2ControlBoxClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBoxClose.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
+            this.guna2ControlBoxClose.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.guna2ControlBoxClose.HoverState.Parent = this.guna2ControlBoxClose;
-            this.guna2ControlBoxClose.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBoxClose.IconColor = System.Drawing.Color.Black;
             this.guna2ControlBoxClose.Location = new System.Drawing.Point(566, 12);
             this.guna2ControlBoxClose.Name = "guna2ControlBoxClose";
             this.guna2ControlBoxClose.ShadowDecoration.Parent = this.guna2ControlBoxClose;

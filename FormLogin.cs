@@ -1,5 +1,6 @@
 ﻿using BiaManager.Script;
 using System.Windows.Forms;
+using BillardManager.View;
 
 namespace BillardManager
 {
@@ -27,7 +28,8 @@ namespace BillardManager
         {
             if (!MainClass.IsValidUser(guna2TextBoxUsername.Text, guna2TextBoxPassword.Text))
             {
-                MessageFuctionConstans.WarningOK("Invalid Username or Passowrd!");
+                //MessageFuctionConstans.WarningOK("Invalid Username or Passowrd!");
+                messageBox.ShowMess("Invalid Username or Passowrd!");
                 return;
             }
             else

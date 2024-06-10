@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SampleView));
             this.guna2PanelTopContainer = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2PanelTopRight = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2TextBoxSearch = new Guna.UI2.WinForms.Guna2TextBox();
@@ -67,6 +66,8 @@
             // 
             // guna2TextBoxSearch
             // 
+            this.guna2TextBoxSearch.BorderColor = System.Drawing.Color.Black;
+            this.guna2TextBoxSearch.BorderRadius = 10;
             this.guna2TextBoxSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.guna2TextBoxSearch.DefaultText = "";
             this.guna2TextBoxSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -79,7 +80,7 @@
             this.guna2TextBoxSearch.FocusedState.Parent = this.guna2TextBoxSearch;
             this.guna2TextBoxSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBoxSearch.HoverState.Parent = this.guna2TextBoxSearch;
-            this.guna2TextBoxSearch.IconLeft = ((System.Drawing.Image)(resources.GetObject("guna2TextBoxSearch.IconLeft")));
+            this.guna2TextBoxSearch.IconLeft = global::BillardManager.Properties.Resources.Search;
             this.guna2TextBoxSearch.Location = new System.Drawing.Point(0, 17);
             this.guna2TextBoxSearch.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.guna2TextBoxSearch.Name = "guna2TextBoxSearch";
@@ -117,7 +118,7 @@
             this.guna2ImageButtonAdd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2ImageButtonAdd.HoverState.ImageSize = new System.Drawing.Size(57, 57);
             this.guna2ImageButtonAdd.HoverState.Parent = this.guna2ImageButtonAdd;
-            this.guna2ImageButtonAdd.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageButtonAdd.Image")));
+            this.guna2ImageButtonAdd.Image = global::BillardManager.Properties.Resources.Plus_Math;
             this.guna2ImageButtonAdd.ImageSize = new System.Drawing.Size(55, 55);
             this.guna2ImageButtonAdd.Location = new System.Drawing.Point(0, 25);
             this.guna2ImageButtonAdd.Name = "guna2ImageButtonAdd";

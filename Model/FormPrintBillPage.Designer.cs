@@ -29,12 +29,6 @@
         private void InitializeComponent()
         {
             this.guna2PanelContent = new Guna.UI2.WinForms.Guna2Panel();
-            this.labelIDInvoice = new System.Windows.Forms.Label();
-            this.pictureBoxExit = new System.Windows.Forms.PictureBox();
-            this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
-            this.labelTittle = new System.Windows.Forms.Label();
-            this.labelBillCashier = new System.Windows.Forms.Label();
-            this.guna2Separator4 = new Guna.UI2.WinForms.Guna2Separator();
             this.PanelTotal = new System.Windows.Forms.Panel();
             this.labelTotalMoney = new System.Windows.Forms.Label();
             this.labelTotalText = new System.Windows.Forms.Label();
@@ -49,16 +43,24 @@
             this.guna2Separator3 = new Guna.UI2.WinForms.Guna2Separator();
             this.labelPaymentTime = new System.Windows.Forms.Label();
             this.labelTimeStart = new System.Windows.Forms.Label();
+            this.guna2Separator4 = new Guna.UI2.WinForms.Guna2Separator();
+            this.labelBillCashier = new System.Windows.Forms.Label();
+            this.labelIDInvoice = new System.Windows.Forms.Label();
+            this.pictureBoxExit = new System.Windows.Forms.PictureBox();
+            this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
+            this.labelTittle = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.guna2PanelContent.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExit)).BeginInit();
             this.PanelTotal.SuspendLayout();
             this.panelChange.SuspendLayout();
             this.panelReceive.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExit)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2PanelContent
             // 
             this.guna2PanelContent.AutoSize = true;
+            this.guna2PanelContent.Controls.Add(this.label1);
             this.guna2PanelContent.Controls.Add(this.PanelTotal);
             this.guna2PanelContent.Controls.Add(this.panelChange);
             this.guna2PanelContent.Controls.Add(this.panelReceive);
@@ -80,73 +82,6 @@
             this.guna2PanelContent.ShadowDecoration.Parent = this.guna2PanelContent;
             this.guna2PanelContent.Size = new System.Drawing.Size(364, 505);
             this.guna2PanelContent.TabIndex = 6;
-            // 
-            // labelIDInvoice
-            // 
-            this.labelIDInvoice.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelIDInvoice.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelIDInvoice.Location = new System.Drawing.Point(0, 48);
-            this.labelIDInvoice.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelIDInvoice.Name = "labelIDInvoice";
-            this.labelIDInvoice.Size = new System.Drawing.Size(364, 28);
-            this.labelIDInvoice.TabIndex = 41;
-            this.labelIDInvoice.Text = "Invoice Code:";
-            this.labelIDInvoice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBoxExit
-            // 
-            this.pictureBoxExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxExit.Image = global::BillardManager.Properties.Resources.no;
-            this.pictureBoxExit.Location = new System.Drawing.Point(312, 0);
-            this.pictureBoxExit.Name = "pictureBoxExit";
-            this.pictureBoxExit.Size = new System.Drawing.Size(52, 37);
-            this.pictureBoxExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxExit.TabIndex = 40;
-            this.pictureBoxExit.TabStop = false;
-            this.pictureBoxExit.Visible = false;
-            this.pictureBoxExit.Click += new System.EventHandler(this.pictureBoxExit_Click);
-            // 
-            // guna2Separator1
-            // 
-            this.guna2Separator1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Separator1.Location = new System.Drawing.Point(0, 40);
-            this.guna2Separator1.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2Separator1.Name = "guna2Separator1";
-            this.guna2Separator1.Size = new System.Drawing.Size(364, 8);
-            this.guna2Separator1.TabIndex = 17;
-            // 
-            // labelTittle
-            // 
-            this.labelTittle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelTittle.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTittle.Location = new System.Drawing.Point(0, 0);
-            this.labelTittle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelTittle.Name = "labelTittle";
-            this.labelTittle.Size = new System.Drawing.Size(364, 40);
-            this.labelTittle.TabIndex = 8;
-            this.labelTittle.Text = "RECEIPT";
-            this.labelTittle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // labelBillCashier
-            // 
-            this.labelBillCashier.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelBillCashier.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBillCashier.Location = new System.Drawing.Point(0, 76);
-            this.labelBillCashier.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelBillCashier.Name = "labelBillCashier";
-            this.labelBillCashier.Size = new System.Drawing.Size(364, 28);
-            this.labelBillCashier.TabIndex = 57;
-            this.labelBillCashier.Text = "The bill cashier:";
-            this.labelBillCashier.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // guna2Separator4
-            // 
-            this.guna2Separator4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Separator4.Location = new System.Drawing.Point(0, 104);
-            this.guna2Separator4.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2Separator4.Name = "guna2Separator4";
-            this.guna2Separator4.Size = new System.Drawing.Size(364, 8);
-            this.guna2Separator4.TabIndex = 58;
             // 
             // PanelTotal
             // 
@@ -308,6 +243,85 @@
             this.labelTimeStart.Text = "Time Start";
             this.labelTimeStart.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // guna2Separator4
+            // 
+            this.guna2Separator4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Separator4.Location = new System.Drawing.Point(0, 104);
+            this.guna2Separator4.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2Separator4.Name = "guna2Separator4";
+            this.guna2Separator4.Size = new System.Drawing.Size(364, 8);
+            this.guna2Separator4.TabIndex = 58;
+            // 
+            // labelBillCashier
+            // 
+            this.labelBillCashier.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelBillCashier.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBillCashier.Location = new System.Drawing.Point(0, 76);
+            this.labelBillCashier.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelBillCashier.Name = "labelBillCashier";
+            this.labelBillCashier.Size = new System.Drawing.Size(364, 28);
+            this.labelBillCashier.TabIndex = 57;
+            this.labelBillCashier.Text = "The bill cashier:";
+            this.labelBillCashier.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelIDInvoice
+            // 
+            this.labelIDInvoice.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelIDInvoice.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelIDInvoice.Location = new System.Drawing.Point(0, 48);
+            this.labelIDInvoice.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelIDInvoice.Name = "labelIDInvoice";
+            this.labelIDInvoice.Size = new System.Drawing.Size(364, 28);
+            this.labelIDInvoice.TabIndex = 41;
+            this.labelIDInvoice.Text = "Invoice Code:";
+            this.labelIDInvoice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBoxExit
+            // 
+            this.pictureBoxExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxExit.Image = global::BillardManager.Properties.Resources.no;
+            this.pictureBoxExit.Location = new System.Drawing.Point(312, 0);
+            this.pictureBoxExit.Name = "pictureBoxExit";
+            this.pictureBoxExit.Size = new System.Drawing.Size(52, 37);
+            this.pictureBoxExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxExit.TabIndex = 40;
+            this.pictureBoxExit.TabStop = false;
+            this.pictureBoxExit.Visible = false;
+            this.pictureBoxExit.Click += new System.EventHandler(this.pictureBoxExit_Click);
+            // 
+            // guna2Separator1
+            // 
+            this.guna2Separator1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Separator1.Location = new System.Drawing.Point(0, 40);
+            this.guna2Separator1.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2Separator1.Name = "guna2Separator1";
+            this.guna2Separator1.Size = new System.Drawing.Size(364, 8);
+            this.guna2Separator1.TabIndex = 17;
+            // 
+            // labelTittle
+            // 
+            this.labelTittle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelTittle.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTittle.Location = new System.Drawing.Point(0, 0);
+            this.labelTittle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelTittle.Name = "labelTittle";
+            this.labelTittle.Size = new System.Drawing.Size(364, 40);
+            this.labelTittle.TabIndex = 8;
+            this.labelTittle.Text = "RECEIPT";
+            this.labelTittle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(0, 479);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(364, 26);
+            this.label1.TabIndex = 67;
+            this.label1.Text = "Billiard Club Management - VTC";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // FormPrintBillPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -322,10 +336,10 @@
             this.Load += new System.EventHandler(this.FormPrintBillPage_Load);
             this.guna2PanelContent.ResumeLayout(false);
             this.guna2PanelContent.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExit)).EndInit();
             this.PanelTotal.ResumeLayout(false);
             this.panelChange.ResumeLayout(false);
             this.panelReceive.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExit)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -353,5 +367,6 @@
         private System.Windows.Forms.Label labelTimeStart;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator4;
         private System.Windows.Forms.Label labelBillCashier;
+        private System.Windows.Forms.Label label1;
     }
 }

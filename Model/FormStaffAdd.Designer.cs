@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.guna2TextBoxUsername = new Guna.UI2.WinForms.Guna2TextBox();
             this.labelUsername = new System.Windows.Forms.Label();
             this.guna2TextBoxFullName = new Guna.UI2.WinForms.Guna2TextBox();
@@ -37,7 +38,8 @@
             this.labelBankAccountNumber = new System.Windows.Forms.Label();
             this.guna2TextBoxBankAccountNumber = new Guna.UI2.WinForms.Guna2TextBox();
             this.labelBankName = new System.Windows.Forms.Label();
-            this.guna2TextBoxBankName = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2ComboBoxBankName = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBoxTop)).BeginInit();
             this.guna2PanelTop.SuspendLayout();
             this.guna2PanelBottom.SuspendLayout();
@@ -45,7 +47,9 @@
             // 
             // labelTop
             // 
-            this.labelTop.Size = new System.Drawing.Size(57, 25);
+            this.labelTop.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTop.Location = new System.Drawing.Point(84, 44);
+            this.labelTop.Size = new System.Drawing.Size(77, 32);
             this.labelTop.Text = "Staffs";
             // 
             // gunaPictureBoxTop
@@ -55,6 +59,7 @@
             // 
             // guna2ButtonSave
             // 
+            this.guna2ButtonSave.BorderRadius = 8;
             this.guna2ButtonSave.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.DefaultButton;
             this.guna2ButtonSave.CheckedState.Parent = this.guna2ButtonSave;
             this.guna2ButtonSave.CustomImages.Parent = this.guna2ButtonSave;
@@ -68,12 +73,15 @@
             // 
             // guna2ButtonClose
             // 
+            this.guna2ButtonClose.BorderRadius = 8;
             this.guna2ButtonClose.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.DefaultButton;
             this.guna2ButtonClose.CheckedState.Parent = this.guna2ButtonClose;
             this.guna2ButtonClose.CustomImages.Parent = this.guna2ButtonClose;
             this.guna2ButtonClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.guna2ButtonClose.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.guna2ButtonClose.HoverState.Parent = this.guna2ButtonClose;
             this.guna2ButtonClose.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.guna2ButtonClose.Location = new System.Drawing.Point(541, 13);
             this.guna2ButtonClose.ShadowDecoration.Parent = this.guna2ButtonClose;
             this.guna2ButtonClose.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.guna2ButtonClose.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
@@ -82,19 +90,22 @@
             // 
             // guna2PanelTop
             // 
+            this.guna2PanelTop.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.guna2PanelTop.ShadowDecoration.Parent = this.guna2PanelTop;
-            this.guna2PanelTop.Size = new System.Drawing.Size(800, 85);
+            this.guna2PanelTop.Size = new System.Drawing.Size(691, 85);
             this.guna2PanelTop.TabIndex = 6;
             // 
             // guna2PanelBottom
             // 
             this.guna2PanelBottom.Location = new System.Drawing.Point(0, 380);
             this.guna2PanelBottom.ShadowDecoration.Parent = this.guna2PanelBottom;
-            this.guna2PanelBottom.Size = new System.Drawing.Size(800, 70);
+            this.guna2PanelBottom.Size = new System.Drawing.Size(691, 70);
             this.guna2PanelBottom.TabIndex = 5;
             // 
             // guna2TextBoxUsername
             // 
+            this.guna2TextBoxUsername.BorderColor = System.Drawing.Color.Black;
+            this.guna2TextBoxUsername.BorderRadius = 10;
             this.guna2TextBoxUsername.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.guna2TextBoxUsername.DefaultText = "";
             this.guna2TextBoxUsername.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -127,6 +138,8 @@
             // 
             // guna2TextBoxFullName
             // 
+            this.guna2TextBoxFullName.BorderColor = System.Drawing.Color.Black;
+            this.guna2TextBoxFullName.BorderRadius = 10;
             this.guna2TextBoxFullName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.guna2TextBoxFullName.DefaultText = "";
             this.guna2TextBoxFullName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -145,7 +158,7 @@
             this.guna2TextBoxFullName.PlaceholderText = "";
             this.guna2TextBoxFullName.SelectedText = "";
             this.guna2TextBoxFullName.ShadowDecoration.Parent = this.guna2TextBoxFullName;
-            this.guna2TextBoxFullName.Size = new System.Drawing.Size(280, 35);
+            this.guna2TextBoxFullName.Size = new System.Drawing.Size(309, 35);
             this.guna2TextBoxFullName.TabIndex = 1;
             // 
             // labelFullName
@@ -159,6 +172,8 @@
             // 
             // guna2TextBoxPhone
             // 
+            this.guna2TextBoxPhone.BorderColor = System.Drawing.Color.Black;
+            this.guna2TextBoxPhone.BorderRadius = 10;
             this.guna2TextBoxPhone.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.guna2TextBoxPhone.DefaultText = "";
             this.guna2TextBoxPhone.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -201,6 +216,8 @@
             // 
             // guna2TextBoxBankAccountNumber
             // 
+            this.guna2TextBoxBankAccountNumber.BorderColor = System.Drawing.Color.Black;
+            this.guna2TextBoxBankAccountNumber.BorderRadius = 10;
             this.guna2TextBoxBankAccountNumber.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.guna2TextBoxBankAccountNumber.DefaultText = "";
             this.guna2TextBoxBankAccountNumber.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -232,28 +249,31 @@
             this.labelBankName.TabIndex = 5;
             this.labelBankName.Text = "Bank Name";
             // 
-            // guna2TextBoxBankName
+            // guna2ComboBoxBankName
             // 
-            this.guna2TextBoxBankName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBoxBankName.DefaultText = "";
-            this.guna2TextBoxBankName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBoxBankName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBoxBankName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBoxBankName.DisabledState.Parent = this.guna2TextBoxBankName;
-            this.guna2TextBoxBankName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBoxBankName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBoxBankName.FocusedState.Parent = this.guna2TextBoxBankName;
-            this.guna2TextBoxBankName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBoxBankName.HoverState.Parent = this.guna2TextBoxBankName;
-            this.guna2TextBoxBankName.Location = new System.Drawing.Point(361, 257);
-            this.guna2TextBoxBankName.Margin = new System.Windows.Forms.Padding(9, 12, 9, 12);
-            this.guna2TextBoxBankName.Name = "guna2TextBoxBankName";
-            this.guna2TextBoxBankName.PasswordChar = '\0';
-            this.guna2TextBoxBankName.PlaceholderText = "";
-            this.guna2TextBoxBankName.SelectedText = "";
-            this.guna2TextBoxBankName.ShadowDecoration.Parent = this.guna2TextBoxBankName;
-            this.guna2TextBoxBankName.Size = new System.Drawing.Size(280, 35);
-            this.guna2TextBoxBankName.TabIndex = 4;
+            this.guna2ComboBoxBankName.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ComboBoxBankName.BorderColor = System.Drawing.Color.Black;
+            this.guna2ComboBoxBankName.BorderRadius = 10;
+            this.guna2ComboBoxBankName.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.guna2ComboBoxBankName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.guna2ComboBoxBankName.FocusedColor = System.Drawing.Color.Empty;
+            this.guna2ComboBoxBankName.FocusedState.Parent = this.guna2ComboBoxBankName;
+            this.guna2ComboBoxBankName.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.guna2ComboBoxBankName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.guna2ComboBoxBankName.FormattingEnabled = true;
+            this.guna2ComboBoxBankName.HoverState.Parent = this.guna2ComboBoxBankName;
+            this.guna2ComboBoxBankName.ItemHeight = 30;
+            this.guna2ComboBoxBankName.ItemsAppearance.Parent = this.guna2ComboBoxBankName;
+            this.guna2ComboBoxBankName.Location = new System.Drawing.Point(361, 257);
+            this.guna2ComboBoxBankName.Name = "guna2ComboBoxBankName";
+            this.guna2ComboBoxBankName.ShadowDecoration.Parent = this.guna2ComboBoxBankName;
+            this.guna2ComboBoxBankName.Size = new System.Drawing.Size(297, 36);
+            this.guna2ComboBoxBankName.TabIndex = 7;
+            // 
+            // guna2Elipse1
+            // 
+            this.guna2Elipse1.BorderRadius = 10;
+            this.guna2Elipse1.TargetControl = this;
             // 
             // FormStaffAdd
             // 
@@ -261,8 +281,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.guna2ButtonClose;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.guna2TextBoxBankName);
+            this.ClientSize = new System.Drawing.Size(691, 450);
+            this.Controls.Add(this.guna2ComboBoxBankName);
             this.Controls.Add(this.guna2TextBoxBankAccountNumber);
             this.Controls.Add(this.guna2TextBoxPhone);
             this.Controls.Add(this.labelBankName);
@@ -285,7 +305,7 @@
             this.Controls.SetChildIndex(this.labelBankName, 0);
             this.Controls.SetChildIndex(this.guna2TextBoxPhone, 0);
             this.Controls.SetChildIndex(this.guna2TextBoxBankAccountNumber, 0);
-            this.Controls.SetChildIndex(this.guna2TextBoxBankName, 0);
+            this.Controls.SetChildIndex(this.guna2ComboBoxBankName, 0);
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBoxTop)).EndInit();
             this.guna2PanelTop.ResumeLayout(false);
             this.guna2PanelTop.PerformLayout();
@@ -306,6 +326,7 @@
         private System.Windows.Forms.Label labelBankAccountNumber;
         public Guna.UI2.WinForms.Guna2TextBox guna2TextBoxBankAccountNumber;
         private System.Windows.Forms.Label labelBankName;
-        public Guna.UI2.WinForms.Guna2TextBox guna2TextBoxBankName;
+        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBoxBankName;
+        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
     }
 }
