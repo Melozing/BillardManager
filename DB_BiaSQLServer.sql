@@ -101,6 +101,43 @@ CREATE TABLE [dbo].[login_history] (
 );
 GO
 
+CREATE TRIGGER trg_insert_login_history
+ON [dbo].[user_account]
+AFTER INSERT
+AS
+BEGIN
+    IF EXISTS (SELECT 1 FROM inserted WHERE UserRole = 1)
+    BEGIN
+        INSERT INTO [dbo].[login_history] (IdUser, LoginTime)
+        SELECT IdUser, GETDATE() FROM inserted;
+    END
+END;
+GO
+CREATE TABLE [dbo].[work_schedule] (
+    [IdSchedule] INT IDENTITY(1,1) NOT NULL,
+    [IdUser] VARCHAR(15) COLLATE Vietnamese_CI_AS NOT NULL,
+    [WorkDate] DATE NOT NULL,
+    [StartTime] TIME NOT NULL,
+    [EndTime] TIME NOT NULL,
+    PRIMARY KEY CLUSTERED ([IdSchedule]),
+    CONSTRAINT [FK_work_schedule_user_account] FOREIGN KEY ([IdUser]) REFERENCES [dbo].[user_account] ([IdUser])
+);
+GO
+CREATE TRIGGER trg_update_logout_time
+ON [dbo].[user_account]
+AFTER UPDATE
+AS
+BEGIN
+    IF EXISTS (SELECT 1 FROM inserted WHERE UserRole = 1 AND AccountStatus = 'logged_out')
+    BEGIN
+        UPDATE [dbo].[login_history]
+        SET LogoutTime = GETDATE()
+        WHERE IdUser = (SELECT IdUser FROM inserted)
+        AND LogoutTime IS NULL;
+    END
+END;
+GO
+
 INSERT INTO user_account (IdUser,UserName, UserPassword, UserRole) VALUES ('U0', 'admin', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', 0);
 INSERT INTO user_info (idUser, User_FullName, User_Phone, User_BankAccountNumber, User_BankName, User_BillPath) VALUES ('U0', 'Administrator', '', '', '', '');
 INSERT INTO table_type (TableIDType,TableType_Name, TableType_Price) VALUES ('TBT01', 'Carom billiards', 25000);
