@@ -4,6 +4,7 @@ using BillardManager.Scripts.Ultility;
 using System;
 using System.Collections;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace BillardManager.Model
 {
@@ -12,9 +13,22 @@ namespace BillardManager.Model
         public FormStaffAdd()
         {
             InitializeComponent();
+
+            guna2ComboBoxBankName.Items.AddRange(new string[]
+            {
+                "MB BANK",
+                "AGRIBANK",
+                "TECHCOMBANK",
+                "VIETTIN BANK",
+                "VIETCOM BANK"
+            });
+            guna2ComboBoxBankName.SelectedIndex = -1;
         }
 
         public string id;
+        
+
+
         public override void guna2ButtonSave_Click(object sender, EventArgs e)
         {
             if (!CheckUserInputCreate()) return;
@@ -56,7 +70,17 @@ namespace BillardManager.Model
             ht.Add("@User_FullName", guna2TextBoxFullName.Text);
             ht.Add("@User_Phone", guna2TextBoxPhone.Text);
             ht.Add("@User_BankAccountNumber", guna2TextBoxBankAccountNumber.Text);
-            ht.Add("@User_BankName", guna2TextBoxBankName.Text);
+
+            // Lấy giá trị từ ComboBoxBankName
+            if (guna2ComboBoxBankName.SelectedItem != null)
+            {
+                ht.Add("@User_BankName", guna2ComboBoxBankName.SelectedItem.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Please select a bank name.");
+                return;
+            }
 
             if (MainClass.SQL(queryUserAccount, ht) > 0 && MainClass.SQL(queryUserInfo, ht) > 0)
             {
@@ -66,7 +90,7 @@ namespace BillardManager.Model
                 guna2TextBoxFullName.Clear();
                 guna2TextBoxPhone.Clear();
                 guna2TextBoxBankAccountNumber.Clear();
-                guna2TextBoxBankName.Clear();
+                guna2ComboBoxBankName.SelectedIndex = -1;
                 guna2TextBoxUsername.Focus();
             }
         }

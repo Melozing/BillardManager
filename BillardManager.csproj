@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\SixLabors.ImageSharp.3.1.4\build\SixLabors.ImageSharp.props" Condition="Exists('packages\SixLabors.ImageSharp.3.1.4\build\SixLabors.ImageSharp.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -12,6 +13,24 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\ADMIN\Desktop\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,6 +50,18 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>211796D41ADA083CA9D27A33F28FA47BE0D41656</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>BillardManager_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
@@ -259,6 +290,25 @@
     <Compile Include="View\FormUserInfoView.Designer.cs">
       <DependentUpon>FormUserInfoView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\FormWaiting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormWaiting.Designer.cs">
+      <DependentUpon>FormWaiting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormWaitingScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormWaitingScreen.Designer.cs">
+      <DependentUpon>FormWaitingScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\messageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\messageBox.Designer.cs">
+      <DependentUpon>messageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowSizeCtrl.cs" />
     <EmbeddedResource Include="Admin\SampleAdd.resx">
       <DependentUpon>SampleAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -372,6 +422,24 @@
   <ItemGroup>
     <Content Include="Guna2\Guna.UI.dll" />
     <Content Include="Guna2\Guna.UI2.dll" />
+    <None Include="Resources\Document Header.png" />
+    <None Include="Resources\Shutdown1.png" />
+    <None Include="Resources\Shutdown.png" />
+    <None Include="Resources\Search.png" />
+    <None Include="Resources\Plus Math.png" />
+    <None Include="Resources\Male User.png" />
+    <None Include="Resources\thongbao.gif" />
+    <None Include="Resources\Fire Exit.png" />
+    <None Include="Resources\Settings.png" />
+    <None Include="Resources\Graph Report.png" />
+    <None Include="Resources\Timetable1.png" />
+    <None Include="Resources\z5523778716610_63eba870e131cb4fff2ee44d15431031.jpg" />
+    <None Include="Resources\wp10233278.jpg" />
+    <None Include="Resources\Food1.png" />
+    <None Include="Resources\Management1.png" />
+    <None Include="Resources\Billhome.png" />
+    <None Include="Resources\Billiards.png" />
+    <None Include="Resources\8848583.jpg" />
     <None Include="Resources\Billiard VTC.png" />
     <None Include="Resources\ico_app.png" />
     <None Include="Resources\Billiard Club1.png" />
@@ -413,5 +481,23 @@
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\SixLabors.ImageSharp.3.1.4\build\SixLabors.ImageSharp.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\SixLabors.ImageSharp.3.1.4\build\SixLabors.ImageSharp.props'))" />
+  </Target>
 </Project>

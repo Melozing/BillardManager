@@ -51,6 +51,7 @@ namespace BillardManager.View
         {
             GetData();
         }
+        internal Guna.UI2.WinForms.Guna2ComboBox guna2ComboBoxBankName { get; set; }
 
         private void guna2DataGridViewCategory_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -63,7 +64,7 @@ namespace BillardManager.View
                 frm.guna2TextBoxFullName.Text = guna2DataGridViewCategory.CurrentRow.Cells["User_FullName"].Value.ToString();
                 frm.guna2TextBoxPhone.Text = guna2DataGridViewCategory.CurrentRow.Cells["User_Phone"].Value.ToString();
                 frm.guna2TextBoxBankAccountNumber.Text = guna2DataGridViewCategory.CurrentRow.Cells["User_BankAccountNumber"].Value.ToString();
-                frm.guna2TextBoxBankName.Text = guna2DataGridViewCategory.CurrentRow.Cells["User_BankName"].Value.ToString();
+                frm.guna2TextBoxBankAccountNumber.Text = guna2DataGridViewCategory.CurrentRow.Cells["User_BankName"].Value.ToString();
                 MainClass.BlurBackground(frm);
                 GetData();
             }

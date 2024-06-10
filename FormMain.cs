@@ -63,6 +63,7 @@ namespace BillardManager
             guna2ButtonTableManagement.Hide();
             guna2ButtonTableDetail.Hide();
             guna2ButtonTimeTable.Hide();
+            guna2Button1.Hide();
             guna2ButtonSetting.Location = new Point(-20, 215);
         }
 
@@ -129,6 +130,33 @@ namespace BillardManager
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             AddControls(new Formrreport());
+        }
+
+        private void gunaPanelTop_MouseDown(object sender, MouseEventArgs e)
+        {
+            WindowSizeCtrl.MoveWindow(this.Handle);
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+                System.Diagnostics.Process.Start("https://vtc.edu.vn/");
+        }
+
+        public void s1()
+        {
+            AddControls(new FormTablesView());
+        }
+        public void s3()
+        {
+            AddControls(new FormBillView());
+        }
+        public void s2()
+        {
+            AddControls(new FormSetting());
+        }
+        public void s4()
+        {
+            Close();
         }
     }
 }

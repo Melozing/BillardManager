@@ -57,6 +57,7 @@
             this.guna2TextBoxSearch.FocusedState.Parent = this.guna2TextBoxSearch;
             this.guna2TextBoxSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBoxSearch.HoverState.Parent = this.guna2TextBoxSearch;
+            this.guna2TextBoxSearch.IconLeft = global::BillardManager.Properties.Resources.Search;
             this.guna2TextBoxSearch.ShadowDecoration.Parent = this.guna2TextBoxSearch;
             this.guna2TextBoxSearch.Size = new System.Drawing.Size(488, 34);
             this.guna2TextBoxSearch.TextChanged += new System.EventHandler(this.guna2TextBoxSearch_TextChanged_1);
@@ -67,6 +68,7 @@
             this.guna2ImageButtonAdd.DialogResult = System.Windows.Forms.DialogResult.None;
             this.guna2ImageButtonAdd.HoverState.ImageSize = new System.Drawing.Size(57, 57);
             this.guna2ImageButtonAdd.HoverState.Parent = this.guna2ImageButtonAdd;
+            this.guna2ImageButtonAdd.Image = global::BillardManager.Properties.Resources.Plus_Math;
             this.guna2ImageButtonAdd.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.guna2ImageButtonAdd.PressedState.ImageSize = new System.Drawing.Size(55, 55);
             this.guna2ImageButtonAdd.PressedState.Parent = this.guna2ImageButtonAdd;
@@ -217,7 +219,7 @@
             // 
             // FormTablesDetailView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.guna2DataGridViewCategory);

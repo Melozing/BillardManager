@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.guna2ShadowPanelContainer = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.guna2PanelImg = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2PictureBoxProduct = new Guna.UI2.WinForms.Guna2PictureBox();
             this.panelBottom = new System.Windows.Forms.Panel();
             this.labelPrice = new System.Windows.Forms.Label();
             this.labelProduct = new System.Windows.Forms.Label();
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2ShadowPanelContainer.SuspendLayout();
             this.guna2PanelImg.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBoxProduct)).BeginInit();
@@ -116,6 +118,11 @@
             this.labelProduct.Text = "Product Name";
             this.labelProduct.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // guna2Elipse1
+            // 
+            this.guna2Elipse1.BorderRadius = 10;
+            this.guna2Elipse1.TargetControl = this;
+            // 
             // ucProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -141,5 +148,6 @@
         private System.Windows.Forms.Label labelPrice;
         private Guna.UI2.WinForms.Guna2Panel guna2PanelImg;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBoxProduct;
+        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
     }
 }

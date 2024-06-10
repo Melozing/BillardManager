@@ -92,7 +92,7 @@
             // 
             // ucBillDetail
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gunaLabelName);
             this.Controls.Add(this.gunaLabelQuantity);
@@ -100,7 +100,7 @@
             this.Controls.Add(this.gunaLabelAmount);
             this.Controls.Add(this.gunaLabelNum);
             this.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ucBillDetail";
             this.Size = new System.Drawing.Size(846, 43);
             this.ResumeLayout(false);

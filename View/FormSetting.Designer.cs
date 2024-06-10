@@ -55,6 +55,7 @@
             // 
             // guna2TextBoxDirectBill
             // 
+            this.guna2TextBoxDirectBill.BorderRadius = 8;
             this.guna2TextBoxDirectBill.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.guna2TextBoxDirectBill.DefaultText = "";
             this.guna2TextBoxDirectBill.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -68,7 +69,7 @@
             this.guna2TextBoxDirectBill.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBoxDirectBill.HoverState.Parent = this.guna2TextBoxDirectBill;
             this.guna2TextBoxDirectBill.Location = new System.Drawing.Point(13, 73);
-            this.guna2TextBoxDirectBill.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.guna2TextBoxDirectBill.Margin = new System.Windows.Forms.Padding(7);
             this.guna2TextBoxDirectBill.Name = "guna2TextBoxDirectBill";
             this.guna2TextBoxDirectBill.PasswordChar = '\0';
             this.guna2TextBoxDirectBill.PlaceholderText = "";

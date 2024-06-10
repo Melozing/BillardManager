@@ -31,15 +31,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBillView));
             this.panelContainer = new System.Windows.Forms.Panel();
             this.guna2DataGridViewCategory = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.guna2TextBoxSearch = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2PanelTop = new Guna.UI2.WinForms.Guna2Panel();
-            this.labelTop = new System.Windows.Forms.Label();
-            this.gunaPictureBoxTop = new Guna.UI.WinForms.GunaPictureBox();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.ItemSno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.startTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,6 +41,7 @@
             this.change = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemCategoryEdit = new System.Windows.Forms.DataGridViewImageColumn();
+
             this.panelContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridViewCategory)).BeginInit();
             this.guna2PanelTop.SuspendLayout();
@@ -142,6 +136,88 @@
             this.guna2DataGridViewCategory.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridViewCategory_CellContentClick);
             this.guna2DataGridViewCategory.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.guna2DataGridViewCategory_CellFormatting);
             // 
+            // ItemSno
+            // 
+            this.ItemSno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ItemSno.FillWeight = 40F;
+            this.ItemSno.HeaderText = "Sr#";
+            this.ItemSno.MinimumWidth = 40;
+            this.ItemSno.Name = "ItemSno";
+            this.ItemSno.ReadOnly = true;
+            this.ItemSno.Width = 40;
+            // 
+            // Id
+            // 
+            this.Id.FillWeight = 60F;
+            this.Id.HeaderText = "IdItem";
+            this.Id.MinimumWidth = 60;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            // 
+            // startTime
+            // 
+            this.startTime.FillWeight = 80F;
+            this.startTime.HeaderText = "Start time";
+            this.startTime.MinimumWidth = 80;
+            this.startTime.Name = "startTime";
+            this.startTime.ReadOnly = true;
+            // 
+            // paymentTime
+            // 
+            this.paymentTime.FillWeight = 80F;
+            this.paymentTime.HeaderText = "Payment Time";
+            this.paymentTime.MinimumWidth = 80;
+            this.paymentTime.Name = "paymentTime";
+            this.paymentTime.ReadOnly = true;
+            // 
+            // received
+            // 
+            this.received.FillWeight = 60F;
+            this.received.HeaderText = "Received";
+            this.received.MinimumWidth = 60;
+            this.received.Name = "received";
+            this.received.ReadOnly = true;
+            // 
+            // change
+            // 
+            this.change.FillWeight = 60F;
+            this.change.HeaderText = "Change";
+            this.change.MinimumWidth = 60;
+            this.change.Name = "change";
+            this.change.ReadOnly = true;
+            // 
+            // amount
+            // 
+            this.amount.FillWeight = 60F;
+            this.amount.HeaderText = "Amount";
+            this.amount.MinimumWidth = 60;
+            this.amount.Name = "amount";
+            this.amount.ReadOnly = true;
+            // 
+            // ItemCategoryEdit
+            // 
+            this.ItemCategoryEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ItemCategoryEdit.FillWeight = 40F;
+            this.ItemCategoryEdit.HeaderText = "";
+            this.ItemCategoryEdit.Image = global::BillardManager.Properties.Resources.search_icon;
+            this.ItemCategoryEdit.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.ItemCategoryEdit.MinimumWidth = 30;
+            this.ItemCategoryEdit.Name = "ItemCategoryEdit";
+            this.ItemCategoryEdit.ReadOnly = true;
+            this.ItemCategoryEdit.Width = 30;
+            // 
+            // ItemCategoryDelete
+            // 
+            this.ItemCategoryDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ItemCategoryDelete.FillWeight = 40F;
+            this.ItemCategoryDelete.HeaderText = "";
+            this.ItemCategoryDelete.Image = global::BillardManager.Properties.Resources.printer1;
+            this.ItemCategoryDelete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.ItemCategoryDelete.MinimumWidth = 30;
+            this.ItemCategoryDelete.Name = "ItemCategoryDelete";
+            this.ItemCategoryDelete.ReadOnly = true;
+            this.ItemCategoryDelete.Width = 30;
+            // 
             // guna2TextBoxSearch
             // 
             this.guna2TextBoxSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -156,7 +232,7 @@
             this.guna2TextBoxSearch.FocusedState.Parent = this.guna2TextBoxSearch;
             this.guna2TextBoxSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBoxSearch.HoverState.Parent = this.guna2TextBoxSearch;
-            this.guna2TextBoxSearch.IconLeft = ((System.Drawing.Image)(resources.GetObject("guna2TextBoxSearch.IconLeft")));
+            this.guna2TextBoxSearch.IconLeft = global::BillardManager.Properties.Resources.Search;
             this.guna2TextBoxSearch.Location = new System.Drawing.Point(0, 85);
             this.guna2TextBoxSearch.Margin = new System.Windows.Forms.Padding(0);
             this.guna2TextBoxSearch.Name = "guna2TextBoxSearch";

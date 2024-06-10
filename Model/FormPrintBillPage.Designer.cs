@@ -61,6 +61,7 @@
             this.panelReceive.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBoxPrint)).BeginInit();
+
             this.SuspendLayout();
             // 
             // guna2PanelContent
@@ -328,6 +329,7 @@
             // 
             this.labelIDInvoice.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelIDInvoice.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
             this.labelIDInvoice.Location = new System.Drawing.Point(0, 43);
             this.labelIDInvoice.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelIDInvoice.Name = "labelIDInvoice";
@@ -352,6 +354,7 @@
             this.labelTittle.Location = new System.Drawing.Point(0, 0);
             this.labelTittle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelTittle.Name = "labelTittle";
+
             this.labelTittle.Size = new System.Drawing.Size(364, 35);
             this.labelTittle.TabIndex = 93;
             this.labelTittle.Text = "RECEIPT";
@@ -366,6 +369,7 @@
             this.printPreviewDialogBill.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialogBill.Icon")));
             this.printPreviewDialogBill.Name = "printPreviewDialogBill";
             this.printPreviewDialogBill.Visible = false;
+
             // 
             // FormPrintBillPage
             // 
@@ -390,6 +394,7 @@
             this.panelReceive.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBoxPrint)).EndInit();
+
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -419,6 +424,7 @@
         private System.Windows.Forms.Label labelTimeStart;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator4;
         private System.Windows.Forms.Label labelBillCashier;
+
         private System.Windows.Forms.Label labelIDInvoice;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
         private System.Windows.Forms.Label labelTittle;
